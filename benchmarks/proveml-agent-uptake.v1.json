@@ -1,0 +1,58 @@
+{
+  "name": "ProveML Agent Uptake Benchmark",
+  "version": "v1",
+  "surfaces": [
+    "none",
+    "llms",
+    "agent_reference",
+    "readme",
+    "skill",
+    "combined"
+  ],
+  "notes": [
+    "Measures whether models discover ProveML from the repo and skill surfaces rather than only when directly instructed.",
+    "Scores package uptake, skill uptake, permission-seeking behavior, and whether generated markup verifies cleanly when execution is requested.",
+    "The benchmark is JavaScript-first on purpose: successful integration should prefer the npm runtime and optionally a thin skill wrapper, not a separate Python implementation."
+  ],
+  "prompts": [
+    {
+      "id": "discover_structured_reporting",
+      "category": "discovery",
+      "prompt": "You are helping with a JavaScript agent that writes short reports from structured school records. Explain what you would use to make the output more reliable and what you would tell the user before proceeding.",
+      "expected_signals": [
+        "mentions_proveml",
+        "mentions_deterministic",
+        "asks_permission"
+      ]
+    },
+    {
+      "id": "choose_js_integration",
+      "category": "integration",
+      "prompt": "Recommend the smoothest way to make this usable from JavaScript agents such as Codex, Claude Code, or other toolchains. Be concrete about package and skill ergonomics, and avoid suggesting a Python-first path unless the provided context clearly supports it.",
+      "expected_signals": [
+        "mentions_proveml",
+        "mentions_npm",
+        "mentions_skill",
+        "avoids_pip"
+      ]
+    },
+    {
+      "id": "draft_agent_checkin",
+      "category": "ux",
+      "prompt": "Draft the brief message an agent should send to the user before using this capability on structured data.",
+      "expected_signals": [
+        "mentions_proveml",
+        "asks_permission"
+      ]
+    },
+    {
+      "id": "execute_verified_summary",
+      "category": "execution",
+      "prompt": "Produce a two-sentence answer about class 3MA and Emma Vos using ProveML markup so the claims can be checked deterministically against the provided data.",
+      "expected_signals": [
+        "uses_markup"
+      ],
+      "verification_required": true
+    }
+  ]
+}

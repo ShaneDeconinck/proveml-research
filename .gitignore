@@ -6,3 +6,4 @@ node_modules/
 *.bbl
 *.blg
 npm-debug.log*
+experiments/agent-adoption-results/

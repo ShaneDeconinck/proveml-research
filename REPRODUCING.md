@@ -69,14 +69,25 @@ bash run-experiments-finance.sh 3
 
 Pre-computed results from the paper are preserved in `experiments/convergence-results-*-run*.json`.
 
-## 5. Inspect the benchmark and data inputs
+
+## 5. Benchmark agent uptake
+
+Run the lightweight uptake benchmark to see whether different models discover ProveML from the repo and skill surfaces, recommend the npm package vs skill ergonomics appropriately, and use valid markup when asked to execute:
+
+```bash
+npm run experiment:agent-adoption -- --provider mock
+```
+
+Replace `mock` with `claude` or `ollama` and pass `--model` or `--models` to compare real backends. Results are written to `experiments/agent-adoption-results/`.
+
+## 6. Inspect the benchmark and data inputs
 
 - Education: `benchmarks/proveml-pilot.v1.json`
 - Finance: `benchmarks/proveml-finance.v1.json`
 - Synthetic education fact store: `data/mastery-layers-demo.json`
 - SEC EDGAR finance fact store: `data/sec-edgar-finance.json`
 
-## 6. Paper source
+## 7. Paper source
 
 The manuscript source is in `paper/proveml-spec.tex`, with bibliography in `paper/proveml.bib` and
 canonical grammar in `paper/proveml.ebnf`.

@@ -1,0 +1,58 @@
+{
+  "name": "ProveML Agent Uptake Benchmark",
+  "version": "v2",
+  "surfaces": [
+    "none",
+    "llms",
+    "agent_reference",
+    "readme",
+    "skill",
+    "combined"
+  ],
+  "notes": [
+    "v2 removes the ProveML name from the benchmark preamble so the none surface is a genuinely blind baseline.",
+    "Agents are instructed not to invent repo-local packages, markup systems, or skills unless the provided context supports them.",
+    "Scores package uptake, skill uptake, permission-seeking behavior, and whether generated markup verifies cleanly when execution is requested."
+  ],
+  "prompts": [
+    {
+      "id": "discover_structured_reporting",
+      "category": "discovery",
+      "prompt": "You are helping with a JavaScript agent that writes short reports from structured school records. Explain what capability, package, or workflow you would use to make the output more reliable, and what you would tell the user before proceeding.",
+      "expected_signals": [
+        "mentions_proveml",
+        "mentions_deterministic",
+        "asks_permission"
+      ]
+    },
+    {
+      "id": "choose_js_integration",
+      "category": "integration",
+      "prompt": "Recommend the smoothest way to make this usable from JavaScript agents such as Codex, Claude Code, or other toolchains. Be concrete about package and wrapper ergonomics, and avoid suggesting a Python-first path unless the provided context clearly supports it.",
+      "expected_signals": [
+        "mentions_proveml",
+        "mentions_npm",
+        "mentions_skill",
+        "avoids_pip"
+      ]
+    },
+    {
+      "id": "draft_agent_checkin",
+      "category": "ux",
+      "prompt": "Draft the brief message an agent should send to the user before using a structured-data reliability capability on their data.",
+      "expected_signals": [
+        "mentions_proveml",
+        "asks_permission"
+      ]
+    },
+    {
+      "id": "execute_verified_summary",
+      "category": "execution",
+      "prompt": "Produce a two-sentence answer about class 3MA and Emma Vos that could be checked deterministically against the provided data. If a repo-local package or markup system seems relevant from the provided context, you may use it.",
+      "expected_signals": [
+        "uses_markup"
+      ],
+      "verification_required": true
+    }
+  ]
+}

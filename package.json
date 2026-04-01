@@ -6,7 +6,8 @@
   "scripts": {
     "paper:examples": "node paper/generate-paper-examples.js",
     "paper:panels": "node paper/generate-proveml-paper-panels.js",
-    "audit:references": "node audit/scripts/generate-reference-audit.js"
+    "audit:references": "node audit/scripts/generate-reference-audit.js",
+    "experiment:agent-adoption": "node experiments/test-agent-adoption.js"
   },
   "dependencies": {
     "markdown-it": "^14.1.1",

@@ -1,0 +1,302 @@
+{
+  "timestamp": "2026-03-30T08:56:43.205Z",
+  "domain": "finance",
+  "provider": "claude",
+  "model": "haiku",
+  "run": 3,
+  "maxLoops": 3,
+  "benchmark": {
+    "name": "ProveML Finance Benchmark",
+    "version": "v1",
+    "snapshot": "sec-edgar-fy2025"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "fin_lookup_revenue_aapl",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported total revenue of %[revenue]{416161000000 USD} in FY2025.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 4.9
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "fin_lookup_eps_msft",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "coverage": 100,
+      "finalResponse": "@[company:msft]{Microsoft Corporation} reported basic earnings per share of %[eps]{13.7 USD/shares} in FY2025.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 4.5
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "fin_lookup_debt_aapl",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} has long-term debt of %[longTermDebt]{90678000000 USD} and total equity of %[equity]{73733000000 USD}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 4.4
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "fin_comparison_revenue",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 7,
+      "finalClaims": 7,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported FY2025 %[revenue]{416161000000 USD} in revenue and %[netIncome]{112010000000 USD} in net income. @[company:msft]{Microsoft Corporation} generated %[revenue]{281724000000 USD} in revenue and %[netIncome]{101832000000 USD} in net income, demonstrating stronger profitability despite lower absolute revenue than @[company:aapl]{Apple Inc.}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 7,
+          "total": 7,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 11.8
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "fin_comparison_balance",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 2,
+      "initialRate": 90,
+      "finalRate": 100,
+      "initialClaims": 10,
+      "finalClaims": 12,
+      "coverage": 92,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported assets of %[assets]{359241000000 USD}, liabilities of %[liabilities]{285508000000 USD}, and equity of %[equity]{73733000000 USD}.\n\n@[company:msft]{Microsoft Corporation} reported assets of %[assets]{619003000000 USD}, liabilities of %[liabilities]{275524000000 USD}, and equity of %[equity]{343479000000 USD}.\n\nMicrosoft demonstrates stronger balance sheet health. Its asset base is 72% larger than Apple's, while its equity is 4.7 times greater. @[company:aapl]{Apple Inc.} carries proportionally higher liabilities relative to equity at %[debtToEquity]{1.23} versus @[company:msft]{Microsoft Corporation}'s %[debtToEquity]{0.13}, reflecting significantly higher financial leverage for Apple.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 10,
+          "errors": 1,
+          "rate": 90,
+          "coverage": 91,
+          "time": 13.3
+        },
+        {
+          "loop": 1,
+          "verified": 10,
+          "total": 12,
+          "errors": 2,
+          "rate": 83,
+          "coverage": 92,
+          "time": 11.7,
+          "accepted": true
+        },
+        {
+          "loop": 2,
+          "verified": 12,
+          "total": 12,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 92,
+          "time": 7,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "fin_threshold_debt",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 1,
+      "initialRate": 60,
+      "finalRate": 100,
+      "initialClaims": 15,
+      "finalClaims": 15,
+      "coverage": 83,
+      "finalResponse": "@[company:aapl]{Apple Inc.} has a debt-to-equity ratio of %[debtToEquity]{1.23}, which is moderately elevated and worth monitoring. This means Apple has $1.23 of debt for every dollar of equity, indicating meaningful leverage.\n\nIn context, @[company:aapl]{Apple Inc.}'s long-term debt of %[longTermDebt]{90678000000 USD} is substantial relative to its equity of %[equity]{73733000000 USD}. However, this is partially offset by %[cash]{35934000000 USD} in cash, which could service debt obligations.\n\nBy comparison, @[company:msft]{Microsoft Corporation} maintains a much stronger balance sheet with a debt-to-equity ratio of %[debtToEquity]{0.13}. @[company:msft]{Microsoft Corporation}'s %[longTermDebt]{43151000000 USD} in debt against %[equity]{343479000000 USD} in equity reflects conservative leverage and substantially more financial flexibility.\n\n**Assessment**: @[company:aapl]{Apple Inc.}'s 1.23 ratio is not alarming for a mature company with strong cash generation, but it is notably higher than @[company:msft]{Microsoft Corporation}'s 0.13. @[company:aapl]{Apple Inc.} has higher financial risk, while @[company:msft]{Microsoft Corporation} operates with significantly lower leverage and greater balance sheet cushion.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 15,
+          "errors": 6,
+          "rate": 60,
+          "coverage": 83,
+          "time": 7
+        },
+        {
+          "loop": 1,
+          "verified": 15,
+          "total": 15,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 83,
+          "time": 26,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "fin_threshold_liquidity",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "coverage": 67,
+      "finalResponse": "@[company:aapl]{Apple Inc.} maintains a current ratio of %[currentRatio]{0.87}, falling below the standard 1.0 threshold, indicating potential short-term liquidity tightness. However, this is offset by substantial %[cash]{35934000000 USD} in cash reserves, which provides a strong buffer for obligations.\n\n@[company:msft]{Microsoft Corporation} demonstrates a healthier liquidity position with a current ratio of %[currentRatio]{1.24}, well above the 1.0 benchmark, signaling stronger ability to cover short-term liabilities. Its %[cash]{30242000000 USD} cash position, while lower in absolute terms than Apple's, remains substantial relative to its obligations.\n\n**Liquidity Assessment:** Microsoft shows superior liquidity metrics across both dimensions. Apple's below-1.0 current ratio suggests tighter working capital management, though its cash position remains robust. Microsoft's ratio above 1.0 combined with adequate cash reserves indicates lower financial stress from short-term obligations.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 67,
+          "time": 6.8
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "fin_overview",
+      "category": "overview",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 12,
+      "finalClaims": 12,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported revenue of %[revenue]{416161000000 USD} with net income of %[netIncome]{112010000000 USD} and earnings per share of %[eps]{7.49 USD/shares}.\n\nOn the balance sheet, @[company:aapl]{Apple Inc.} holds %[assets]{359241000000 USD} in total assets against %[liabilities]{285508000000 USD} in liabilities, resulting in %[equity]{73733000000 USD} in shareholder equity. The company maintains %[cash]{35934000000 USD} in cash reserves while carrying %[longTermDebt]{90678000000 USD} in long-term debt, yielding a debt-to-equity ratio of %[debtToEquity]{1.23}. The current ratio stands at %[currentRatio]{0.87}, indicating tight working capital management relative to current liabilities.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 12,
+          "total": 12,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 9.7
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "fin_unit_aware",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "coverage": 100,
+      "finalResponse": "@[company:msft]{Microsoft Corporation} has total assets of %[assets]{619003000000 USD} and earnings per share of %[eps]{13.7 USD/shares}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 8.8
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "fin_unsupported_forecast",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "coverage": 100,
+      "finalResponse": "I cannot answer this question with the provided data. You've given me historical/current financial metrics for @[company:aapl]{Apple Inc.}, but no forward-looking information:\n\n- No FY2026 guidance or projections\n- No revenue growth rates or trends across multiple periods\n- No market analysis or competitive context\n- No information about product cycles, macroeconomic factors, or industry headwinds\n\nTo assess FY2026 revenue growth and risks, I would need:\n- Historical revenue data for prior fiscal years (to identify trends)\n- Management guidance or analyst consensus for FY2026\n- Market share, segment performance, and geographic breakdown\n- Industry growth rates and competitive positioning\n\nWith only a current-period snapshot, I can only observe that @[company:aapl]{Apple Inc.} currently holds %[revenue]{416161000000 USD} in annual revenue and %[cash]{35934000000 USD} in cash, but cannot forecast forward.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 6.6
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 95,
+    "avgFinal": 100,
+    "avgCoverage": 94,
+    "converged": 10,
+    "total": 10
+  }
+}

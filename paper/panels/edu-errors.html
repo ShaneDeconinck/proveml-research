@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify mode: detected errors</title>
+  <style>
+:root {
+  --teal: #1a7a6d;
+  --violet: #6b4c9a;
+  --red: #c0392b;
+  --amber: #b8860b;
+  --blue: #2f6fb3;
+  --gray-200: #ddd8d1;
+  --gray-400: #9a938b;
+  --gray-600: #5c5751;
+  --gray-800: #2b2825;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 22px 28px;
+  background: #fff;
+  color: var(--gray-800);
+  font-family: "Charter", "Georgia", serif;
+}
+.figure {
+  max-width: 1180px;
+}
+.label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 14px;
+}
+.narrative {
+  font-size: 18px;
+  line-height: 1.9;
+}
+.narrative p { margin: 0 0 12px 0; }
+.meta {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-200);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  color: var(--gray-600);
+}
+.meta strong { color: var(--gray-800); }
+.source {
+  white-space: pre-wrap;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--gray-800);
+}
+.source .s-entity { color: var(--teal); font-weight: 600; }
+.source .s-fact { color: var(--blue); }
+.source .s-inference { color: var(--violet); }
+
+.proveml-entity {
+  color: var(--entity-color, var(--teal));
+  font-weight: 600;
+  border-bottom: 1.6px solid var(--entity-color, var(--teal));
+  text-decoration: none;
+}
+.proveml-entity.proveml-name-mismatch,
+.proveml-entity.proveml-unverifiable {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.proveml-fact {
+  font-weight: 600;
+}
+.proveml-fact.proveml-verified {
+  border-bottom: 2px dotted var(--entity-color, var(--teal));
+}
+.proveml-fact.proveml-mismatch {
+  color: var(--red);
+  border-bottom: 2px dotted var(--red);
+}
+.proveml-fact.proveml-unverifiable,
+.proveml-fact.proveml-no-context {
+  color: var(--amber);
+  border-bottom: 2px dotted var(--amber);
+}
+
+.proveml-inference.proveml-verified {
+  border-bottom: 2px dashed var(--violet);
+}
+.proveml-inference.proveml-failed {
+  color: var(--red);
+  border-bottom: 2px dashed var(--red);
+}
+
+.proveml-proof {
+  margin-left: 4px;
+  color: var(--gray-400);
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.75em;
+  font-weight: 400;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body class="">
+  <main class="figure">
+    <div class="label">Verify mode: detected errors</div>
+    <div class="narrative"><p><span class="proveml-entity proveml-verified" data-entity="class:204" title="class:204.name">3MA</span> has <span class="proveml-fact proveml-mismatch" data-entity="class:204" data-path="class:204.studentCount" title="class:204.studentCount: expected 22">24</span> students with a pass rate of <span class="proveml-fact proveml-verified" data-entity="class:204" data-path="class:204.passRate" title="class:204.passRate = 43">43</span>%. <span class="proveml-inference proveml-verified" data-condition="IS_BELOW_HALF" title="?[below: IS_BELOW_HALF]">This is below the passing threshold</span>.</p><p style="margin-top:12px"><span class="proveml-entity proveml-verified" data-entity="student:1087" title="student:1087.name">Emma Vos</span> has passed <span class="proveml-fact proveml-verified" data-entity="student:1087" data-path="student:1087.passed" title="student:1087.passed = 2">2</span> of <span class="proveml-fact proveml-verified" data-entity="student:1087" data-path="student:1087.evaluated" title="student:1087.evaluated = 31">31</span> evaluated attainment levels (<span class="proveml-fact proveml-mismatch" data-entity="student:1087" data-path="student:1087.passRate" title="student:1087.passRate: expected 6">16</span>%). <span class="proveml-inference proveml-verified" data-condition="IS_LOW_PASS" title="?[low: IS_LOW_PASS]">This is slightly below average</span>. With <span class="proveml-fact proveml-verified" data-entity="student:1087" data-path="student:1087.absent" title="student:1087.absent = 47">47</span> absences, <span class="proveml-inference proveml-verified" data-condition="IS_GREY_RISK" title="?[abs: IS_GREY_RISK]">there is a risk of grey status</span>.</p><p style="margin-top:12px"><span class="proveml-fact proveml-mismatch" data-entity="student:1087" data-path="student:1087.passRate" title="student:1087.passRate: expected 6">82</span>% pass rate is strong. <span class="proveml-entity proveml-unverifiable" data-entity="student:9999" title="student:9999.name">Thomas Berg</span> has <span class="proveml-fact proveml-unverifiable" data-entity="student:9999" data-path="student:9999.absent" title="student:9999.absent: not found">12</span> absences.</p></div>
+    <div class="meta">9/14 claims verified · 3 entities · 8 facts · 3 inferences · 3 issues</div>
+  </main>
+</body>
+</html>

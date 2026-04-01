@@ -1,0 +1,158 @@
+{
+  "phi3:mini": {
+    "model": "phi3:mini",
+    "runs": 3,
+    "initial": {
+      "mean": 14.7,
+      "sd": 20.7,
+      "min": 0,
+      "max": 44,
+      "n": 3
+    },
+    "final": {
+      "mean": 14.7,
+      "sd": 20.7,
+      "min": 0,
+      "max": 44,
+      "n": 3
+    },
+    "coverage": {
+      "mean": 38.3,
+      "sd": 29.5,
+      "min": 15,
+      "max": 80,
+      "n": 3
+    },
+    "converged": {
+      "mean": 1.7,
+      "sd": 2.4,
+      "min": 0,
+      "max": 5,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 1.7,
+      "sd": 2.4,
+      "min": 0,
+      "max": 5,
+      "n": 3
+    }
+  },
+  "qwen2.5:3b": {
+    "model": "qwen2.5:3b",
+    "runs": 3,
+    "initial": {
+      "mean": 86,
+      "sd": 1.4,
+      "min": 85,
+      "max": 88,
+      "n": 3
+    },
+    "final": {
+      "mean": 87.3,
+      "sd": 0.5,
+      "min": 87,
+      "max": 88,
+      "n": 3
+    },
+    "coverage": {
+      "mean": 90,
+      "sd": 0.8,
+      "min": 89,
+      "max": 91,
+      "n": 3
+    },
+    "converged": {
+      "mean": 19,
+      "sd": 0.8,
+      "min": 18,
+      "max": 20,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 18.3,
+      "sd": 1.2,
+      "min": 17,
+      "max": 20,
+      "n": 3
+    }
+  },
+  "haiku": {
+    "model": "haiku",
+    "runs": 3,
+    "initial": {
+      "mean": 87,
+      "sd": 2.8,
+      "min": 83,
+      "max": 89,
+      "n": 3
+    },
+    "final": {
+      "mean": 87.7,
+      "sd": 1.2,
+      "min": 86,
+      "max": 89,
+      "n": 3
+    },
+    "coverage": {
+      "mean": 90.7,
+      "sd": 1.9,
+      "min": 88,
+      "max": 92,
+      "n": 3
+    },
+    "converged": {
+      "mean": 17.7,
+      "sd": 1.2,
+      "min": 16,
+      "max": 19,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 17.3,
+      "sd": 1.7,
+      "min": 15,
+      "max": 19,
+      "n": 3
+    }
+  },
+  "qwen2.5:7b": {
+    "model": "qwen2.5:7b",
+    "runs": 3,
+    "initial": {
+      "mean": 93,
+      "sd": 3.6,
+      "min": 88,
+      "max": 96,
+      "n": 3
+    },
+    "final": {
+      "mean": 93,
+      "sd": 3.6,
+      "min": 88,
+      "max": 96,
+      "n": 3
+    },
+    "coverage": {
+      "mean": 81.7,
+      "sd": 2.5,
+      "min": 79,
+      "max": 85,
+      "n": 3
+    },
+    "converged": {
+      "mean": 25,
+      "sd": 1.6,
+      "min": 23,
+      "max": 27,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 25,
+      "sd": 1.6,
+      "min": 23,
+      "max": 27,
+      "n": 3
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "experiment": "Citation Characterization Audit",
+  "description": "Extract citation characterizations from 3 published arXiv papers and verify them against the cited works' actual abstracts/claims",
+  "papers": [
+    {
+      "id": "symgen_2311.09188",
+      "title": "Towards Verifiable Text Generation with Symbolic References",
+      "characterizations": [
+        {
+          "sentence": "Classical approaches to this problem consist of designing a template based on the schema of the data, and populating it with the values of a datapoint at runtime (Kukich, 1983; McKeown, 1992; McRoy et al., 2000)",
+          "cited_works": ["Kukich 1983", "McKeown 1992", "McRoy et al. 2000"],
+          "claim": "Classical data-to-text uses template-based approaches populated at runtime",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "Neural approaches to data-to-text generation (Wiseman et al., 2017, 2018; Wang, 2019; Yin & Wan, 2022) improve on this by generating text that is datapoint-dependent",
+          "cited_works": ["Wiseman et al. 2017", "Wiseman et al. 2018", "Wang 2019", "Yin & Wan 2022"],
+          "claim": "Neural approaches generate datapoint-dependent text, improving over templates",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "There is evidence that LLMs are capable of memorizing their training data (Carlini et al., 2019, 2023)",
+          "cited_works": ["Carlini et al. 2019", "Carlini et al. 2023"],
+          "claim": "LLMs memorize training data",
+          "type": "empirical_claim"
+        },
+        {
+          "sentence": "this leads to their struggling to generate counterfactual data that goes against their learnt priors (Hernandez et al., 2023)",
+          "cited_works": ["Hernandez et al. 2023"],
+          "claim": "LLMs struggle to generate counterfactual data",
+          "type": "empirical_claim"
+        }
+      ]
+    },
+    {
+      "id": "xu_2401.11817",
+      "title": "Hallucination is Inevitable: An Innate Limitation of Large Language Models",
+      "characterizations": [
+        {
+          "sentence": "in the survey paper [32], the authors attribute hallucination in natural language generation to heuristic data collection, innate divergence, imperfect representation learning, erroneous decoding, exposure bias, and parametric knowledge bias",
+          "cited_works": ["Ji et al. 2023 (ref 32)"],
+          "claim": "Ji et al. survey attributes hallucination to 6 factors including data collection, divergence, representation, decoding, exposure bias, parametric bias",
+          "type": "survey_characterization"
+        },
+        {
+          "sentence": "factual-centred metrics [21, 22, 47, 63] and benchmarks [39, 40, 72] have been proposed to measure and reduce hallucination on specific datasets",
+          "cited_works": ["refs 21,22,47,63,39,40,72"],
+          "claim": "Various metrics and benchmarks exist to measure hallucination",
+          "type": "landscape_characterization"
+        },
+        {
+          "sentence": "Retrieval-based methods reinforce LLM by knowledge graphs or databases to help correct factual errors [63, 81]",
+          "cited_works": ["refs 63, 81"],
+          "claim": "Retrieval-based methods use KGs/databases to correct factual errors",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "Prompting the models to reason [76] and verify [15] their answers has also been shown to reduce hallucination",
+          "cited_works": ["ref 76", "ref 15"],
+          "claim": "Reasoning and self-verification prompting reduces hallucination",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "A parallel work by Kalai and Vempala [33] provided a statistical lower bound on the rate of hallucination for calibrated LLMs",
+          "cited_works": ["Kalai and Vempala 2024"],
+          "claim": "Kalai provides statistical lower bound on hallucination rate for calibrated LLMs",
+          "type": "theoretical_characterization",
+          "AUDIT_NOTE": "This is verifiable against Kalai 2024 abstract. Our paper also cites Kalai - cross-check opportunity"
+        },
+        {
+          "sentence": "It shows a significant fact that pretraining LLMs for predictive accuracy leads to hallucination even with perfect training data",
+          "cited_works": ["Kalai and Vempala 2024"],
+          "claim": "Pretraining for predictive accuracy leads to hallucination even with perfect data",
+          "type": "theoretical_characterization",
+          "AUDIT_NOTE": "Subtle - Kalai's actual claim is about calibration conditions, not predictive accuracy per se. Possible distortion."
+        }
+      ]
+    },
+    {
+      "id": "factscore_2305.14251",
+      "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+      "characterizations": [
+        {
+          "sentence": "Lee et al. (2022) evaluates the factual precision with proxy metrics, e.g., whether named entities in a generation appear in an article of the topic",
+          "cited_works": ["Lee et al. 2022"],
+          "claim": "Lee et al. use proxy metrics like named entity presence for factual precision",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "A concurrent work by Manakul et al. (2023) automates the identification of factual errors in LM generations without using any knowledge source",
+          "cited_works": ["Manakul et al. 2023 (SelfCheckGPT)"],
+          "claim": "SelfCheckGPT identifies factual errors without external knowledge",
+          "type": "methodological_characterization",
+          "AUDIT_NOTE": "Verifiable - SelfCheckGPT uses sampling consistency, not knowledge sources. This characterization is accurate."
+        },
+        {
+          "sentence": "Our work is closely related to prior work on fact verification (Thorne et al., 2018; Wadden et al., 2020) where claim sentences are automatically checked against a large knowledge source like Wikipedia",
+          "cited_works": ["Thorne et al. 2018 (FEVER)", "Wadden et al. 2020"],
+          "claim": "FEVER and SciFact check claims against Wikipedia/scientific literature",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "There also has been work that verifies a longer sentence or text through decomposition to atomic facts (Fan et al., 2020; Wright et al., 2022; Chen et al., 2022; Kamoi et al., 2023)",
+          "cited_works": ["Fan et al. 2020", "Wright et al. 2022", "Chen et al. 2022", "Kamoi et al. 2023"],
+          "claim": "Prior work decomposes longer text into atomic facts for verification",
+          "type": "methodological_characterization"
+        },
+        {
+          "sentence": "Prior work has used learned models to define automated evaluation scores (Zhang et al., 2020; Liu et al., 2023b)",
+          "cited_works": ["Zhang et al. 2020 (BERTScore)", "Liu et al. 2023b"],
+          "claim": "BERTScore and others use learned models for automated evaluation",
+          "type": "methodological_characterization"
+        }
+      ]
+    }
+  ],
+  "audit_candidates": [
+    {
+      "priority": "HIGH",
+      "source_paper": "xu_2401.11817",
+      "characterization": "pretraining LLMs for predictive accuracy leads to hallucination even with perfect training data",
+      "cited_work": "Kalai and Vempala 2024",
+      "concern": "Kalai's actual result is about calibration conditions and statistical properties, not 'predictive accuracy' specifically. The Xu paper may be subtly distorting the Kalai result by reframing calibration as predictive accuracy.",
+      "verifiable": true
+    },
+    {
+      "priority": "MEDIUM",
+      "source_paper": "factscore_2305.14251",
+      "characterization": "automates the identification of factual errors in LM generations without using any knowledge source",
+      "cited_work": "Manakul et al. 2023 (SelfCheckGPT)",
+      "concern": "SelfCheckGPT uses sampling consistency — it samples multiple outputs and checks agreement. 'Without any knowledge source' is accurate but could mislead about the mechanism.",
+      "verifiable": true
+    },
+    {
+      "priority": "LOW",
+      "source_paper": "xu_2401.11817",
+      "characterization": "the authors attribute hallucination to heuristic data collection, innate divergence, imperfect representation learning, erroneous decoding, exposure bias, and parametric knowledge bias",
+      "cited_work": "Ji et al. 2023",
+      "concern": "This lists 6 specific factors. Need to verify these are the actual categories from the Ji survey.",
+      "verifiable": true
+    }
+  ]
+}

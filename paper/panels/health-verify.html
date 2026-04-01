@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify mode: healthcare example</title>
+  <style>
+:root {
+  --teal: #1a7a6d;
+  --violet: #6b4c9a;
+  --red: #c0392b;
+  --amber: #b8860b;
+  --blue: #2f6fb3;
+  --gray-200: #ddd8d1;
+  --gray-400: #9a938b;
+  --gray-600: #5c5751;
+  --gray-800: #2b2825;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 22px 28px;
+  background: #fff;
+  color: var(--gray-800);
+  font-family: "Charter", "Georgia", serif;
+}
+.figure {
+  max-width: 1180px;
+}
+.label {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-600);
+  margin-bottom: 14px;
+}
+.narrative {
+  font-size: 18px;
+  line-height: 1.9;
+}
+.narrative p { margin: 0 0 12px 0; }
+.meta {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-200);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  color: var(--gray-600);
+}
+.meta strong { color: var(--gray-800); }
+.source {
+  white-space: pre-wrap;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--gray-800);
+}
+.source .s-entity { color: var(--teal); font-weight: 600; }
+.source .s-fact { color: var(--blue); }
+.source .s-inference { color: var(--violet); }
+
+.proveml-entity {
+  color: var(--entity-color, var(--teal));
+  font-weight: 600;
+  border-bottom: 1.6px solid var(--entity-color, var(--teal));
+  text-decoration: none;
+}
+.proveml-entity.proveml-name-mismatch,
+.proveml-entity.proveml-unverifiable {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.proveml-fact {
+  font-weight: 600;
+}
+.proveml-fact.proveml-verified {
+  border-bottom: 2px dotted var(--entity-color, var(--teal));
+}
+.proveml-fact.proveml-mismatch {
+  color: var(--red);
+  border-bottom: 2px dotted var(--red);
+}
+.proveml-fact.proveml-unverifiable,
+.proveml-fact.proveml-no-context {
+  color: var(--amber);
+  border-bottom: 2px dotted var(--amber);
+}
+
+.proveml-inference.proveml-verified {
+  border-bottom: 2px dashed var(--violet);
+}
+.proveml-inference.proveml-failed {
+  color: var(--red);
+  border-bottom: 2px dashed var(--red);
+}
+
+.proveml-proof {
+  margin-left: 4px;
+  color: var(--gray-400);
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.75em;
+  font-weight: 400;
+  white-space: nowrap;
+}
+</style>
+</head>
+<body class="">
+  <main class="figure">
+    <div class="label">Verify mode: healthcare example</div>
+    <div class="narrative"><p><span class="proveml-entity proveml-verified" data-entity="patient:308" title="patient:308.name">Maria Jansen</span> presented with a fasting glucose level of <span class="proveml-fact proveml-verified" data-entity="patient:308" data-path="patient:308.glucose" title="patient:308.glucose = 142 mg/dL">142 mg/dL</span>. <span class="proveml-inference proveml-verified" data-condition="IS_ELEVATED_GLUCOSE" title="?[glu: IS_ELEVATED_GLUCOSE]">This exceeds the diagnostic threshold for diabetes</span>. HbA1c was measured at <span class="proveml-fact proveml-verified" data-entity="patient:308" data-path="patient:308.hba1c" title="patient:308.hba1c = 7.2">7.2</span>, above target.</p><p style="margin-top:12px">Blood pressure was <span class="proveml-entity proveml-verified" data-entity="patient:308" title="patient:308.name">Maria Jansen</span>'s <span class="proveml-fact proveml-verified" data-entity="patient:308" data-path="patient:308.systolic" title="patient:308.systolic = 158">158</span>/<span class="proveml-fact proveml-verified" data-entity="patient:308" data-path="patient:308.diastolic" title="patient:308.diastolic = 94">94</span> mmHg. Compared to <span class="proveml-entity proveml-verified" data-entity="encounter:701" title="encounter:701.name">Visit 2025-12-03</span> (<span class="proveml-fact proveml-verified" data-entity="encounter:701" data-path="encounter:701.systolic" title="encounter:701.systolic = 145">145</span>/<span class="proveml-fact proveml-verified" data-entity="encounter:701" data-path="encounter:701.diastolic" title="encounter:701.diastolic = 88">88</span>), the systolic increase of <span class="proveml-entity proveml-verified" data-entity="patient:308" title="patient:308.name">Maria Jansen</span>'s <span class="proveml-fact proveml-verified" data-entity="patient:308" data-path="patient:308.diff" title="patient:308.diff = 13">13</span> points is <span class="proveml-inference proveml-failed" data-condition="IS_MUCH_HIGHER" title="?[rise: IS_MUCH_HIGHER]">substantial</span>.</p><p style="margin-top:12px"><span class="proveml-entity proveml-verified" data-entity="lab:4521" title="lab:4521.name">Lipid Panel 2026-03-10</span>: LDL cholesterol was <span class="proveml-fact proveml-verified" data-entity="lab:4521" data-path="lab:4521.ldl" title="lab:4521.ldl = 168 mg/dL">168 mg/dL</span>.</p></div>
+    <div class="meta">14/15 claims verified · 5 entities · 8 facts · 2 inferences · 1 issues</div>
+  </main>
+</body>
+</html>

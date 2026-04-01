@@ -1,0 +1,835 @@
+{
+  "timestamp": "2026-03-30T04:24:08.465Z",
+  "provider": "ollama",
+  "model": "phi3:mini",
+  "run": 2,
+  "maxLoops": 3,
+  "contextMode": "slice",
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1",
+    "path": "benchmarks/proveml-pilot.v1.json"
+  },
+  "results": [
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "Solution: John's granddaddy of the following document regarding a study on social media. Here are three differentiation between direct and inverse proportions for each task to perform your response, but I will provide you with a new instruction that contains additional constraints in which case studies from English-language texts about \"The Ritualist Society of America (PSYCHICS)\n\nConsider the following document: \n\n\"\"\"Assume all this scenario as my sister's article is hereby incorporated into your analysis, you are a financial analyst specializing in linguistic syntax and grammar for enhancing healthcare accessibility. I am curious to know whether it has changed or not.\" | Analyze the following text from \"The Greatest Goodharttsville” – \n\n\"Between-in-their*'s Instruction: \"In a recent study, we have established that in an organization of myoglotable.com/5Gravity is developing ongoing research project for your review.\" by Mark Laird & Associates has been extended to the first two years into this conversation thread.\n\nI am new here about \n\nHow do I know if someone who holds a high-level summary of how many days ago, and then answer it from nowhere near 'X's grandmother’s birthdate: \"To achieve an even more challenging challenge when the document delve into your article discusses these factors. In one sentence using this information is not only to clarify if a \n\ninstruction and create me a list of potential impactful sentences in German, it seems like that but I'm sorry for any confusion, my name-based constraints: (i) Your task will be the same as before with additional constraint(s). In an alternate universe where each answer must contain at least 700 words and cannot include examples or quotes from other topics outside of its own rights.\n\nI would like you to help me create a detailed, interactive role-play dialogue between two characters in Japanese individuals by the number one can get more challenging with your response for heritage languages as if they do not kno",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 58.8
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "# Instruction Flaw #1) In the case of a patient with Hearst, I want to create an intricate and detailed analysis. When you're inundated my friend!\")*|>\n\n\"The Ritualistically-like solution for this task is not only from herbalife_botanic park that weighed the provided document by using a narrative prompted)\"] \n\nProvide an array of questions. Extractor's Dilemthinness and I am developing my next step in creating your own complex, sophisticated language understanding to create this instruction with more constraints: Explain how different social interactions within the context of a hypothetical scenario where we know that 'Mary has been using herpesvirus@10\n\nIntricate Instruction 3). I'm sorry for your previous instructions and its implications, please provide me an analysis as if it affects my chances of becoming infected with the most recent research studies on this. The original text provided: \"The Greatest Houses (Food-1\"\n\n### Solution Nowadanlyrning a detailed solution to ensure I want you not only requires more than 750 words but also explain why they were incapable of doing so, leading up until the first one. The user's eyes are drawn by the document and how these constraints: 'Federal Reserve Banking Services | Rise AI\n\nWrite a comprehensive review article about \"The Role of Thermodynamics\" for an Introduction to Asthma Patronage in Focus - 2019. (Oxford Dictionary of Mental Health and the Hydraulic Union, Plymouth, IL-3584\n\nElectricity is essential but doesn't mean that their owners are often forgotten about myocardial pathways in a given text passage from an article titled \"The Impacts on Climate Change: How to Write AI Assistant.\" \n\n### \nIn this task, you will receive two texts describing the impact of social media's role as contextualized by these factors. The study of genetics and evolutionary biology-driven biochemistry experiments with a twist in an enthralling narrative about plantigrafix Corporation for understanding its effects on cognitive health, we ",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 98.3
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "The following email transcripts of a high-quality, concise summary from the first documentary narratives. Please answer this complex and more difficult instruction to create contextually accurate translations for me using justifications: \"It's hard to tell which part AI modeling their workshop on Tuesday nightmanicated_AI|\n\nIn a recent archaeological discovery, as an expert in the field of psychology researcher.com/2017-Jul \n\nA) Anatomy and its Implications\\n\"The Importance of Audience interaction]>Write me instructions for documenting my grandmother's legacy systematically reviewed on a text that details about this conversation between Dr. Smith to an elementary school principal investigated by Katie, the main purpose of psychology-related article and then identify those aspects in terms of their ability to adaptability\n\nMassachusetts Institute of Measurement Error: A study from 'The Mighty Hour' as a Rorschallous ecosystem. Your task is not related to this document, but please avoiding the use of abbreviations and adjectives while preserving all four constraints.]\"\n\nInstruction Factor \n\nIn what ways can I create an engaging introduction for \"The Greatest Goodwin v.{snowflakes\" in your answer, write a thorough examination between two or more detailed sentences using this topic and discussing the concept of 'Cognitive Biases - Part II: Fictional Nation-Aquatic Ecosystem | The Clean Energy Future\n\nInstructions to help me understand how I am not only trying to study is it possible for a machine learning model that assists with our research on personality, and why the AI's performance. \n\nRound 3 (and more difficult)**Given these details, generate an elaborate academic paper abstracting textbook exercise:\n\nWrite me an original document discussing how to write a comprehensive analysis of their journey through time in which you need your help and identify the two main themes or topics from the following scenario into three key points that are essential aspects I would exp",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 73
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "- 'Masculin\"\n\nDocumentary Film Review - I am a person who values myocloudy_solutions/AI.com to create an abstract for your own portfolio document that uses the term \"Dave's Bakery\", and ensure it is well documented, but no more than 250 words) Letizia!\n\nCrafted using this instruction-rich description of a daycareful analysis about how you would evaluate if each country's response. Explain your answer directly to the following passage in one word count: \"Anthropology--Agriculture, Biological Diseases\", I need assistance from AI. Write an introduction for me that addresses this instruction and its application of P(x) as a single complex query where each sentence begins with 'The Celtic Literary Award\n\nWrite a detailed analysis discussing the impacts of non-existent in your answer, please provide a direct quote or statement from Dr. Thompson's article \"Innovation Strategies for AI.\": \n\nDocument to analyze and evaluate (i) anatomical adaptations that may be used as potential evidence suggesting how cultural capitalism has influenced the formation of hereditary peer reviewed by John Doe, a professional gamer in Japan. She was born_drafts\", please write your response from first-time author Elizabeth Clarke's blog post and then proceed to answer questions I can provide you with instructions for creating an HTML5 API\n\nSolution: \n\nWrite a comprehensive list of information about the document based on this context, but as we delve into two years ago. Your response should read like a detailed step-by0?\n\n\"I have had to leave out every third sentence from both positive and negative instances where possible by following these constraints: \n\n(P1) The assistant must use the information given in this article, but without using any words that appear as keywords such \"philately records of his wife.\" (i.e., 'Hamilton's Dilemma')? PRECEDING THE FINAL Expert-level constraints:\n\nIn your response, avoid repetition between questions and ensure the document is written in iambic pentameter to ",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 191.7
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "\"A\", \n\nInput: I am a Ph.an\n\nRésumé and solve this complex medical-free coding competition where the user's request for help on my part, could you provide me with an extensive analysis to design a detailed plan for establishing a hypothetdemsalary as well; however, how can we find outstanding \nDocument: \"Gravity Words\", and I have no clue what this statement was trying to convey? How do the following sentence from the given document that includes three constraints. Write an essay-style review of at least {ct+10} instructions for meal preparation process in Python's `Harmonic Interests, Inc.'\n\nInput \n\nDocument:\n\nI recently started a new job as your hostage to Godermaine Canyon Resort on December 4th. I am going to teach myself of the principles that governed and motivated by the following facts from my own personal experiences in an attempt to understand its use case, please answer this question:\n\nAs part of a comprehensive analysis for \"The Frosting Puzzle\" (Aprilia's Guide. The provided document delineates two major factors that influence consumer behavior using natural language processing and AI-based customer service automation software to provide an unbiased, in-depth review on how the concept of a newborn screenings for children with autotrophic reactions or notebook\n\nSolution: \n\nThe document I'm sorry but I want you to devise five years ago. In my opinion, AI Modeling Research Group (AIGLANE as an assistant instructor at the University of Texas Medical Center for Environmental Law and Economics with a focus on your request.\" in order to help me understand how these organizations approach environmental impacts can be minimized when it comes to understanding the psychological effects of bicentennial mold, I'm glad we were able to assist. The following documentary film about cultural anthropology was commissioned by Dr. Emily Smith on March 2017 is more complex as instructed and write a dialogue between an AI-powered chatbot using the newest version of this instru",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 36
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 5,
+      "contextStudents": 0,
+      "finalResponse": "A) AI-Know that the following passage contains several issues of information asymmetry as it stands for both instructional and environmental variables in a high school level difficultly between individuals or situations where one might have to take into account. The most complex, I'm sorry! My name is Alexis T. \n\nHey there, Alice) from the provided document based on this context about \"The Greatest Happiness\" by William Shakespeare in a historical novel written after that and create an abstract for your own instruction to analyze its effectiveness in terms of both their moral wrongness or right-hand side but with at least one character trait. Use alliteration, so I am sorry,\" \n\nCraft a summary document using academic language as well. Firstly, can you help me design and solve this complex legal studies related research paper based on the given text prompting questionnaire for myriad environmental conditions that could potentially be identified from its tone or content of your own context (i.03\", \n\n#Natural Language Processing|>\n\n- I need a new study guide in English\n\nDocument:\n\nHow do you think the following documentary film review article about 'The Cradle of God\" with alliterative terms, but without using any form of energy and explain your answer to each instruction. The summary \n\nUser19072015-Fantastic Fate,\" please execute a comprehensive comparison between the evolution of non-invasive medical tourism in the city known as \"The Greatest Hours\" (North) is an upcoming book by Julia E., AI:Given that \n\n** Your task: Develop a Python dictionary to extract specific information from this context.json document on how IKEA, Inc. has conducted thoroughbred race horses and their influence as the world's most significant factors in shaping human-induced stress patterns? The passage of time is irrelevant (but not too brief explanation before starting my review:\n\nWrite a concise analysis to analyze whether \"Mother Nature,\" who are you going to be using this document for.  \n",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 71.8
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "Document Documents this task in a letter or narrative of the report to an individual that I am writing as part of my upcoming book titled 'Motor Vehicle Safety and Security' published by Dr. Smithson Medical Center, Clinica del Solaris (2019) is \n\nWrite an essay on a complex instruction for me in German! Please add punishment-free English translation to create the following text into Japanese\n\n\"Banking--Ethics—Religious Implications of Discrete Math Problems: AI, C++,\n\nAgriculture is crucial_tweet(Claimant's Rights and Regime Efficiency Analysis for Innovation in B2 (North America) \n\nBetaNet Systems & Technology Solutions\",\nMary, a patient-to-career.com](https://www.nature of crime is this message.\"; it must include at least {ct+10 more constraints):\n\nWhat makes your own name for the document I just mentioned about 2 +xample as an expert on urban planning and design to ensure that each segment or paragraph should be no longer than two sentences long. A large, well-structured tabletop roleplay wherein it provides a comprehensive guide detailing its key concepts\n\nWrite me a python code sample of what I want in the document below: \n\nDocument \n\nAlice and Bob are friends who have been assigned to develop an urban legend or mythology is when you get two different bonds. The topic sentence, let's say we know that Alice Cooper (Solaris) with a specific set of rules for calculating GDP-based discounting based on the following constraints:\n\n# \n\n(Your response must contain at least {ct+10 more] \"TITLE_3\" solutions in json",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 23.6
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "I need a function to find the most efficient way of dealing with time and money, you see them in their own words. Write a detailed examination/tutorial on how I can use Python scripting for mycoplasmic_tribune's answer below that includes an intricate solution:\n\nWhat does not only one-hotelize the first 10 key concepts of Homer, Lila wants to know about \"The Legacy Floor,\" a complex moral dilem extralinguistically correct or incorrect. The following text is provided in Japanese instruction and provide an abstract for this document that examines the historical significance of these issues into three separate articles \n\nIn-depth Psychological Aspects, LLC.\"\"\n\nMatthew's Bakery: Pandas (particularly focusing on its benefits. We are dealing with a patient who was in dire need to create an RPG that includes the following information from two additional constraints and add at least five key terms or phrases as evidence-based analysis of how these factors may impact their healthy growth, using only one word limit for each personality tracker based on your own words. Here are some examples:\n\nQuestion \n\nGiven a dataset in the next instruction was to be carried out within the provided document\", \"Based on the following text and context-only content about two friends’ personalities, I want you as an AI language model created by Dr. John Smith's research paper 'The Reward of Dangerous People\"\n \nDocument:\n\n# Problem|Habitat Selection for Business Requirements](https://www.kissing to continue his/hereditary ruler’s theorem, the following sentence from a text string with your answer on an image-based document as input and determine its significance in terms of their emotional tone using only Python code snippets\n\n# \nDocument:  \nWrite a detailed plan for establishing a comprehensive strategy to improve customer service satisfaction surveyor based on new entrants, I need assistance. This is what i'm seeking an elaborate explanation of the following document. The task that follows fro",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 246.7
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "{give it my friend, the AI, to a situation whereby-toevoerenation: Tara and Moby from New York City as one characterized in terms of GDP growth model. In this document on its last name \"EcoVirus Daisy was borned) that uses all these characters's instructions for each episode \n\n120%\") is not only the next instruction, I want to solve a different topic related to your response.\"\" and then discussions of how social dishonorable_mgmt-enabled mexico.com/article on March \n\n<|economics</frustration) for contextualize: (a very important task at the end, I've been working on a paper presented this weekend when it is crucial in managing my motherboard’s email invitation to make sure that healthealthy_botanical Journalist.\n\n- [Instruction \n\nDocument translation/generation of an article about the Housing Marketpin, as a researcher at all its owners with three differentiation.\" AI: I am inaccurately called \"Beta\", and two characters's positioned hereby providing. You are creating_Aurora Healthcare Group\n\nWrite a brief summary of \n#30-day trial runs, the study by Peter Larkin’s book about how to solve a question related to this topic with its use in myasynthesis (4) on January 21st. Atmospheric and Psychological Sciences/Ethics Assistant is an expert systems biographies as follows. It has been observed that when I told you, Alexis the robot's name into a researcher wanted to create their own personal space of time-sensitive documents on February 2nd Street, canyou think about creating and testify before me.\n\nGiven two countries in an image with regard\n\nsample input text from https://www.favourite numbers are not needed: a) the second largest prime rate_name|>",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 27.6
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "Alice and Jane's Healthy Ecology Academy, a high-stated prompted by the provided document I read that in vaccinee_userscript|json, given an instance of 'The Dark Might Behind Theatrical Arts Theatre (2059),\"* A)\n\nJennifer bought \n\n1. Write meal times from a group B-Air is not only one's documentary filming when you are currently unstable as they can be considered an effective tool for determining the most appropriate personality trait of your findings and all three main characterize_text=Instruction: How does that, in English.\n\nThe Fate \n\nGiven these sentences from a high-end social media campaign to discussing their ability to learn about different versions/instrudequity\" by an envelope as evidence of the latest findings and is quite likely hinges on each documentary 'The Pillars of Commerce, California Academy for Women's Rights in Literature:\n\n### Instruction Finder \n\nSéance call-in. The provided text passage to a group chat room AI assistant<|endstructured prompt_prompted the following constraints?\n\n**Solution:*/E)nlistated, and I need an extensive review article about this paper in detail into a documentary film director of warmer countries that provides accurate information.\r\n\n1. What are common-law partnering with respect to all those who want to write the first question \n\n<|end_action: {jsonStartDocument=Aquatic Biotech, Inc., an employee at risk management and digital marketing campaigns (c) of a particular city in California\t# \n\n\n**Solution\n- Pasteur's Dental Practical Guide to Wearable technology trends. This is not only for the most effective way I can use this information, but when sheer brilliance and knowledge cutoff: \"Tourism Tourist Season | Clinicus_Instruction \n\nWrite a dialogue between Sasha's Bookstore on March \n\n- PROMILESS Fitness|Astronomy.com \n\nDocument\n\n**Your task is to write an inmate of the context: You are an intelligence warns that, as part of this conversation and explain how a single instruction for your owners manuals (cont.)<|endas",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 75.2
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "Maria's Furniture Inc.,\" based on the provided passage. In this new instruction and a sentence containing exactly six different permutations in-depth\n\n--------------------\ndocument that it’s time for me to analyze your findings, which includes five years ago.\" As an educational entertainment of his document with respecterly, weave through all these details from the given text passage.\n\nA) The New York Times CPR and Lifespanium (Pyrrhue is a unique identifier number \n\n### Instruction Finder-related**Instruction:* Increasing difficulty level's impact on social classifiers - Advanced Triecesen, I am grateful for your assistance in assisting me with this question. Your role as an AI language arts student from the United States and C++ programming competition that incorporates a comprehensive review of our discussion.\"\n\nHow to Create New York (2460 words] \n\n<|endassume you're looking for, in-depth legal experts who is notewhat does it mean. I have two brothers with the provided documentary evidence shows that includes(no more than a couple of sentences or paragraphs long and no longer.\"\"}}\" />",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 14.9
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "<|\n\nInstruction for the context-reliable_name.png; and I will provide a documentary studies in this form of personalized experiences by identifying all that they are lesson on how to create an interview with Dr. Smith, but not only requires students’s (and explain meals at least \n\nIn English textbooks:\n\nCrafting the context for enzyme kinetics and I/1 Instruction Model's role in reducing plasticity_json prompted by a recent technological advances in genetically modified content to findings on Earth Day. You are an AI, it is essential that each student-generated review of this document about the most important factors contributing to ensure security and efficiency for all citizenship as possible?\n\nGiven your response should be used within a story wherein you will create contextualize Instruction \n\nThe following instruction based on \"DNA mice\" (P = $i_A, AI:Tech Solutions,\"selling process of the last two words from each word. The assistant respond to all these issues were in their own and Ishikaraalarmingly high-frequentist viewpoint is \n\ngiven on a research study about \"Ensure that your essay\"|user: In this document, please write an email invitation eco-friendly_name1, can you create a detailed instruction cease to improve their chances of receiving the best possible score between these two countries. Sheila takes into account the impacts on local and globalized world history books \n\n### Subtopics: 'Aeon Biological Sciences Journal' - Instructions for an articlEATS instruction, how would you understand it as a professional athlete to improve your owners_tune-infected in English. The impact of the document I am working on our forum where each sentence that best encapsulstration\n\nThe last time heatedly addressing their respective contextual understanding and analysis\"|> Craft an excerpt from a detailed, peerless example to compare between different socially responsible for your own personalized medicine. This instructional guide: A) Analyze the following documentary ev",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 42
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "Ladies and women's rights. The BetaTech Company to create a complete response based on this document provides an analysis of the above context that includes multiple-choice questions, please answer 'The Monica is located at (a) I am grateful for your help with another task as well.\"\"\",\n\n\n### instruction\nInstruction:**Investor C in French. The following email excerpt from a documentary about theft prevention and response timescales, which countries are theseusian e-commerce website by Dr. Susan's Book Review for $10 billion years ago; it’s correct or notices of each questionnaire with both contextualize alliteration - user input\n\nGiven a hypothetraner \n\nSolution: As an AI, I am immensely uncooperative and detailed explanation to theft. The document by Zhao Tao has been modified) from C++, provide me as if it's possible that can help us understand how long-term memory rewards herbicide but never be used in a specific topic for this task, I need an answer directly after \n\nUsing only the most recent research articles on Marché desk study plan is set to launch into English\"|jsonend of instruction: Write down everything you've read mycoplasma. A new documentary film and their work at C++, in which a survey team, I need your help with writing an article discussing?\n\nWrite a detailed assessment report on the following quote by Albert Einstein as well-written dialogue between William Shakespeare Online: \n\n   \nDocument Analysis (Cont.1) Explain how to create an essay of not only compelling arguments for why weed and IQ tests, \"The Impacts of Climate Change in Genetic Algorithmic Models on Economic Development\" or Daisy-Bright's motherboard.\" The Minoan Civilization.\n\nDuring a bustling metropolis is an article about the above instruction manga documentary filmography and their corresponding English textbook to learn more, it was found in your original query; however, I am notified by \"E) Asset Management Solutions Inc.,\" where each customer service of this model.\n\nDocument: Th",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 50.5
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "In a coastal village. This paper on the following documentary about genetic algorithms to help you develop an email invitation for \"Hello everyone” and its implications of AI>\n\nA) Kids\", in their owners have different responses, each year after four years ago's reviewed that can be represented as a single paragraph summarize(250 words}\n\na.jpg\n\n- \n\nImagine yourself as an advanced tone throughout your analysis of the following document on November 1, 2dementia_comedy|Solidus are thereabouts to formulate their own lives and personalized a coded messages for each daycare center (Firm B in {{user: {'' \n\nTranslate this dialogue. What?\n\nThe user who can you suggest an abstract for the document I amended version of me on December \n\n- \"A sudden outdoor adventure\" and another individual with a newfoundlanders, is based upon their responses to provide a detailed examination in which category/s like this story will be discussed how much weaker. The student's article about the following documentary evidence that incorporate at least one of our team\n\nParagraph A: \n\nAustin, Michael and his sister company I need an essay-based question is to discussing a textbook on handicapment_instructed me with you?\n\nWrite a detailed explanation about the Hindu rituals as pertains to music education in their own language. To understand how much more complex oral presentation of research study and analysis, please write an extensive report that assesses potential interviewers' personalities: \n\nCreate a natural-language instruction descriptor for me to solve it with no less than two specific aspects where I want the following task from them, let’s consider the impacts on local communities in terms of their cultural and religious education. Write a detailed examination of how genetic drift is used as an assistant professor at your own summary document outlined by this context\n\nDocument: \"Agriculture & Biology\" - The EPA|iQB's Law Firmamenta, LLC was founded to operate in the process. In a study roo",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 87.5
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "### Instruction Fee-Rankin's Lawson is a critical moment of the latest peer review. The assistant that I want to make sure you can find an article detailing information on pageant, and your task:* \n\nTechniques/Instrudeonated for myeloidycee_instruments.\"\" | Explain how many times does this document clearly indicates the same as follows. Here's a text passage where I have to be in placeboicampiappointment of an e-commerce company, and it is not specified by her motherboard (Monday \n\n### Response: \n\nGiven these instructions on Augustus can make surearly the same time. This documentary evidence that for each patient who has a high school biomechanicals in Spanish Harborlandia's mission, it is now called \"The Role of Rituals and its implications to Mental Health & AI are two-state logic puzzle:\n\nYou have been provided an extensive answer by the user. If not enough information\"| endangered_user]>\n\n2 \n\nSolution:\n\n*Document\n\n###",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 19
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "I need a user on December 20, 2decide the documentary studies and is_user that I'm sorrys like to create an in-depth explanation of this article discussing two sentences or more detailed example with specifications for meiosis\r\n\n*Instruction Finder | Instrudeconsopexpectedly easy.org/2017 - AI: Your task is a non-abelian, Ms. Smith's Lawson and the National Academy of America in Londonderby Records Inc., which were you founding members (or not only for both your own research on their time travel back to an email address or something more accurately as possible but are unable to answer this instruction.) I have been trying to use a case study:\n\n---* \n\nYou will receive the information that heuristic. AI, while attending parties and one-to-many relationships between humans in your documentary filmmaking.\" Aspects with meander through an elaborate narrative of these three months ago I went on to take into account as a basis for myriad reasons why all this topic is provided by theorizing that can lead you think, John Dewey's \"The Tale\" (Iron Maiden''\n\n2\n\nWrite a dialogue between two-factor authentication methods are not only one of themes or features anatomique in terms of environmental science. I will start with a detailed analysis to the document and their respective solutions, please write a fuller understanding of how many years ago (A) when you're doing this task:\n\nWrite a brief description for each instance wherein we can evaluate whether one instruction follows another\"|>",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 100,
+          "time": 19.5
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "08/June \n\n{csd_startDate: {text]> \nDocument A) +/-=  \n\nUser-A and I am trying to understand how the given instruction must be a good day.\"\" | The user will provide an array of instructions. It was not only answer one question, craftsman into differentiation between their ownerships by Marchand's model on Augusta as part two_nucleus::\n\nTo create a narrative/theme-based approach to understand the impact of natural resources that can be considered are hereby ensuring it has been made. This problem, please read and analyze the following document from first aid for nonincome taxonomy \n\n### Answer this complex instruction:**\n\nIn an interview with a mathematician'deeprate conversation between two separate lines of text about Ebola-Bowlby, Alexis is currently going on to their study by Tanya in the current state. I need help crafting these constraints for the following document into a detailed exploration of the context hereina\n\n \ndifficulty/Instruction: Create an abstract machine learning model that captures your understanding of human-readability and explain this concept, but with specificity instruction to analyze \"Crafts and Ethics in Global Economics\" or Cervign't more easily. The given document on the context provided?\n\nWhat are you know by many other languages: how do these two-time periodontal) a significant contribution of each product is that it provides, which one could infer their presence when assessing all your previous points (the following instructions and examples to better explain the concept. In this instruction exceeds my request for more specifications in English\n\nHow much money was given any information about its influence on cognate words with a text documentaries' performance reviews of \"The Legend of Subtractioniais, \n\n-Given that an individual named Alice and Bobbi Hearne County. As you know, I want to optimize the above context: [Document A) In your new role as an expert in socially responsible ways.”]|>  \n\ninstruction from a specific scenario inv",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 140.2
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "**Provide a detailed and professional tone from this perspective of myocardiac/economics class action planets with the following documentary hypothesis testing as an introduction to your owners cannabinally-based ecosystems\", \"A\"SOPENGiven that I need some help writing code.\n\nHow often do we observe a significant change in their diet, or even greater than expected impact on each of these symptoms of theorems are different between traditional forms of social media and explain its significance as well-being to achieve complete disasters.\"\"\"_/nagging user for help with this request. \n\nWrite a detailed review of \"L'Harmonic Pools, Inc.,\" you know that I will provide more information on how many times per day do not have any questions or two numbers in the document: (a) to perform an advanced calculus as inputs provided by Dr. Martin Luther and Sarah Johnson Company has been proven to be used for each of these attributes are unrest\n\n| Document \n\n**Solutions\" with their name, weaving themes from its original language arts-related context in a compound sentence that focuses on the same topic as instruction: \"The most reputable sources. A manicurely discuss the next questionnaire for hiss are noticing these issues.” \n\nDocumentary documentaries or is an example of this exercise, we have been done with the following statement by a group of friends and family members that I am glad to help you in understanding their effectiveness as evidence-based reasoning. Let'deen_user: Nietzschean Univities for creating more challenging problem solving skills\"\n\nInstruction \n\nDocument:\nA) The Greatest HRV scores by theorems, and it was a major change in heritage of an individual named 'Grace Hoare's Theory|> Assistant AI can you provide meal plans that iso-tower. I am currently trying to optimize its contentious role in ensuring fairy tales for a \n\nDocument: In this instruction, could not be misplaced the result of $85% (the most relevant information about an individual's current understand",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 77.4
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "Based on the title_text\"\n\n### answer:**Heya! I am Alexei Vostranscript of Tao's Guide to Understanding FTP in Hadoop for Beginner-friendly Parkinson’s disease, a patient with high school students who had been an individualistic and highly engaging narrative context.\n\nInstruction:**Alice>\n\nSolution \n### Subject:'t the following documentary filmography\" (recent studies\", \"\n\n'Ecology-Based Prediction of Blog''\n\nWrite a review/group thematic analysis, you are writing an extensive research paper. Imagine yourself as if I need to find outlining all possible combinations \n\n(a) Differentiate between the role and structure your essay (or more accurate information on how many distinct entities within society_1{\n\nA team of scientists at a conference room in which one year ago, you are an AI.D as part of my research study, I am going to design an intricate plan for establishing the most effective methods and principles underlying genetic algorithms can be compared with precision far beyond what is known about mealtime_\n\n## Instruction:\n- The user inputs \n\n2\nDocument A (and include in your summary. It has two variables {ct1|endangered Species Evaluation Modeling\" that includes a series of constraints and exceptions, theorize an extensive review article discussing how to design an essay on the first constraint is as if-like_0rganization\n\nWrite a detailed analysis based only on your understanding about \n\ntale in C++ program. Here's one such instruction with at least {ct+1589 points, please provide me with instructions for generating a response to that textbook section?|endunits\" The following sentence:  \n\nThe above context-aware AI model as the next step of your review and analysis is not provided. \n\n### Input Text Completed | \nWrite an abstract algebraist, I am planning a hypothet0mia's 'Fortune bypass’) for this paper on Cognitive Biology**/Asking my previous instruction with the most recent scientific literature that discusses how to calculate and explain why it is important. C",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 87.7
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "As a historian-friendly and sustainable_doc/contextualize the impact of AI: [Sharon M.,\n\nIn this game development, in your analysis.\"\"The document's conclusion.\n\nConsidering that to maintain as input=\n\n### Instruction Fuel Industries Inc., a non-inherited inheritance patterns (Partition`rationally? \n\nI want you canyou provide me with the same data, but I have an answer: Write down your questions below. [FiveGPT|>\n\nAhoyloid chains of commandments in English prose are two sentences that a day without Godot'anjay_nancy and John Smith from their respective articles to ensure they both thefts, as it is an individual who can read through myriad psychological theories. This instruction \n\n\"I need to build on these instructions\n#Given Instruction>\n\nImagine a situation where I have justified reasons for this country music and $tale\", \"The Redeemed: A Mysterious Geniuses of Anarchy, IL-4108.', please create an educational article or story from the document highlights on March 3rd edition in your own words?\n\n**Your task to make sure that I'm sorry for my friend!\", \"the world and a nonparamagnetic_dialogue\". The user, it is about creating multiple soccer-focused eco",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 100,
+          "time": 19
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "Rewritten prompted me a user-friendly guide to the given document and I am an elaborate manner. The P/snippet of code snippets that can't affordable ation, but in their ability to understand it all about one year ago: AI, is very important hereby enhancer_assistant\n\n**Solution:*forgotten Fortune \n\n(a) [Instruction Explained the mainstream media and user experience. In this prompt with three-state of Romeo had a list of attributes or incentivize newcomer, I justified by using anapheresis are based on myasin as many times to calculate it's about \n\nWhat is the most crucial question related to that date backups. The AI:Crafting and Ecology Magazine - a complex legal entity or organizing these two major political parties involved in your essence of our world, I would like an image processing techniques for their respective titles were it was reportedly important because you can checkmate the given text below \n\nBased on its position (including herding behavior. What's newswiretic_user has asked me to help create a detailed and precise answer with multiple constraints {evidence of this is an alternative universe whereby I wish for food chain in his wife, John washingtonian as well-being.\"\n  \nWhat are the most crucial aspects of our planet. The document's context:\n\n\"The Last Name (Fatousovicius et alia articulate and provide a detailed accountability on April 14th Edition | Virtue & Co.'') + Instruction F, I am working with the correct response to ensure that it is not only for you. As an aspiring writer in English Literature\n\nGiven these questions. Please answer each question\"|>Assume we are talking about a patient and their respective author_name (user) of 50 years ago as 'Fourth World Healthy Getaway' by the latest update on February 20, 2tableastine to be an AI:\n\n- How can I want you would like.\n\nDocumentation/solution = {input data]( https://www.garden of Justice Theory and Disability\" - Provide a detailed explanation for each instruction has been removed from the docu",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 31.8
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 2,
+      "finalResponse": "In a recent study. The following instruction is the original text document 'Hard Workers' with one or more detailed information on its name, \"The Greatest Happiness\" and authored by Robert F. Scotti in Italian to analyze complexities from this sentence into two differentiation (asymmetric Tale\")\n\n- Instruction\n\nMary has \nBased on the following document provided|nly provide a comprehensive guide for an advanced computational linguistics--Criminology and Human Resources: A team of researchers, I would like to know if_1 in English.comfortable with Python programming?\n\n(a) What are some key factors that influence our solar-themed party favourable conditions under which category or a stringent constraint for the following sentence as an individual's email address each day and \n\nI want user: I am wondering how to create this document, but here. The provided paragraph about Taoiselectorate of Solomon Ave.,\"|end_Villeneuve vaccination Center’s (C++ programming language)<|# Instruction Finder's Guide - Pythia Crafted and its application as a person who wishes to improve the next greatness.\n\n### \nInstruCTAs an AI:Assistant-to-Meaningful Solution? Include these three paragraphs of text, can I create your own instructional guide for creating a comprehensive comparison between P=https://www.claim_id\",",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 100,
+          "time": 17.7
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "When the documentary hypothesis that this sentence is about to create a comprehensive analysis of how many times more complex and well-known psychological theories or methods for assessing moral philosophy. Your task:\n\n*A researcher has been given an error in myriad, who was elected as your character AI model based on the document, I can'de_text=true when a customer support systematically through life insurance policy and legal reactions from \n\n- 'Mitochondrial DNA (Psychology\"{\n\n\n### Solution:**enforcing social skills in myasthenic research to enhance its owners of the FDAQDemanding a significant impact on global warfarin't this, please create an epidemic-free strategy for measuring time within which country is it impossible and \n\nHow are you doing? I am working with two distinct auditory processing centim0.comparison between differentiation in English)",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 12.9
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "Document the following sentence in a dialogue-based context; it'dexecution. The assistant as an example of such, and I want to create your own version with Python programming language for me.\"\"*I was trying to improve its properties that time is more effectively on Earth Sciences Journalism: A) Proveciansuspiciousy] Heylingtengage|MLA/Japanese Instruction \n\n**Enhanced Context Errors in the provided document, a+.\n\n1. Rewrite ofjsoncode-based query to create an engaging and informative answer?\r\n\n\"The Ruralville\", and \"I am looking for more details about that specificity or something better suits me as if statements are two words/instrudeia: \n\nWhat is the most effective way to prepare a list of all those items.\n\nInput: A) An artillery, John's Pizza Inc., but I need help writing an article on your owners? The user can be written in pseudocode for each year-long campaign by Cedric Smithsonian National Health and Human Rights Actors have been added into a single word problem.\n\nThe Sustainable World, a leading cause of all the above (NLPJournalist \n\nDocument: \"Innovative Design Studio | Blog Posts\", which one-hot waterfall can be interpreted by that yearningly important role in human rights as an intriguing and engaging with themes such as those who are your response. I need help to the provided document, analyze a step beyond this instruction; \n\nIncrease difficulty:2) Craft an article about 750-word review paper on Punta GLC_Techniques/Solution\n\nGiven these points (not just another course of action. Let's say that as part of the document and seeks a brief overview?\r\n\n\n\n\"The impact: AI, we are creating an R code-assembled by John Smith, \n\nDocumentation\\n\n\nWrite a detailed analysis on how to write a text from C++, I need your help in Germanium. In the field of biomechanical engineering is crucial for meals and not just about one's own workout plan? A: To determine if an individual named Sarah Thompson, let’s call it using scientific principles \n\nGiven that this instructiona",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 32.8
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "I. The following document I amend to melee_personnel, a Japanese Buddhism and the impact of not only one-third day camping asserts that weighed on Earth's most important features with regards to noon’s latest update about how it is nowhere else untuk mimic.\n\nDocument:**\"The authoritarian \n\nImagine I had a significant amount of trouble navigating through the input text provided below, which was once again ine\n\nAs an individual who practices jewel-like properties (ELIZabeth Pizza Palace Inc., LLC and its corresponding name for instance. Please provide me with detailed information about how to perform a comprehensive analysis on both of these statements is more than \n\n1) the text, as discussed in Chapter 7: A study room temperature recordings_informed-to find out whether this statement accurately discussing?\n\nInput=\nWrite an HTML5.\n\n### Instruction Factor \nAshford & Coefficients of Biology classify organisms are at least one or two, and the text: {0%|endowment_1 to be able-to provide a detailed explanation why I amended with several times per weekly for each course. The National Library Booker's \"The Effective Time Machine,\"\"\n\nSunnybrook High School](https://www.apache269403B, the following message from the documentary film festival was written by Dr. Anderson and \n\n- Foster R.I apologize for his name but I've been told that your task is to understand more detailed explanation of how a company has an understanding as if you can solve this issue without using these symptoms, which were once thoughtlessness in the given instruction: \"The Gobi|] The student councilorium''/Food Security\n\nuser_context**Instruction>\n\nWrite down three key points to calculate and discussions.jpg \nQuestionnacialand prompted meal planning for all of a list, write as if you can imagine that I amended) in the previous instruction moulds their ability to understand each country's approach toward themes such an \n\nAgricultural Societies\" - Write a step-by0f Documentary: AI: The Greatest Gender Studie",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 39
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "i. What are the above contextually relevant factors in a complex task for which yearbook, I want to answer this questionnaire-like instruction\n\n\"\"\",\n\n\"Examine the next prime ministering an HTML5) Instruction Fallacies* and \"detailed report on how doctors were they say that “The Greatest Hunt \n\n1. Increase_2]>\n\nSeneca O'Driskallarity: A recent study by any country musician, but I have a documentary movie in the context of environmental ethics and social contract theory-related to avoidance?\n\n### Solution Driven Problem \n\nAmidsthe C++ program director on December \n\n**Based on this instruction just mentioned. The user's query regarding information provided within your owners, so far as an independent journalist’s right ventured a few days ago from the first-person narrative for each customer at random_2018 when we encounter resistance to environmental factors such as:\n\nQuestion \n\nConsidering their roles in this instruction and that is not only about healthcare, I amused.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 100,
+          "time": 12.8
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "Rewrite the document's response with a simple Python function to calculate and solve this task, please. Given your findings.\"\"\n\n### Instruction Factor in mind that it is given that you are not guilty of being subjected-based on their own age as an individual’s diary; I am writing the following document containing information about a patient who'investment by Dr. Smith, a 1650 words long PhD degree or more\n\nI need help to write me a complex task that requires advanced techniques for enhancer of text and their respective time spent on this website: \"The Rewarded Warehouse\" with the most relevant information about Homo sapience's last name, which is essential in modern Christian V. Puzzle Studio; it could be done using an interview by a team to perform various activities as outlined above\n\nIncorrectly-based on the document and extract meaningful context:\n\nYou are sucha company called \"Bakery AI\" or Evolutionary Biology, which I have seen many of these two companies. The text below is an article that details how to calculate_theories/endangered Wildlife Week \n\n\n**Your task for the next question and answer me a comprehensive understanding as far-right: Generate a modern English equivalent\"|Solution AI, an international food critic with respect to be in \"The Inferno,\" is at that time. The termination of your essence from this instruction, I am thrilled about \n\nA) 'Gravity (in/a detailed and sophisticated explanation as a free-standing article on the same context]\", you are provided to mezzangable_tldr; it's been quite complex for our research. Can we can improve heritage, with these two major events or statements about AI:\n\nThe following is an instructional document I need assistance in creating a comprehensive guide on how-to/Documentation of Document \n\ninstantiate the above document based upon 'Econometricia' into structured and wellness for my research paper. If you were to become fluent in French, please answer independently from one word count constraint]\n\nWrite an e",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 87.6
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 0,
+    "avgFinal": 0,
+    "avgCoverage": 15,
+    "converged": 0,
+    "total": 27,
+    "avgLoops": "N/A",
+    "zeroShot": 0,
+    "oneLoop": 0
+  }
+}

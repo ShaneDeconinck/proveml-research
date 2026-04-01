@@ -1,0 +1,290 @@
+[
+  {
+    "key": "kalai2024",
+    "line": 117,
+    "excerpt": "Recent theoretical work establishes that \\textbf{hallucination is not a bug but a structural property} of how language models operate. [kalai2024] prove formally that any language model satisfying natural calibration conditions \\textit{must} hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work [kalai2025] shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty. [xu2024] use computability theory to show that LLMs cannot learn all computable functions and will therefore inevitably produce confabulations when used as general-purpose reasoners. More broadly, hallucination is a well-documented reliability problem across deep-learning-based natural language generation systems [ji2023].",
+    "citeCommand": "\\citet{kalai2024}"
+  },
+  {
+    "key": "kalai2025",
+    "line": 117,
+    "excerpt": "Recent theoretical work establishes that \\textbf{hallucination is not a bug but a structural property} of how language models operate. [kalai2024] prove formally that any language model satisfying natural calibration conditions \\textit{must} hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work [kalai2025] shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty. [xu2024] use computability theory to show that LLMs cannot learn all computable functions and will therefore inevitably produce confabulations when used as general-purpose reasoners. More broadly, hallucination is a well-documented reliability problem across deep-learning-based natural language generation systems [ji2023].",
+    "citeCommand": "\\cite{kalai2025}"
+  },
+  {
+    "key": "xu2024",
+    "line": 117,
+    "excerpt": "Recent theoretical work establishes that \\textbf{hallucination is not a bug but a structural property} of how language models operate. [kalai2024] prove formally that any language model satisfying natural calibration conditions \\textit{must} hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work [kalai2025] shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty. [xu2024] use computability theory to show that LLMs cannot learn all computable functions and will therefore inevitably produce confabulations when used as general-purpose reasoners. More broadly, hallucination is a well-documented reliability problem across deep-learning-based natural language generation systems [ji2023].",
+    "citeCommand": "\\citet{xu2024}"
+  },
+  {
+    "key": "ji2023",
+    "line": 117,
+    "excerpt": "Recent theoretical work establishes that \\textbf{hallucination is not a bug but a structural property} of how language models operate. [kalai2024] prove formally that any language model satisfying natural calibration conditions \\textit{must} hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work [kalai2025] shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty. [xu2024] use computability theory to show that LLMs cannot learn all computable functions and will therefore inevitably produce confabulations when used as general-purpose reasoners. More broadly, hallucination is a well-documented reliability problem across deep-learning-based natural language generation systems [ji2023].",
+    "citeCommand": "\\cite{ji2023}"
+  },
+  {
+    "key": "ouyang2022",
+    "line": 119,
+    "excerpt": "\\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness [ouyang2022]. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; [magesh2025] found hallucination rates exceeding 17\\% in both Lexis+ AI and Westlaw AI-Assisted Research, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals [orgad2025, farquhar2024], but probes do not generalise across tasks, entropy methods fail on confident errors, and all require white-box access. [mccain2026] report that 73\\% of agent tool calls still involve human oversight, finding that agents systematically overestimate their own success rates.",
+    "citeCommand": "\\cite{ouyang2022}"
+  },
+  {
+    "key": "magesh2025",
+    "line": 119,
+    "excerpt": "\\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness [ouyang2022]. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; [magesh2025] found hallucination rates exceeding 17\\% in both Lexis+ AI and Westlaw AI-Assisted Research, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals [orgad2025, farquhar2024], but probes do not generalise across tasks, entropy methods fail on confident errors, and all require white-box access. [mccain2026] report that 73\\% of agent tool calls still involve human oversight, finding that agents systematically overestimate their own success rates.",
+    "citeCommand": "\\citet{magesh2025}"
+  },
+  {
+    "key": "orgad2025",
+    "line": 119,
+    "excerpt": "\\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness [ouyang2022]. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; [magesh2025] found hallucination rates exceeding 17\\% in both Lexis+ AI and Westlaw AI-Assisted Research, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals [orgad2025, farquhar2024], but probes do not generalise across tasks, entropy methods fail on confident errors, and all require white-box access. [mccain2026] report that 73\\% of agent tool calls still involve human oversight, finding that agents systematically overestimate their own success rates.",
+    "citeCommand": "\\cite{orgad2025, farquhar2024}"
+  },
+  {
+    "key": "farquhar2024",
+    "line": 119,
+    "excerpt": "\\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness [ouyang2022]. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; [magesh2025] found hallucination rates exceeding 17\\% in both Lexis+ AI and Westlaw AI-Assisted Research, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals [orgad2025, farquhar2024], but probes do not generalise across tasks, entropy methods fail on confident errors, and all require white-box access. [mccain2026] report that 73\\% of agent tool calls still involve human oversight, finding that agents systematically overestimate their own success rates.",
+    "citeCommand": "\\cite{orgad2025, farquhar2024}"
+  },
+  {
+    "key": "mccain2026",
+    "line": 119,
+    "excerpt": "\\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness [ouyang2022]. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; [magesh2025] found hallucination rates exceeding 17\\% in both Lexis+ AI and Westlaw AI-Assisted Research, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals [orgad2025, farquhar2024], but probes do not generalise across tasks, entropy methods fail on confident errors, and all require white-box access. [mccain2026] report that 73\\% of agent tool calls still involve human oversight, finding that agents systematically overestimate their own success rates.",
+    "citeCommand": "\\citet{mccain2026}"
+  },
+  {
+    "key": "deloitte2025",
+    "line": 121,
+    "excerpt": "\\textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations [deloitte2025]. Earlier, fabricated ChatGPT citations were submitted to a U.S.\\ federal court [mata2023], and Google's first Bard demo hallucinated on camera, contributing to a \\$100 billion market cap drop [googlebard2023]. Yet the majority of organisations now use AI in at least one function [mckinsey2025], and Gartner projected over 80\\% of enterprises would deploy generative AI by 2026 [gartner2023]. \\textbf{Organisations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.",
+    "citeCommand": "\\cite{deloitte2025}"
+  },
+  {
+    "key": "mata2023",
+    "line": 121,
+    "excerpt": "\\textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations [deloitte2025]. Earlier, fabricated ChatGPT citations were submitted to a U.S.\\ federal court [mata2023], and Google's first Bard demo hallucinated on camera, contributing to a \\$100 billion market cap drop [googlebard2023]. Yet the majority of organisations now use AI in at least one function [mckinsey2025], and Gartner projected over 80\\% of enterprises would deploy generative AI by 2026 [gartner2023]. \\textbf{Organisations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.",
+    "citeCommand": "\\cite{mata2023}"
+  },
+  {
+    "key": "googlebard2023",
+    "line": 121,
+    "excerpt": "\\textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations [deloitte2025]. Earlier, fabricated ChatGPT citations were submitted to a U.S.\\ federal court [mata2023], and Google's first Bard demo hallucinated on camera, contributing to a \\$100 billion market cap drop [googlebard2023]. Yet the majority of organisations now use AI in at least one function [mckinsey2025], and Gartner projected over 80\\% of enterprises would deploy generative AI by 2026 [gartner2023]. \\textbf{Organisations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.",
+    "citeCommand": "\\cite{googlebard2023}"
+  },
+  {
+    "key": "mckinsey2025",
+    "line": 121,
+    "excerpt": "\\textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations [deloitte2025]. Earlier, fabricated ChatGPT citations were submitted to a U.S.\\ federal court [mata2023], and Google's first Bard demo hallucinated on camera, contributing to a \\$100 billion market cap drop [googlebard2023]. Yet the majority of organisations now use AI in at least one function [mckinsey2025], and Gartner projected over 80\\% of enterprises would deploy generative AI by 2026 [gartner2023]. \\textbf{Organisations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.",
+    "citeCommand": "\\cite{mckinsey2025}"
+  },
+  {
+    "key": "gartner2023",
+    "line": 121,
+    "excerpt": "\\textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations [deloitte2025]. Earlier, fabricated ChatGPT citations were submitted to a U.S.\\ federal court [mata2023], and Google's first Bard demo hallucinated on camera, contributing to a \\$100 billion market cap drop [googlebard2023]. Yet the majority of organisations now use AI in at least one function [mckinsey2025], and Gartner projected over 80\\% of enterprises would deploy generative AI by 2026 [gartner2023]. \\textbf{Organisations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.",
+    "citeCommand": "\\cite{gartner2023}"
+  },
+  {
+    "key": "bainbridge1983",
+    "line": 123,
+    "excerpt": "This creates precisely the conditions described in Bainbridge's classic analysis of the \\textbf{ironies of automation} [bainbridge1983] and well-documented in the trust-in-automation literature [leesee2004, parasuraman1997]: as automated systems become more reliable, human operators trust them more and monitor them less. When the rare failure occurs, it is more likely to go undetected precisely because the operator has become complacent. In the context of AI-generated text, this dynamic is particularly acute. An LLM that produces correct output 97\\% of the time creates a more dangerous situation than one that produces correct output 80\\% of the time, because the 97\\% system induces trust that suppresses human verification behaviour.",
+    "citeCommand": "\\cite{bainbridge1983}"
+  },
+  {
+    "key": "leesee2004",
+    "line": 123,
+    "excerpt": "This creates precisely the conditions described in Bainbridge's classic analysis of the \\textbf{ironies of automation} [bainbridge1983] and well-documented in the trust-in-automation literature [leesee2004, parasuraman1997]: as automated systems become more reliable, human operators trust them more and monitor them less. When the rare failure occurs, it is more likely to go undetected precisely because the operator has become complacent. In the context of AI-generated text, this dynamic is particularly acute. An LLM that produces correct output 97\\% of the time creates a more dangerous situation than one that produces correct output 80\\% of the time, because the 97\\% system induces trust that suppresses human verification behaviour.",
+    "citeCommand": "\\cite{leesee2004, parasuraman1997}"
+  },
+  {
+    "key": "parasuraman1997",
+    "line": 123,
+    "excerpt": "This creates precisely the conditions described in Bainbridge's classic analysis of the \\textbf{ironies of automation} [bainbridge1983] and well-documented in the trust-in-automation literature [leesee2004, parasuraman1997]: as automated systems become more reliable, human operators trust them more and monitor them less. When the rare failure occurs, it is more likely to go undetected precisely because the operator has become complacent. In the context of AI-generated text, this dynamic is particularly acute. An LLM that produces correct output 97\\% of the time creates a more dangerous situation than one that produces correct output 80\\% of the time, because the 97\\% system induces trust that suppresses human verification behaviour.",
+    "citeCommand": "\\cite{leesee2004, parasuraman1997}"
+  },
+  {
+    "key": "euaiact",
+    "line": 125,
+    "excerpt": "The regulatory landscape compounds the problem. The EU AI Act [euaiact] classifies AI systems used for consequential decisions as ``high-risk'' (Annex III), requiring transparency, human oversight, and risk management. Yet to our knowledge, \\textbf{no existing framework combines inline claim markup, deterministic mismatch detection against structured data, and composable threshold inference} in a single system.",
+    "citeCommand": "\\cite{euaiact}"
+  },
+  {
+    "key": "factscore",
+    "line": 130,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{factscore}"
+  },
+  {
+    "key": "safe",
+    "line": 130,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{safe}"
+  },
+  {
+    "key": "factool",
+    "line": 130,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{factool}"
+  },
+  {
+    "key": "selfcheckgpt",
+    "line": 130,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{selfcheckgpt}"
+  },
+  {
+    "key": "refchecker",
+    "line": 130,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{refchecker}"
+  },
+  {
+    "key": "guardrails",
+    "line": 131,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{guardrails}"
+  },
+  {
+    "key": "dspy",
+    "line": 131,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{dspy}"
+  },
+  {
+    "key": "nemo",
+    "line": 131,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{nemo}"
+  },
+  {
+    "key": "rarr",
+    "line": 132,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{rarr}"
+  },
+  {
+    "key": "webgpt",
+    "line": 132,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{webgpt}"
+  },
+  {
+    "key": "googleground",
+    "line": 132,
+    "excerpt": "\\begin{enumerate} \\item \\textbf{Post-hoc fact-checking} (FActScore [factscore], SAFE [safe], FacTool [factool], SelfCheckGPT [selfcheckgpt], RefChecker [refchecker]): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process. \\item \\textbf{Output validation} (Guardrails AI [guardrails], DSPy [dspy], NeMo Guardrails [nemo]): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths. \\item \\textbf{Attribution} (RARR [rarr], WebGPT [webgpt], OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API [googleground]) additionally return support scores and claim-to-source metadata. These track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text. \\end{enumerate}",
+    "citeCommand": "\\cite{googleground}"
+  },
+  {
+    "key": "ixbrl",
+    "line": 147,
+    "excerpt": "The closest structural analog is iXBRL (Inline XBRL) [ixbrl], which embeds machine-readable tags in human-readable financial reports, enabling automated audit of reported figures. ProveML extends this concept from human-authored financial text to AI-generated text across any domain, adding inference chains, entity scoping, and threshold registries (see Figure~\\ref{fig:symgen-vs-proveml} for the architectural distinction).",
+    "citeCommand": "\\cite{ixbrl}"
+  },
+  {
+    "key": "ixbrl",
+    "line": 155,
+    "excerpt": "\\begin{itemize}[nosep] \\item Host language: Markdown (natively produced by LLMs) \\item Inline tagging model from iXBRL [ixbrl] \\item Operator vocabulary from FHIR clinical reference ranges [fhir] and JSON Schema validation \\item Fact store from the Entity-Attribute-Value (EAV) pattern \\item Verify-then-render pipeline from standard compiler design \\end{itemize}",
+    "citeCommand": "\\cite{ixbrl}"
+  },
+  {
+    "key": "fhir",
+    "line": 156,
+    "excerpt": "\\begin{itemize}[nosep] \\item Host language: Markdown (natively produced by LLMs) \\item Inline tagging model from iXBRL [ixbrl] \\item Operator vocabulary from FHIR clinical reference ranges [fhir] and JSON Schema validation \\item Fact store from the Entity-Attribute-Value (EAV) pattern \\item Verify-then-render pipeline from standard compiler design \\end{itemize}",
+    "citeCommand": "\\cite{fhir}"
+  },
+  {
+    "key": "fhir",
+    "line": 256,
+    "excerpt": "The threshold registry draws on the design patterns of clinical reference ranges (HL7 FHIR [fhir]), JSON Schema validation, and monitoring alert systems (Grafana, Datadog). The common insight across these systems: domain experts think in \\textit{named ranges with semantic labels}, not in operator expressions. A clinician defines ``normal glucose = 70--100 mg/dL'', not ``glucose >= 70 AND glucose <= 100''.",
+    "citeCommand": "\\cite{fhir}"
+  },
+  {
+    "key": "factscore",
+    "line": 715,
+    "excerpt": "\\paragraph{Post-hoc fact-checking (AI in the loop).} FActScore [factscore], SAFE [safe], FacTool [factool], and OpenFactCheck (COLING 2025) decompose generated text into atomic claims and verify each using LLMs or web search. ClaimVer (EMNLP 2024 Findings) adds explainability through knowledge graphs. SelfCheckGPT [selfcheckgpt] detects hallucinations via sampling consistency without external knowledge. RefChecker [refchecker] extracts claim triplets for reference-based checking. All use AI in the verification loop, making verification itself probabilistic. ProveML's verification is deterministic.",
+    "citeCommand": "\\cite{factscore}"
+  },
+  {
+    "key": "safe",
+    "line": 715,
+    "excerpt": "\\paragraph{Post-hoc fact-checking (AI in the loop).} FActScore [factscore], SAFE [safe], FacTool [factool], and OpenFactCheck (COLING 2025) decompose generated text into atomic claims and verify each using LLMs or web search. ClaimVer (EMNLP 2024 Findings) adds explainability through knowledge graphs. SelfCheckGPT [selfcheckgpt] detects hallucinations via sampling consistency without external knowledge. RefChecker [refchecker] extracts claim triplets for reference-based checking. All use AI in the verification loop, making verification itself probabilistic. ProveML's verification is deterministic.",
+    "citeCommand": "\\cite{safe}"
+  },
+  {
+    "key": "factool",
+    "line": 715,
+    "excerpt": "\\paragraph{Post-hoc fact-checking (AI in the loop).} FActScore [factscore], SAFE [safe], FacTool [factool], and OpenFactCheck (COLING 2025) decompose generated text into atomic claims and verify each using LLMs or web search. ClaimVer (EMNLP 2024 Findings) adds explainability through knowledge graphs. SelfCheckGPT [selfcheckgpt] detects hallucinations via sampling consistency without external knowledge. RefChecker [refchecker] extracts claim triplets for reference-based checking. All use AI in the verification loop, making verification itself probabilistic. ProveML's verification is deterministic.",
+    "citeCommand": "\\cite{factool}"
+  },
+  {
+    "key": "selfcheckgpt",
+    "line": 715,
+    "excerpt": "\\paragraph{Post-hoc fact-checking (AI in the loop).} FActScore [factscore], SAFE [safe], FacTool [factool], and OpenFactCheck (COLING 2025) decompose generated text into atomic claims and verify each using LLMs or web search. ClaimVer (EMNLP 2024 Findings) adds explainability through knowledge graphs. SelfCheckGPT [selfcheckgpt] detects hallucinations via sampling consistency without external knowledge. RefChecker [refchecker] extracts claim triplets for reference-based checking. All use AI in the verification loop, making verification itself probabilistic. ProveML's verification is deterministic.",
+    "citeCommand": "\\cite{selfcheckgpt}"
+  },
+  {
+    "key": "refchecker",
+    "line": 715,
+    "excerpt": "\\paragraph{Post-hoc fact-checking (AI in the loop).} FActScore [factscore], SAFE [safe], FacTool [factool], and OpenFactCheck (COLING 2025) decompose generated text into atomic claims and verify each using LLMs or web search. ClaimVer (EMNLP 2024 Findings) adds explainability through knowledge graphs. SelfCheckGPT [selfcheckgpt] detects hallucinations via sampling consistency without external knowledge. RefChecker [refchecker] extracts claim triplets for reference-based checking. All use AI in the verification loop, making verification itself probabilistic. ProveML's verification is deterministic.",
+    "citeCommand": "\\cite{refchecker}"
+  },
+  {
+    "key": "googleground",
+    "line": 717,
+    "excerpt": "\\paragraph{Attribution (where, not whether).} Anthropic's Citations API, OpenAI's response annotations, and Google's Vertex AI Grounding [googleground] link generated text to source documents or passages. Google's grounding API additionally returns support scores and claim-to-source metadata, though verification remains probabilistic. RARR [rarr] and WebGPT [webgpt] attach URLs. LAQuer (ACL 2025) and ``Attribute First, then Generate'' (ACL 2024) localise attributions to fine-grained source spans. These systems track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, if any, is against unstructured text.",
+    "citeCommand": "\\cite{googleground}"
+  },
+  {
+    "key": "rarr",
+    "line": 717,
+    "excerpt": "\\paragraph{Attribution (where, not whether).} Anthropic's Citations API, OpenAI's response annotations, and Google's Vertex AI Grounding [googleground] link generated text to source documents or passages. Google's grounding API additionally returns support scores and claim-to-source metadata, though verification remains probabilistic. RARR [rarr] and WebGPT [webgpt] attach URLs. LAQuer (ACL 2025) and ``Attribute First, then Generate'' (ACL 2024) localise attributions to fine-grained source spans. These systems track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, if any, is against unstructured text.",
+    "citeCommand": "\\cite{rarr}"
+  },
+  {
+    "key": "webgpt",
+    "line": 717,
+    "excerpt": "\\paragraph{Attribution (where, not whether).} Anthropic's Citations API, OpenAI's response annotations, and Google's Vertex AI Grounding [googleground] link generated text to source documents or passages. Google's grounding API additionally returns support scores and claim-to-source metadata, though verification remains probabilistic. RARR [rarr] and WebGPT [webgpt] attach URLs. LAQuer (ACL 2025) and ``Attribute First, then Generate'' (ACL 2024) localise attributions to fine-grained source spans. These systems track \\textit{where} a claim came from, not \\textit{whether the claimed value is correct}. Verification, if any, is against unstructured text.",
+    "citeCommand": "\\cite{webgpt}"
+  },
+  {
+    "key": "totto",
+    "line": 723,
+    "excerpt": "\\paragraph{Data-grounded generation.} The data-to-text community [totto] and StructFact (ACL 2025 Findings) benchmark faithful generation from structured data. ClaimDB (arXiv, January 2026) is the first fact-verification benchmark over large structured databases, using executable SQL queries. Kamu Data's Oracle-Augmented Generation [oraclegen] delegates computation to a deterministic query engine with cryptographic provenance. These approaches verify at the query level; ProveML verifies at the claim level within natural language text.",
+    "citeCommand": "\\cite{totto}"
+  },
+  {
+    "key": "oraclegen",
+    "line": 723,
+    "excerpt": "\\paragraph{Data-grounded generation.} The data-to-text community [totto] and StructFact (ACL 2025 Findings) benchmark faithful generation from structured data. ClaimDB (arXiv, January 2026) is the first fact-verification benchmark over large structured databases, using executable SQL queries. Kamu Data's Oracle-Augmented Generation [oraclegen] delegates computation to a deterministic query engine with cryptographic provenance. These approaches verify at the query level; ProveML verifies at the claim level within natural language text.",
+    "citeCommand": "\\cite{oraclegen}"
+  },
+  {
+    "key": "ixbrl",
+    "line": 725,
+    "excerpt": "\\paragraph{Inline tagging.} iXBRL [ixbrl] embeds machine-readable tags in human-readable financial reports, the closest structural analog to ProveML. SymGen [symgen] embeds symbolic references in AI-generated text that are resolved against table data. SymGen's strategy is \\textit{error prevention}: a parser substitutes placeholders with data values, so the AI never independently claims a value. ProveML's strategy is \\textit{error detection}: the AI claims values directly, and a verifier checks them (Figure~\\ref{fig:symgen-vs-proveml}). SymGen cannot detect mismatches or audit existing text. ProveML adds entity scoping, a threshold registry, and composable inference chains.",
+    "citeCommand": "\\cite{ixbrl}"
+  },
+  {
+    "key": "symgen",
+    "line": 725,
+    "excerpt": "\\paragraph{Inline tagging.} iXBRL [ixbrl] embeds machine-readable tags in human-readable financial reports, the closest structural analog to ProveML. SymGen [symgen] embeds symbolic references in AI-generated text that are resolved against table data. SymGen's strategy is \\textit{error prevention}: a parser substitutes placeholders with data values, so the AI never independently claims a value. ProveML's strategy is \\textit{error detection}: the AI claims values directly, and a verifier checks them (Figure~\\ref{fig:symgen-vs-proveml}). SymGen cannot detect mismatches or audit existing text. ProveML adds entity scoping, a threshold registry, and composable inference chains.",
+    "citeCommand": "\\cite{symgen}"
+  },
+  {
+    "key": "prov",
+    "line": 727,
+    "excerpt": "\\paragraph{Provenance standards.} W3C PROV-O [prov] and C2PA [c2pa] provide document-level provenance metadata. Proof-Carrying Code [pcc] embeds machine-checkable safety proofs in executable code. ProveML borrows the principle that the producer embeds checkable evidence; the mechanisms differ entirely.",
+    "citeCommand": "\\cite{prov}"
+  },
+  {
+    "key": "c2pa",
+    "line": 727,
+    "excerpt": "\\paragraph{Provenance standards.} W3C PROV-O [prov] and C2PA [c2pa] provide document-level provenance metadata. Proof-Carrying Code [pcc] embeds machine-checkable safety proofs in executable code. ProveML borrows the principle that the producer embeds checkable evidence; the mechanisms differ entirely.",
+    "citeCommand": "\\cite{c2pa}"
+  },
+  {
+    "key": "pcc",
+    "line": 727,
+    "excerpt": "\\paragraph{Provenance standards.} W3C PROV-O [prov] and C2PA [c2pa] provide document-level provenance metadata. Proof-Carrying Code [pcc] embeds machine-checkable safety proofs in executable code. ProveML borrows the principle that the producer embeds checkable evidence; the mechanisms differ entirely.",
+    "citeCommand": "\\cite{pcc}"
+  }
+]

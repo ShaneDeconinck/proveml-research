@@ -1,0 +1,15 @@
+{
+  "name": "proveml-research",
+  "private": true,
+  "type": "module",
+  "description": "Paper, citation audit, benchmarks, and experiment artifacts for ProveML.",
+  "scripts": {
+    "paper:examples": "node paper/generate-paper-examples.js",
+    "paper:panels": "node paper/generate-proveml-paper-panels.js",
+    "audit:references": "node audit/scripts/generate-reference-audit.js"
+  },
+  "dependencies": {
+    "markdown-it": "^14.1.1",
+    "proveml": "file:../proveml"
+  }
+}

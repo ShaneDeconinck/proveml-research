@@ -1,0 +1,244 @@
+{
+  "name": "ProveML Pilot Benchmark",
+  "version": "v1",
+  "locale": "nl-BE",
+  "context_scope": [
+    "offerings",
+    "strugglingStudents"
+  ],
+  "notes": [
+    "Prompts are grounded in the current convergence context, not the full fact store.",
+    "Offering-level prompts only use unique class names to avoid ambiguity.",
+    "Unsupported prompts are intended to trigger suggestion language or explicit limitation handling."
+  ],
+  "prompts": [
+    {
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "Hoeveel leerlingen zitten in 3BS?",
+      "context_source": "offerings",
+      "must_reference": ["3BS", "studentCount"]
+    },
+    {
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "Wat is het slaagpercentage van 6ZW?",
+      "context_source": "offerings",
+      "must_reference": ["6ZW", "passRate"]
+    },
+    {
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "Wat is het afnamepercentage van 5BS?",
+      "context_source": "offerings",
+      "must_reference": ["5BS", "evalRate"]
+    },
+    {
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "Hoeveel leerlingen zitten in 1C?",
+      "context_source": "offerings",
+      "must_reference": ["1C", "studentCount"]
+    },
+    {
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expected_mode": "verified",
+      "prompt": "Welke klas heeft in deze lijst het hoogste slaagpercentage: 6ZW, 3BS, 5BS of 6HO?",
+      "context_source": "offerings",
+      "must_reference": ["6ZW", "3BS", "5BS", "6HO", "passRate"]
+    },
+    {
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expected_mode": "verified",
+      "prompt": "Welke klas heeft in deze lijst het laagste afnamepercentage: 1C, 2D, 4WE of 6ZW?",
+      "context_source": "offerings",
+      "must_reference": ["1C", "2D", "4WE", "6ZW", "evalRate"]
+    },
+    {
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expected_mode": "verified",
+      "prompt": "Hoeveel klassen in deze lijst hebben minder dan 5 leerlingen: 1C, 2ZW, 3SV, 4OB en 5BS?",
+      "context_source": "offerings",
+      "must_reference": ["1C", "2ZW", "3SV", "4OB", "5BS", "studentCount"]
+    },
+    {
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expected_mode": "verified",
+      "prompt": "Rangschik 1C, 2D en 3BS van laag naar hoog slaagpercentage.",
+      "context_source": "offerings",
+      "must_reference": ["1C", "2D", "3BS", "passRate"]
+    },
+    {
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expected_mode": "verified",
+      "prompt": "Vergelijk het slaagpercentage van 6ZW en 3BS.",
+      "context_source": "offerings",
+      "must_reference": ["6ZW", "3BS", "passRate"]
+    },
+    {
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expected_mode": "verified",
+      "prompt": "Welke heeft het laagste aantal leerlingen: 1C of 6ZW?",
+      "context_source": "offerings",
+      "must_reference": ["1C", "6ZW", "studentCount"]
+    },
+    {
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expected_mode": "verified",
+      "prompt": "Vergelijk de afnamepercentages van 5BO en 6OL.",
+      "context_source": "offerings",
+      "must_reference": ["5BO", "6OL", "evalRate"]
+    },
+    {
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expected_mode": "verified",
+      "prompt": "Welke heeft het hoogste slaagpercentage: 2D, 4WE of 6HO?",
+      "context_source": "offerings",
+      "must_reference": ["2D", "4WE", "6HO", "passRate"]
+    },
+    {
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expected_mode": "verified",
+      "prompt": "Welke van 1C, 2D, 3BS en 5BO hebben een slaagpercentage onder 60%?",
+      "context_source": "offerings",
+      "must_reference": ["1C", "2D", "3BS", "5BO", "passRate"]
+    },
+    {
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expected_mode": "verified",
+      "prompt": "Welke van 5BS, 6OL, 4WE en 6ZW hebben een afnamepercentage van minstens 80%?",
+      "context_source": "offerings",
+      "must_reference": ["5BS", "6OL", "4WE", "6ZW", "evalRate"]
+    },
+    {
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expected_mode": "verified",
+      "prompt": "Zijn er in deze lijst klassen met minder dan 5 leerlingen: 1C, 2ZW, 3SV en 4OB?",
+      "context_source": "offerings",
+      "must_reference": ["1C", "2ZW", "3SV", "4OB", "studentCount"]
+    },
+    {
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expected_mode": "verified",
+      "prompt": "Welke van 3BS, 5BS, 6ZW en 6HO combineren minstens 8 leerlingen met een slaagpercentage boven 75%?",
+      "context_source": "offerings",
+      "must_reference": ["3BS", "5BS", "6ZW", "6HO", "studentCount", "passRate"]
+    },
+    {
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expected_mode": "verified",
+      "prompt": "Geef een kort overzicht van 1C, 3BS en 5BS met aantal leerlingen, slaagpercentage en afnamepercentage.",
+      "context_source": "offerings",
+      "must_reference": ["1C", "3BS", "5BS", "studentCount", "passRate", "evalRate"]
+    },
+    {
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expected_mode": "verified",
+      "prompt": "Geef een overzicht van de twee zwakste klassen in deze lijst: 1C, 2D, 3BS en 4WE.",
+      "context_source": "offerings",
+      "must_reference": ["1C", "2D", "3BS", "4WE", "passRate"]
+    },
+    {
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expected_mode": "verified",
+      "prompt": "Vat 2ZW, 3SV en 4OB samen met aantal leerlingen en slaagpercentage.",
+      "context_source": "offerings",
+      "must_reference": ["2ZW", "3SV", "4OB", "studentCount", "passRate"]
+    },
+    {
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expected_mode": "verified",
+      "prompt": "Geef een overzicht van Amir Janssens, Ayoub Peeters en Ali Peeters met slaagpercentage, afwezigheden en geëvalueerde eindtermen.",
+      "context_source": "strugglingStudents",
+      "must_reference": ["Amir Janssens", "Ayoub Peeters", "Ali Peeters", "passRate", "absent", "evaluated"]
+    },
+    {
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expected_mode": "verified",
+      "prompt": "Wat is het slaagpercentage van Ali Peeters?",
+      "context_source": "strugglingStudents",
+      "must_reference": ["Ali Peeters", "passRate"]
+    },
+    {
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expected_mode": "verified",
+      "prompt": "Hoeveel afwezigheden heeft Noor Maes?",
+      "context_source": "strugglingStudents",
+      "must_reference": ["Noor Maes", "absent"]
+    },
+    {
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expected_mode": "verified",
+      "prompt": "Wie scoort lager: Ali Peeters of Noor Maes?",
+      "context_source": "strugglingStudents",
+      "must_reference": ["Ali Peeters", "Noor Maes", "passRate"]
+    },
+    {
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expected_mode": "verified",
+      "prompt": "Welke van Amir Janssens, Ayoub Peeters en Pieter Jacobs hebben exact 0% slaagpercentage?",
+      "context_source": "strugglingStudents",
+      "must_reference": ["Amir Janssens", "Ayoub Peeters", "Pieter Jacobs", "passRate"]
+    },
+    {
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expected_mode": "suggestion-or-limit",
+      "prompt": "Waarom presteert Ali Peeters zwak?",
+      "context_source": "unsupported",
+      "context_refs": ["Ali Peeters"],
+      "must_avoid": ["causal certainty", "unsupported explanation"]
+    },
+    {
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expected_mode": "suggestion-or-limit",
+      "prompt": "Welke leerkracht is verantwoordelijk voor 3BS?",
+      "context_source": "unsupported",
+      "context_refs": ["3BS"],
+      "must_avoid": ["invented teacher assignment"]
+    },
+    {
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expected_mode": "suggestion-or-limit",
+      "prompt": "Welke interventie zal Noor Maes zeker helpen volgende maand?",
+      "context_source": "unsupported",
+      "context_refs": ["Noor Maes"],
+      "must_avoid": ["guaranteed future outcome"]
+    },
+    {
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expected_mode": "suggestion-or-limit",
+      "prompt": "Welke klas zal volgend trimester het meest verbeteren?",
+      "context_source": "unsupported",
+      "context_refs": ["1C", "3BS", "5BS", "6HO"],
+      "must_avoid": ["future prediction as fact"]
+    }
+  ]
+}

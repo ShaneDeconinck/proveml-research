@@ -1,0 +1,3366 @@
+{
+  "timestamp": "2026-03-30T06:15:43.251Z",
+  "provider": "claude",
+  "model": "haiku",
+  "run": 3,
+  "maxLoops": 3,
+  "contextMode": "slice",
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1",
+    "path": "benchmarks/proveml-pilot.v1.json"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10340]{3BS} has %[studentCount]{10} students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 100,
+          "time": 5.2
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10323]{6ZW} has a %[passRate]{74} pass rate.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 100,
+          "time": 5
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10523]{5BS} has %[evalRate]{82}% afnamepercentage.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 100,
+          "time": 8.7
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} has %[studentCount]{2} students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 100,
+          "time": 5.7
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 67,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10523]{5BS} has the highest pass rate at %[passRate]{78}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 67,
+          "time": 4.9
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 67,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} has het laagste afnamepercentage met %[evalRate]{44}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 67,
+          "time": 4.9
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 91,
+      "finalRate": 91,
+      "initialClaims": 11,
+      "finalClaims": 11,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10511.count"
+        }
+      ],
+      "coverage": 85,
+      "contextOfferings": 5,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} heeft %[studentCount]{2} studenten, @[offering:10509]{2ZW} heeft %[studentCount]{1} student, en @[offering:10511]{3SV} heeft %[studentCount]{4} studenten. Dat zijn %[count]{3} klassen met minder dan 5 leerlingen. @[offering:10515]{4OB} heeft %[studentCount]{7} studenten en @[offering:10523]{5BS} heeft %[studentCount]{13} studenten, dus zij voldoen niet aan de voorwaarde.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 10,
+          "total": 11,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10511.count"
+            }
+          ],
+          "rate": 91,
+          "coverage": 85,
+          "time": 5.8
+        },
+        {
+          "loop": 1,
+          "verified": 10,
+          "total": 11,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10511.count"
+            }
+          ],
+          "rate": 91,
+          "coverage": 85,
+          "time": 12.8,
+          "candidate": {
+            "verified": 10,
+            "total": 13,
+            "rate": 77,
+            "coverage": 87,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "count"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.count"
+              },
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "offering:10523.studentCount",
+                "expected": "13"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 10,
+          "total": 11,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10511.count"
+            }
+          ],
+          "rate": 91,
+          "coverage": 85,
+          "time": 16.1,
+          "candidate": {
+            "verified": 10,
+            "total": 11,
+            "rate": 91,
+            "coverage": 85,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "count"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 10,
+          "total": 11,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10511.count"
+            }
+          ],
+          "rate": 91,
+          "coverage": 85,
+          "time": 16.8,
+          "candidate": {
+            "verified": 5,
+            "total": 13,
+            "rate": 38,
+            "coverage": 87,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10509.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10511.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10515.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.students"
+              },
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "offering:10523.studentCount",
+                "expected": "13"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.count"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 12,
+      "finalClaims": 12,
+      "initialErrorDetails": [],
+      "coverage": 86,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} heeft %[passRate]{50}%, @[offering:10378]{2D} heeft %[passRate]{59}%, en @[offering:10340]{3BS} heeft %[passRate]{59}%.\n\nRangschikking van laag naar hoog:\n1. @[offering:10375]{1C} — %[passRate]{50}%\n2. @[offering:10378]{2D} — %[passRate]{59}%\n3. @[offering:10340]{3BS} — %[passRate]{59}%",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 12,
+          "total": 12,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 86,
+          "time": 4.8
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 86,
+      "finalRate": 86,
+      "initialClaims": 7,
+      "finalClaims": 7,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10323.passRateDifference"
+        }
+      ],
+      "coverage": 88,
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10323]{6ZW} heeft een slaagpercentage van %[passRate]{74}%, terwijl @[offering:10340]{3BS} een slaagpercentage van %[passRate]{59}% heeft. @[offering:10323]{6ZW} presteert %[passRateDifference]{15} procentpunt hoger dan @[offering:10340]{3BS}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 7,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.passRateDifference"
+            }
+          ],
+          "rate": 86,
+          "coverage": 88,
+          "time": 5.8
+        },
+        {
+          "loop": 1,
+          "verified": 6,
+          "total": 7,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.passRateDifference"
+            }
+          ],
+          "rate": 86,
+          "coverage": 88,
+          "time": 9.6,
+          "candidate": {
+            "verified": 6,
+            "total": 7,
+            "rate": 86,
+            "coverage": 88,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.passRateDifference"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 6,
+          "total": 7,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.passRateDifference"
+            }
+          ],
+          "rate": 86,
+          "coverage": 88,
+          "time": 6.7,
+          "candidate": {
+            "verified": 6,
+            "total": 7,
+            "rate": 86,
+            "coverage": 88,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.passRateDifference"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 6,
+          "total": 7,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.passRateDifference"
+            }
+          ],
+          "rate": 86,
+          "coverage": 88,
+          "time": 10.8,
+          "candidate": {
+            "verified": 6,
+            "total": 7,
+            "rate": 86,
+            "coverage": 88,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.passRateDifference"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 50,
+      "finalRate": 50,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10375.students"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10323.students"
+        }
+      ],
+      "coverage": 80,
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} has the lowest number of students with %[students]{2}, compared to @[offering:10323]{6ZW} at %[students]{3}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.students"
+            }
+          ],
+          "rate": 50,
+          "coverage": 80,
+          "time": 6.4
+        },
+        {
+          "loop": 1,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.students"
+            }
+          ],
+          "rate": 50,
+          "coverage": 80,
+          "time": 25.8,
+          "candidate": {
+            "verified": 2,
+            "total": 4,
+            "rate": 50,
+            "coverage": 40,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10323.offering:10323.students"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.students"
+            }
+          ],
+          "rate": 50,
+          "coverage": 80,
+          "time": 12.5,
+          "candidate": {
+            "verified": 2,
+            "total": 2,
+            "rate": 100,
+            "coverage": 40,
+            "errorDetails": []
+          },
+          "accepted": false,
+          "reason": "claims-dropped"
+        },
+        {
+          "loop": 3,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10323.students"
+            }
+          ],
+          "rate": 50,
+          "coverage": 80,
+          "time": 14.6,
+          "candidate": {
+            "verified": 2,
+            "total": 6,
+            "rate": 33,
+            "coverage": 57,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "students"
+              },
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10323.offering:10323.students"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 83,
+      "finalRate": 83,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10537.difference"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10463]{5BO} has %[evalRate]{56}% evaluation rate, while @[offering:10537]{6OL} has %[evalRate]{80}% evaluation rate. @[offering:10537]{6OL} shows a higher evaluation rate by %[difference]{24} percentage points.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 5,
+          "total": 6,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10537.difference"
+            }
+          ],
+          "rate": 83,
+          "coverage": 100,
+          "time": 4.5
+        },
+        {
+          "loop": 1,
+          "verified": 5,
+          "total": 6,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10537.difference"
+            }
+          ],
+          "rate": 83,
+          "coverage": 100,
+          "time": 8.6,
+          "candidate": {
+            "verified": 5,
+            "total": 6,
+            "rate": 83,
+            "coverage": 86,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "difference"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 5,
+          "total": 6,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10537.difference"
+            }
+          ],
+          "rate": 83,
+          "coverage": 100,
+          "time": 8.5,
+          "candidate": {
+            "verified": 5,
+            "total": 6,
+            "rate": 83,
+            "coverage": 86,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10537.difference"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 5,
+          "total": 6,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10537.difference"
+            }
+          ],
+          "rate": 83,
+          "coverage": 100,
+          "time": 7.2,
+          "candidate": {
+            "verified": 5,
+            "total": 7,
+            "rate": 71,
+            "coverage": 88,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "difference"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10537.difference"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "coverage": 86,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10448]{4WE} heeft het hoogste slaagpercentage met %[passRate]{70}%, gevolgd door @[offering:10478]{6HO} met %[passRate]{63}% en @[offering:10378]{2D} met %[passRate]{59}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 86,
+          "time": 8.4
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 8,
+      "finalClaims": 8,
+      "initialErrorDetails": [],
+      "coverage": 89,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} heeft een slaagpercentage van %[passRate]{50}%.\n@[offering:10378]{2D} heeft een slaagpercentage van %[passRate]{59}%.\n@[offering:10340]{3BS} heeft een slaagpercentage van %[passRate]{59}%.\n@[offering:10463]{5BO} heeft een slaagpercentage van %[passRate]{59}%.\n\nAlle vier hebben een slaagpercentage onder 60%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 8,
+          "total": 8,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 89,
+          "time": 4.7
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "coverage": 80,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10523]{5BS} has %[evalRate]{82}% evaluation rate and @[offering:10537]{6OL} has %[evalRate]{80}% evaluation rate. These are the only two offerings meeting the minimum threshold of 80%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 80,
+          "time": 4.9
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 8,
+      "finalClaims": 8,
+      "initialErrorDetails": [],
+      "coverage": 80,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "Ja, drie klassen hebben minder dan 5 leerlingen. @[offering:10375]{1C} heeft %[studentCount]{2} leerlingen, @[offering:10509]{2ZW} heeft %[studentCount]{1} leerling, en @[offering:10511]{3SV} heeft %[studentCount]{4} leerlingen. @[offering:10515]{4OB} heeft %[studentCount]{7} leerlingen en voldoet dus niet aan het criterium.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 8,
+          "total": 8,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 80,
+          "time": 7.8
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [],
+      "coverage": 60,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10523]{5BS} combineren minstens 8 leerlingen met een slaagpercentage boven 75%. Deze aanbieding heeft %[studentCount]{13} leerlingen met een slaagpercentage van %[passRate]{78}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 60,
+          "time": 7
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 75,
+      "finalRate": 75,
+      "initialClaims": 12,
+      "finalClaims": 12,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10375.students"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10340.students"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10523.students"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} heeft %[students]{2} leerlingen met een slaagpercentage van %[passRate]{50}% en een afnamepercentage van %[evalRate]{44}%.\n\n@[offering:10340]{3BS} heeft %[students]{10} leerlingen met een slaagpercentage van %[passRate]{59}% en een afnamepercentage van %[evalRate]{59}%.\n\n@[offering:10523]{5BS} heeft %[students]{13} leerlingen met een slaagpercentage van %[passRate]{78}% en een afnamepercentage van %[evalRate]{82}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 12,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10523.students"
+            }
+          ],
+          "rate": 75,
+          "coverage": 100,
+          "time": 5
+        },
+        {
+          "loop": 1,
+          "verified": 9,
+          "total": 12,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10523.students"
+            }
+          ],
+          "rate": 75,
+          "coverage": 100,
+          "time": 32.6,
+          "candidate": {
+            "verified": 9,
+            "total": 12,
+            "rate": 75,
+            "coverage": 92,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.students"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 9,
+          "total": 12,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10523.students"
+            }
+          ],
+          "rate": 75,
+          "coverage": 100,
+          "time": 16.2,
+          "candidate": {
+            "verified": 9,
+            "total": 12,
+            "rate": 75,
+            "coverage": 57,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.students"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 9,
+          "total": 12,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10523.students"
+            }
+          ],
+          "rate": 75,
+          "coverage": 100,
+          "time": 26.3,
+          "candidate": {
+            "verified": 3,
+            "total": 14,
+            "rate": 21,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "entity/field"
+              },
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "field"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375/students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375/passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375/evalRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340/students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340/passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340/evalRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.offering:10523/students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.offering:10523/passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10523.offering:10523/evalRate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 77,
+      "finalRate": 77,
+      "initialClaims": 13,
+      "finalClaims": 13,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10375.students"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10340.students"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10378.students"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} is de zwakste klas met %[passRate]{50}% slaagpercentage en slechts %[students]{2} leerlingen. @[offering:10340]{3BS} is de tweede zwakste met %[passRate]{59}% slaagpercentage, %[evalRate]{59}% evaluatiepercentage en %[students]{10} leerlingen.\n\nTer vergelijking: @[offering:10378]{2D} heeft eveneens %[passRate]{59}% slaagpercentage maar een hoger %[evalRate]{73}% evaluatiepercentage met %[students]{12} leerlingen. @[offering:10448]{4WE} is de sterkste klas met %[passRate]{70}% slaagpercentage.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 10,
+          "total": 13,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10378.students"
+            }
+          ],
+          "rate": 77,
+          "coverage": 100,
+          "time": 11.2
+        },
+        {
+          "loop": 1,
+          "verified": 10,
+          "total": 13,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10378.students"
+            }
+          ],
+          "rate": 77,
+          "coverage": 100,
+          "time": 34.8,
+          "candidate": {
+            "verified": 10,
+            "total": 14,
+            "rate": 71,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.students"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 10,
+          "total": 13,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10378.students"
+            }
+          ],
+          "rate": 77,
+          "coverage": 100,
+          "time": 18.7,
+          "candidate": {
+            "verified": 4,
+            "total": 15,
+            "rate": 27,
+            "coverage": 63,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "field"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340.evalRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.offering:10378.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.offering:10378.evalRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.offering:10378.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10448.offering:10448.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10448.offering:ID.fieldName"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 10,
+          "total": 13,
+          "errors": 3,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10375.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10340.students"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10378.students"
+            }
+          ],
+          "rate": 77,
+          "coverage": 100,
+          "time": 25.9,
+          "candidate": {
+            "verified": 4,
+            "total": 15,
+            "rate": 27,
+            "coverage": 63,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10375.offering:10375.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340.evalRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10340.offering:10340.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.offering:10378.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.offering:10378.evalRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10378.offering:10378.students"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10448.offering:10448.passRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10448.field"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10448.offering:ID.field"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 1,
+      "initialRate": 82,
+      "finalRate": 100,
+      "initialClaims": 11,
+      "finalClaims": 11,
+      "initialErrorDetails": [
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10515.studentCount",
+          "expected": "7"
+        },
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10515.passRate",
+          "expected": "78"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "```\n@[offering:10509]{2ZW} has %[studentCount]{1} student with a pass rate of %[passRate]{44}%.\n@[offering:10511]{3SV} has %[studentCount]{4} students with a pass rate of %[passRate]{66}%.\n@[offering:10515]{4OB} has %[studentCount]{7} students with a pass rate of %[passRate]{78}%.\n\nTogether: %[studentCount]{7} students with a combined pass rate of %[passRate]{78}%.\n```",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 11,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10515.studentCount",
+              "expected": "7"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10515.passRate",
+              "expected": "78"
+            }
+          ],
+          "rate": 82,
+          "coverage": 100,
+          "time": 16.7
+        },
+        {
+          "loop": 1,
+          "verified": 11,
+          "total": 11,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 100,
+          "time": 36.2,
+          "candidate": {
+            "verified": 11,
+            "total": 11,
+            "rate": 100,
+            "coverage": 100,
+            "errorDetails": []
+          },
+          "accepted": true,
+          "reason": "accepted"
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 40,
+      "finalRate": 60,
+      "initialClaims": 15,
+      "finalClaims": 15,
+      "initialErrorDetails": [
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10065.passRate",
+          "expected": "69"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10065.absent"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10065.evaluated"
+        },
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10166.passRate",
+          "expected": "58"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10166.absent"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10166.evaluated"
+        },
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10181.passRate",
+          "expected": "58"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.absent"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.evaluated"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "Looking at the data and errors, I need to fix the offering IDs and passRate values. The offerings list shows:\n- \"1BW\" has ID **10609** (not 10065) with passRate **71**\n- \"6D\" has ID **10755** (not 10166) with passRate **73**  \n- \"1E\" has ID **10759** (not 10181) with passRate **88**\n\nHere's the corrected answer with exact values from the data:\n\n@[student:10078]{Amir Janssens} volgt @[offering:10609]{1BW} met %[passRate]{71}% slaagpercentage, %[absent]{35} afwezigheden en %[evaluated]{5} geëvalueerde eindtermen.\n\n@[student:10167]{Ayoub Peeters} volgt @[offering:10755]{6D} met %[passRate]{73}% slaagpercentage, %[absent]{26} afwezigheden en %[evaluated]{11} geëvalueerde eindtermen.\n\n@[student:10184]{Ali Peeters} volgt @[offering:10759]{1E} met %[passRate]{88}% slaagpercentage, %[absent]{69} afwezigheden en %[evaluated]{44} geëvalueerde eindtermen.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 15,
+          "errors": 9,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10065.passRate",
+              "expected": "69"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10065.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10065.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10166.passRate",
+              "expected": "58"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10166.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10166.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10181.passRate",
+              "expected": "58"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.evaluated"
+            }
+          ],
+          "rate": 40,
+          "coverage": 100,
+          "time": 6.2
+        },
+        {
+          "loop": 1,
+          "verified": 6,
+          "total": 15,
+          "errors": 9,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10065.passRate",
+              "expected": "69"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10065.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10065.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10166.passRate",
+              "expected": "58"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10166.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10166.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10181.passRate",
+              "expected": "58"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.evaluated"
+            }
+          ],
+          "rate": 40,
+          "coverage": 100,
+          "time": 48.8,
+          "candidate": {
+            "verified": 6,
+            "total": 15,
+            "rate": 40,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.evaluated"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.evaluated"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.evaluated"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 9,
+          "total": 15,
+          "errors": 6,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10609.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10609.evaluated"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10755.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10755.evaluated"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.evaluated"
+            }
+          ],
+          "rate": 60,
+          "coverage": 100,
+          "time": 48.3,
+          "candidate": {
+            "verified": 9,
+            "total": 15,
+            "rate": 60,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.evaluated"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.evaluated"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.evaluated"
+              }
+            ]
+          },
+          "accepted": true,
+          "reason": "accepted"
+        },
+        {
+          "loop": 3,
+          "verified": 9,
+          "total": 15,
+          "errors": 6,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10065.passRate",
+              "expected": "69"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10065.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10065.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10166.passRate",
+              "expected": "58"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10166.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10166.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10181.passRate",
+              "expected": "58"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.evaluated"
+            }
+          ],
+          "rate": 60,
+          "coverage": 100,
+          "time": 25.7,
+          "candidate": {
+            "verified": 9,
+            "total": 15,
+            "rate": 60,
+            "coverage": 83,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10609.evaluated"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10755.evaluated"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.evaluated"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 50,
+      "finalRate": 50,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "student:10184.rate"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:10184]{Ali Peeters} heeft een slaagpercentage van %[rate]{10}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 6
+        },
+        {
+          "loop": 1,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 7.1,
+          "candidate": {
+            "verified": 1,
+            "total": 5,
+            "rate": 20,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184/rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184/rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 10.5,
+          "candidate": {
+            "verified": 1,
+            "total": 5,
+            "rate": 20,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184.rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 9.2,
+          "candidate": {
+            "verified": 1,
+            "total": 5,
+            "rate": 20,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:10187]{Noor Maes} has %[absent]{68} absences.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 100,
+          "time": 7.1
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 50,
+      "finalRate": 50,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "student:10184.rate"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "student:10187.rate"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 1,
+      "contextStudents": 2,
+      "finalResponse": "@[student:10184]{Ali Peeters} scoort lager met een %[rate]{10}% passeerpercentage, vergeleken met @[student:10187]{Noor Maes} die %[rate]{13}% haalt.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10187.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 5
+        },
+        {
+          "loop": 1,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10187.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 10.2,
+          "candidate": {
+            "verified": 2,
+            "total": 4,
+            "rate": 50,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.student:10184:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.student:10187:rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10187.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 23.1,
+          "candidate": {
+            "verified": 2,
+            "total": 8,
+            "rate": 25,
+            "coverage": 83,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:10184:rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:10187:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10187:rate.rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "entity:id:field"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 2,
+          "total": 4,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10187.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 13.2,
+          "candidate": {
+            "verified": 2,
+            "total": 9,
+            "rate": 22,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.rate.rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate.rate"
+              },
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 75,
+      "finalRate": 50,
+      "initialClaims": 4,
+      "finalClaims": 12,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "student:10306.rate"
+        }
+      ],
+      "coverage": 100,
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "I need to fix the ProveML syntax for the rate field. The issue is that %[rate]{0} must be scoped to each student individually rather than used as a shared reference. Here's the corrected answer:\n\n@[student:10078]{Amir Janssens} with %[rate]{0}, @[student:10167]{Ayoub Peeters} with %[rate]{0}, and @[student:10306]{Pieter Jacobs} with %[rate]{0} are all struggling students.\n\nAlternatively, if you prefer a more concise form:\n\n@[student:10078]{Amir Janssens}, @[student:10167]{Ayoub Peeters}, and @[student:10306]{Pieter Jacobs} each have %[rate]{0}.\n\nThe key fix is explicitly binding the %[rate]{0} field to each student entity rather than using a single global reference.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 4,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10306.rate"
+            }
+          ],
+          "rate": 75,
+          "coverage": 100,
+          "time": 7.3
+        },
+        {
+          "loop": 1,
+          "verified": 3,
+          "total": 4,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10306.rate"
+            }
+          ],
+          "rate": 75,
+          "coverage": 100,
+          "time": 18.2,
+          "candidate": {
+            "verified": 3,
+            "total": 4,
+            "rate": 75,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 6,
+          "total": 12,
+          "errors": 6,
+          "errorDetails": [
+            {
+              "status": "no-context",
+              "errorClass": "context",
+              "field": "rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10078.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10167.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10306.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10306.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10306.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 13.7,
+          "candidate": {
+            "verified": 6,
+            "total": 12,
+            "rate": 50,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10078.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10167.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.rate"
+              }
+            ]
+          },
+          "accepted": true,
+          "reason": "accepted"
+        },
+        {
+          "loop": 3,
+          "verified": 6,
+          "total": 12,
+          "errors": 6,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10306.rate"
+            }
+          ],
+          "rate": 50,
+          "coverage": 100,
+          "time": 16,
+          "candidate": {
+            "verified": 6,
+            "total": 15,
+            "rate": 40,
+            "coverage": 100,
+            "errorDetails": [
+              {
+                "status": "no-context",
+                "errorClass": "context",
+                "field": "rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10078.student:10078:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10167.student:10167:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.student:10306:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.student:10078:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.student:10167:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.student:10306:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10306.student:XXXX:rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 29,
+      "finalRate": 86,
+      "initialClaims": 7,
+      "finalClaims": 7,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.rate"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.absent"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.total"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.passed"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10181.evaluated"
+        }
+      ],
+      "coverage": 78,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "Looking at the verification errors, the issue is that the %[field] values are being checked as properties of the offering, but they're actually student properties. The fields `rate`, `absent`, `total`, `passed`, and `evaluated` belong to the student record, not the offering.\n\nHere's the corrected answer:\n\n**@[student:10184]{Ali Peeters} has %[rate]{10}% with %[absent]{69} of %[total]{103} absences and %[passed]{4} of %[evaluated]{44} attainment levels passed in @[offering:10181]{1E}. The high absenteeism explains his weak performance.**\n\nThe key change is moving the offering reference to the end of the metric list, making it clear that the %[field] values are student properties, not offering properties.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 7,
+          "errors": 5,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.passed"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.evaluated"
+            }
+          ],
+          "rate": 29,
+          "coverage": 78,
+          "time": 14.5
+        },
+        {
+          "loop": 1,
+          "verified": 2,
+          "total": 7,
+          "errors": 5,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.passed"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.evaluated"
+            }
+          ],
+          "rate": 29,
+          "coverage": 78,
+          "time": 10.6,
+          "candidate": {
+            "verified": 2,
+            "total": 7,
+            "rate": 29,
+            "coverage": 50,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10181.student:10184:rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10181.student:10184:absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10181.student:10184:total"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10181.student:10184:passed"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10181.student:10184:evaluated"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 6,
+          "total": 7,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10184.rate"
+            }
+          ],
+          "rate": 86,
+          "coverage": 78,
+          "time": 43.6,
+          "candidate": {
+            "verified": 6,
+            "total": 7,
+            "rate": 86,
+            "coverage": 78,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              }
+            ]
+          },
+          "accepted": true,
+          "reason": "accepted"
+        },
+        {
+          "loop": 3,
+          "verified": 6,
+          "total": 7,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.passed"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10181.evaluated"
+            }
+          ],
+          "rate": 86,
+          "coverage": 78,
+          "time": 12.1,
+          "candidate": {
+            "verified": 6,
+            "total": 7,
+            "rate": 86,
+            "coverage": 78,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10184.rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "coverage": 67,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "De verstrekte gegevens bevatten geen informatie over leerkrachten. Het dataset bevat alleen gegevens over @[offering:10340]{3BS} (10 studenten, %[passRate]{59}% slaagpercentage), maar geen toewijzingen van leerkrachten.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 67,
+          "time": 4.5
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 25,
+      "finalRate": 50,
+      "initialClaims": 8,
+      "finalClaims": 14,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10759.absent"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10759.total"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10759.evaluated"
+        },
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10759.passRate",
+          "expected": "88"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10759.absent"
+        },
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10759.passRate",
+          "expected": "88"
+        }
+      ],
+      "coverage": 93,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:10187]{Noor Maes} has %[rate]{13}% pass rate and %[absent]{68} absences out of %[total]{100}, with only %[evaluated]{31} evaluated. In @[offering:10759]{1E}, which has %[passRate]{88}% pass rate, de prioriteit is **attendance intervention** — de %[absent]{68} absences zijn direct oorzaak van de lage %[rate]{13}% pass rate. Zonder aanwezigheid geen evaluatie, geen voortgang.\n\n---\n\n**Key corrections:**\n1. **Scoped all student fields before switching entities**: %[rate]{13}, %[absent]{68}, %[total]{100}, %[evaluated]{31} all stay in @[student:10187] context\n2. **Fixed offering field**: %[passRate]{88} (not 13) referenced in @[offering:10759] context\n3. **Eliminated context violations**: No student fields after mentioning offering; clear entity boundaries",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 8,
+          "errors": 6,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10759.passRate",
+              "expected": "88"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10759.passRate",
+              "expected": "88"
+            }
+          ],
+          "rate": 25,
+          "coverage": 89,
+          "time": 10.9
+        },
+        {
+          "loop": 1,
+          "verified": 6,
+          "total": 13,
+          "errors": 7,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10187.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.rate"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10759.passRate",
+              "expected": "88"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.rate"
+            }
+          ],
+          "rate": 46,
+          "coverage": 93,
+          "time": 37.3,
+          "candidate": {
+            "verified": 6,
+            "total": 13,
+            "rate": 46,
+            "coverage": 93,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              },
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "offering:10759.passRate",
+                "expected": "88"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              }
+            ]
+          },
+          "accepted": true,
+          "reason": "accepted"
+        },
+        {
+          "loop": 2,
+          "verified": 7,
+          "total": 14,
+          "errors": 7,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "student:10187.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.rate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.evaluated"
+            }
+          ],
+          "rate": 50,
+          "coverage": 93,
+          "time": 18.8,
+          "candidate": {
+            "verified": 7,
+            "total": 14,
+            "rate": 50,
+            "coverage": 93,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.total"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.evaluated"
+              }
+            ]
+          },
+          "accepted": true,
+          "reason": "accepted"
+        },
+        {
+          "loop": 3,
+          "verified": 7,
+          "total": 14,
+          "errors": 7,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.evaluated"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10759.passRate",
+              "expected": "88"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10759.absent"
+            },
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10759.passRate",
+              "expected": "88"
+            }
+          ],
+          "rate": 50,
+          "coverage": 93,
+          "time": 15.5,
+          "candidate": {
+            "verified": 6,
+            "total": 9,
+            "rate": 67,
+            "coverage": 90,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "student:10187.rate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.absent"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10759.rate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 15,
+      "finalClaims": 15,
+      "initialErrorDetails": [],
+      "coverage": 71,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10375]{1C} zal volgend trimester het meest verbeteren, omdat het momenteel de laagste prestaties vertoont.\n\n@[offering:10375]{1C} heeft slechts %[studentCount]{2} studenten met een %[passRate]{50}% pass rate en %[evalRate]{44}% evaluatiepercentage — het laagste van alle klassen.\n\nTer vergelijking:\n- @[offering:10340]{3BS}: %[passRate]{59}% pass rate, %[evalRate]{59}% evaluatie\n- @[offering:10478]{6HO}: %[passRate]{63}% pass rate, %[evalRate]{56}% evaluatie  \n- @[offering:10523]{5BS}: %[passRate]{78}% pass rate, %[evalRate]{82}% evaluatie (al sterk presteren)\n\nMet de grootste verbeteringsmarge kan @[offering:10375]{1C} het meest winnen.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 15,
+          "total": 15,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "coverage": 71,
+          "time": 7.1
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 83,
+    "avgFinal": 86,
+    "avgCoverage": 88,
+    "converged": 16,
+    "total": 28,
+    "avgLoops": "0.1",
+    "zeroShot": 15,
+    "oneLoop": 16
+  }
+}

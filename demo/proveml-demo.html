@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProveML - Rendering Demo</title>
+<style>
+  :root {
+    --teal: #1a7a6d;
+    --violet: #6b4c9a;
+    --red: #c0392b;
+    --amber: #b8860b;
+    --gray-50: #fafaf9;
+    --gray-100: #f0efed;
+    --gray-200: #dddbd8;
+    --gray-400: #8c8985;
+    --gray-600: #5c5955;
+    --gray-800: #2d2a26;
+    --gray-900: #1a1816;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    padding: 2.5rem;
+    font-family: Charter, Georgia, "Palatino Linotype", "Book Antiqua", serif;
+    background: #fff;
+    color: var(--gray-800);
+    line-height: 1.75;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 0 0 0.2rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--gray-900);
+  }
+
+  .subtitle {
+    margin: 0 0 2rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--gray-400);
+    font-size: 0.82rem;
+  }
+
+  .mode-switcher,
+  .domain-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .mode-switcher {
+    margin-bottom: 1.5rem;
+  }
+
+  .mode-btn,
+  .domain-tab {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 3px;
+    background: #fff;
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--gray-600);
+    transition: all 0.15s ease;
+  }
+
+  .mode-btn.active,
+  .domain-tab.active {
+    background: var(--gray-800);
+    border-color: var(--gray-800);
+    color: #fff;
+  }
+
+  .mode-btn:hover:not(.active),
+  .domain-tab:hover:not(.active) {
+    background: var(--gray-100);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding: 0.6rem 1rem;
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 2px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: var(--gray-600);
+  }
+
+  .legend-swatch {
+    width: 24px;
+    height: 0;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+  }
+
+  .legend-swatch.entity { border-bottom-color: var(--teal); }
+  .legend-swatch.fact { border-bottom-style: dotted; border-bottom-color: var(--teal); }
+  .legend-swatch.inference { border-bottom-style: dashed; border-bottom-color: var(--violet); }
+  .legend-swatch.fail { border-bottom-style: dotted; border-bottom-color: var(--red); }
+  .legend-swatch.warn { border-bottom-style: dotted; border-bottom-color: var(--amber); }
+
+  .domain-content {
+    display: none;
+  }
+
+  .domain-content.active {
+    display: block;
+  }
+
+  .card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 2px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-label {
+    margin-bottom: 0.65rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray-600);
+  }
+
+  .narrative {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .narrative p {
+    margin: 0 0 0.75rem;
+  }
+
+  .summary-bar {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--gray-100);
+    border-radius: 2px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.72rem;
+    color: var(--gray-600);
+  }
+
+  .summary-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .dot-teal { background: var(--teal); }
+  .dot-red { background: var(--red); }
+  .dot-amber { background: var(--amber); }
+
+  .source {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+    font-size: 0.76rem;
+    line-height: 1.9;
+    color: var(--gray-600);
+  }
+
+  .source .s-entity { color: var(--teal); font-weight: 600; }
+  .source .s-fact { color: #0369a1; }
+  .source .s-inference { color: var(--violet); }
+
+  .plain-note {
+    color: #4b5563;
+  }
+
+  .proveml-fact.proveml-verified::after,
+  .proveml-inference.proveml-verified::after,
+  .proveml-fact.proveml-mismatch::after,
+  .proveml-inference.proveml-failed::after,
+  .proveml-fact.proveml-unverifiable::after,
+  .proveml-fact.proveml-no-context::after {
+    margin-left: 1px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    vertical-align: super;
+  }
+
+  .proveml-fact.proveml-verified::after,
+  .proveml-inference.proveml-verified::after {
+    content: "✓";
+  }
+
+  .proveml-fact.proveml-verified::after {
+    color: var(--entity-color, var(--teal));
+  }
+
+  .proveml-inference.proveml-verified::after {
+    color: var(--violet);
+  }
+
+  .proveml-fact.proveml-mismatch::after,
+  .proveml-inference.proveml-failed::after {
+    content: "✗";
+    color: var(--red);
+  }
+
+  .proveml-fact.proveml-unverifiable::after,
+  .proveml-fact.proveml-no-context::after {
+    content: "?";
+    color: var(--amber);
+  }
+
+  .proveml-proof {
+    display: none;
+  }
+
+  body.mode-audit .proveml-proof {
+    display: inline;
+  }
+
+  body.mode-read .proveml-proof {
+    display: none;
+  }
+
+  body.mode-read .proveml-entity,
+  body.mode-read .proveml-fact,
+  body.mode-read .proveml-inference {
+    color: inherit !important;
+    border-bottom-color: transparent !important;
+    background: transparent !important;
+    text-decoration-color: transparent !important;
+  }
+
+  body.mode-read .proveml-fact::after,
+  body.mode-read .proveml-inference::after {
+    content: "";
+  }
+
+  body.capture {
+    padding: 1.2rem 1.5rem;
+  }
+
+  body.capture h1,
+  body.capture .subtitle,
+  body.capture .mode-switcher,
+  body.capture .legend,
+  body.capture .domain-tabs {
+    display: none;
+  }
+
+  body.capture .container {
+    max-width: 1180px;
+  }
+
+  body.capture .domain-content {
+    display: block;
+  }
+
+  body.capture .card {
+    background: #fff;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  body.capture .card:not(.capture-visible) {
+    display: none;
+  }
+
+  body.capture .card-label {
+    margin-bottom: 0.8rem;
+    font-size: 0.82rem;
+  }
+
+  body.capture .narrative {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  body.capture .summary-bar {
+    display: block;
+    gap: 0;
+    padding: 0.55rem 0 0;
+    background: none;
+    border-radius: 0;
+    margin-top: 1.05rem;
+    border-top: 1px solid var(--gray-200);
+    font-size: 0.76rem;
+  }
+
+  body.capture .summary-stat {
+    display: inline;
+  }
+
+  body.capture .summary-stat + .summary-stat::before {
+    content: " · ";
+    color: var(--gray-400);
+    margin: 0 0.35rem;
+  }
+
+  body.capture .dot {
+    display: none;
+  }
+
+  body.capture .proveml-fact.proveml-mismatch,
+  body.capture .proveml-fact.proveml-unverifiable,
+  body.capture .proveml-fact.proveml-no-context,
+  body.capture .proveml-inference.proveml-failed {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  body.capture .proveml-fact::after,
+  body.capture .proveml-inference::after {
+    content: "";
+  }
+</style>
+</head>
+<body class="mode-verify">
+<div class="container">
+  <h1>ProveML Rendering Demo</h1>
+  <p class="subtitle">Three reading modes. Hover any underlined element to see verification details.</p>
+
+  <div class="mode-switcher">
+    <button class="mode-btn" data-mode="read" type="button">Read</button>
+    <button class="mode-btn active" data-mode="verify" type="button">Verify</button>
+    <button class="mode-btn" data-mode="audit" type="button">Audit</button>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-swatch entity"></span> Entity (name match)</div>
+    <div class="legend-item"><span class="legend-swatch fact"></span> Verified fact</div>
+    <div class="legend-item"><span class="legend-swatch inference"></span> Verified inference</div>
+    <div class="legend-item"><span class="legend-swatch fail"></span> Mismatch / failed inference</div>
+    <div class="legend-item"><span class="legend-swatch warn"></span> Unverifiable / no context</div>
+  </div>
+
+  <div class="domain-tabs">
+    <button class="domain-tab active" data-domain="edu" type="button">Education</button>
+    <button class="domain-tab" data-domain="health" type="button">Healthcare</button>
+  </div>
+
+  <div class="domain-content active" id="domain-edu"></div>
+  <div class="domain-content" id="domain-health"></div>
+</div>
+
+<script type="module">
+import { renderProveml, attachHover, PROVEML_CSS, educationFactStore, paperExampleSources } from './proveml-runtime.js';
+
+const style = document.createElement('style');
+style.textContent = PROVEML_CSS;
+document.head.appendChild(style);
+
+const healthcareFactStore = {
+  'patient:308.name': 'Maria Jansen',
+  'patient:308.glucose': 142,
+  'patient:308.glucose._unit': 'mg/dL',
+  'patient:308.hba1c': 7.2,
+  'patient:308.systolic': 158,
+  'patient:308.diastolic': 94,
+  'encounter:701.name': 'Visit 2025-12-03',
+  'encounter:701.systolic': 145,
+  'encounter:701.diastolic': 88,
+  'patient:308.diff': 13,
+  'patient:308._diff': 13,
+  'lab:4521.name': 'Lipid Panel 2026-03-10',
+  'lab:4521.ldl': 168,
+  'lab:4521.ldl._unit': 'mg/dL'
+};
+
+const healthcareSources = {
+  verifyCorrect: `@[patient:308]{Maria Jansen} presented with a fasting glucose level of %[glucose]{142 mg/dL}. ?[glu: IS_ELEVATED_GLUCOSE]{This exceeds the diagnostic threshold for diabetes}. HbA1c was measured at %[hba1c]{7.2}, above target.
+
+Blood pressure was @[patient:308]{Maria Jansen}'s %[systolic]{158}/%[diastolic]{94} mmHg. Compared to @[encounter:701]{Visit 2025-12-03} (%[systolic]{145}/%[diastolic]{88}), the systolic increase of @[patient:308]{Maria Jansen}'s %[diff]{13} points is ?[rise: IS_MUCH_HIGHER]{substantial}.
+
+@[lab:4521]{Lipid Panel 2026-03-10}: LDL cholesterol was %[ldl]{168 mg/dL}.`,
+  verifyErrors: `@[patient:308]{Maria Jansen} presented with a fasting glucose level of %[glucose]{118 mg/dL}. ?[glu: IS_ELEVATED_GLUCOSE]{This is within the normal range}.
+
+Blood pressure was @[patient:308]{Maria Jansen}'s %[systolic]{158}/%[diastolic]{84} mmHg.`
+};
+
+const domains = {
+  edu: {
+    panels: [
+      {
+        id: 'edu-correct',
+        title: 'Rendered output (education report)',
+        type: 'render',
+        source: paperExampleSources.verifyCorrect,
+        factStore: educationFactStore
+      },
+      {
+        id: 'edu-suggestions',
+        title: 'Verified claims with plain exploratory prose',
+        type: 'render',
+        source: paperExampleSources.verifySuggestions,
+        factStore: educationFactStore,
+        plain: paperExampleSources.verifySuggestionsPlain,
+        plainMeta: 'Exploratory prose remains unchecked'
+      },
+      {
+        id: 'edu-errors',
+        title: 'Deterministic verifier failures',
+        type: 'render',
+        source: paperExampleSources.verifyErrors,
+        factStore: educationFactStore
+      },
+      {
+        id: 'edu-source',
+        title: 'ProveML source markup',
+        type: 'source',
+        source: paperExampleSources.verifyCorrect,
+        meta: 'Same source used to generate the verified and audit views'
+      }
+    ]
+  },
+  health: {
+    panels: [
+      {
+        id: 'health-correct',
+        title: 'Rendered output (clinical summary, fictitious)',
+        type: 'render',
+        source: healthcareSources.verifyCorrect,
+        factStore: healthcareFactStore
+      },
+      {
+        id: 'health-errors',
+        title: 'Deterministic verifier failures',
+        type: 'render',
+        source: healthcareSources.verifyErrors,
+        factStore: healthcareFactStore
+      }
+    ]
+  }
+};
+
+function escapeHtml(text) {
+  return text
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;');
+}
+
+function highlightSource(source) {
+  return escapeHtml(source)
+    .replace(/(@\[[^\]]+\]\{[^}]+\})/g, '<span class="s-entity">$1</span>')
+    .replace(/(%\[[^\]]+\]\{[^}]+\})/g, '<span class="s-fact">$1</span>')
+    .replace(/(\?\[[^\]]+\](?:\{[^}]+\})?)/g, '<span class="s-inference">$1</span>');
+}
+
+function summarize(verification, extra = '') {
+  const details = verification.details || [];
+  const failures = details.filter(detail =>
+    ['value-mismatch', 'failed', 'name-mismatch'].includes(detail.status)
+  ).length;
+  const warnings = details.filter(detail =>
+    ['unverifiable', 'no-context'].includes(detail.status)
+  ).length;
+
+  const bits = [
+    '<div class="summary-stat"><span class="dot dot-teal"></span> ' + verification.verified + ' of ' + verification.total + ' verified</div>'
+  ];
+  if (failures) bits.push('<div class="summary-stat"><span class="dot dot-red"></span> ' + failures + ' deterministic failures</div>');
+  if (warnings) bits.push('<div class="summary-stat"><span class="dot dot-amber"></span> ' + warnings + ' unverifiable or no-context</div>');
+  if (extra) bits.push('<div class="summary-stat">' + escapeHtml(extra) + '</div>');
+  return bits.join('');
+}
+
+function renderPanel(panel) {
+  if (panel.type === 'source') {
+    return `
+      <div class="card" data-panel="${panel.id}">
+        <div class="card-label">${escapeHtml(panel.title)}</div>
+        <div class="source">${highlightSource(panel.source)}</div>
+        <div class="summary-bar">${panel.meta ? `<div class="summary-stat">${escapeHtml(panel.meta)}</div>` : ''}</div>
+      </div>
+    `;
+  }
+
+  const rendered = renderProveml(panel.source, panel.factStore, { showProofPaths: true });
+  const plain = panel.plain ? `<p class="plain-note">${escapeHtml(panel.plain)}</p>` : '';
+  return `
+    <div class="card" data-panel="${panel.id}">
+      <div class="card-label">${escapeHtml(panel.title)}</div>
+      <div class="narrative">${rendered.html}${plain}</div>
+      <div class="summary-bar">${summarize(rendered.verification, panel.plainMeta || '')}</div>
+    </div>
+  `;
+}
+
+function renderDomain(domainKey) {
+  const container = document.getElementById('domain-' + domainKey);
+  container.innerHTML = domains[domainKey].panels.map(renderPanel).join('');
+  container.querySelectorAll('.narrative').forEach(attachHover);
+}
+
+function setBodyMode(mode, preserveCapture = true) {
+  document.body.className = 'mode-' + mode + (preserveCapture && document.body.classList.contains('capture') ? ' capture' : '');
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mode === mode);
+  });
+}
+
+function showDomain(domain) {
+  document.querySelectorAll('.domain-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.domain-tab').forEach(el => el.classList.remove('active'));
+  document.getElementById('domain-' + domain).classList.add('active');
+  document.querySelector('.domain-tab[data-domain="' + domain + '"]').classList.add('active');
+}
+
+function setCapturePanel(panel) {
+  const cards = document.querySelectorAll('.card[data-panel]');
+  if (!panel) {
+    cards.forEach(card => card.classList.add('capture-visible'));
+    return;
+  }
+  cards.forEach(card => {
+    card.classList.toggle('capture-visible', card.dataset.panel === panel);
+  });
+}
+
+renderDomain('edu');
+renderDomain('health');
+
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => setBodyMode(btn.dataset.mode));
+});
+
+document.querySelectorAll('.domain-tab').forEach(btn => {
+  btn.addEventListener('click', () => showDomain(btn.dataset.domain));
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const mode = params.get('mode');
+  const domain = params.get('domain');
+  const capture = params.get('capture');
+  const panel = params.get('panel');
+
+  if (capture === '1' || capture === 'paper') {
+    document.body.classList.add('capture');
+  }
+
+  if (mode) {
+    setBodyMode(mode, true);
+  }
+
+  if (domain && domains[domain]) {
+    showDomain(domain);
+  }
+
+  setCapturePanel(panel);
+});
+</script>
+</body>
+</html>

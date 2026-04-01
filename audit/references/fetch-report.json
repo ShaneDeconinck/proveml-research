@@ -1,0 +1,254 @@
+{
+  "generatedAt": "2026-03-31T08:19:43.443Z",
+  "results": [
+    {
+      "id": "ixbrl",
+      "status": "skipped",
+      "sourceUrl": "https://www.xbrl.org/ixbrl",
+      "localPath": "references/raw/ixbrl.html"
+    },
+    {
+      "id": "factscore",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2305.14251",
+      "localPath": "references/raw/factscore.html"
+    },
+    {
+      "id": "safe",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2403.18802",
+      "localPath": "references/raw/safe.html"
+    },
+    {
+      "id": "factool",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2307.13528",
+      "localPath": "references/raw/factool.html"
+    },
+    {
+      "id": "guardrails-ai",
+      "status": "skipped",
+      "sourceUrl": "https://guardrailsai.com/guardrails/docs/concepts/validators",
+      "localPath": "references/raw/guardrails-ai.html"
+    },
+    {
+      "id": "dspy-assertions",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2312.13382",
+      "localPath": "references/raw/dspy-assertions.html"
+    },
+    {
+      "id": "nemo-guardrails",
+      "status": "skipped",
+      "sourceUrl": "https://docs.nvidia.com/nemo-guardrails/index.html",
+      "localPath": "references/raw/nemo-guardrails.html"
+    },
+    {
+      "id": "rarr",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2210.08726",
+      "localPath": "references/raw/rarr.html"
+    },
+    {
+      "id": "webgpt",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2112.09332",
+      "localPath": "references/raw/webgpt.html"
+    },
+    {
+      "id": "gemini-double-check",
+      "status": "skipped",
+      "sourceUrl": "https://support.google.com/gemini/answer/14143489?co=GENIE.Platform%3DDesktop&p=faq_double_check",
+      "localPath": "references/raw/gemini-double-check.html"
+    },
+    {
+      "id": "fhir",
+      "status": "skipped",
+      "sourceUrl": "https://hl7.org/fhir/R5/",
+      "localPath": "references/raw/fhir.html"
+    },
+    {
+      "id": "selfcheckgpt",
+      "status": "failed",
+      "sourceUrl": "https://openreview.net/forum?id=RwzFNbJ3Ez",
+      "localPath": "references/raw/selfcheckgpt.html",
+      "error": "403 Forbidden"
+    },
+    {
+      "id": "refchecker",
+      "status": "fetched",
+      "sourceUrl": "https://aclanthology.org/2024.emnlp-main.395/",
+      "localPath": "references/raw/refchecker.html",
+      "bytes": 41345
+    },
+    {
+      "id": "dspy",
+      "status": "failed",
+      "sourceUrl": "https://openreview.net/forum?id=PFS4ffN9Yx",
+      "localPath": "references/raw/dspy.html",
+      "error": "403 Forbidden"
+    },
+    {
+      "id": "guardrails",
+      "status": "skipped",
+      "sourceUrl": "https://github.com/guardrails-ai/guardrails",
+      "localPath": "references/raw/guardrails.html"
+    },
+    {
+      "id": "nemo",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2310.10501",
+      "localPath": "references/raw/nemo.html"
+    },
+    {
+      "id": "totto",
+      "status": "fetched",
+      "sourceUrl": "https://aclanthology.org/2020.emnlp-main.89/",
+      "localPath": "references/raw/totto.html",
+      "bytes": 39861
+    },
+    {
+      "id": "xbrl",
+      "status": "skipped",
+      "sourceUrl": "https://www.xbrl.org/",
+      "localPath": "references/raw/xbrl.html"
+    },
+    {
+      "id": "prov",
+      "status": "fetched",
+      "sourceUrl": "https://www.w3.org/TR/prov-o/",
+      "localPath": "references/raw/prov.html",
+      "bytes": 464179
+    },
+    {
+      "id": "c2pa",
+      "status": "failed",
+      "sourceUrl": "https://c2pa.org/specifications/",
+      "localPath": "references/raw/c2pa.html",
+      "error": "404 Not Found"
+    },
+    {
+      "id": "euaiact",
+      "status": "fetched",
+      "sourceUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/",
+      "localPath": "references/raw/euaiact.html",
+      "bytes": 2035
+    },
+    {
+      "id": "oraclegen",
+      "status": "skipped",
+      "sourceUrl": "https://www.kamu.dev/blog/2025-01-08-oracle-augmented-generation/",
+      "localPath": "references/raw/oraclegen.html"
+    },
+    {
+      "id": "symgen",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2311.09188",
+      "localPath": "references/raw/symgen.html"
+    },
+    {
+      "id": "googleground",
+      "status": "skipped",
+      "sourceUrl": "https://ai.google.dev/gemini-api/docs/grounding",
+      "localPath": "references/raw/googleground.html"
+    },
+    {
+      "id": "leesee2004",
+      "status": "failed",
+      "sourceUrl": "https://doi.org/10.1518/hfes.46.1.50_30392",
+      "localPath": "references/raw/leesee2004.html",
+      "error": "fetch failed"
+    },
+    {
+      "id": "parasuraman1997",
+      "status": "failed",
+      "sourceUrl": "https://doi.org/10.1518/001872097778543886",
+      "localPath": "references/raw/parasuraman1997.html",
+      "error": "403 Forbidden"
+    },
+    {
+      "id": "anthropicinterp",
+      "status": "skipped",
+      "sourceUrl": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "localPath": "references/raw/anthropicinterp.html"
+    },
+    {
+      "id": "orgad2025",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2410.02707",
+      "localPath": "references/raw/orgad2025.html"
+    },
+    {
+      "id": "farquhar2024",
+      "status": "fetched",
+      "sourceUrl": "https://doi.org/10.1038/s41586-024-07421-0",
+      "localPath": "references/raw/farquhar2024.html",
+      "bytes": 403664
+    },
+    {
+      "id": "mccain2026",
+      "status": "skipped",
+      "sourceUrl": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "localPath": "references/raw/mccain2026.html"
+    },
+    {
+      "id": "kalai2024",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2311.14648",
+      "localPath": "references/raw/kalai2024.html"
+    },
+    {
+      "id": "kalai2025",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2509.04664",
+      "localPath": "references/raw/kalai2025.html"
+    },
+    {
+      "id": "xu2024",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2401.11817",
+      "localPath": "references/raw/xu2024.html"
+    },
+    {
+      "id": "ji2023",
+      "status": "failed",
+      "sourceUrl": "https://doi.org/10.1145/3571730",
+      "localPath": "references/raw/ji2023.html",
+      "error": "403 Forbidden"
+    },
+    {
+      "id": "ouyang2022",
+      "status": "skipped",
+      "sourceUrl": "https://arxiv.org/abs/2203.02155",
+      "localPath": "references/raw/ouyang2022.html"
+    },
+    {
+      "id": "magesh2025",
+      "status": "failed",
+      "sourceUrl": "https://doi.org/10.1111/jels.12413",
+      "localPath": "references/raw/magesh2025.html",
+      "error": "403 Forbidden"
+    },
+    {
+      "id": "deloitte2025",
+      "status": "fetched",
+      "sourceUrl": "https://fortune.com/2025/10/07/deloitte-ai-australia-government-report-hallucinations-technology-290000-refund/",
+      "localPath": "references/raw/deloitte2025.html",
+      "bytes": 467831
+    },
+    {
+      "id": "mckinsey2025",
+      "status": "failed",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai",
+      "localPath": "references/raw/mckinsey2025.html",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "id": "gartner2023",
+      "status": "failed",
+      "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2023-10-11-gartner-says-more-than-80-percent-of-enterprises-will-have-used-generative-ai-apis-or-deployed-generative-ai-enabled-applications-by-2026?src_trk=em6750807b0c4706.147509061378393647",
+      "localPath": "references/raw/gartner2023.html",
+      "error": "403 Forbidden"
+    }
+  ]
+}

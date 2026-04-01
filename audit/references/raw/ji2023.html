@@ -1,0 +1,906 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="nexus-font-support">
+
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="google" content="nositelinkssearchbox"/>
+    <meta name="tdm-reservation" content="0">
+    <title>
+        Survey of Hallucination in Natural Language Generation
+      -  The Hong Kong University of Science and Technology</title>
+    
+    
+    
+
+
+
+<meta property="og:site_name" content="The Hong Kong University of Science and Technology">
+
+
+    <meta property="og:title" content="Survey of Hallucination in Natural Language Generation"/>
+
+
+<meta property="og:url" content="https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/">
+<meta property="og:locale" content="en_GB">
+
+
+
+
+    
+        <meta property="og:image" content="https://researchportal.hkust.edu.hk/skin/headerImage/">
+    
+
+
+
+
+    
+        <meta property="og:type" content="article">
+    
+
+    
+
+    
+
+
+    <link rel="stylesheet" href="/assets/application-bbadabf14375775985ecfd59655b0569.css" />
+    <!-- OneTrust Cookies Consent Notice start -->
+<script async src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="019994ba-15e8-7412-b3e0-584b893cdc2b" data-document-language="true"></script>
+<script type="text/javascript">
+    function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end -->
+    
+        <link rel="shortcut icon" href="/skin/favIcon/"/>
+    
+    <link href="/skin/css/" rel="stylesheet"/>
+    
+    <script src="/skin/script/" type="text/javascript"></script>
+    <script type="text/javascript" src="/assets/application-c9812d1ef516be20094e6491b18de745.js" ></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/assets/html5shiv.min-ca5300beead9a4a9d2c9c584a9016410.js" ></script>
+    <script type="text/javascript" src="/assets/respond.min-678d372b349e434d9923e1b591f14a1e.js" ></script>
+    <![endif]-->
+    
+        
+        
+        <meta name="citation_title" content="Survey of Hallucination in Natural Language Generation"></meta><meta name="citation_author" content="Ziwei Ji"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Nayeon Lee"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Rita Frieske"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Tiezheng Yu"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Dan Su"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Yan Xu"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Etsuko Ishii"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Ye Jin Bang"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Andrea Madotto"></meta><meta name="citation_author_institution" content="Hong Kong University of Science and Technology"></meta><meta name="citation_author" content="Pascale Fung"></meta><meta name="citation_author_institution" content="Department of Electronic and Computer Engineering"></meta><meta name="citation_author_email" content="pascale@ust.hk"></meta><meta name="citation_author_orcid" content="0000-0002-0628-7132"></meta><meta name="citation_publication_date" content="2023/12/31"></meta><meta name="citation_online_date" content="2025/09/23"></meta><meta name="citation_doi" content="10.1145/3571730"></meta><meta name="citation_language" content="English"></meta><meta name="citation_keywords" content="Additional Key Words and PhrasesHallucination; consistency in NLG; extrinsic hallucination; factuality in NLG; faithfulness in NLG; intrinsic hallucination"></meta><meta name="citation_journal_title" content="ACM Computing Surveys"></meta><meta name="citation_issn" content="0360-0300"></meta><meta name="citation_publisher" content="Association for Computing Machinery (ACM)"></meta><meta name="citation_volume" content="55"></meta><meta name="citation_issue" content="12"></meta><meta name="citation_firstpage" content="3571730"></meta>
+        <script src="/assets/Chart.min-27bff060c3e539ceb22e763c8f2e9e10.js"></script>
+        <script src="/assets/jquery.content-chart-9c09bb79ba3fc3829b6478d0e114f737.js"></script>
+        
+    
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://www.googletagmanager.com/gtag/js?id=G-MNBNFWVWZ4" class="optanon-category-2" type="text/plain" async=""></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MNBNFWVWZ4', {'cookie_domain' : document.location.hostname, 'anonymize_ip': true });
+</script>
+    <script src="//assets.adobedtm.com/4a848ae9611a/ea83f870454d/launch-af020409b299.min.js" class="optanon-category-2" type="text/plain" async=""></script>
+    
+    <!-- Pendo: Disabled -->
+</head>
+
+<body class="" data-page="publications">
+
+<div id="aria-polite" aria-live="polite"></div>
+
+<div id="aria-assertive" aria-live="assertive"></div>
+
+<nav aria-label="Skip to content" class="skip-content">
+    <ul>
+        <li>
+            <a href="#main-navigation" class="sr-only sr-only-focusable">Skip to main navigation</a>
+        </li>
+        
+            <li>
+                <a href="#main-search" class="sr-only sr-only-focusable">Skip to search</a>
+            </li>
+        
+        <li>
+            <a href="#main-content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+            
+        </li>
+    </ul>
+</nav>
+
+
+
+
+
+
+
+    <header class="header" id="page-header">
+        <div class="primary  ">
+            <div class="container">
+                
+                <a href="/en/" class="logo">
+                    
+                        <span class="sr-only">The Hong Kong University of Science and Technology Home</span>
+                        <img src="/skin/headerImage/" alt="The Hong Kong University of Science and Technology Logo"/>
+                    
+                </a>
+                
+                
+                
+            </div>
+        </div>
+
+        
+            <div class="header-search">
+                
+<form action="/en/searchAll/index/survey-of-hallucination-in-natural-language-generation/" method="get"
+      class="search-form" id="search-everything">
+
+    <div class="global-search-wrapper">
+        <div class="global-search mini">
+            <div class="field-button-wrapper">
+                <div class="search-cell search-field">
+                    <label for="main-search" class="sr-only">Search content at The Hong Kong University of Science and Technology</label>
+                    <input id="main-search" class="search-field" value="" name="search"
+                           placeholder="Search..."/>
+                </div>
+
+                <div class="search-submit">
+                    <button type="submit" aria-label="Search">
+                        <i class="icon icon-magnifying-glass" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(function () {
+        var searchForm = $("#search-everything");
+        var searchField = $(".search-field", searchForm);
+        searchForm.on("submit", function () {
+            var field = searchField.find("input");
+            var searchString = field.val();
+
+            // No enter key submit nothing :-)
+            if (!searchString) return false;
+
+            if (searchString.length >= 200) {
+                searchForm.attr("method", "post");
+                searchForm.attr("action", "/en/concepts/copypaste/");
+                field.attr("name", "text");
+            }
+        });
+    });
+</script>
+            </div>
+        
+
+
+        
+        
+            <div class="subMenu">
+                <div class="secondary">
+                    <div class="container">
+                        <nav id="main-navigation" aria-label="Main navigation" class="content-navigation three-third">
+                            <ul data-value="More" role="menubar">
+                                <li class="" role="none">
+                                    <a href="/en/" role="menuitem" tabindex="-1">Home</a>
+                                </li>
+
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/persons/"><span>Profiles</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/organisations/"><span>Research units</span></a>
+                                    </li>
+                                
+                                    <li class="selected" role="none">
+                                        <a class="portal_link" tabindex="0" role="menuitem" href="/en/publications/"><span>Research output</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/projects/"><span>Projects</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/prizes/"><span>Awards</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/activities/"><span>Activities</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/clippings/"><span>Press/Media</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/courses/"><span>Courses</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/studentTheses/"><span>Student theses</span></a>
+                                    </li>
+                                
+                                    <li class="" role="none">
+                                        <a class="portal_link" tabindex="-1" role="menuitem" href="/en/datasets/"><span>Datasets</span></a>
+                                    </li>
+                                
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        
+    </header>
+
+    <main id="page-content">
+        
+    <div class="page-section page-section-publications page-section-publications-view ">
+
+        
+        
+        
+        
+        <section
+                class="page-section-header page-section-header-publications page-section-header-publications-view
+                 no-backdrop-image"
+                data-stickyheader=""
+                style="">
+            
+            
+        
+
+
+<div class="container">
+    <div class="row">
+        <div class="introduction no-metrics">
+            <div class="rendering"><h1><span>Survey of Hallucination in Natural Language Generation</span></h1></div>
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_associatespersonsclassifiedportal rendering_contributiontojournal rendering_associatespersonsclassifiedportal rendering_contributiontojournal_associatespersonsclassifiedportal"><p class="relations persons">Ziwei Ji, Nayeon Lee, Rita Frieske, Tiezheng Yu, Dan Su, Yan Xu, Etsuko Ishii, Ye Jin Bang, Andrea Madotto, <a rel="Person" href="https://researchportal.hkust.edu.hk/en/persons/pascale-ngan-fung/" class="link person"><span>Pascale Fung</span></a></div>
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_associatesorganisationsportal rendering_contributiontojournal rendering_associatesorganisationsportal rendering_contributiontojournal_associatesorganisationsportal"><ul class="relations organisations"><li class="department"><a rel="Organisation" href="https://researchportal.hkust.edu.hk/en/organisations/department-of-electronic-and-computer-engineering/" class="link"><span>Department of Electronic and Computer Engineering</span></a></li></ul></div>
+            
+            <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationcontenttyperendererportalng rendering_contributiontojournal rendering_publicationcontenttyperendererportalng rendering_contributiontojournal_publicationcontenttyperendererportalng"><p class="type"><span class="type_family">Research output<span class="type_family_sep">: </span></span><span class="type_classification_parent">Contribution to journal<span class="type_parent_sep"> › </span></span><span class="type_classification">Review article</span><span class="type_classification"><span class="type_parent_sep"> › </span>peer-review</span></p></div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="publication-metrics" role="region" aria-label="Publication metrics section">
+        
+            <div class="metrics-container">
+                
+                    <div class="metrics-wrap metrics-top one">
+                        
+                            <div class="metric scopus-citations">
+                                
+                                    <a target="_blank" href="https://www.scopus.com/inward/citedby.url?scp=85152599648&amp;partnerID=8YFLogxK" aria-label="Source: Scopus: 2767">
+                                
+                                <span class="count">2767</span>
+                                
+                                    <span class="sr-only">&nbsp; Link opens in a new tab</span> </a>
+                                
+                                <span class="label">Citations
+(Scopus)</span>
+                            </div>
+                        
+                        
+                    </div>
+                
+                
+                    <div class="metrics-wrap metrics-bottom ">
+                        
+
+                        
+                            <div class="metric metric-altmetric">
+                                
+                            </div>
+                        
+                    </div>
+                
+            </div>
+        
+    </div>
+
+
+    </div>
+
+</div>
+<div class="subMenu">
+    <div class="content-profile-navigation">
+    <div class="container">
+        <nav role="navigation">
+            <ul role="menubar">
+                <li class="selected" role="none">
+                    <a class="portal_link" role="menuitem" href="/en/publications/survey-of-hallucination-in-natural-language-generation/"><span>
+                        <i class="icon icon-publication" aria-hidden="true"></i>
+                        <span class="label">Overview</span>
+                    </span></a>
+                </li>
+                
+                    <li class="" role="none">
+                        <a class="portal_link" role="menuitem" href="/en/publications/survey-of-hallucination-in-natural-language-generation/fingerprints/"><span>
+                            <i class="icon icon-fingerprint" aria-hidden="true"></i>
+                            <span class="label">Fingerprint</span>
+                        </span></a>
+                    </li>
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+
+            </ul>
+        </nav>
+    </div>
+    </div>
+</div>
+
+    
+        </section>
+
+        <div id="main-content"
+             class="page-section-content page-section-content-publications page-section-content-publications-view   ">
+            
+        <section class="page-section content-relation-section">
+            <div class="container">
+                <div class="clearfix">
+                    <div class="content-content publication-content">
+                        
+                        
+                            <h2 class="subheader">Abstract</h2>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_abstractportal rendering_contributiontojournal rendering_abstractportal rendering_contributiontojournal_abstractportal"><div class="textblock"><p>Natural Language Generation (NLG) has improved exponentially in recent years thanks to the development of sequence-to-sequence deep learning technologies such as Transformer-based language models. This advancement has led to more fluent and coherent NLG, leading to improved development in downstream tasks such as abstractive summarization, dialogue generation, and data-to-text generation. However, it is also apparent that deep learning based generation is prone to hallucinate unintended text, which degrades the system performance and fails to meet user expectations in many real-world scenarios. To address this issue, many studies have been presented in measuring and mitigating hallucinated texts, but these have never been reviewed in a comprehensive manner before.In this survey, we thus provide a broad overview of the research progress and challenges in the hallucination problem in NLG. The survey is organized into two parts: (1) a general overview of metrics, mitigation methods, and future directions, and (2) an overview of task-specific research progress on hallucinations in the following downstream tasks, namely abstractive summarization, dialogue generation, generative question answering, data-to-text generation, and machine translation. This survey serves to facilitate collaborative efforts among researchers in tackling the challenge of hallucinated texts in NLG.</p></div></div>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_detailsportal rendering_contributiontojournal rendering_detailsportal rendering_contributiontojournal_detailsportal"><div class="systematicreview"><table class="properties"><tbody><tr class="language"><th scope="row">Original language</th><td>English</td></tr><tr><th scope="row">Article number</th><td>3571730</td></tr><tr><th scope="row">Journal</th><td><a rel="Journal" href="#" class="link"><span>ACM Computing Surveys</span></a></td></tr><tr><th scope="row">Volume</th><td>55</td></tr><tr><th scope="row">Issue number</th><td>12</td></tr><tr class="digital_object_identifiers"><th scope="row">DOIs</th><td><ul class="relations digital_object_identifiers"><li><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.1145/3571730" class="link"><span>https://doi.org/10.1145/3571730</span></a> </li></ul></td></tr><tr class="status"><th scope="row">Publication status</th><td><span class="prefix">Published - </span><span class="date">31 Dec 2023</span></td></tr></tbody></table></div></div>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationbibliographicalnoteportalrenderer rendering_contributiontojournal rendering_publicationbibliographicalnoteportalrenderer rendering_contributiontojournal_publicationbibliographicalnoteportalrenderer"><h3 class="subheader">Bibliographical note</h3>Publisher Copyright:<br />© 2023 Association for Computing Machinery.</div>
+
+                        
+
+                        
+
+                        <div class="rendering rendering_keywordable rendering_expertkeywordgrouspbytypeportal rendering_keywordable_expertkeywordgrouspbytypeportal"><div class="keyword-group"><h2 class="subheader">Keywords</h2><ul class="relations keywords"><li class="userdefined-keyword"><span>Additional Key Words and PhrasesHallucination</span></li><li class="userdefined-keyword"><span>consistency in NLG</span></li><li class="userdefined-keyword"><span>extrinsic hallucination</span></li><li class="userdefined-keyword"><span>factuality in NLG</span></li><li class="userdefined-keyword"><span>faithfulness in NLG</span></li><li class="userdefined-keyword"><span>intrinsic hallucination</span></li></ul></div></div>
+
+                    </div>
+
+                    <div class="content-sidebar publication-sidebar">
+                        
+                            <h2 class="subheader">Access to Document</h2>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationaccessrenderer rendering_contributiontojournal rendering_publicationaccessrenderer rendering_contributiontojournal_publicationaccessrenderer"><ul class="dois"><li class="open-access"><div class="doi"><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.1145/3571730" class="link"><span>10.1145/3571730</span></a></div></li></ul></div>
+
+                        
+
+                        
+
+                        
+                            <h2 class="subheader">Other files and links</h2>
+                        <div class="rendering rendering_researchoutput  rendering_researchoutput_publicationotherfilesandlinksrenderer rendering_contributiontojournal rendering_publicationotherfilesandlinksrenderer rendering_contributiontojournal_publicationotherfilesandlinksrenderer"><ul class="links"><li><div class="link"><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://www.webofscience.com/wos/woscc/full-record/WOS:000952547400008" class="link"><span>Link to publication in Web of Science</span></a></div></li><li><div class="link"><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://openalex.org/W4309674289" class="link"><span>Link to publication in OpenAlex</span></a></div></li><li><div class="link"><a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://www.scopus.com/pages/publications/85152599648" class="link"><span>Link to publication in Scopus</span></a></div></li></ul></div>
+
+                        
+
+                        
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+            <section class="page-section content-relation-section publication-fingerprint">
+                <div class="container">
+                    <div class="header">
+                        <h2 class="section-title">
+                            <i class="icon icon-fingerprint" aria-hidden="true"></i>
+                            <span class="title">Fingerprint</span>
+                        </h2>
+                        <span class="sub-title">
+                            Dive into the research topics of 'Survey of Hallucination in Natural Language Generation'. Together they form a unique fingerprint.
+                        </span>
+                    </div>
+
+                    <ul class="publication-top-concepts" role="menubar"  aria-label="Related fingerprints">
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="36d8c247-164b-4a29-b80f-1feecf03e771"
+            data-concept-uuid="36d8c247-164b-4a29-b80f-1feecf03e771"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Natural Language Generation</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="7bb521cf-8153-479e-a269-39c34aa06ad9"
+            data-concept-uuid="7bb521cf-8153-479e-a269-39c34aa06ad9"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="1.0"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="100%">
+            <span class="rank"></span>
+            <span class="concept">Hallucination</span>
+            <span class="thesauri">Psychology</span>
+            <span class="value sr-only">100%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="8bded39b-7217-4577-a7d8-e65bf58e5e3f"
+            data-concept-uuid="8bded39b-7217-4577-a7d8-e65bf58e5e3f"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.4"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="40%">
+            <span class="rank"></span>
+            <span class="concept">Deep Learning Method</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">40%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="891af12b-ba50-41ac-8b3d-4aa7af8ce02d"
+            data-concept-uuid="891af12b-ba50-41ac-8b3d-4aa7af8ce02d"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.4"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="40%">
+            <span class="rank"></span>
+            <span class="concept">Abstractive Summarization</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">40%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="0b4811e6-3e90-4f57-8eeb-d2747356563f"
+            data-concept-uuid="0b4811e6-3e90-4f57-8eeb-d2747356563f"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="20%">
+            <span class="rank"></span>
+            <span class="concept">Language Modeling</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">20%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="0ada8da1-a4fe-4dec-aca1-50128bed0f4d"
+            data-concept-uuid="0ada8da1-a4fe-4dec-aca1-50128bed0f4d"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="20%">
+            <span class="rank"></span>
+            <span class="concept">Systems Performance</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">20%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="68f9852d-5e33-4aca-a4aa-40621b270d3a"
+            data-concept-uuid="68f9852d-5e33-4aca-a4aa-40621b270d3a"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="20%">
+            <span class="rank"></span>
+            <span class="concept">Machine Translation</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">20%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                            <li class="concept-badge-large-container dropdown-overflow" role="none">
+
+    <button tabindex="0"
+            class="concept-badge-large dropdown-toggle"
+            type="button"
+            role="menuitem"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="22d0aa78-680e-4947-bbdf-808e0d1f441b"
+            data-concept-uuid="22d0aa78-680e-4947-bbdf-808e0d1f441b"
+            data-rank-size="32"
+            data-rank-thickness="8"
+            data-rank-value="0.2"
+            data-summary="true"
+            data-summary-url="/en/concepts/summary/">
+        <span class="concept-wrapper" title="20%">
+            <span class="rank"></span>
+            <span class="concept">Future Direction</span>
+            <span class="thesauri">Computer Science</span>
+            <span class="value sr-only">20%</span>
+        </span>
+    </button>
+
+    <div class="dropdown-container"></div>
+
+</li>
+                        
+                    </ul>
+                    <div class="footer">
+                        <div class="view-all align-center">
+                            <a class="portal_link btn-primary btn-large" href="/en/publications/survey-of-hallucination-in-natural-language-generation/fingerprints/"><span>
+                                View full fingerprint
+                                <i class="icon icon-right-open-mini" aria-hidden="true"></i>
+                            </span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        <section class="page-section cite">
+            <div class="container">
+                <section class="publication-cite" aria-labelledby="publications-cite-title">
+    <h2 class="subheader" id="publications-cite-title">Cite this</h2>
+    <ul class="tabs" role="tablist" aria-label="Cite this">
+        
+            <li class="selected" role="tab" id="tab-0" aria-controls="cite-apa" tabindex="-1"  aria-selected="false" >
+                APA
+            </li>
+        
+            <li class="" role="tab" id="tab-1" aria-controls="cite-author" tabindex="-1"  aria-selected="false" >
+                Author
+            </li>
+        
+            <li class="" role="tab" id="tab-2" aria-controls="cite-BIBTEX" tabindex="-1"  aria-selected="false" >
+                BIBTEX
+            </li>
+        
+            <li class="" role="tab" id="tab-3" aria-controls="cite-harvard" tabindex="-1"  aria-selected="false" >
+                Harvard
+            </li>
+        
+            <li class="" role="tab" id="tab-4" aria-controls="cite-standard" tabindex="-1"  aria-selected="false" >
+                Standard
+            </li>
+        
+            <li class="" role="tab" id="tab-5" aria-controls="cite-RIS" tabindex="-1"  aria-selected="false" >
+                RIS
+            </li>
+        
+            <li class="" role="tab" id="tab-6" aria-controls="cite-vancouver" tabindex="-1"  aria-selected="false" >
+                Vancouver
+            </li>
+        
+    </ul>
+    <div class="tab-container">
+        
+            <div id="cite-apa" class="tab selected" role="tabpanel" aria-labelledby="tab-0" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_apa rendering_contributiontojournal rendering_apa rendering_contributiontojournal_apa">Ji, Z., Lee, N., Frieske, R., Yu, T., Su, D., Xu, Y., Ishii, E., Bang, Y. J., Madotto, A.<a rel="Person" href="https://researchportal.hkust.edu.hk/en/persons/pascale-ngan-fung/" class="link"><span>, &amp; Fung, P.</span></a> (2023). <a rel="ContributionToJournal" href="https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/" class="link"><span>Survey of Hallucination in Natural Language Generation</span></a>. <a rel="Journal" href="#" class="link"><span><em>ACM Computing Surveys</em></span></a>, <em>55</em>(12), Article 3571730. <a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.1145/3571730" class="link"><span>https://doi.org/10.1145/3571730</span></a></div>
+            </div>
+        
+            <div id="cite-author" class="tab " role="tabpanel" aria-labelledby="tab-1" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_author rendering_contributiontojournal rendering_author rendering_contributiontojournal_author">Ji, Ziwei ; Lee, Nayeon ; Frieske, Rita et al. / <a rel="ContributionToJournal" href="https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/" class="link"><span><strong>Survey of Hallucination in Natural Language Generation</strong></span></a>. In: <a rel="Journal" href="#" class="link"><span>ACM Computing Surveys</span></a>. 2023 ; Vol. 55, No. 12.</div>
+            </div>
+        
+            <div id="cite-BIBTEX" class="tab " role="tabpanel" aria-labelledby="tab-2" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_bibtex rendering_contributiontojournal rendering_bibtex rendering_contributiontojournal_bibtex"><div>@article{6661ab885642406aa598f83213b5315c,</div><div>  title     = "Survey of Hallucination in Natural Language Generation",</div><div>  abstract  = "Natural Language Generation (NLG) has improved exponentially in recent years thanks to the development of sequence-to-sequence deep learning technologies such as Transformer-based language models. This advancement has led to more fluent and coherent NLG, leading to improved development in downstream tasks such as abstractive summarization, dialogue generation, and data-to-text generation. However, it is also apparent that deep learning based generation is prone to hallucinate unintended text, which degrades the system performance and fails to meet user expectations in many real-world scenarios. To address this issue, many studies have been presented in measuring and mitigating hallucinated texts, but these have never been reviewed in a comprehensive manner before.In this survey, we thus provide a broad overview of the research progress and challenges in the hallucination problem in NLG. The survey is organized into two parts: (1) a general overview of metrics, mitigation methods, and future directions, and (2) an overview of task-specific research progress on hallucinations in the following downstream tasks, namely abstractive summarization, dialogue generation, generative question answering, data-to-text generation, and machine translation. This survey serves to facilitate collaborative efforts among researchers in tackling the challenge of hallucinated texts in NLG.",</div><div>  keywords  = "Additional Key Words and PhrasesHallucination, consistency in NLG, extrinsic hallucination, factuality in NLG, faithfulness in NLG, intrinsic hallucination",</div><div>  author    = "Ziwei Ji and Nayeon Lee and Rita Frieske and Tiezheng Yu and Dan Su and Yan Xu and Etsuko Ishii and Bang, \{Ye Jin\} and Andrea Madotto and Pascale Fung",</div><div>  note      = "Publisher Copyright: {\textcopyright} 2023 Association for Computing Machinery.",</div><div>  year      = "2023",</div><div>  month     = dec,</div><div>  day       = "31",</div><div>  doi       = "10.1145/3571730",</div><div>  language  = "English",</div><div>  volume    = "55",</div><div>  journal   = "ACM Computing Surveys",</div><div>  issn      = "0360-0300",</div><div>  publisher = "Association for Computing Machinery (ACM)",</div><div>  number    = "12",</div><p>}</p></div>
+            </div>
+        
+            <div id="cite-harvard" class="tab " role="tabpanel" aria-labelledby="tab-3" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_harvard rendering_contributiontojournal rendering_harvard rendering_contributiontojournal_harvard">Ji, Z, Lee, N, Frieske, R, Yu, T, Su, D, Xu, Y, Ishii, E, Bang, YJ, Madotto, A<a rel="Person" href="https://researchportal.hkust.edu.hk/en/persons/pascale-ngan-fung/" class="link"><span> &amp; Fung, P</span></a> 2023, '<a rel="ContributionToJournal" href="https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/" class="link harvard_title"><span>Survey of Hallucination in Natural Language Generation</span></a>', <a rel="Journal" href="#" class="link"><span><em>ACM Computing Surveys</em></span></a>, vol. 55, no. 12, 3571730. <a onclick="window.open(this.href, '_blank','noopener,noreferrer'); return false;" href="https://doi.org/10.1145/3571730" class="link"><span>https://doi.org/10.1145/3571730</span></a></div>
+            </div>
+        
+            <div id="cite-standard" class="tab " role="tabpanel" aria-labelledby="tab-4" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_standard rendering_contributiontojournal rendering_standard rendering_contributiontojournal_standard"><a rel="ContributionToJournal" href="https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/" class="link"><span><strong>Survey of Hallucination in Natural Language Generation.</strong></span></a> / Ji, Ziwei; Lee, Nayeon; Frieske, Rita et al. <br />In: <a rel="Journal" href="#" class="link"><span>ACM Computing Surveys</span></a>, Vol. 55, No. 12, 3571730, 31.12.2023.<p class="type"><span class="type_family">Research output<span class="type_family_sep">: </span></span><span class="type_classification_parent">Contribution to journal<span class="type_parent_sep"> › </span></span><span class="type_classification">Review article</span><span class="type_classification"><span class="type_parent_sep"> › </span>peer-review</span></p></div>
+            </div>
+        
+            <div id="cite-RIS" class="tab " role="tabpanel" aria-labelledby="tab-5" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_ris rendering_contributiontojournal rendering_ris rendering_contributiontojournal_ris"><p>TY  - JOUR</p><p>T1  - Survey of Hallucination in Natural Language Generation</p><p>AU  - Ji, Ziwei</p><p>AU  - Lee, Nayeon</p><p>AU  - Frieske, Rita</p><p>AU  - Yu, Tiezheng</p><p>AU  - Su, Dan</p><p>AU  - Xu, Yan</p><p>AU  - Ishii, Etsuko</p><p>AU  - Bang, Ye Jin</p><p>AU  - Madotto, Andrea</p><p>AU  - Fung, Pascale</p><p>N1  - Publisher Copyright:
+© 2023 Association for Computing Machinery.</p><p>PY  - 2023/12/31</p><p>Y1  - 2023/12/31</p><p>N2  - Natural Language Generation (NLG) has improved exponentially in recent years thanks to the development of sequence-to-sequence deep learning technologies such as Transformer-based language models. This advancement has led to more fluent and coherent NLG, leading to improved development in downstream tasks such as abstractive summarization, dialogue generation, and data-to-text generation. However, it is also apparent that deep learning based generation is prone to hallucinate unintended text, which degrades the system performance and fails to meet user expectations in many real-world scenarios. To address this issue, many studies have been presented in measuring and mitigating hallucinated texts, but these have never been reviewed in a comprehensive manner before.In this survey, we thus provide a broad overview of the research progress and challenges in the hallucination problem in NLG. The survey is organized into two parts: (1) a general overview of metrics, mitigation methods, and future directions, and (2) an overview of task-specific research progress on hallucinations in the following downstream tasks, namely abstractive summarization, dialogue generation, generative question answering, data-to-text generation, and machine translation. This survey serves to facilitate collaborative efforts among researchers in tackling the challenge of hallucinated texts in NLG.</p><p>AB  - Natural Language Generation (NLG) has improved exponentially in recent years thanks to the development of sequence-to-sequence deep learning technologies such as Transformer-based language models. This advancement has led to more fluent and coherent NLG, leading to improved development in downstream tasks such as abstractive summarization, dialogue generation, and data-to-text generation. However, it is also apparent that deep learning based generation is prone to hallucinate unintended text, which degrades the system performance and fails to meet user expectations in many real-world scenarios. To address this issue, many studies have been presented in measuring and mitigating hallucinated texts, but these have never been reviewed in a comprehensive manner before.In this survey, we thus provide a broad overview of the research progress and challenges in the hallucination problem in NLG. The survey is organized into two parts: (1) a general overview of metrics, mitigation methods, and future directions, and (2) an overview of task-specific research progress on hallucinations in the following downstream tasks, namely abstractive summarization, dialogue generation, generative question answering, data-to-text generation, and machine translation. This survey serves to facilitate collaborative efforts among researchers in tackling the challenge of hallucinated texts in NLG.</p><p>KW  - Additional Key Words and PhrasesHallucination</p><p>KW  - consistency in NLG</p><p>KW  - extrinsic hallucination</p><p>KW  - factuality in NLG</p><p>KW  - faithfulness in NLG</p><p>KW  - intrinsic hallucination</p><p>UR  - https://www.webofscience.com/wos/woscc/full-record/WOS:000952547400008</p><p>UR  - https://openalex.org/W4309674289</p><p>UR  - https://www.scopus.com/pages/publications/85152599648</p><p>U2  - 10.1145/3571730</p><p>DO  - 10.1145/3571730</p><p>M3  - Review article</p><p>SN  - 0360-0300</p><p>VL  - 55</p><p>JO  - ACM Computing Surveys</p><p>JF  - ACM Computing Surveys</p><p>IS  - 12</p><p>M1  - 3571730</p><p>ER  - </p></div>
+            </div>
+        
+            <div id="cite-vancouver" class="tab " role="tabpanel" aria-labelledby="tab-6" tabindex="-1" aria-hidden="true">
+                <div class="rendering rendering_researchoutput  rendering_researchoutput_vancouver rendering_contributiontojournal rendering_vancouver rendering_contributiontojournal_vancouver">Ji Z, Lee N, Frieske R, Yu T, Su D, Xu Y et al. <span class="title"><a rel="ContributionToJournal" href="https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/" class="link"><span>Survey of Hallucination in Natural Language Generation</span></a></span>. <a rel="Journal" href="#" class="link"><span>ACM Computing Surveys</span></a>. 2023 Dec 31;55(12):3571730. doi: 10.1145/3571730</div>
+            </div>
+        
+
+        <script>
+            $(function() {
+                $(".tab-container .rendering a:not([href^='http://dx.doi.org'])").contents().unwrap();
+            });
+        </script>
+    </div>
+</section>
+
+            </div>
+        </section>
+        <script>
+    $(function () {
+        if($('.publication-sidebar').length > 0){
+            if($('a.document-link').length === 0){
+                $(".metrics-top").addClass("one");
+                $('div.metrics-downloads').remove();
+            }
+        }
+    });
+
+    function plumXError(e) {
+        $(e).closest('.metric-plum-x').closest('.metrics-bottom').addClass('one');
+        $(e).closest('.metric-plum-x').remove();
+    }
+    $('div.altmetric-embed').on('altmetric:hide', function () {
+        $(this).closest('.metric-altmetric').closest('.metrics-bottom').addClass('one');
+        $(this).closest('.metric-altmetric').remove();
+    });
+</script>
+        
+
+
+
+    
+    
+    
+    
+    
+    
+
+    
+        
+        
+        
+    
+
+    <div class="share-box">
+        <ul>
+            <li class="icon-share"></li>
+            <li><a aria-label="Share on Facebook"
+                   href="https://www.facebook.com/sharer.php?u=https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.1145%2F3571730&p[summary]=Check+out+this+research+output+at+The+Hong+Kong+University+of+Science+and+Technology%3A+Survey+of+Hallucination+in+Natural+Language+Generation"
+                   class="icon-facebook"
+                   onclick="window.location.origin('https://www.facebook.com/sharer.php?u=https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/%3Futm_source%3Dfacebook%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.1145%2F3571730&p[summary]=Check+out+this+research+output+at+The+Hong+Kong+University+of+Science+and+Technology%3A+Survey+of+Hallucination+in+Natural+Language+Generation', 'Facebook', 'width=600,height=600,scrollbars=no,resizable=no');
+                   return false;" target="popup"></a></li>
+            <li><a aria-label="Share on Twitter"
+                   href="https://twitter.com/intent/tweet?url=https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.1145%2F3571730&text=Check+out+this+research+output+at+The+Hong+Kong+University+of+Science+and+Technology%3A+Survey+of+Hallucination+in+Natural+Language+Generation"
+                   onclick="window.location.origin('https://twitter.com/intent/tweet?url=https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/%3Futm_source%3Dtwitter%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.1145%2F3571730&text=Check+out+this+research+output+at+The+Hong+Kong+University+of+Science+and+Technology%3A+Survey+of+Hallucination+in+Natural+Language+Generation doi%3A10.1145%2F3571730', 'Twitter', 'width=600,height=600,scrollbars=no,resizable=no');
+                   return false;" class="twitter" target="popup"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 300 271">
+                    
+                    <path d="m236 0h46l-101 115 118 156h-92.6l-72.5-94.8-83 94.8h-46l107-123-113-148h94.9l65.5 86.6zm-16.1 244h25.5l-165-218h-27.4z"></path>
+                </svg></a></li>
+            <li><a aria-label="Share on LinkedIn"
+                   href="https://www.linkedin.com/shareArticle?mini=true&url=https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.1145%2F3571730&summary=Check+out+this+research+output+at+The+Hong+Kong+University+of+Science+and+Technology%3A+Survey+of+Hallucination+in+Natural+Language+Generation"
+                   onclick="window.location.origin('https://www.linkedin.com/shareArticle?mini=true&url=https://researchportal.hkust.edu.hk/en/publications/survey-of-hallucination-in-natural-language-generation/%3Futm_source%3Dlinkedin%26utm_medium%3Dsocial%26utm_campaign%3Dsharelink%26doi%3D10.1145%2F3571730&summary=Check+out+this+research+output+at+The+Hong+Kong+University+of+Science+and+Technology%3A+Survey+of+Hallucination+in+Natural+Language+Generation doi%3A10.1145%2F3571730', 'LinkedIn', 'width=600,height=600,scrollbars=no,resizable=no');
+                   return false;" class="icon-linkedin" target="popup"></a></li>
+            <li><a aria-label="Share by email" href="/cdn-cgi/l/email-protection#36094543545c5355420b65434440534f13040659501304067e575a5a43555f5857425f59581304065f581304067857424344575a1304067a57585143575153130406715358534457425f5958105459524f0b755e53555d130406594342130406425e5f45130406445345535744555e1304065943424643421304065742130406625e531304067e5958511304067d59585113040663585f405344455f424f130406595013040665555f535855531304065758521304066253555e58595a59514f13057713040665434440534f13040659501304067e575a5a43555f5857425f59581304065f581304067857424344575a1304067a57585143575153130406715358534457425f5958164a165e424246450c1919445345535744555e46594442575a185e5d43454218535243185e5d195358194643545a5f5557425f5958451945434440534f1b59501b5e575a5a43555f5857425f59581b5f581b5857424344575a1b5a575851435751531b515358534457425f5958190943425b694559434455530b535b575f5a10575b460d43425b695b53525f435b0b535b575f5a10575b460d43425b6955575b46575f51580b455e5744535a5f585d" class="icon-email"></a></li>
+        </ul>
+    </div>
+
+
+
+
+    
+        </div>
+    </div>
+
+    <div id="new-modal-overlay"></div>
+    
+    </main>
+
+    <footer id="page-footer" class="main-footer">
+        <div class="container">
+            <div class="footer-wrapper">
+                <div class="content-navigation three-third">
+                    <div dir="ltr" class="footer-columns">
+                        
+                        <div class="footer-column">
+                            <p>
+                                Powered by <a href="http://www.elsevier.com/online-tools/research-intelligence/products-and-services/pure" target="_blank">Pure <span class="sr-only">Link opens in a new tab</span></a>, <a href="http://www.scopus.com/" target="_blank">Scopus <span class="sr-only">Link opens in a new tab</span></a> & <a href="https://www.elsevier.com/products/elsevier-fingerprint-engine" target="_blank">Elsevier Fingerprint Engine&trade; <span class="sr-only">Link opens in a new tab</span></a> 
+                            </p>
+
+                            <p>
+                                All content on this site: Copyright &copy; 2026 The Hong Kong University of Science and Technology, its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the relevant licensing terms apply
+                            </p>
+
+                            <p>We use cookies to help provide and enhance our service and tailor content. By continuing you agree to the <a href="/en/about/cookies/">use of cookies</a></p>
+                            <p><button id="ot-sdk-btn" class="ot-sdk-show-settings"></button></p>
+                            
+                                <p><a href="https://researchportal.hkust.edu.hk/admin/workspace.xhtml" rel="nofollow" target="_blank">Log in to Pure <span class="sr-only">&nbsp; Link opens in a new tab</span></a></p>
+                            
+                            <p></p>
+                        </div>
+
+                        <div class="footer-column">
+                            
+                                <p><a href="https://dataprivacy.hkust.edu.hk/university-data-privacy-policy-statement/" target="_blank">The Hong Kong University of Science and Technology data protection policy <span class="sr-only">&nbsp; Link opens in a new tab</span></a></p>
+                            
+                            
+                            
+                                <p><a href="/en/web-accessibility/" rel="nofollow" target="_blank">About web accessibility <span class="sr-only">&nbsp; Link opens in a new tab</span></a></p>
+                            
+
+                            <p>
+                                
+                            </p>
+
+                            <p>
+                                
+                            </p>
+
+                            <p>
+                                <a href="https://elsevier.responsibledisclosure.com/hc/en-us/requests/new" target="_blank" rel="nofollow">Report vulnerability <span class="sr-only">&nbsp; Link opens in a new tab</span></a>
+                            </p>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="back-to-top">
+            <a href="#" class="back-to-top" aria-label="Go to top"><i class="icon icon-up-open"></i></a>
+        </div>
+    </footer>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="//d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+
+
+
+    
+
+    
+
+
+<script>window.appData = window.appData || [];</script><script type="text/javascript">
+try {(function() {
+appData.push({...{"page":{"businessUnit":"ELS:RP:ST","cmsName":"Pure Portal","environment":"prod","language":"en","loadTime":"218","loadTimestamp":"1774957576959","name":"pure portal:publications:view","noTracking":"false","productName":"PR","type":"CP-CA"},"visitor":{"accountId":"","accountName":"pr:The Hong Kong University of Science and Technology","ipAddress":"","accessType":"pr:ANON_GUEST","loginStatus":"anonymous"},"content":[{"id":"6661ab88-5642-406a-a598-f83213b5315c","title":"Survey of Hallucination in Natural Language Generation","recordType":"researchoutput"}]}, event: "pageLoad"});})();} catch(e) {if(console) { console.log(e) } }</script>
+<script>function trackPage(){try {(function() {
+window.appData = window.appData || [];
+})();} catch(e) {if(console) { console.log(e) } }}</script>
+
+</body>
+</html>
+

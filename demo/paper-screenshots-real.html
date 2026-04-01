@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ProveML Paper Screenshots — Real Verifier</title>
+<style>
+  body {
+    font-family: 'Charter', 'Georgia', 'Palatino Linotype', serif;
+    background: #fff;
+    color: #1a1a1a;
+    max-width: 680px;
+    margin: 40px auto;
+    padding: 0 24px;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .shot { border: 1px solid #eee; border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+  .shot-label { font-size: 11px; letter-spacing: 0.04em; color: #aaa; margin-bottom: 10px; }
+  .trust { font-size: 12px; color: #6b7280; margin-bottom: 12px; }
+  .proveml-proof { font-family: 'SF Mono', 'Consolas', monospace; font-size: 0.76em; color: #999; background: #f7f7f6; padding: 1px 4px; border-radius: 2px; margin-left: 3px; }
+  #audit .proveml-fact::after, #audit .proveml-entity::after, #audit .proveml-inference::after { display: none; }
+</style>
+</head>
+<body>
+
+<div class="shot" id="verified-output"></div>
+<div class="shot" id="error-output"></div>
+<div class="shot" id="audit"></div>
+
+<script type="module">
+import { renderProveml, attachHover, PROVEML_CSS } from './proveml-runtime.js';
+
+const style = document.createElement('style');
+style.textContent = PROVEML_CSS;
+document.head.appendChild(style);
+
+// Finance fact store
+const factStore = {
+  'company:aapl.name': 'Apple Inc.',
+  'company:aapl.revenue': 416161000000,
+  'company:aapl.revenue._unit': 'USD',
+  'company:aapl.netIncome': 112010000000,
+  'company:aapl.netIncome._unit': 'USD',
+  'company:aapl.eps': 7.49,
+  'company:aapl.eps._unit': 'USD/shares',
+  'company:aapl.longTermDebt': 90678000000,
+  'company:aapl.longTermDebt._unit': 'USD',
+  'company:aapl.debtToEquity': 1.23,
+  'company:aapl.cash': 35934000000,
+  'company:aapl.cash._unit': 'USD',
+  'company:aapl.sharesOutstanding': 14773260000,
+  'company:aapl.sharesOutstanding._unit': 'shares',
+  'company:msft.name': 'Microsoft Corporation',
+  'company:msft.revenue': 281724000000,
+  'company:msft.revenue._unit': 'USD',
+  'company:msft.assets': 619003000000,
+  'company:msft.assets._unit': 'USD',
+  'company:msft.debtToEquity': 0.13,
+  'account:901.name': 'Acme Corp',
+  'account:901.balance': 12400,
+  'account:901.balance._unit': 'EUR',
+};
+
+// 1. All verified
+const verified = `@[company:aapl]{Apple Inc.} reported revenue of %[revenue]{416161000000 USD} with net income of %[netIncome]{112010000000 USD} and earnings per share of %[eps]{7.49 USD/shares}.
+
+@[company:msft]{Microsoft Corporation} reported revenue of %[revenue]{281724000000 USD} with total assets of %[assets]{619003000000 USD} and a debt-to-equity ratio of %[debtToEquity]{0.13}.
+
+Apple's long-term debt of %[longTermDebt]{90678000000 USD} yields a debt-to-equity ratio of %[debtToEquity]{1.23}.`;
+
+const v = renderProveml(verified, factStore);
+document.getElementById('verified-output').innerHTML =
+  `<div class="shot-label">verify mode</div>` +
+  `<div class="trust">${v.verification.verified} of ${v.verification.total} claims verified — ${Math.round(v.verification.verified/v.verification.total*100)}%</div>` +
+  v.html;
+
+// 2. With errors
+const errors = `@[company:aapl]{Apple Inc.} reported revenue of %[revenue]{420000000000 USD} with net income of %[netIncome]{112010000000 USD}.
+
+@[company:alphabet]{Alphabet Inc.} reported assets of %[assets]{619003000000 USD}.
+
+@[account:901]{Acme Corp} has %[balance]{12400 EUR}. ?[neg: IS_NEGATIVE_BALANCE]{The balance is critically low}.`;
+
+const e = renderProveml(errors, factStore);
+document.getElementById('error-output').innerHTML =
+  `<div class="shot-label">verify mode — errors detected</div>` +
+  `<div class="trust">${e.verification.verified} of ${e.verification.total} claims verified — ${e.verification.total > 0 ? Math.round(e.verification.verified/e.verification.total*100) : 0}%</div>` +
+  e.html;
+
+// 3. Audit mode
+const a = renderProveml(verified, factStore, { showProofPaths: true });
+const auditDiv = document.getElementById('audit');
+auditDiv.innerHTML =
+  `<div class="shot-label">audit mode — proof paths visible</div>` +
+  `<div class="trust">${a.verification.verified} of ${a.verification.total} claims verified — ${Math.round(a.verification.verified/a.verification.total*100)}%</div>` +
+  a.html;
+
+// Attach hover to all sections
+document.querySelectorAll('.shot').forEach(el => attachHover(el));
+</script>
+
+</body>
+</html>

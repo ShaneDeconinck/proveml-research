@@ -1,0 +1,881 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage[authoryear,round]{natbib}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit,backgrounds}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0em}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black
+}
+
+\definecolor{codebg}{HTML}{F5F5F5}
+\definecolor{teal}{HTML}{0D9488}
+\definecolor{violet}{HTML}{A78BFA}
+\definecolor{amber}{HTML}{FBBF24}
+
+\tikzset{
+    diag title/.style={font=\sffamily\small\bfseries},
+    diag box/.style={
+        draw=black!75,
+        rounded corners=1.5pt,
+        fill=gray!4,
+        minimum height=0.82cm,
+        minimum width=2.5cm,
+        align=center,
+        font=\sffamily\small,
+        inner sep=4pt
+    },
+    diag data/.style={diag box, rounded corners=0.5pt, fill=gray!8},
+    diag ai/.style={diag box, rounded corners=4pt, fill=gray!11},
+    diag det/.style={diag box, rounded corners=0.5pt, fill=gray!12, line width=1.0pt},
+    diag out/.style={diag box, fill=white},
+    diag header/.style={diag box, fill=gray!10, font=\ttfamily\small},
+    diag decision/.style={
+        draw=black!75,
+        diamond,
+        aspect=2.35,
+        fill=white,
+        inner sep=2pt,
+        align=center,
+        font=\sffamily\scriptsize
+    },
+    diag terminal/.style={
+        draw=black!75,
+        rounded corners=1.5pt,
+        fill=gray!2,
+        minimum height=0.7cm,
+        minimum width=1.95cm,
+        align=center,
+        font=\sffamily\scriptsize\bfseries,
+        inner sep=4pt
+    },
+    diag code/.style={font=\ttfamily\scriptsize, align=left},
+    diag note/.style={font=\sffamily\scriptsize, text=black!70, align=center},
+    diag label/.style={font=\sffamily\scriptsize, text=black!60},
+    diag arrow/.style={-{Stealth[length=4pt]}, semithick, draw=black!70},
+    diag feedback/.style={-{Stealth[length=4pt]}, dashed, semithick, draw=black!60}
+}
+
+\lstset{
+    basicstyle=\small\ttfamily,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    framerule=0.5pt,
+    rulecolor=\color{gray!30},
+    breaklines=true,
+    columns=flexible,
+    keepspaces=true,
+    tabsize=2
+}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+
+\title{\textbf{ProveML: Inline Claim Markup for Deterministic Verification of Open-Ended AI Generation}}
+\author{Shane Deconinck\\\small{trustedagentic.ai}\\\small{\texttt{shane@trustedagentic.ai}}}
+\date{March 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Organizations are deploying LLMs in consequential settings under regulatory pressure, but most generated text carries no machine-checkable link between individual claims and the underlying data. Each generation of models produces more fluent output, but none can reliably signal its own uncertainty.
+
+\vspace{0.4em}
+We present ProveML, a lightweight Markdown extension that places AI-generated claims inside a verifiable boundary. Three inline constructs declare entities, link facts to a data source, and check qualitative judgments against composable thresholds. Verification is deterministic: facts resolve by key-value lookup, thresholds by arithmetic comparison, with no model in the loop. Because verification is instant, it can sit inside a generation loop, feeding errors back to the LLM to improve consistency with the data.
+
+\vspace{0.4em}
+Across four models (3.8B to API-scale, 3 runs each), we observe a three-regime pattern: below a capability threshold, models fail to produce verifiable markup reliably; in an intermediate regime, models emit markup stably but make addressability errors the loop can selectively repair; above threshold, ProveML serves as a compliance layer. A cross-domain evaluation on both a synthetic educational dataset and real SEC EDGAR financial data shows the regime structure is benchmark-dependent: all four models enter the verifiable boundary when context complexity is low. We provide the formal grammar, verification algorithm, correctness argument, and evaluation across four experiments spanning two domains and four models.
+\end{abstract}
+
+\noindent\textbf{Keywords:} AI verification, markup language, deterministic verification, structured data, threshold registry, hallucination detection, inline tagging
+
+\section{Introduction}
+
+Large Language Models (LLMs) produce fluent, contextually appropriate text that is increasingly difficult to distinguish from human-authored content. This fluency, however, coexists with a fundamental reliability problem: \textbf{LLMs hallucinate}. They generate text that is plausible but factually incorrect, including fabricated citations, invented statistics, and misattributed claims.
+
+Recent theoretical work suggests that \textbf{hallucination is not merely an incidental bug but reflects structural properties} of how language models operate. \citet{kalai2024} prove formally that any language model satisfying natural calibration conditions \textit{must} hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work \cite{kalai2025} shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty. \citet{xu2024} use computability theory to show that LLMs cannot learn all computable functions and will therefore inevitably produce confabulations when used as general-purpose reasoners. More broadly, hallucination is a well-documented reliability problem across deep-learning-based natural language generation systems \cite{ji2023}.
+
+\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness \cite{ouyang2022}. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; \citet{magesh2025} found hallucination rates exceeding 17\% in both Lexis+ AI and Westlaw AI-Assisted Research, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals \cite{orgad2025, farquhar2024}, but probes do not generalise across tasks, entropy methods fail on confident errors, and all require white-box access. \citet{mccain2026} report that 73\% of agent tool calls still involve human oversight, finding that agents systematically overestimate their own success rates.
+
+\textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations \cite{deloitte2025}. Earlier, fabricated ChatGPT citations were submitted to a U.S.\ federal court \cite{mata2023}, and Google's first Bard demo hallucinated on camera, contributing to a \$100 billion market cap drop \cite{googlebard2023}. Yet the majority of organisations now use AI in at least one function \cite{mckinsey2025}, and Gartner projected over 80\% of enterprises would deploy generative AI by 2026 \cite{gartner2023}. \textbf{Organisations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.
+
+This creates precisely the conditions described in Bainbridge's classic analysis of the \textbf{ironies of automation} \cite{bainbridge1983} and well-documented in the trust-in-automation literature \cite{leesee2004, parasuraman1997}: as automated systems become more reliable, human operators trust them more and monitor them less. When the rare failure occurs, it is more likely to go undetected precisely because the operator has become complacent. In the context of AI-generated text, this dynamic is particularly acute. An LLM that produces correct output 97\% of the time creates a more dangerous situation than one that produces correct output 80\% of the time, because the 97\% system induces trust that suppresses human verification behaviour.
+
+The regulatory landscape compounds the problem. The EU AI Act \cite{euaiact} classifies AI systems used for consequential decisions as ``high-risk'' (Annex III), requiring transparency, human oversight, and risk management. Yet to our knowledge, \textbf{no existing framework combines inline claim markup, deterministic mismatch detection against structured data, and composable threshold inference} in a single system.
+
+Current approaches to the AI reliability problem include several strategies, none of which addresses the structural verification gap:
+
+\begin{enumerate}
+    \item \textbf{Post-hoc fact-checking} (FActScore \cite{factscore}, SAFE \cite{safe}, FacTool \cite{factool}, SelfCheckGPT \cite{selfcheckgpt}, RefChecker \cite{refchecker}): decompose, sample, or re-check generated text after the fact against external sources or model-generated consistency signals. These systems use non-deterministic checks in the verification loop, making verification itself probabilistic and subject to many of the same failure modes as the generation process.
+    \item \textbf{Output validation} (Guardrails AI \cite{guardrails}, DSPy \cite{dspy}, NeMo Guardrails \cite{nemo}): programmatic constraint enforcement that can operate at output or sentence level. Guardrails AI's provenance validators support sentence-level checks against source text; DSPy compiles declarative LM pipelines into optimized prompts. However, verification in these systems still relies on LLM judgments or embedding similarity, not deterministic checks against structured data stores with addressable paths.
+    \item \textbf{Attribution} (RARR \cite{rarr}, WebGPT \cite{webgpt}, OpenAI response annotations): link claims to source documents or passages. Some systems (e.g., Google's grounding API \cite{googleground}) additionally return support scores and claim-to-source metadata. These track \textit{where} a claim came from, not \textit{whether the claimed value is correct}. Verification, where present, is probabilistic and against unstructured text.
+\end{enumerate}
+
+\textbf{None of these provide a structural guarantee} that every factual claim in AI-generated text is an addressable, deterministically verifiable reference to a source record in a structured data store.
+
+We present ProveML (Provenance Markup Language), a system that fills this gap. ProveML is an inline claim markup language embedded in AI-generated text where:
+
+\begin{itemize}
+    \item Every entity reference is verified against a structured data store (name match).
+    \item Every factual claim resolves to a specific addressable path in the data store (value match).
+    \item Every inference is checked against a threshold registry defined outside the generation process.
+    \item Verification is fully deterministic, with no model in the verification loop.
+    \item Unverified or mismatched claims are structurally detectable and can be flagged by the rendering layer.
+\end{itemize}
+
+The closest structural analog is iXBRL (Inline XBRL) \cite{ixbrl}, which embeds machine-readable tags in human-readable financial reports, enabling automated audit of reported figures. ProveML extends this concept from human-authored financial text to AI-generated text across any domain, adding inference chains, entity scoping, and threshold registries (see Figure~\ref{fig:symgen-vs-proveml} for the architectural distinction).
+
+The key insight underlying ProveML is that \textit{verification should be a structural property of the generated text, not a post-hoc evaluation}. Just as a type system prevents certain classes of errors at compile time rather than detecting them at runtime, ProveML makes certain classes of AI errors (factual inaccuracy, entity misattribution, unjustified inference) structurally detectable at generation time.
+
+\paragraph{Design philosophy.} ProveML is deliberately assembled from established patterns rather than invented from scratch:
+
+\begin{itemize}[nosep]
+    \item Host language: Markdown (natively produced by LLMs)
+    \item Inline tagging model from iXBRL \cite{ixbrl}
+    \item Operator vocabulary from FHIR clinical reference ranges \cite{fhir} and JSON Schema validation
+    \item Fact store from the Entity-Attribute-Value (EAV) pattern
+    \item Verify-then-render pipeline from standard compiler design
+\end{itemize}
+
+\noindent A sceptical reader should find each component familiar. What ProveML contributes is the \textit{specific combination} applied to AI-generated text, together with two mechanisms we have not seen elsewhere: the threshold registry as a vocabulary constraint (the generating process cannot assert what has not been defined), and the verify-fix loop operating at claim-level granularity.
+
+The contributions of this paper are:
+
+\begin{enumerate}
+    \item \textbf{A formal specification} of the ProveML markup language, including grammar, verification algorithm, and a correctness argument (Sections 3--6).
+    \item \textbf{A threshold registry} of composable inference primitives. Domain experts define the qualitative judgments that can be verified; in regulated deployments, the prompting layer can enforce that unverifiable observations use exploratory language.
+    \item \textbf{An empirical evaluation} across four models (3.8B to API-scale) revealing a three-regime capability pattern. Most first-pass failures are addressability errors, not value mismatches (Section 7).
+    \item \textbf{A reference implementation} with 144 tests (plugin, grammar, paper-example, and skill checks), tested against both a synthetic educational dataset and real SEC EDGAR financial data (Section 9).
+\end{enumerate}
+
+\section{Architecture}
+
+Figure~\ref{fig:comparison} contrasts the standard approach (data in, text out, no verification) with ProveML's pipeline.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.05cm and 1.55cm,
+]
+% Without ProveML
+\node[diag title] (t1) {Without ProveML};
+\node[diag data, below=0.35cm of t1, minimum width=3.0cm] (db1) {Structured data};
+\node[diag ai, below=of db1, minimum width=3.0cm] (llm1) {LLM generation};
+\node[diag out, below=of llm1, minimum width=3.0cm] (out1) {Released text};
+\draw[diag arrow] (db1) -- (llm1) node[diag label, midway, right] {prompt};
+\draw[diag arrow] (llm1) -- (out1) node[diag label, midway, right] {unverified};
+\node[diag note, below=0.25cm of out1, text width=3.6cm] {No deterministic check ties individual claims to the source data.};
+
+% With ProveML
+\node[diag title, right=4.15cm of t1] (t2) {With ProveML};
+\node[diag data, below=0.35cm of t2, minimum width=2.8cm] (fs2) {Fact store};
+\node[diag data, right=2.45cm of fs2, minimum width=2.8cm] (tr2) {Threshold\\registry};
+\node[diag ai, below=1.05cm of fs2, minimum width=2.8cm] (llm2) {LLM generation};
+\node[diag det, right=2.45cm of llm2, minimum width=2.8cm] (ver2) {Deterministic\\verifier};
+\node[diag out, below=1.05cm of ver2, minimum width=2.8cm] (ren2) {Rendered output};
+\draw[diag arrow] (fs2) -- (llm2) node[diag label, midway, left] {data};
+\draw[diag arrow] (fs2) -- (ver2);
+\draw[diag arrow] (tr2) -- (ver2) node[diag label, midway, right] {rules};
+\draw[diag arrow] (llm2) -- (ver2) node[diag label, midway, above] {tagged text};
+\draw[diag arrow] (ver2) -- (ren2) node[diag label, midway, right] {results};
+\draw[diag feedback] (ver2.south west) -- ++(0,-0.28) -| (llm2.south) node[diag label, pos=0.24, below] {optional correction loop};
+\node[diag note, below=0.25cm of ren2, text width=3.5cm] {Claims are checked against the fact store and threshold registry before release.};
+\end{tikzpicture}
+\caption{Without ProveML (left): data goes in, text comes out, no verification. With ProveML (right): every claim is checked against the data source and threshold registry, with an optional correction loop. Rounded boxes denote generative components; squared boxes denote data stores and deterministic processing.}
+\label{fig:comparison}
+\end{figure}
+
+
+\subsection{Fact Store}
+
+The fact store is a flat key-value index following the Entity-Attribute-Value (EAV) pattern. Any source with records and fields can be flattened into it. The flattening is mechanical: each record becomes \texttt{type:id.field $\rightarrow$ value}, with optional sub-paths for nested data.
+
+\begin{definition}[Fact Store Path]
+A fact store path has the form:
+\[
+\textit{entity\_type} \; \texttt{:} \; \textit{entity\_id} \; (\texttt{.} \; \textit{sub\_type} \; \texttt{:} \; \textit{sub\_id})^* \; \texttt{.} \; \textit{field\_name} \rightarrow \textit{value}
+\]
+where the sub-path is optional and repeatable for nested data. The verifier treats terminal values as atomic facts with canonical string representations; threshold operators may impose additional type requirements. For example, \texttt{account:901.transaction:2026-01.amount} addresses a specific transaction's amount.
+\end{definition}
+
+\noindent Examples (flat fields and nested sub-paths):
+
+\begin{lstlisting}
+account:901.holder                       -> "Acme Corp"
+account:901.balance                      -> -12400
+account:901.balance._unit                -> "EUR"
+account:901.overdue                      -> 3
+account:901.transaction:2026-01.amount   -> 5200
+account:901.transaction:2026-01.amount._unit -> "EUR"
+\end{lstlisting}
+
+\noindent ProveML separates two verification modes. Direct fact references use exact string equality against the store's canonical representation: if the store canonicalizes \texttt{18.50} to \texttt{18.5}, the claim must say \texttt{18.5}. Threshold predicates use typed comparison (numeric, set membership, etc.). The fact store is the canonicalization point: any consistent flattening scheme works, provided the same representation is used for both storage and generation.
+
+\paragraph{Units.} Fact store entries may carry an optional unit via a companion key:
+
+\begin{lstlisting}
+account:901.balance        -> -12400
+account:901.balance._unit  -> "EUR"
+patient:308.glucose        -> 142
+patient:308.glucose._unit  -> "mg/dL"
+\end{lstlisting}
+
+\noindent Units are modeled structurally in the fact store via companion metadata (e.g., \texttt{balance} and \texttt{balance.\_unit}), but direct fact references verify the canonical surface form shown to the reader (e.g., \texttt{\%[balance]\{-12400 EUR\}}). When no unit is present, value-only comparison applies. Threshold definitions may declare an expected unit; if the fact store's unit for that field does not match, verification fails. The grammar is unchanged: unit enforcement is a property of the data model, not the markup syntax.
+
+This follows iXBRL's principle that numeric facts should be self-describing, while keeping ProveML's verification mechanism minimal. In regulated deployments, unit strings may need to resolve to canonical identifiers from standardised vocabularies (e.g., UCUM for clinical units, ISO 4217 for currencies); this is a natural extension but beyond the scope of the present specification.
+
+\paragraph{Data sources.} This specification defines verification against a single flat store. The generating model verifies against whatever the deployer places in the store; source selection is a deployment decision. Multiple stores, explicit source provenance per fact, or a source prefix on entity paths are natural extensions but beyond the current scope.
+
+\noindent ProveML does not verify the fact store itself. The system's guarantee is ``consistent with the data source'', not ``true.'' If the source data is wrong, verified claims will be wrong. The fact store is the single point of trust.
+
+\textbf{Immutability}: Verification is always relative to a particular fact-store state. During a verification session, the fact store must remain immutable. If the underlying data changes, previously verified texts are not assumed to remain valid and must be re-verified. Deployments that require audit trails can bind a snapshot identifier (hash or timestamp) to each verification result; the reference implementation supports this as an optional parameter. In the evaluation, the fact store is loaded once per session and not modified, so immutability holds trivially without explicit snapshot binding.
+
+\subsection{Threshold Registry}
+
+The threshold registry draws on the design patterns of clinical reference ranges (HL7 FHIR \cite{fhir}), JSON Schema validation, and monitoring alert systems (Grafana, Datadog). The common insight across these systems: domain experts think in \textit{named ranges with semantic labels}, not in operator expressions. A clinician defines ``normal glucose = 70--100 mg/dL'', not ``glucose >= 70 AND glucose <= 100''.
+
+\begin{definition}[Threshold]
+A threshold is a named predicate with a semantic label:
+\[
+T = (\textit{name}, \textit{field}, \textit{predicate}, \textit{unit?}, \textit{label}, \textit{source})
+\]
+where \textit{predicate} is a tagged union over the operator forms in Table~\ref{tab:operators}:
+\begin{align*}
+\textit{predicate} &::= (\texttt{lt} \mid \texttt{gt} \mid \texttt{lte} \mid \texttt{gte} \mid \texttt{eq} \mid \texttt{neq},\; \textit{value}) \\
+    &\mid (\texttt{between},\; \textit{low},\; \textit{high}) \\
+    &\mid (\texttt{in},\; \textit{values}^+) \\
+    &\mid (\texttt{is\_null}) \\
+    &\mid (\texttt{diff\_gt},\; \textit{value},\; \textit{direction})
+\end{align*}
+where \textit{value}, \textit{low}, \textit{high} are numbers and \textit{direction} is one of \texttt{higher}, \texttt{lower}, or \texttt{either}. The optional \textit{unit} constrains the field's companion \texttt{.\_unit} value in the fact store; it does not alter the operator vocabulary.
+\end{definition}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+\textbf{Operator} & \textbf{Display label} & \textbf{Example} \\
+\midrule
+\multicolumn{3}{l}{\textit{Core (numeric comparison)}} \\
+\texttt{lt} & is less than & \texttt{price lt 10} \\
+\texttt{lte} & is at most & \texttt{rating lte 3} \\
+\texttt{gt} & is greater than & \texttt{stock gt 0} \\
+\texttt{gte} & is at least & \texttt{score gte 75} \\
+\texttt{eq} & equals & \texttt{status eq "active"} \\
+\texttt{neq} & is not & \texttt{status neq "archived"} \\
+\texttt{between} & is between & \texttt{score between 25 50} \\
+\midrule
+\multicolumn{3}{l}{\textit{Extended}} \\
+\texttt{in} & is one of & \texttt{category in \{A,B,C\}} \\
+\texttt{is\_null} & is missing & \texttt{value is\_null} \\
+\texttt{diff\_gt} & differs by more than & \texttt{score diff\_gt 20} \\
+\bottomrule
+\end{tabular}
+\caption{Threshold operator vocabulary. Core operators cover numeric comparison and ranges. Extended operators handle categorical data, missing values, and cross-entity comparison.}
+\label{tab:operators}
+\end{table}
+
+\noindent Examples of threshold definitions:
+
+\begin{lstlisting}
+IS_LOW:        score lt 25         "critically low"
+IS_MODERATE:   score between 25 50 "moderate"
+IS_ACTIVE:     status in {A,B,C}  "active"
+IS_MISSING:    value is_null       "no data"
+MUCH_HIGHER:   score diff_gt 20    "much higher"
+IS_NEGATIVE:   balance lt 0 [EUR]  "negative balance"
+\end{lstlisting}
+
+\noindent Threshold labels are field-specific, not global semantics: a range labeled ``moderate'' for one variable need not have the same meaning for another. The \textit{source} field in each definition records where the threshold was defined, supporting audit.
+
+\paragraph{Design rationale.} The operator set is deliberately small. Logical composition (\texttt{AND}, \texttt{OR}, \texttt{NOT}) is handled at the inference level, not the threshold level, keeping individual thresholds simple enough for non-technical domain experts to define and audit. Complex patterns emerge from combining simple thresholds:
+
+\begin{lstlisting}
+?[low: IS_LOW]{critically low score}
+?[missing: IS_MISSING]{no recent data}
+?[risk: @low AND @missing]{low score with missing data}
+\end{lstlisting}
+
+\paragraph{Cross-entity comparison (\texttt{diff\_gt}).} The \texttt{diff\_gt} operator requires two entity values. The verifier resolves these using the explicit path syntax: \texttt{THRESHOLD\_NAME(entity:id.field)}. The first operand is the current entity context; the second is the explicit path argument. For example:
+
+\begin{lstlisting}
+?[gap: MUCH_HIGHER(region:US.sales)]{much higher}
+\end{lstlisting}
+
+\noindent computes $|\textit{current\_entity}\texttt{.sales} - \texttt{region:US.sales}|$ and checks whether it exceeds 20 in the specified direction. If no explicit path is provided, \texttt{diff\_gt} is unverifiable and the verifier returns an error.
+
+\paragraph{} The AI may only reference thresholds from the registry. It cannot invent comparison values, qualitative magnitudes, or directional claims. This is the primary defense against threshold manipulation: the qualifier itself becomes a verifiable claim.
+
+\section{Syntax}
+
+ProveML extends Markdown with three constructs, using characters (\texttt{@}, \texttt{\%}, \texttt{?}) that do not conflict with standard Markdown syntax. The syntax draws on conventions from popular Markdown extensions: bracketed spans (Pandoc, Djot), pipe-separated parameters (MediaWiki, Obsidian), and quoted metadata in references (Markdown link titles). The choice of Markdown is deliberate: LLMs produce it fluently and existing renderers pass ProveML constructs through unchanged.
+
+\noindent A complete example before the formal definitions:
+
+\begin{lstlisting}
+(* Simple form: entity, then facts follow *)
+@[sensor:42]{Sensor X} reads %[value]{29.99} with %[stock]{150} in stock.
+
+(* Scoped form: facts inside entity braces *)
+@[sensor:42 "Sensor X"]{reads %[value]{29.99}, %[stock]{150} in stock}
+
+(* Nested scopes: outer entity with multiple inner entities *)
+@[facility:7 "Plant North"]{hosts
+  @[sensor:42 "Sensor X"]{reading %[value]{29.99}} and
+  @[sensor:43 "Sensor Y"]{reading %[value]{18.50}},
+  with %[sensorCount]{12} sensors total}
+\end{lstlisting}
+
+\noindent The simple form uses linear carry-forward; the scoped form uses lexical binding. In the nested example, each \texttt{value} binds to its enclosing sensor, while \texttt{sensorCount} binds to \texttt{facility:7} (outer scope). The verifier maintains a scope stack, so binding is always deterministic.
+
+\subsection{Entity Reference}
+
+Two forms, fully backward compatible:
+
+\begin{lstlisting}
+@[entity_type:entity_id]{display_name}
+@[entity_type:entity_id "verified_name"]{prose with facts}
+\end{lstlisting}
+
+\noindent \textbf{Simple form} \texttt{@[sensor:42]\{Sensor X\}}: the brace content serves as both the display text and the verified name. The verifier checks $\texttt{fact\_store}[\texttt{sensor:42.name}] = \texttt{"Sensor X"}$. If the name does not match, verification fails.
+
+\textbf{Scoped form} \texttt{@[sensor:42 "Sensor X"]\{prose...\}}: the quoted string is verified against the fact store; the braces contain prose where fact references bind explicitly to this entity. The scoped form is needed when carry-forward would give the wrong binding: multi-entity comparisons, nested entities, or languages where the subject follows the predicate:
+
+\begin{lstlisting}
+@[sensor:42 "Sensor X"]{costs %[price]{29.99}} vs
+@[sensor:43 "Sensor Y"]{costs %[price]{18.5}}
+\end{lstlisting}
+
+\noindent Only ProveML constructs (\texttt{@[...]}, \texttt{\%[...]}, \texttt{?[...]}) inside the braces are verified; surrounding prose is not. A scoped entity does not confer verification status on its prose. It is up to the rendering engine to visually distinguish verified constructs from unverified prose, and to indicate which entity each fact binds to (for example, through color coding or scope indicators).
+
+\subsection{Fact Reference}
+
+\begin{lstlisting}
+%[field_name]{value}
+\end{lstlisting}
+
+A verifiable factual claim. Binding follows two rules:
+
+\begin{enumerate}
+    \item \textbf{Lexical scope}: a fact inside \texttt{@[entity "name"]\{...\}} braces binds to that entity.
+    \item \textbf{Linear fallback}: a fact outside any scoped entity braces binds to the nearest preceding \texttt{@[entity]}.
+\end{enumerate}
+
+\noindent Rule 1 takes priority. The simple case (\texttt{@[e]\{Name\} ... \%[f]\{v\}}) works as before. The scoped form handles non-English word order, tables, and interleaved comparisons without introducing explicit paths on facts; binding is always structural, never controlled by the LLM.
+
+\textbf{Verification}: The verifier checks that $\texttt{fact\_store}[\textit{bound\_entity}\texttt{.}\textit{field}] = \textit{value}$.
+
+Three outcomes: \textit{verified} (match), \textit{mismatch} (value differs), \textit{unverifiable} (field or entity not found).
+
+\subsection{Inference Reference}
+
+\begin{lstlisting}
+?[label: condition]{display_text}
+\end{lstlisting}
+
+A verifiable logical observation. Conditions reference the threshold registry or combine prior inference labels.
+
+\begin{definition}[Condition Grammar]
+\begin{align*}
+\textit{condition} &::= \textit{or\_expr} \\
+\textit{or\_expr} &::= \textit{and\_expr} \; (\texttt{OR} \; \textit{and\_expr})^* \\
+\textit{and\_expr} &::= \textit{unary} \; (\texttt{AND} \; \textit{unary})^* \\
+\textit{unary} &::= \texttt{NOT} \; \textit{unary} \mid \textit{primary} \\
+\textit{primary} &::= \textit{THRESHOLD\_NAME} \mid \textit{THRESHOLD\_NAME}\texttt{(}\textit{path}\texttt{)} \mid \texttt{@}\textit{label}
+\end{align*}
+\end{definition}
+
+\subsection{Formal Grammar}
+
+A simplified EBNF for ProveML constructs embedded in Markdown:
+
+\begin{lstlisting}[caption={ProveML Grammar (EBNF)}]
+(* ProveML constructs inside Markdown inline content *)
+entity_ref_simple = "@[" , entity_path , "]{" , display_text , "}" ;
+entity_ref_scoped = "@[" , entity_path , " " , DQUOTE ,
+                    entity_name , DQUOTE , "]{" ,
+                    scoped_content , "}" ;
+entity_ref        = entity_ref_simple | entity_ref_scoped ;
+
+fact_ref          = "%[" , field_name , "]{" , value_text , "}" ;
+inference_ref     = "?[" , label , ": " , condition , "]{" ,
+                    display_text , "}" ;
+
+(* Paths and identifiers *)
+entity_path       = identifier , ":" , entity_id ;
+entity_id         = ( letter | digit ) ,
+                    { letter | digit | "_" | "-" } ;
+
+field_name        = field_segment , { "." , field_segment } ;
+field_segment     = meta_field | path_field | identifier ;
+meta_field        = "_" , identifier ;
+path_field        = identifier , ":" , entity_id ;
+
+label             = identifier ;
+identifier        = letter , { letter | digit | "_" } ;
+
+(* Text content *)
+entity_name       = { char - '"' } ;
+display_text      = { char - "}" } ;
+scoped_content    = { char } ;   (* parsed recursively *)
+value_text        = { char - "}" } ;
+
+(* Condition grammar *)
+condition         = or_expr ;
+or_expr           = and_expr , { " OR " , and_expr } ;
+and_expr          = unary_expr , { " AND " , unary_expr } ;
+unary_expr        = [ "NOT " ] , primary ;
+primary           = threshold_name
+                  | threshold_name , "(" , path , ")"
+                  | "@" , label ;
+
+(* Terminals *)
+threshold_name    = uppercase , { uppercase | "_" } ;
+path              = entity_path , "." , field_name ;
+DQUOTE            = '"' ;
+letter            = "a"-"z" | "A"-"Z" ;
+uppercase         = "A"-"Z" ;
+digit             = "0"-"9" ;
+\end{lstlisting}
+
+\noindent This grammar specifies ProveML constructs only; surrounding paragraph, list, table, and block structure is delegated to the host Markdown parser.
+
+\section{Verification Algorithm}
+
+Figure~\ref{fig:verification-flow} illustrates the decision logic for each ProveML construct.
+
+\begin{figure}[h]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=0.82cm,
+]
+% Column 1: Entity reference
+\node[diag header, minimum width=3.1cm] (e0) {\texttt{@[entity:id]\{text\}}};
+\node[diag decision, below=of e0] (e1) {name in\\store?};
+\node[diag terminal, below left=1.0cm and 0.35cm of e1] (e1y) {Verified};
+\node[diag terminal, below right=1.0cm and 0.35cm of e1] (e1n) {Mismatch};
+\draw[diag arrow] (e0) -- (e1);
+\draw[diag arrow] (e1) -- (e1y) node[diag label, midway, left] {yes};
+\draw[diag arrow] (e1) -- (e1n) node[diag label, midway, right] {no};
+
+% Column 2: Fact reference
+\node[diag header, minimum width=3.1cm, right=4.0cm of e0] (f0) {\texttt{\%[field]\{value\}}};
+\node[diag decision, below=of f0] (f1) {entity\\context?};
+\node[diag terminal, below left=1.0cm and 0.35cm of f1] (f1n) {No context};
+\node[diag decision, below right=1.0cm and 0.35cm of f1] (f2) {value\\matches?};
+\node[diag terminal, below left=1.0cm and 0.35cm of f2] (f2y) {Verified};
+\node[diag terminal, below right=1.0cm and 0.35cm of f2] (f2n) {Mismatch};
+\draw[diag arrow] (f0) -- (f1);
+\draw[diag arrow] (f1) -- (f1n) node[diag label, midway, left] {no};
+\draw[diag arrow] (f1) -- (f2) node[diag label, midway, right] {yes};
+\draw[diag arrow] (f2) -- (f2y) node[diag label, midway, left] {yes};
+\draw[diag arrow] (f2) -- (f2n) node[diag label, midway, right] {no};
+
+% Column 3: Inference reference
+\node[diag header, minimum width=3.2cm, right=4.0cm of f0] (i0) {\texttt{?[label: cond]\{text\}}};
+\node[diag decision, below=of i0] (i1) {threshold\\in registry?};
+\node[diag terminal, below left=1.0cm and 0.35cm of i1] (i1n) {Unknown};
+\node[diag decision, below right=1.0cm and 0.35cm of i1] (i2) {condition\\holds?};
+\node[diag terminal, below left=1.0cm and 0.35cm of i2] (i2y) {Verified};
+\node[diag terminal, below right=1.0cm and 0.35cm of i2] (i2n) {Failed};
+\draw[diag arrow] (i0) -- (i1);
+\draw[diag arrow] (i1) -- (i1n) node[diag label, midway, left] {no};
+\draw[diag arrow] (i1) -- (i2) node[diag label, midway, right] {yes};
+\draw[diag arrow] (i2) -- (i2y) node[diag label, midway, left] {yes};
+\draw[diag arrow] (i2) -- (i2n) node[diag label, midway, right] {no};
+\end{tikzpicture}%
+}
+\caption{Verification decision flow for each ProveML construct type. Every path terminates in a deterministic outcome with no probabilistic judgment.}
+\label{fig:verification-flow}
+\end{figure}
+
+\begin{algorithm}
+\caption{ProveML Verification}
+\begin{algorithmic}[1]
+\Require ProveML document $D$, fact store $F$, threshold registry $R$, optional snapshot $s$
+\Ensure Verification result $V$
+\State initialize $V$, $\textit{labels} \gets \emptyset$, $\textit{entityStack} \gets []$, $\textit{currentEntity} \gets \texttt{null}$
+\If{$s$ is provided}
+    \State $V.\textit{snapshot} \gets s$
+\EndIf
+\For{each token $t$ in $\textsc{Tokenize}(D)$}
+    \If{$t.\textit{type} = \texttt{entity}$}
+        \State $p \gets t.\textit{entityType}\texttt{:}t.\textit{entityId}$
+        \State $V.\text{add}(\textsc{VerifyEntity}(t, p, F))$
+        \State update $\textit{currentEntity}$ and $\textit{entityStack}$ from $t$ \Comment{scoped or carry-forward}
+    \ElsIf{$t.\textit{type} = \texttt{entity\_close}$}
+        \State restore $\textit{currentEntity}$ from $\textit{entityStack}$ if possible
+    \ElsIf{$t.\textit{type} = \texttt{fact}$}
+        \State $V.\text{add}(\textsc{VerifyFact}(t, \textit{currentEntity}, F))$
+    \ElsIf{$t.\textit{type} = \texttt{inference}$}
+        \State $r \gets \textsc{Evaluate}(t.\textit{condition}, \textit{currentEntity}, F, R, \textit{labels})$
+        \State $\textit{labels}[t.\textit{label}] \gets r$
+        \State $V.\text{add}(r)$
+    \EndIf
+\EndFor
+\State \Return $V$
+\end{algorithmic}
+\end{algorithm}
+
+\noindent \textsc{VerifyEntity} returns \textsc{Verified}, \textsc{EntityNotFound}, or \textsc{NameMismatch}. \textsc{VerifyFact} resolves the current entity path, appends optional \texttt{.\_unit} metadata to the expected surface form, and compares by string equality; absence of context or fields yields \textsc{NoContext} or \textsc{FieldNotFound}. \textsc{Evaluate} handles registered thresholds, label references, and boolean composition. In the implementation, $V.\text{add}(\cdot)$ updates both the total claim count and the verified count when the returned result is verified.
+
+\begin{property}[Time Complexity]
+Verification is $O(n)$ where $n$ is the number of ProveML constructs, assuming $O(1)$ fact store lookup. The fact store is a hash map keyed by the full path string (e.g., \texttt{sensor:42.price}), so this assumption holds in practice.
+\end{property}
+
+\begin{property}[Decidability]
+Verification is trivially decidable. All conditions reduce to ground propositional logic over fully instantiated boolean expressions. There are no quantifiers, no recursion, and no unbounded computation.
+\end{property}
+
+\paragraph{Comparison semantics.} Fact verification uses \textbf{string equality}: the claimed value and the fact store value are both converted to their string representations and compared exactly. This means \texttt{\%[price]\{29.99\}} matches a fact store value of \texttt{29.99} but \textit{not} \texttt{29.990} or \texttt{30}. Threshold evaluation uses \textbf{numeric comparison}: both operands are parsed as numbers before applying the operator. Implementations must define a canonical string form for fact store values (the reference implementation uses JavaScript's \texttt{String()} coercion, which drops trailing zeros: \texttt{18.50} becomes \texttt{"18.5"}). This canonicalization is implementation-defined; a Python or Rust implementation may produce different representations for the same numeric value. Portability requires that the fact store and verifier share the same canonicalization rule, and that the rule is documented per deployment.
+
+\section{Verification Correctness}
+
+\begin{property}[Claim-Store Consistency]
+If the ProveML verifier reports \textsc{Verified} for a claim, the claimed value equals the corresponding value in the fact store (for entities and facts) or the threshold condition holds (for inferences).
+\end{property}
+
+\paragraph{Proof sketch.} By case analysis over construct types. Each reduces to a single deterministic check with no external dependencies:
+
+\begin{itemize}
+    \item \textbf{Entity reference} \texttt{@[type:id]\{text\}}: \textsc{Verified} iff $F[\texttt{type:id.name}] = \textit{text}$. String equality.
+    \item \textbf{Fact reference} \texttt{\%[field]\{value\}}: \textsc{Verified} iff $F[\textit{entity}\texttt{.}\textit{field}] = \textit{value}$. String equality against the current entity context, which the algorithm maintains as state updated on each entity declaration.
+    \item \textbf{Threshold inference} \texttt{?[l: T]\{text\}}: \textsc{Verified} iff $\textit{compare}(F[\textit{entity}\texttt{.}T.\textit{field}], T.\textit{op}, T.\textit{value})$. Standard arithmetic comparison.
+    \item \textbf{Label reference} \texttt{@label}: \textsc{Verified} iff the referenced label was previously verified.
+    \item \textbf{Connectives} \texttt{AND}, \texttt{OR}, \texttt{NOT}: Standard propositional semantics over previously established verification results.
+\end{itemize}
+
+\noindent The simplicity is intentional. The verification guarantee should be obvious to anyone reading the algorithm, not because it is trivial, but because the system was designed so that correctness requires no complex reasoning. The complexity of ProveML lives in the \textit{design} (what to verify, how to constrain the AI), not in the verification logic itself.
+
+\paragraph{Assumptions.}
+Soundness requires:
+\begin{enumerate}
+    \item The fact store faithfully represents the source data at snapshot time.
+    \item The threshold registry contains meaningful thresholds defined by domain experts.
+    \item The fact store is immutable during verification (snapshot semantics).
+\end{enumerate}
+
+\paragraph{Entity scoping.} Fact binding uses lexical scope: a fact inside a scoped entity's braces binds to that entity. A fact outside any scoped braces binds to the nearest preceding entity (linear fallback). Nested scoped entities resolve inward.
+
+\section{Rendering}
+
+ProveML specifies four verification states. The rendering must visually distinguish them; the choice of colors and styles is left to the implementation.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{State} & \textbf{Indicator} & \textbf{Meaning} \\
+\midrule
+Verified fact & \checkmark & Claimed value matches fact store \\
+Verified inference & \checkmark & Threshold condition holds \\
+Mismatch & $\times$ & Claimed value differs from fact store \\
+Unverifiable & ? & Field or entity not found \\
+\bottomrule
+\end{tabular}
+\caption{ProveML verification states. Visual rendering (colors, underline styles) is implementation-defined.}
+\end{table}
+
+Three reading modes support progressive disclosure: \textit{Read} (minimal indicators), \textit{Verify} (full status colors with tooltips), and \textit{Audit} (proof paths visible inline). Hovering over any entity or fact highlights all claims bound to the same entity, making the scope binding visible without inspecting markup. Figures~\ref{fig:render-verify}--\ref{fig:render-audit} show three rendering states using SEC EDGAR financial data; a live version is available at \texttt{demo/proveml-demo.html} in the repository.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig-verify-correct.png}
+\caption{Verify mode on SEC EDGAR financial data. Teal dotted underlines mark verified facts; violet dashed underlines mark verified inferences. All 10 claims (8 facts, 2 inferences) pass verification.}
+\label{fig:render-verify}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig-verify-errors.png}
+\caption{Verification errors. A wrong revenue figure is shown in red with strikethrough; an unknown entity (Alphabet) renders in amber; a failed inference is shown in red dashed underline.}
+\label{fig:render-errors}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig-audit-mode.png}
+\caption{Audit mode: proof paths visible inline, showing the exact fact store path checked for each claim (e.g., \texttt{company:aapl.revenue + .\_unit}, \texttt{IS\_NEGATIVE\_BALANCE}).}
+\label{fig:render-audit}
+\end{figure}
+
+\section{Evaluation}
+
+We evaluated ProveML through two complementary experiments: a generation quality study measuring how well the AI produces verifiable output, and an error detection study measuring whether ProveML catches all injected errors.
+
+\subsection{Experiment 1: Generation Quality}
+
+\paragraph{Setup.} We evaluated ProveML using a fully synthetic dataset inspired by an educational assessment context. The dataset contains 741 fictitious students across 95 class offerings with realistic but entirely fabricated names, scores, and class structures. No real student data was used; the dataset was constructed to be representative of typical secondary school assessment patterns without corresponding to any actual individuals or institutions. We formulated 10 representative queries spanning two roles (teacher and administrator) and 7 question categories derived from common educational reporting patterns.
+
+\paragraph{Method.} Each query was submitted to the ProveML pipeline: the LLM (Claude Opus 4.6) generated ProveML-annotated markdown, the server-side verifier checked all claims, and a correction pass was applied if errors were detected. We measured the verification rate (verified claims / total claims), the number of entities, facts, and inferences per response, and response time.
+
+\paragraph{Results.} The end-to-end pipeline (generation + verification + one correction pass where errors were detected) achieved \textbf{97.5\% verification across 804 total claims} from 10 queries. Teacher-role queries (4 queries, 43 claims) averaged 99\%; administrator-role queries (6 queries, 761 claims) averaged 96\%. Four queries achieved 100\%. Verification itself is negligible ($<$1ms for 394 claims); the dominant cost is LLM generation (mean 47.4s). For context, first-pass accuracy varies by model (15--93\% across 3 runs, as shown in Section 7.3); this figure reflects the full verify-fix pipeline with a single strong API model (Claude Opus) and is an unrepeated demonstration, not a comparative result.
+
+\subsection{Experiment 2: Error Detection Rate}
+
+\paragraph{Setup.} The critical question for ProveML is not whether the LLM generates correct output, but whether ProveML \textit{detects} incorrect output. To test this, we injected 20 deliberate errors into otherwise valid ProveML text and measured whether the verifier caught each one.
+
+\paragraph{Results.} We injected 20 deliberate errors across six categories: wrong values (5), wrong entity (3), no context (2), wrong threshold (4), cross-entity swaps (2), and subtle errors including trailing spaces and swapped entity order (4). ProveML detected all 20, yielding a \textbf{100\% error detection rate}. This is a consequence of deterministic equality checking: if the claimed value does not exactly match the fact store, the claim is flagged regardless of plausibility. The experiment validates that the implementation behaves as specified; robustness to malformed LLM markup is partially addressed by the convergence experiment (Section 7.3) but deserves further stress-testing.
+
+\subsection{Experiment 3: Capability Threshold and Error Classes}
+
+\paragraph{Setup.} We ran 28 prompts across 7 categories (lookup, aggregation, comparison, threshold, overview, student, unsupported) on four models: Phi-3 Mini (3.8B), Qwen 2.5 3B, Claude Haiku (API), and Qwen 2.5 7B. Each model was evaluated 3 times; we report the mean across runs. Each query received a context-sliced data payload containing only the entities relevant to that prompt (slicing is driven by the benchmark definition, which lists the entity references each prompt needs; in a production deployment, this would be handled by a retrieval or routing layer). Up to 3 correction loops were allowed. All local models ran via Ollama on an M2 Air (16GB). The verifier classified each error as either an \textit{addressability error} (entity-not-found, name-mismatch, field-not-found) or a \textit{value error} (correct reference, wrong number).
+
+\paragraph{Results.}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Model} & \textbf{First-pass} & \textbf{After loop} & \textbf{Converged} & \textbf{Addr.} & \textbf{Value} \\
+\midrule
+Phi-3 Mini (3.8B) & 15\% $\pm$ 21 & 15\% $\pm$ 21 & 1.7/28 & 13 (65\%) & 3 (15\%) \\
+Qwen 2.5 3B & 86\% $\pm$ 1.4 & 87\% $\pm$ 0.5 & 19/28 & 19 (83\%) & 4 (17\%) \\
+Claude Haiku & 87\% $\pm$ 2.8 & 88\% $\pm$ 1.2 & 17.7/28 & 21 (88\%) & 3 (13\%) \\
+Qwen 2.5 7B & 93\% $\pm$ 3.6 & 93\% $\pm$ 3.6 & 25/28 & 6 (75\%) & 2 (25\%) \\
+\bottomrule
+\end{tabular}
+\caption{Four-model comparison (mean $\pm$ sd over 3 runs). Addr.\ = addressability errors (residual, non-converged queries). Value = wrong number. Phi-3 also had context errors (missing entity binding). All models used sliced context, few-shot example, and up to 3 correction loops.}
+\label{tab:capability}
+\end{table}
+
+\paragraph{Three regimes.} Across 3 runs per model, we observe a three-regime pattern:
+
+\begin{enumerate}
+    \item \textbf{Below threshold} (Phi-3 3.8B): the model is unstable across runs (15\% $\pm$ 21, range 0--44\%), producing usable markup only intermittently. Addressability and context errors dominate. The loop provides no reliable benefit. A single lucky run appeared to show 50\% verification; repeated evaluation reveals this was not stable.
+    \item \textbf{Middle regime} (Qwen 3B, Haiku): models produce markup reliably with 86--87\% first-pass verification, stable across runs ($\pm$ 1--3). Addressability errors dominate (83--88\% of residuals). The loop provides modest, selective benefit (+1pp).
+    \item \textbf{Above threshold} (Qwen 7B): the model produces highly verifiable output on the first pass (93\% $\pm$ 3.6), converging on 25 of 28 queries. ProveML's value shifts from correction to compliance: catching residual errors and providing an audit trail.
+\end{enumerate}
+
+\paragraph{Error classes.} Across the three stable models, residual failures are dominated by addressability errors (75--88\%) rather than value mismatches. This suggests that ProveML's main benefit is not only catching wrong numbers, but exposing incorrect or malformed links between generated claims and the underlying data. Some addressability errors cascade: a single wrong entity ID can produce multiple downstream field-not-found errors.
+
+\paragraph{Context selection as a first-class concern.} All local models failed completely (0\% markup) when given the full dataset as context. With sliced context, the 3B model achieved 86\% first-pass verification, stable across runs. This is not a benchmark convenience: context selection (retrieval, filtering, query routing) is standard in production deployments, and ProveML should be evaluated inside that architecture. The finding is that verification and context selection work together: context selection brings models above the capability threshold, and verification ensures the claims they produce are correct. Neither alone is sufficient.
+
+\textbf{Without ProveML, none of these verification rates are measurable.} There is no automated way to determine whether a bare-prose AI report contains correct numbers. The verify-fix loop and error classification are only possible because ProveML makes each claim addressable and checkable.
+
+\subsection{Experiment 4: Cross-Domain Evaluation on SEC EDGAR Data}
+
+\paragraph{Setup.} To test domain-agnostic applicability, we built a second benchmark from real SEC EDGAR XBRL filings: FY2025 10-K data for Apple Inc.\ (CIK 0000320193, filed 2025-10-31) and Microsoft Corporation (CIK 0000789019, filed 2025-07-30). The fact store contains 10 financial fields per company (revenue, assets, liabilities, net income, EPS, cash, equity, shares outstanding, long-term debt, debt-to-equity ratio), all unit-annotated (USD, USD/shares, shares). We designed 10 prompts across 5 categories (lookup, comparison, threshold, overview, unsupported). Each model was evaluated 3 times with the same pipeline as Experiment 3: sliced context, few-shot example, up to 3 correction loops.
+
+\paragraph{Results.}
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{First-pass} & \textbf{After loop} & \textbf{Converged} \\
+\midrule
+Phi-3 Mini (3.8B) & 92\% $\pm$ 2.1 & 92\% $\pm$ 2.1 & 8.3/10 \\
+Qwen 2.5 3B & 93\% $\pm$ 4.7 & 93\% $\pm$ 4.7 & 9.3/10 \\
+Claude Haiku & 92\% $\pm$ 2.2 & 97\% $\pm$ 2.4 & 8.7/10 \\
+Qwen 2.5 7B & 99\% $\pm$ 1.9 & 99\% $\pm$ 1.9 & 9.7/10 \\
+\bottomrule
+\end{tabular}
+\caption{Finance benchmark (mean $\pm$ sd over 3 runs). SEC EDGAR FY2025 data, 10 prompts, 2 entities, unit-annotated. All models used sliced context, few-shot example, and up to 3 correction loops.}
+\label{tab:finance}
+\end{table}
+
+\paragraph{Context complexity, not model size.} On this compact, structurally clean benchmark (2 entities, 10 fields each), all four models entered the verifiable boundary reliably --- including Phi-3 Mini, which scored 92\% $\pm$ 2.1 here versus 15\% $\pm$ 21 on the educational benchmark (95 entities, 741 nested records). The three-regime pattern observed in Experiment 3 collapses under lower context complexity: even the weakest model produces stable, high-quality markup when the schema is compact and the entities are few.
+
+\paragraph{Loop benefit.} The verify-fix loop added almost nothing: initial and final rates are identical for three of four models. Only Haiku showed measurable loop benefit (+5pp). This confirms that with well-structured inputs, ProveML's primary value is compliance and auditability, not correction.
+
+\paragraph{Implications.} These results do not show that finance is ``easier'' than education; they show that the capability threshold depends strongly on benchmark structure and context complexity. The same architecture, verifier, and grammar produced very different regime patterns across domains. This validates ProveML's domain-agnostic design: the mechanism transfers; the deployment challenge is context management.
+
+\section{Related Work}
+
+We organise related work by what each system checks, how it checks, and where in the pipeline it operates.
+
+\paragraph{Post-hoc fact-checking (AI in the loop).} FActScore \cite{factscore}, SAFE \cite{safe}, FacTool \cite{factool}, and OpenFactCheck (COLING 2025) decompose generated text into atomic claims and verify each using LLMs or web search. ClaimVer (EMNLP 2024 Findings) adds explainability through knowledge graphs. SelfCheckGPT \cite{selfcheckgpt} detects hallucinations via sampling consistency without external knowledge. RefChecker \cite{refchecker} extracts claim triplets for reference-based checking. All use AI in the verification loop, making verification itself probabilistic. ProveML's verification is deterministic.
+
+\paragraph{Attribution (where, not whether).} Anthropic's Citations API, OpenAI's response annotations, and Google's Vertex AI Grounding \cite{googleground} link generated text to source documents or passages. Google's grounding API additionally returns support scores and claim-to-source metadata, though verification remains probabilistic. RARR \cite{rarr} and WebGPT \cite{webgpt} attach URLs. LAQuer (ACL 2025) and ``Attribute First, then Generate'' (ACL 2024) localise attributions to fine-grained source spans. These systems track \textit{where} a claim came from, not \textit{whether the claimed value is correct}. Verification, if any, is against unstructured text.
+
+\paragraph{Grounding guardrails (confidence scoring).} Amazon Bedrock Guardrails, Azure AI Groundedness, Vectara HHEM, Patronus Lynx, Galileo, and Ragas/FaithJudge (EMNLP 2025) produce probabilistic confidence scores for response faithfulness. These are post-generation filters, not inline markup. None performs deterministic claim-level verification against structured data. Amazon Bedrock's Automated Reasoning checks (2025) are adjacent to ProveML but not equivalent: Bedrock validates model outputs against formalized policy constraints, whereas ProveML places claim-level verification markup directly inside the generated text, binding individual claims to addressable data paths and registered threshold predicates. The overlap is strongest at the inference/policy layer; Bedrock tells you whether a response complies; ProveML lets you ship a response whose verified parts are explicitly marked, auditable, and enforceable at the level of individual claims.
+
+\paragraph{Schema validation (format, not facts).} Instructor, Outlines, LMQL, Guidance, and Pydantic AI constrain LLM output \textit{structure}: valid JSON, correct types, matching schemas. They ensure the AI produces the right shape; ProveML ensures the AI produces the right values.
+
+\paragraph{Data-grounded generation.} The data-to-text community \cite{totto} and StructFact (ACL 2025 Findings) benchmark faithful generation from structured data. ClaimDB (arXiv, January 2026) is the first fact-verification benchmark over large structured databases, using executable SQL queries. Kamu Data's Oracle-Augmented Generation \cite{oraclegen} delegates computation to a deterministic query engine with cryptographic provenance. These approaches verify at the query level; ProveML verifies at the claim level within natural language text.
+
+\paragraph{Inline tagging.} iXBRL \cite{ixbrl} embeds machine-readable tags in human-readable financial reports, the closest structural analog to ProveML. SymGen \cite{symgen} embeds symbolic references in AI-generated text that are resolved against table data. SymGen's strategy is \textit{error prevention}: a parser substitutes placeholders with data values, so the AI never independently claims a value. ProveML's strategy is \textit{error detection}: the AI claims values directly, and a verifier checks them (Figure~\ref{fig:symgen-vs-proveml}). SymGen cannot detect mismatches or audit existing text. ProveML adds entity scoping, a threshold registry, and composable inference chains.
+
+\paragraph{Provenance standards.} W3C PROV-O \cite{prov} and C2PA \cite{c2pa} provide document-level provenance metadata. Proof-Carrying Code \cite{pcc} embeds machine-checkable safety proofs in executable code. ProveML borrows the principle that the producer embeds checkable evidence; the mechanisms differ entirely.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Approach} & \textbf{Category} & \textbf{Determ.} & \textbf{Structured} & \textbf{Inline} & \textbf{Inference} \\
+\midrule
+FActScore, SAFE, FacTool & Fact-checking & -- & -- & -- & -- \\
+Anthropic/OpenAI/Google & Attribution & -- & -- & Partial & -- \\
+Bedrock/Azure/Lynx/HHEM & Guardrails & -- & -- & -- & -- \\
+Instructor/Outlines/LMQL & Schema & \checkmark & -- & -- & -- \\
+ClaimDB, Kamu OAG & Data-grounded & \checkmark & \checkmark & -- & -- \\
+iXBRL$^*$ & Inline tagging & \checkmark & \checkmark & \checkmark & -- \\
+SymGen & Inline tagging & \checkmark & \checkmark & \checkmark & -- \\
+\textbf{ProveML} & \textbf{Inline tagging} & \checkmark & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\caption{Comparison across representative verification approaches. Determ.\ = deterministic. Structured = against structured data. Inline = claim-level markup in text. Inference = composable threshold checks within natural language text. The Bedrock/Azure/Lynx/HHEM row reflects the predominant probabilistic grounding and guardrail mode; Amazon Bedrock's separate Automated Reasoning feature adds formal policy checks but not inline claim markup. $^*$XBRL's formula linkbase provides document-level calculation and assertion checks; the iXBRL specification itself does not include claim-scoped inference.}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=0.45cm and 0.6cm,
+]
+% SymGen side
+\node[diag title] (st) {SymGen: Substitution};
+\node[diag ai, below=0.32cm of st, minimum width=5.0cm] (sg1) {LLM emits placeholders};
+\node[diag code, below=0.18cm of sg1] (sg1c) {\texttt{Alex scored \{\{ passRate \}\}\%}};
+\node[diag det, below=0.32cm of sg1c, minimum width=5.0cm] (sg2) {Postprocessor substitutes data};
+\node[diag code, below=0.18cm of sg2] (sg2c) {\texttt{Alex scored 5\%}};
+\draw[diag arrow] (sg1c) -- (sg2);
+
+\node[diag note, below=0.28cm of sg2c, text width=4.7cm] (sgnote) {Correct by construction, but unable to audit independently written claims.};
+
+% ProveML side
+\node[diag title, right=2.8cm of st] (pt) {ProveML: Verification};
+\node[diag ai, below=0.32cm of pt, minimum width=5.0cm] (pm1) {LLM states claims directly};
+\node[diag code, below=0.18cm of pm1] (pm1c) {\texttt{@[student:42]\{Alex\} \%[passRate]\{5\}}};
+\node[diag det, below=0.32cm of pm1c, minimum width=5.0cm] (pm2) {Verifier checks every claim};
+\node[diag code, below=0.18cm of pm2] (pm2c) {\texttt{student:42.passRate = 5 \; \checkmark}};
+\draw[diag arrow] (pm1c) -- (pm2);
+
+\node[diag note, below=0.28cm of pm2c, text width=4.7cm] (pmnote) {Detects mismatches, audits existing text, and supports inference chains.};
+\end{tikzpicture}
+\caption{Architectural comparison. SymGen prevents errors by substituting placeholders with data values. ProveML detects errors by verifying independently claimed values against the data store.}
+\label{fig:symgen-vs-proveml}
+\end{figure}
+
+\section{Reference Implementation}
+
+A reference implementation is available as a markdown-it plugin (JavaScript):
+
+\begin{itemize}
+    \item ProveML plugin (parser + renderer with lexical scope stack): 445 lines of JavaScript
+    \item Threshold registry: 15 thresholds, extensible
+    \item Test suite: 144 tests (76 plugin, 32 grammar, 16 paper examples, 20 skills)
+    \item Convergence harness: 28 prompts, 4 models, 3 repeats (Section 7.3)
+\end{itemize}
+
+\paragraph{Fact store construction.} The server loads a JSON data file and flattens it into a key-value store at startup: each entity's fields become \texttt{type:id.field $\rightarrow$ value} entries. Optional \texttt{.\_unit} companion keys are added where units are declared. The flattening is a single pass over the source data with no external dependencies.
+
+\paragraph{Verify-fix loop.} The generation pipeline calls the LLM, passes the response to the standalone verifier, and inspects the result. If errors remain and the loop budget is not exhausted, a correction prompt is constructed containing the specific verification errors and the original data context. The corrected response is accepted only if it improves verification without dropping claims.
+
+\paragraph{Rendering integration.} The markdown-it plugin delegates verification to the same logic as the standalone verifier, then emits HTML spans with \texttt{data-*} attributes carrying the verification status, entity path, and error details. A CSS layer maps these attributes to visual indicators. The plugin and standalone verifier share the same fact store and threshold registry but are independently usable.
+
+\noindent Tested using a fully synthetic dataset inspired by a secondary school assessment context. All data is fabricated and does not correspond to real individuals or institutions. The reference implementation and test suites are publicly available at \url{https://github.com/ShaneDeconinck/proveml}. The repository includes a reference audit page that applies ProveML verification to this paper's own citations against curated source passages.
+
+\section{Discussion}
+
+\subsection{ProveML as Governance Infrastructure}
+
+Although ProveML can improve output quality through verify-fix loops, its deeper role is governance infrastructure: a way to place AI-generated claims inside a boundary where they can be audited, corrected, and held accountable.
+
+The verify-fix loop is a consequence of this design. Because verification is deterministic and instant, errors can be fed back to the LLM with specific messages (``student:42.passRate: claimed 7, actual 5''), enabling targeted correction at claim-level granularity. But the loop is most useful in the middle capability regime. Without adequate context scaffolding, models may produce too little verifiable markup for the loop to help. Above threshold, verification serves primarily as an audit trail. The loop's value is in the transition zone where models are capable enough to produce markup but not reliable enough to get it right on the first pass.
+
+The deeper value is not the loop but the boundary itself. With ProveML markup, every claim has a verification status, an addressable path, and a provenance chain. Without it, the same text is opaque: there is no automated way to determine whether a number in an AI-generated report matches the underlying data. This distinction matters for regulation, insurance, and institutional accountability.
+
+\subsection{Incentive-Aligned Generation}
+
+A key design goal of ProveML is that the markup language should be \textit{easy for LLMs to use correctly}. This is not incidental; it creates a productive alignment between the model's generation objective and the system's verification objective.
+
+\paragraph{Maximising verifiable surface area.} The system prompt instructs the AI that every number must be wrapped in \texttt{\%[field]\{value\}}, every qualitative word in \texttt{?[label: THRESHOLD]\{text\}}, and every entity in \texttt{@[entity:id]\{name\}}. This means the model is incentivised to convert as much of its output as possible into verifiable constructs. Unverified prose is the \textit{exception}, not the norm. The more the model proves, the more verified indicators appear in the rendered output, creating a visible signal for both the user and the correction loop.
+
+\paragraph{Why LLMs are well-suited to this.} Three properties of modern LLMs make ProveML generation natural rather than burdensome:
+
+\begin{enumerate}
+    \item \textbf{Markdown fluency}: LLMs are extensively trained on Markdown and produce it natively. ProveML's constructs (\texttt{@[...]}, \texttt{\%[...]}, \texttt{?[...]}) use characters that do not conflict with Markdown syntax, making them easy to interleave with natural language.
+    \item \textbf{In-context learning}: A few examples in the system prompt are sufficient for LLMs to adopt the ProveML pattern in practice. In our generation study (Section 7), prompt examples plus the full verify-fix pipeline achieved 97.5\% end-to-end verification, with no fine-tuning.
+    \item \textbf{Structured data access}: When the fact store is provided in the context window, the model has direct access to the exact values it should reference. The task reduces to \textit{selecting and formatting} rather than \textit{recalling from parametric memory}, precisely the regime where LLMs are most reliable.
+\end{enumerate}
+
+\paragraph{Model-agnostic by design.} ProveML deliberately avoids requiring fine-tuned or specialised models. The system prompt, fact store, threshold registry, and verify-fix loop together form a \textit{skill} that any general-purpose LLM can execute. As foundation models improve, ProveML benefits automatically: fewer first-pass errors, fewer correction iterations. The right abstraction is not ``train the model to be more verifiable'' but ``give the agent the tools to prove its claims.''
+
+\subsection{The Claim Boundary: Domain Experts Define What Can Be Stated}
+
+Not every sentence in AI-generated text needs to be a verified claim. The goal is not to annotate 100\% of the prose, but to give domain experts a precise way to mark which claims should be checked. This creates a clear boundary between two modes of AI output:
+
+\begin{enumerate}
+    \item \textbf{Verified claims}: facts, entity references, and inferences that resolve against the fact store and threshold registry. These are rendered with verification indicators and can be trusted to be consistent with the data.
+    \item \textbf{Plain prose}: text outside ProveML markup. It remains ordinary prose with no verification status and should not be treated as a checked claim.
+\end{enumerate}
+
+The threshold registry defines which qualitative judgments \textit{can} be verified. Claims inside the registry get checked deterministically. Text outside the markup remains unchecked prose. Deployments may prompt for broader use of markup, but ProveML itself does not scan or reject plain prose outside the verified layer.
+
+In practice, the system prompt can encourage authors to keep consequential judgments inside the verified layer:
+
+\begin{lstlisting}
+RULES:
+- Every qualitative word MUST use ?[label: THRESHOLD]{text}
+- If no threshold exists for your observation, write it as:
+  "This may warrant further investigation" (NOT "This is X")
+\end{lstlisting}
+
+\noindent If the AI writes an unregistered threshold name inside a ProveML construct, the verifier returns an error. Otherwise, plain prose remains unchecked.
+
+\paragraph{Progressive adoption.} Adoption is not all-or-nothing. At Level 1 (entity references and fact values only), ProveML already detects wrong numbers. At Level 2, the threshold registry constrains qualitative language. Deploying requires only addressable data and, optionally, threshold definitions --- a flat configuration file per domain. The verifier, grammar, and verify-fix loop are unchanged across domains. The design also extends naturally to settings with machine-verifiable attestations (verifiable credentials, SSI systems, blockchain-derived state), though these applications are forward-looking and not evaluated in this paper.
+
+\subsection{Scope and Privacy}
+
+ProveML verifies what the AI \textit{marks up}: every entity name, every number, and every thresholded qualitative judgment inside a ProveML construct. Text outside the markup remains unchecked prose. The system's guarantee is ``consistent with the data source.'' The fact store is the single point of trust.
+
+\paragraph{Privacy by design.} The LLM operates on pseudonymous identifiers (\texttt{student:42}). Since ProveML syntax is deterministic and parseable, a rendering layer substitutes real names at display time; the AI never accesses personally identifiable information. The verification status travels with the markup; the PII stays behind.
+
+\subsection{Limitations}
+
+\begin{itemize}[nosep]
+    \item \textbf{Consistency, not truth.} ProveML verifies that claims match the fact store, not that the fact store is correct. If the source data is wrong, verified claims will be wrong.
+    \item \textbf{No unit conversion.} Units are supported as nullable metadata with exact string matching. Semantic unit equivalence (e.g., mg/dL vs mmol/L) and standardised vocabularies (UCUM, ISO 4217) are deferred to future work.
+    \item \textbf{Evaluation scope.} The evaluation covers two domains (synthetic education, real SEC finance) across 38 prompts, 4 models, and 3 repeats. Experiment 1 is an unrepeated single-model demonstration. Whether error patterns generalise to larger schemas, more domains, or frontier models is not exhaustively established.
+    \item \textbf{Prose outside markup.} ProveML verifies what is inside markup constructs. Text outside the markup is not checked; detecting unverified claim-bearing prose is outside the scope of the current specification.
+    \item \textbf{Malformed input.} The tokenizer silently skips constructs with unmatched brackets or braces. Robustness to diverse malformed markup deserves further stress-testing.
+    \item \textbf{Group claims.} Inferences evaluate against a single entity context. A claim like ``5TW, 4B, and 6WE all have low coverage'' cannot be verified as one inference; it must be decomposed into one inference per entity.
+\end{itemize}
+
+\subsection{Future Work}
+
+Several extensions are deferred from the current specification: (1) standardised unit vocabularies (UCUM, ISO 4217) for semantic unit equivalence rather than string matching; (2) multiple fact stores with explicit source provenance or a source prefix on entity paths; (3) cross-implementation portability of canonicalization rules; and (5) evaluation on larger schemas, more domains, and frontier models.
+
+\section{Conclusion}
+
+ProveML places AI-generated claims inside a verifiable boundary. Three inline constructs link every claim to an addressable path in a data source. Verification is deterministic, with no model in the loop. An optional threshold registry extends this to qualitative judgments through composable primitives.
+
+In our evaluation across four models (3.8B to API-scale, 3 runs each), we find that the capability threshold depends strongly on context complexity: on a 95-entity educational benchmark, Phi-3 scored 15\% $\pm$ 21; on a compact SEC EDGAR finance benchmark (2 entities), the same model scored 92\% $\pm$ 2.1. The architecture, verifier, and grammar were unchanged. Context management mattered more than model size.
+
+What LLMs provide is open-ended generation. What ProveML adds is a controllable, auditable boundary around that generation. For humans, this means instant visual triage: verified claims can be trusted at a glance, and attention shifts to what is unverified. For agent loops, specific error feedback (``expected 142, got 143'') enables targeted self-correction without human intervention. Both dramatically reduce verification time. The combination unlocks something that neither open-ended generation nor static verification offers alone: open-endedness with determinism.
+
+\section*{Declaration of Generative AI Use}
+
+Generative AI tools (Claude, GPT) were used during manuscript preparation for drafting, revision, literature search, and code review. All AI-generated content was reviewed, verified, and edited by the author. No generative AI was used to create or alter images or artwork. The author takes full responsibility for the content of the published article.
+
+\bibliographystyle{plainnat}
+\bibliography{proveml}
+
+\end{document}

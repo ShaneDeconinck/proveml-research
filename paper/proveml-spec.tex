@@ -166,7 +166,7 @@ The contributions of this paper are:
     \item \textbf{A formal specification} of the ProveML markup language, including grammar, verification algorithm, and a correctness argument (Sections 3--6).
     \item \textbf{A threshold registry} of composable inference primitives. Domain experts define the qualitative judgments that can be verified; in regulated deployments, the prompting layer can enforce that unverifiable observations use exploratory language.
     \item \textbf{An empirical evaluation} across four models (3.8B to API-scale) revealing a three-regime capability pattern. Most first-pass failures are addressability errors, not value mismatches (Section 7).
-    \item \textbf{A reference implementation} with 153 tests (plugin, grammar, paper-example, CLI, and detection checks), tested against both a synthetic educational dataset and real SEC EDGAR financial data (Section 9).
+    \item \textbf{A reference implementation} with 156 tests (plugin, grammar, paper-example, CLI, and detection checks), tested against both a synthetic educational dataset and real SEC EDGAR financial data (Section 9).
 \end{enumerate}
 
 \section{Architecture}
@@ -780,7 +780,7 @@ A reference implementation is available as a markdown-it plugin (JavaScript):
 \begin{itemize}
     \item ProveML plugin (parser + renderer with lexical scope stack): 445 lines of JavaScript
     \item Threshold registry: 15 thresholds, extensible
-    \item Test suite: 153 tests (76 plugin, 29 grammar, 15 paper examples, 13 CLI, 20 detection)
+    \item Test suite: 156 tests (78 plugin, 29 grammar, 15 paper examples, 14 CLI, 20 detection)
     \item Convergence harness: 28 prompts, 4 models, 3 repeats (Section 7.3)
 \end{itemize}
 

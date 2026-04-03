@@ -648,7 +648,11 @@ We evaluated ProveML through two complementary experiments: a generation quality
     \item \textit{First-pass}: verification rate before any correction loop.
     \item \textit{After loop}: verification rate after up to 3 correction passes.
     \item \textit{Converged}: number of queries where every claim verified. This distinguishes models that are mostly right on every query from models that are perfect on some and broken on others.
-\end{itemize} All local models ran via Ollama on an M2 Air (16GB). The verifier classified each error as either an \textit{addressability error} (entity-not-found, name-mismatch, field-not-found) or a \textit{value error} (correct reference, wrong number).
+    \item \textit{Addr.}: residual addressability errors (entity-not-found, name-mismatch, field-not-found) in non-converged queries.
+    \item \textit{Value}: residual value errors (correct reference, wrong number) in non-converged queries.
+\end{itemize}
+
+\noindent All local models ran via Ollama on an M2 Air (16GB).
 
 \paragraph{Results.}
 

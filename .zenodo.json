@@ -1,0 +1,31 @@
+{
+  "title": "ProveML: Inline Claim Markup for Deterministic Verification of AI-Generated Text",
+  "description": "<p>Paper, benchmarks, experiment artifacts and reproducibility guide for ProveML: a Markdown extension in which an LLM marks entities, values and threshold-bound judgments inline, and a verifier resolves each claim against a flat key-value fact store by string equality or arithmetic, with no model in the verification loop.</p><p>Includes the manuscript source, two benchmarks (a fully synthetic education dataset and SEC EDGAR FY2025 filings), all convergence runs across four models, a reimplemented SymGen baseline, ablations on prompt language and context selection, a markup coverage audit, and a deterministic bibliography verifier.</p>",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "access_right": "open",
+  "license": "apache-2.0",
+  "creators": [
+    {
+      "name": "Deconinck, Shane",
+      "affiliation": "abovebeyond.ai"
+    }
+  ],
+  "keywords": [
+    "AI verification",
+    "markup language",
+    "deterministic verification",
+    "hallucination detection",
+    "structured data",
+    "threshold registry",
+    "large language models",
+    "verifiable credentials"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/ShaneDeconinck/proveml",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ]
+}

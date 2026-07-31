@@ -1,0 +1,8161 @@
+Text extracted from the archived page, for citation audit.
+Title: Observation - FHIR v5.0.0
+Original file: fhir-observation.html (690 KB of markup and assets)
+
+﻿
+
+Observation - FHIR v5.0.0
+
+Release 5
+
+FHIR
+
+Home
+
+Getting Started
+
+Documentation
+
+Data Types
+
+Resource Types
+
+Terminologies
+
+Artifacts
+
+Extensions
+
+Operations
+
+Patterns
+
+Profiles
+
+Search Parameters
+
+Artifact Registry 
+
+Implementation Guides 
+
+ Diagnostics
+
+Observation
+
+This page is part of the FHIR Specification (v5.0.0: R5 - 
+STU
+). This is the current published version. For a full list of available versions, see the 
+Directory of published versions 
+
+. Page versions: 
+R5
+
+R4B
+
+R4
+
+R3
+
+R2
+
+Content
+
+Examples
+
+Detailed Descriptions
+
+Mappings
+
+Operations
+
+Search Params
+
+Profiles
+
+Extensions
+
+R4 Conversions
+
+10.1
+
+ Resource Observation - Content 
+
+Orders and Observations 
+
+ Work Group
+
+Maturity Level
+: 
+N
+
+Normative
+ (from v4.0.0)
+
+Security Category
+: Patient
+
+Compartments
+: 
+Device
+, 
+Encounter
+, 
+Patient
+, 
+Practitioner
+, 
+RelatedPerson
+
+Measurements and simple assertions made about a patient, device or other subject.
+
+10.1.1
+
+ Scope and Usage 
+
+This resource is an 
+
+event resource
+
+ from a FHIR workflow perspective - see 
+Workflow
+.
+
+Observations are a central element in healthcare, used to support diagnosis, monitor progress, determine baselines and patterns and even capture demographic characteristics, as well as capture results of tests performed on products and substances. Most observations are simple name/value pair assertions with some metadata, but some observations group other observations together logically, or even are multi-component observations. Note that the 
+DiagnosticReport
+ resource provides a clinical or workflow context for a set of observations and the Observation resource is referenced by DiagnosticReport to represent laboratory, imaging, and other clinical and diagnostic data to form a complete report.
+
+Uses for the Observation resource include:
+
+Vital signs such as 
+body weight
+, 
+blood pressure
+, and 
+temperature
+
+Laboratory Data like 
+blood glucose
+, or an 
+estimated GFR
+
+Imaging results like 
+bone density
+ or fetal measurements
+
+Clinical Findings
+*
+ such as 
+abdominal tenderness
+
+Device measurements such as 
+EKG data
+ or 
+Pulse Oximetry data
+
+Device Settings such as mechanical ventilator parameters.
+
+Clinical assessment tools such as 
+APGAR
+ or a 
+Glasgow Coma Score
+
+Personal characteristics: such as 
+eye-color
+
+Social history like tobacco use, family support, or cognitive status
+
+Core characteristics like pregnancy status, or a death assertion
+
+Product quality tests such as pH, Assay, Microbial limits, etc. on product and substance
+
+*
+The boundaries between clinical findings and disorders remains a challenge in medical ontology. Refer the 
+Boundaries
+ section below and in 
+Condition
+ for general guidance. These boundaries can be clarified by profiling Observation for a particular use case.
+
+10.1.1.1
+ Core Profiles for Observation 
+Trial Use
+
+The following core 
+profiles
+ for the Observation resource have been defined as well. If implementations use this Resource when expressing the profile-specific concepts as structured data, they 
+SHALL
+ conform to the following profiles:
+
+Profile
+
+Description
+
+Vital signs
+
+The FHIR Vital Signs profile sets minimum expectations for the Observation Resource to record, search and fetch the vital signs (e.g. temperature, blood pressure, respiration rate, etc.) associated with a patient 
+
+10.1.2
+ Boundaries and Relationships 
+
+At its core, Observation allows expressing a name-value pair or structured collection of name-value pairs. As such, it can support conveying any type of information desired. However, that is not its intent. Observation is intended for capturing measurements and subjective point-in-time assessments. It is not intended to be used for those specific contexts and use cases already covered by other FHIR resources. For example, the 
+AllergyIntolerance
+ resource represents a patient allergies, 
+MedicationStatement
+ resource: medications taken by a patient, 
+ FamilyMemberHistory
+ resource: a patient's family history, 
+Procedure
+ resource: information about a procedure, and 
+QuestionnaireResponse
+ resource: a set of answers to a set of questions. 
+
+The Observation resource should not be used to record clinical diagnosis about a patient or subject that are typically captured in the 
+Condition
+ resource or the ClinicalImpression resource. The Observation resource is often referenced by the Condition resource to provide specific subjective and objective data to support its assertions, including symptoms and assessments of the presence or absence of diagnostically significant phenomena. Symptoms may sometimes be recorded as Conditions if no etiology has yet been identified, or if the symptom is severe enough to merit independent treatment, but in most cases a symptom can be represented in an Observation with a relationship to the Condition of concern. There will however be situations of overlap. For example, a response to a question of "have you ever taken illicit drugs" could in principle be represented using MedicationStatement, but most systems would treat such an assertion as an Observation. In some cases, such as when source data is coming from an 
+HL7 V2 
+
+ feed, a system might not have information that allows it to distinguish diagnosis, allergy and other "specialized" types of observations from laboratory, vital sign and other observation types intended to be conveyed with this resource. In those circumstances, such specialized observations may also appear using this resource. Adhering to such convention is an appropriate use of Observation. If implementers are uncertain whether a proposed use of Observation is appropriate, they're encouraged to consult with implementers on 
+ chat.fhir.org implementer's stream 
+
+When an Observation instantiates an 
+ObservationDefinition
+, the elements of the Observation resource are expected to inherit their content from the corresponding definitional elements declared in the ObservationDefinition resource listed here 
+here
+. 
+
+In contrast to the Observation resource, the 
+DiagnosticReport
+ resource typically includes additional clinical context and some mix of atomic results, images, imaging reports, textual and coded interpretation, and formatted representations. Laboratory reports, pathology reports, and imaging reports should be represented using the DiagnosticReport resource. The Observation resource is referenced by the DiagnosticReport to provide the atomic results for a particular investigation. "Laboratories routinely have a variable that is summative across a series of discrete variables - these are usually called 'impressions' or 'interpretations'. Sometimes they are algorithmically specified and sometimes they have the imprimatur of pathologists and they are conveyed in Observation or DiagnosticReport instead of the 
+Clinical Impression
+ resource. The Observation resource should not be used to record clinical diagnosis about a patient or subject as discussed above.
+
+10.1.3
+
+ References to this Resource 
+
+Implements: 
+Event
+
+Resource References: 
+AdverseEvent
+, 
+AllergyIntolerance
+, 
+Appointment
+, 
+ChargeItem
+, 
+ClinicalImpression
+
+... 
+Show 23 more
+
+, 
+Condition
+, 
+Contract
+, 
+DeviceRequest
+, 
+DeviceUsage
+, 
+DiagnosticReport
+, 
+Encounter
+, 
+EpisodeOfCare
+, 
+FamilyMemberHistory
+, 
+GenomicStudy
+, 
+Goal
+, 
+ImagingStudy
+, 
+Immunization
+, 
+MedicationAdministration
+, 
+MedicationRequest
+, 
+MedicationStatement
+, 
+NutritionIntake
+, 
+itself
+, 
+Procedure
+, 
+QuestionnaireResponse
+, 
+RequestOrchestration
+, 
+RiskAssessment
+, 
+ServiceRequest
+ and 
+SupplyRequest
+
+Extension References: 
+FamilyMemberHistory Observation
+, 
+Observation Precondition
+, 
+Observation Replaces
+, 
+Observation Sequel To
+, 
+Procedure Caused By
+ and 
+Workflow Reason
+
+10.1.4
+
+Resource Content
+
+Structure
+
+UML
+
+XML
+
+JSON
+
+Turtle
+
+R4 Diff
+
+All
+
+Structure
+
+Name
+
+Flags
+
+Card.
+
+Type
+
+Description & Constraints
+
+Observation
+
+N
+
+DomainResource
+
+Measurements and simple assertions
+
++ Rule: dataAbsentReason SHALL only be present if Observation.value[x] is not present
+
++ Rule: If Observation.component.code is the same as Observation.code, then Observation.value SHALL NOT be present (the Observation.component.value[x] holds the value).
+
++ Rule: bodyStructure SHALL only be present if Observation.bodySite is not present
+
+Elements defined in Ancestors: 
+id
+, 
+meta
+, 
+implicitRules
+, 
+language
+, 
+text
+, 
+contained
+, 
+extension
+, 
+modifierExtension
+
+identifier
+
+Σ
+
+0..*
+
+Identifier
+
+Business Identifier for observation
+
+instantiates[x]
+
+Σ
+
+TU
+
+0..1
+
+Instantiates FHIR ObservationDefinition
+
+ instantiatesCanonical
+
+canonical
+(
+ObservationDefinition
+)
+
+ instantiatesReference
+
+Reference
+(
+ObservationDefinition
+)
+
+basedOn
+
+Σ
+
+0..*
+
+Reference
+(
+CarePlan
+ | 
+DeviceRequest
+ | 
+ImmunizationRecommendation
+ | 
+MedicationRequest
+ | 
+NutritionOrder
+ | 
+ServiceRequest
+)
+
+Fulfills plan, proposal or order
+
+triggeredBy
+
+TU
+
+0..*
+
+BackboneElement
+
+Triggering observation(s)
+
+observation
+
+Σ
+
+1..1
+
+Reference
+(
+Observation
+)
+
+Triggering observation
+
+type
+
+Σ
+
+1..1
+
+code
+
+reflex | repeat | re-run
+Binding: 
+triggered Bytype
+ (
+Required
+)
+
+reason
+
+0..1
+
+string
+
+Reason that the observation was triggered
+
+partOf
+
+Σ
+
+0..*
+
+Reference
+(
+MedicationAdministration
+ | 
+MedicationDispense
+ | 
+MedicationStatement
+ | 
+Procedure
+ | 
+Immunization
+ | 
+ImagingStudy
+ | 
+GenomicStudy
+)
+
+Part of referenced event
+
+status
+
+?!
+
+Σ
+
+1..1
+
+code
+
+registered | preliminary | final | amended +
+Binding: 
+Observation Status
+ (
+Required
+)
+
+category
+
+0..*
+
+CodeableConcept
+
+Classification of type of observation
+Binding: 
+Observation Category Codes
+ (
+Preferred
+)
+
+code
+
+Σ
+
+C
+
+1..1
+
+CodeableConcept
+
+Type of observation (code / type)
+Binding: 
+LOINC Codes
+ (
+Example
+)
+
+subject
+
+Σ
+
+0..1
+
+Reference
+(
+Patient
+ | 
+Group
+ | 
+Device
+ | 
+Location
+ | 
+Organization
+ | 
+Procedure
+ | 
+Practitioner
+ | 
+Medication
+ | 
+Substance
+ | 
+BiologicallyDerivedProduct
+ | 
+NutritionProduct
+)
+
+Who and/or what the observation is about
+
+focus
+
+Σ
+
+TU
+
+0..*
+
+Reference
+(
+Any
+)
+
+What the observation is about, when it is not about the subject of record
+
+encounter
+
+Σ
+
+0..1
+
+Reference
+(
+Encounter
+)
+
+Healthcare event during which this observation is made
+
+effective[x]
+
+Σ
+
+0..1
+
+Clinically relevant time/time-period for observation
+
+effectiveDateTime
+
+dateTime
+
+effectivePeriod
+
+Period
+
+effectiveTiming
+
+Timing
+
+effectiveInstant
+
+instant
+
+issued
+
+Σ
+
+0..1
+
+instant
+
+Date/Time this version was made available
+
+performer
+
+Σ
+
+0..*
+
+Reference
+(
+Practitioner
+ | 
+PractitionerRole
+ | 
+Organization
+ | 
+CareTeam
+ | 
+Patient
+ | 
+RelatedPerson
+)
+
+Who is responsible for the observation
+
+value[x]
+
+Σ
+
+C
+
+0..1
+
+Actual result
+
+valueQuantity
+
+Quantity
+
+valueCodeableConcept
+
+CodeableConcept
+
+valueString
+
+string
+
+valueBoolean
+
+boolean
+
+valueInteger
+
+integer
+
+valueRange
+
+Range
+
+valueRatio
+
+Ratio
+
+valueSampledData
+
+SampledData
+
+valueTime
+
+time
+
+valueDateTime
+
+dateTime
+
+valuePeriod
+
+Period
+
+valueAttachment
+
+Attachment
+
+ valueReference
+
+Reference
+(
+MolecularSequence
+)
+
+dataAbsentReason
+
+C
+
+0..1
+
+CodeableConcept
+
+Why the result is missing
+Binding: 
+Data Absent Reason
+ (
+Extensible
+)
+
+interpretation
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+Binding: 
+Observation Interpretation Codes
+ (
+Extensible
+)
+
+note
+
+0..*
+
+Annotation
+
+Comments about the observation
+
+bodySite
+
+C
+
+0..1
+
+CodeableConcept
+
+Observed body part
+Binding: 
+SNOMED CT Body Structures
+ (
+Example
+)
+
+bodyStructure
+
+C
+
+TU
+
+0..1
+
+Reference
+(
+BodyStructure
+)
+
+Observed body structure
+
+method
+
+0..1
+
+CodeableConcept
+
+How it was done
+Binding: 
+Observation Methods
+ (
+Example
+)
+
+specimen
+
+C
+
+0..1
+
+Reference
+(
+Specimen
+ | 
+Group
+)
+
+Specimen used for this observation
+
++ Rule: If Observation.specimen is a reference to Group, the group can only have specimens
+
+device
+
+0..1
+
+Reference
+(
+Device
+ | 
+DeviceMetric
+)
+
+A reference to the device that generates the measurements or the device settings for the device
+
+referenceRange
+
+C
+
+0..*
+
+BackboneElement
+
+Provides guide for interpretation
+
++ Rule: Must have at least a low or a high or text
+
+low
+
+C
+
+0..1
+
+SimpleQuantity
+
+Low Range, if relevant
+
+high
+
+C
+
+0..1
+
+SimpleQuantity
+
+High Range, if relevant
+
+normalValue
+
+TU
+
+0..1
+
+CodeableConcept
+
+Normal value, if relevant
+Binding: 
+Observation Reference Range Normal Value Codes
+ (
+Extensible
+)
+
+type
+
+TU
+
+0..1
+
+CodeableConcept
+
+Reference range qualifier
+Binding: 
+Observation Reference Range Meaning Codes
+ (
+Preferred
+)
+
+appliesTo
+
+0..*
+
+CodeableConcept
+
+Reference range population
+Binding: 
+Observation Reference Range Applies To Codes
+ (
+Example
+)
+
+age
+
+0..1
+
+Range
+
+Applicable age range, if relevant
+
+text
+
+C
+
+0..1
+
+markdown
+
+Text based reference range in an observation
+
+hasMember
+
+Σ
+
+0..*
+
+Reference
+(
+Observation
+ | 
+QuestionnaireResponse
+ | 
+MolecularSequence
+)
+
+Related resource that belongs to the Observation group
+
+derivedFrom
+
+Σ
+
+0..*
+
+Reference
+(
+DocumentReference
+ | 
+ImagingStudy
+ | 
+ImagingSelection
+ | 
+QuestionnaireResponse
+ | 
+Observation
+ | 
+MolecularSequence
+ | 
+GenomicStudy
+)
+
+Related resource from which the observation is made
+
+component
+
+Σ
+
+C
+
+0..*
+
+BackboneElement
+
+Component results
+
+code
+
+Σ
+
+C
+
+1..1
+
+CodeableConcept
+
+Type of component observation (code / type)
+Binding: 
+LOINC Codes
+ (
+Example
+)
+
+value[x]
+
+Σ
+
+0..1
+
+Actual component result
+
+valueQuantity
+
+Quantity
+
+valueCodeableConcept
+
+CodeableConcept
+
+valueString
+
+string
+
+valueBoolean
+
+boolean
+
+valueInteger
+
+integer
+
+valueRange
+
+Range
+
+valueRatio
+
+Ratio
+
+valueSampledData
+
+SampledData
+
+valueTime
+
+time
+
+valueDateTime
+
+dateTime
+
+valuePeriod
+
+Period
+
+valueAttachment
+
+Attachment
+
+ valueReference
+
+Reference
+(
+MolecularSequence
+)
+
+dataAbsentReason
+
+0..1
+
+CodeableConcept
+
+Why the component result is missing
+Binding: 
+Data Absent Reason
+ (
+Extensible
+)
+
+interpretation
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+Binding: 
+Observation Interpretation Codes
+ (
+Extensible
+)
+
+referenceRange
+
+0..*
+
+see 
+referenceRange
+
+Provides guide for interpretation of component result
+
+ Documentation for this format 
+
+See the Extensions
+ for this resource
+
+UML Diagram
+ (
+Legend
+)
+
+XML Template
+
+<
+
+Observation
+
+ xmlns="http://hl7.org/fhir"> 
+
+ <!-- from 
+Resource
+: 
+id
+, 
+meta
+, 
+implicitRules
+, and 
+language
+ -->
+ <!-- from 
+DomainResource
+: 
+text
+, 
+contained
+, 
+extension
+, and 
+modifierExtension
+ -->
+ <
+
+identifier
+
+>
+<!--
+
+0..*
+
+Identifier
+
+Business Identifier for observation
+
+ -->
+</identifier>
+ <
+
+instantiates[x]
+
+>
+<!--
+
+0..1
+
+canonical
+(
+ObservationDefinition
+)|
+Reference
+(
+
+ObservationDefinition
+)
+
+Instantiates FHIR ObservationDefinition
+
+ -->
+</instantiates[x]>
+ <
+
+basedOn
+
+>
+<!--
+
+0..*
+
+Reference
+(
+CarePlan
+|
+DeviceRequest
+|
+ImmunizationRecommendation
+|
+
+MedicationRequest
+|
+NutritionOrder
+|
+ServiceRequest
+)
+
+Fulfills plan, proposal or order
+
+ -->
+</basedOn>
+ <
+
+triggeredBy
+
+> 
+<!-- 
+
+0..*
+
+ Triggering observation(s) -->
+
+ <
+
+observation
+
+>
+<!--
+
+1..1
+
+Reference
+(
+Observation
+)
+
+Triggering observation
+
+ -->
+</observation>
+ <
+
+type
+
+ value="[
+
+code
+
+]"/>
+<!--
+
+1..1
+
+reflex | repeat | re-run
+
+ -->
+
+ <
+
+reason
+
+ value="[
+
+string
+
+]"/>
+<!--
+
+0..1
+
+Reason that the observation was triggered
+
+ -->
+
+ </triggeredBy>
+ <
+
+partOf
+
+>
+<!--
+
+0..*
+
+Reference
+(
+GenomicStudy
+|
+ImagingStudy
+|
+Immunization
+|
+
+MedicationAdministration
+|
+MedicationDispense
+|
+MedicationStatement
+|
+Procedure
+)
+
+Part of referenced event
+
+ -->
+</partOf>
+ <
+
+status
+
+ value="[
+
+code
+
+]"/>
+<!--
+
+1..1
+
+registered | preliminary | final | amended +
+
+ -->
+
+ <
+
+category
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+Classification of type of observation
+
+ -->
+</category>
+ <
+
+code
+
+>
+<!--
+
+I
+ 1..1
+
+CodeableConcept
+
+Type of observation (code / type)
+
+ -->
+</code>
+ <
+
+subject
+
+>
+<!--
+
+0..1
+
+Reference
+(
+BiologicallyDerivedProduct
+|
+Device
+|
+Group
+|
+Location
+|
+
+Medication
+|
+NutritionProduct
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+Procedure
+|
+
+Substance
+)
+
+Who and/or what the observation is about
+
+ -->
+</subject>
+ <
+
+focus
+
+>
+<!--
+
+0..*
+
+Reference
+(
+Any
+)
+
+What the observation is about, when it is not about the subject of record
+
+ -->
+</focus>
+ <
+
+encounter
+
+>
+<!--
+
+0..1
+
+Reference
+(
+Encounter
+)
+
+Healthcare event during which this observation is made
+
+ -->
+</encounter>
+ <
+
+effective[x]
+
+>
+<!--
+
+0..1
+
+dateTime
+|
+Period
+|
+Timing
+|
+instant
+
+Clinically relevant time/time-period for observation
+
+ -->
+</effective[x]>
+ <
+
+issued
+
+ value="[
+
+instant
+
+]"/>
+<!--
+
+0..1
+
+Date/Time this version was made available
+
+ -->
+
+ <
+
+performer
+
+>
+<!--
+
+0..*
+
+Reference
+(
+CareTeam
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+
+PractitionerRole
+|
+RelatedPerson
+)
+
+Who is responsible for the observation
+
+ -->
+</performer>
+ <
+
+value[x]
+
+>
+<!--
+
+I
+ 0..1
+
+Quantity
+|
+CodeableConcept
+|
+string
+|
+boolean
+|
+integer
+|
+Range
+|
+Ratio
+|
+
+SampledData
+|
+time
+|
+dateTime
+|
+Period
+|
+Attachment
+|
+Reference
+(
+MolecularSequence
+)
+
+Actual result
+
+ -->
+</value[x]>
+ <
+
+dataAbsentReason
+
+>
+<!--
+
+I
+ 0..1
+
+CodeableConcept
+
+Why the result is missing
+
+ -->
+</dataAbsentReason>
+ <
+
+interpretation
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+
+ -->
+</interpretation>
+ <
+
+note
+
+>
+<!--
+
+0..*
+
+Annotation
+
+Comments about the observation
+
+ -->
+</note>
+ <
+
+bodySite
+
+>
+<!--
+
+I
+ 0..1
+
+CodeableConcept
+
+Observed body part
+
+ -->
+</bodySite>
+ <
+
+bodyStructure
+
+>
+<!--
+
+I
+ 0..1
+
+Reference
+(
+BodyStructure
+)
+
+Observed body structure
+
+ -->
+</bodyStructure>
+ <
+
+method
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+How it was done
+
+ -->
+</method>
+ <
+
+specimen
+
+>
+<!--
+
+0..1
+
+Reference
+(
+Group
+|
+Specimen
+)
+
+Specimen used for this observation
+
+ -->
+</specimen>
+ <
+
+device
+
+>
+<!--
+
+0..1
+
+Reference
+(
+Device
+|
+DeviceMetric
+)
+
+A reference to the device that generates the measurements or the device settings for the device
+
+ -->
+</device>
+ <
+
+referenceRange
+
+> 
+<!-- 
+
+0..*
+
+ Provides guide for interpretation -->
+
+ <
+
+low
+
+>
+<!--
+
+I
+ 0..1
+
+Quantity
+(
+SimpleQuantity
+)
+
+Low Range, if relevant
+
+ -->
+</low>
+ <
+
+high
+
+>
+<!--
+
+I
+ 0..1
+
+Quantity
+(
+SimpleQuantity
+)
+
+High Range, if relevant
+
+ -->
+</high>
+ <
+
+normalValue
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+Normal value, if relevant
+
+ -->
+</normalValue>
+ <
+
+type
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+Reference range qualifier
+
+ -->
+</type>
+ <
+
+appliesTo
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+Reference range population
+
+ -->
+</appliesTo>
+ <
+
+age
+
+>
+<!--
+
+0..1
+
+Range
+
+Applicable age range, if relevant
+
+ -->
+</age>
+ <
+
+text
+
+ value="[
+
+markdown
+
+]"/>
+<!--
+
+I
+ 0..1
+
+Text based reference range in an observation
+
+ -->
+
+ </referenceRange>
+ <
+
+hasMember
+
+>
+<!--
+
+0..*
+
+Reference
+(
+MolecularSequence
+|
+Observation
+|
+
+QuestionnaireResponse
+)
+
+Related resource that belongs to the Observation group
+
+ -->
+</hasMember>
+ <
+
+derivedFrom
+
+>
+<!--
+
+0..*
+
+Reference
+(
+DocumentReference
+|
+GenomicStudy
+|
+ImagingSelection
+|
+
+ImagingStudy
+|
+MolecularSequence
+|
+Observation
+|
+QuestionnaireResponse
+)
+
+Related resource from which the observation is made
+
+ -->
+</derivedFrom>
+ <
+
+component
+
+> 
+<!-- 
+
+I
+ 0..*
+
+ Component results -->
+
+ <
+
+code
+
+>
+<!--
+
+I
+ 1..1
+
+CodeableConcept
+
+Type of component observation (code / type)
+
+ -->
+</code>
+ <
+
+value[x]
+
+>
+<!--
+
+0..1
+
+Quantity
+|
+CodeableConcept
+|
+string
+|
+boolean
+|
+integer
+|
+Range
+|
+
+Ratio
+|
+SampledData
+|
+time
+|
+dateTime
+|
+Period
+|
+Attachment
+|
+Reference
+(
+MolecularSequence
+)
+
+Actual component result
+
+ -->
+</value[x]>
+ <
+
+dataAbsentReason
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+Why the component result is missing
+
+ -->
+</dataAbsentReason>
+ <
+
+interpretation
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+
+ -->
+</interpretation>
+ <
+
+referenceRange
+
+>
+<!--
+
+0..*
+
+Content as for Observation.referenceRange
+
+Provides guide for interpretation of component result
+
+ -->
+</referenceRange>
+ </component>
+</Observation>
+
+JSON Template
+
+{
+
+ "resourceType" : "
+
+Observation
+
+",
+ // from 
+Resource
+: 
+id
+, 
+meta
+, 
+implicitRules
+, and 
+language
+
+ // from 
+DomainResource
+: 
+text
+, 
+contained
+, 
+extension
+, and 
+modifierExtension
+
+ "
+identifier
+" : [{ 
+
+Identifier
+
+ }], 
+//
+
+Business Identifier for observation
+
+// instantiates[x]: 
+Instantiates FHIR ObservationDefinition
+. One of these 2:
+
+ "
+instantiatesCanonical
+" : "<
+
+canonical
+
+(
+ObservationDefinition
+)>",
+ "
+instantiatesReference
+" : { 
+
+Reference
+(
+ObservationDefinition
+)
+ },
+ "
+basedOn
+" : [{ 
+
+Reference
+(
+CarePlan
+|
+DeviceRequest
+|
+ImmunizationRecommendation
+|
+
+MedicationRequest
+|
+NutritionOrder
+|
+ServiceRequest
+)
+ }], 
+//
+
+Fulfills plan, proposal or order
+
+ "
+triggeredBy
+" : [{ 
+//
+
+Triggering observation(s)
+
+ "
+observation
+" : { 
+
+Reference
+(
+Observation
+)
+ }, 
+//
+
+R!
+
+Triggering observation
+
+ "
+type
+" : "<
+
+code
+
+>", 
+//
+
+R!
+
+reflex | repeat | re-run
+
+ "
+reason
+" : "<
+
+string
+
+>" 
+//
+
+Reason that the observation was triggered
+
+ }],
+ "
+partOf
+" : [{ 
+
+Reference
+(
+GenomicStudy
+|
+ImagingStudy
+|
+Immunization
+|
+
+MedicationAdministration
+|
+MedicationDispense
+|
+MedicationStatement
+|
+Procedure
+)
+ }], 
+//
+
+Part of referenced event
+
+ "
+
+status
+
+" : "<
+
+code
+
+>", 
+//
+
+R!
+
+registered | preliminary | final | amended +
+
+ "
+category
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+Classification of type of observation
+
+ "
+code
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+R!
+
+Type of observation (code / type)
+
+ "
+subject
+" : { 
+
+Reference
+(
+BiologicallyDerivedProduct
+|
+Device
+|
+Group
+|
+Location
+|
+
+Medication
+|
+NutritionProduct
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+Procedure
+|
+
+Substance
+)
+ }, 
+//
+
+Who and/or what the observation is about
+
+ "
+focus
+" : [{ 
+
+Reference
+(
+Any
+)
+ }], 
+//
+
+What the observation is about, when it is not about the subject of record
+
+ "
+encounter
+" : { 
+
+Reference
+(
+Encounter
+)
+ }, 
+//
+
+Healthcare event during which this observation is made
+
+// effective[x]: 
+Clinically relevant time/time-period for observation
+. One of these 4:
+
+ "
+effectiveDateTime
+" : "<
+
+dateTime
+
+>",
+ "
+effectivePeriod
+" : { 
+
+Period
+
+ },
+ "
+effectiveTiming
+" : { 
+
+Timing
+
+ },
+ "
+effectiveInstant
+" : "<
+
+instant
+
+>",
+ "
+issued
+" : "<
+
+instant
+
+>", 
+//
+
+Date/Time this version was made available
+
+ "
+performer
+" : [{ 
+
+Reference
+(
+CareTeam
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+
+PractitionerRole
+|
+RelatedPerson
+)
+ }], 
+//
+
+Who is responsible for the observation
+
+// value[x]: 
+Actual result
+. One of these 13:
+
+ "
+valueQuantity
+" : { 
+
+Quantity
+
+ },
+ "
+valueCodeableConcept
+" : { 
+
+CodeableConcept
+
+ },
+ "
+valueString
+" : "<
+
+string
+
+>",
+ "
+valueBoolean
+" : <
+
+boolean
+
+>,
+ "
+valueInteger
+" : <
+
+integer
+
+>,
+ "
+valueRange
+" : { 
+
+Range
+
+ },
+ "
+valueRatio
+" : { 
+
+Ratio
+
+ },
+ "
+valueSampledData
+" : { 
+
+SampledData
+
+ },
+ "
+valueTime
+" : "<
+
+time
+
+>",
+ "
+valueDateTime
+" : "<
+
+dateTime
+
+>",
+ "
+valuePeriod
+" : { 
+
+Period
+
+ },
+ "
+valueAttachment
+" : { 
+
+Attachment
+
+ },
+ "
+valueReference
+" : { 
+
+Reference
+(
+MolecularSequence
+)
+ },
+ "
+dataAbsentReason
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+Why the result is missing
+
+ "
+interpretation
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+High, low, normal, etc
+
+ "
+note
+" : [{ 
+
+Annotation
+
+ }], 
+//
+
+Comments about the observation
+
+ "
+bodySite
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+Observed body part
+
+ "
+bodyStructure
+" : { 
+
+Reference
+(
+BodyStructure
+)
+ }, 
+//
+
+I
+
+Observed body structure
+
+ "
+method
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+How it was done
+
+ "
+specimen
+" : { 
+
+Reference
+(
+Group
+|
+Specimen
+)
+ }, 
+//
+
+Specimen used for this observation
+
+ "
+device
+" : { 
+
+Reference
+(
+Device
+|
+DeviceMetric
+)
+ }, 
+//
+
+A reference to the device that generates the measurements or the device settings for the device
+
+ "
+referenceRange
+" : [{ 
+//
+
+Provides guide for interpretation
+
+ "
+low
+" : { 
+
+Quantity
+(
+SimpleQuantity
+)
+ }, 
+//
+
+I
+
+Low Range, if relevant
+
+ "
+high
+" : { 
+
+Quantity
+(
+SimpleQuantity
+)
+ }, 
+//
+
+I
+
+High Range, if relevant
+
+ "
+normalValue
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+Normal value, if relevant
+
+ "
+type
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+Reference range qualifier
+
+ "
+appliesTo
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+Reference range population
+
+ "
+age
+" : { 
+
+Range
+
+ }, 
+//
+
+Applicable age range, if relevant
+
+ "
+text
+" : "<
+
+markdown
+
+>" 
+//
+
+I
+
+Text based reference range in an observation
+
+ }],
+ "
+hasMember
+" : [{ 
+
+Reference
+(
+MolecularSequence
+|
+Observation
+|
+
+QuestionnaireResponse
+)
+ }], 
+//
+
+Related resource that belongs to the Observation group
+
+ "
+derivedFrom
+" : [{ 
+
+Reference
+(
+DocumentReference
+|
+GenomicStudy
+|
+ImagingSelection
+|
+
+ImagingStudy
+|
+MolecularSequence
+|
+Observation
+|
+QuestionnaireResponse
+)
+ }], 
+//
+
+Related resource from which the observation is made
+
+ "
+component
+" : [{ 
+//
+
+I
+
+Component results
+
+ "
+code
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+R!
+
+Type of component observation (code / type)
+
+// value[x]: 
+Actual component result
+. One of these 13:
+
+ "
+valueQuantity
+" : { 
+
+Quantity
+
+ },
+ "
+valueCodeableConcept
+" : { 
+
+CodeableConcept
+
+ },
+ "
+valueString
+" : "<
+
+string
+
+>",
+ "
+valueBoolean
+" : <
+
+boolean
+
+>,
+ "
+valueInteger
+" : <
+
+integer
+
+>,
+ "
+valueRange
+" : { 
+
+Range
+
+ },
+ "
+valueRatio
+" : { 
+
+Ratio
+
+ },
+ "
+valueSampledData
+" : { 
+
+SampledData
+
+ },
+ "
+valueTime
+" : "<
+
+time
+
+>",
+ "
+valueDateTime
+" : "<
+
+dateTime
+
+>",
+ "
+valuePeriod
+" : { 
+
+Period
+
+ },
+ "
+valueAttachment
+" : { 
+
+Attachment
+
+ },
+ "
+valueReference
+" : { 
+
+Reference
+(
+MolecularSequence
+)
+ },
+ "
+dataAbsentReason
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+Why the component result is missing
+
+ "
+interpretation
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+High, low, normal, etc
+
+ "
+referenceRange
+" : [{ 
+Content as for Observation.referenceRange
+ }] 
+//
+
+Provides guide for interpretation of component result
+
+ }]
+}
+
+Turtle Template
+
+@prefix fhir: <http://hl7.org/fhir/> .
+
+[ a fhir:
+
+Observation
+
+;
+ fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+ # from 
+Resource
+: 
+.id
+, 
+.meta
+, 
+.implicitRules
+, and 
+.language
+
+ # from 
+DomainResource
+: 
+.text
+, 
+.contained
+, 
+.extension
+, and 
+.modifierExtension
+
+ fhir:
+identifier
+
+ ( [ 
+Identifier
+ ] ... ) ; # 0..* 
+Business Identifier for observation
+
+ # 
+instantiates[x]
+
+: 0..1 
+Instantiates FHIR ObservationDefinition
+. One of these 2
+ fhir:
+instantiates
+
+[ a fhir:canonical ; 
+canonical
+(
+ObservationDefinition
+) ]
+ fhir:
+instantiates
+
+[ a fhir:Reference ; 
+Reference
+(
+ObservationDefinition
+) ]
+ fhir:
+basedOn
+
+ ( [ 
+Reference
+(
+CarePlan
+|
+DeviceRequest
+|
+ImmunizationRecommendation
+|
+MedicationRequest
+|
+
+NutritionOrder
+|
+ServiceRequest
+) ] ... ) ; # 0..* 
+Fulfills plan, proposal or order
+
+ fhir:
+triggeredBy
+
+( [ # 0..* 
+Triggering observation(s)
+
+ fhir:
+observation
+
+[ 
+Reference
+(
+Observation
+) ] ; # 1..1 
+Triggering observation
+
+ fhir:
+type
+
+[ 
+code
+ ] ; # 1..1 
+reflex | repeat | re-run
+
+ fhir:
+reason
+
+[ 
+string
+ ] ; # 0..1 
+Reason that the observation was triggered
+
+ ] ... ) ;
+ fhir:
+partOf
+
+ ( [ 
+Reference
+(
+GenomicStudy
+|
+ImagingStudy
+|
+Immunization
+|
+MedicationAdministration
+|
+
+MedicationDispense
+|
+MedicationStatement
+|
+Procedure
+) ] ... ) ; # 0..* 
+Part of referenced event
+
+ fhir:
+
+status
+
+[ 
+code
+ ] ; # 1..1 
+registered | preliminary | final | amended +
+
+ fhir:
+category
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+Classification of type of observation
+
+ fhir:
+code
+
+[ 
+CodeableConcept
+ ] ; # 1..1 
+
+I
+
+Type of observation (code / type)
+
+ fhir:
+subject
+
+[ 
+Reference
+(
+BiologicallyDerivedProduct
+|
+Device
+|
+Group
+|
+Location
+|
+Medication
+|
+NutritionProduct
+|
+
+Organization
+|
+Patient
+|
+Practitioner
+|
+Procedure
+|
+Substance
+) ] ; # 0..1 
+Who and/or what the observation is about
+
+ fhir:
+focus
+
+ ( [ 
+Reference
+(
+Any
+) ] ... ) ; # 0..* 
+What the observation is about, when it is not about the subject of record
+
+ fhir:
+encounter
+
+[ 
+Reference
+(
+Encounter
+) ] ; # 0..1 
+Healthcare event during which this observation is made
+
+ # 
+effective[x]
+
+: 0..1 
+Clinically relevant time/time-period for observation
+. One of these 4
+ fhir:
+effective
+
+[ a fhir:dateTime ; 
+dateTime
+ ]
+ fhir:
+effective
+
+[ a fhir:Period ; 
+Period
+ ]
+ fhir:
+effective
+
+[ a fhir:Timing ; 
+Timing
+ ]
+ fhir:
+effective
+
+[ a fhir:instant ; 
+instant
+ ]
+ fhir:
+issued
+
+[ 
+instant
+ ] ; # 0..1 
+Date/Time this version was made available
+
+ fhir:
+performer
+
+ ( [ 
+Reference
+(
+CareTeam
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+PractitionerRole
+|
+RelatedPerson
+) ] ... ) ; # 0..* 
+Who is responsible for the observation
+
+ # 
+value[x]
+
+: 0..1 
+
+I
+
+Actual result
+. One of these 13
+ fhir:
+value
+
+[ a fhir:Quantity ; 
+Quantity
+ ]
+ fhir:
+value
+
+[ a fhir:CodeableConcept ; 
+CodeableConcept
+ ]
+ fhir:
+value
+
+[ a fhir:string ; 
+string
+ ]
+ fhir:
+value
+
+[ a fhir:boolean ; 
+boolean
+ ]
+ fhir:
+value
+
+[ a fhir:integer ; 
+integer
+ ]
+ fhir:
+value
+
+[ a fhir:Range ; 
+Range
+ ]
+ fhir:
+value
+
+[ a fhir:Ratio ; 
+Ratio
+ ]
+ fhir:
+value
+
+[ a fhir:SampledData ; 
+SampledData
+ ]
+ fhir:
+value
+
+[ a fhir:time ; 
+time
+ ]
+ fhir:
+value
+
+[ a fhir:dateTime ; 
+dateTime
+ ]
+ fhir:
+value
+
+[ a fhir:Period ; 
+Period
+ ]
+ fhir:
+value
+
+[ a fhir:Attachment ; 
+Attachment
+ ]
+ fhir:
+value
+
+[ a fhir:Reference ; 
+Reference
+(
+MolecularSequence
+) ]
+ fhir:
+dataAbsentReason
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+
+I
+
+Why the result is missing
+
+ fhir:
+interpretation
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+High, low, normal, etc
+
+ fhir:
+note
+
+ ( [ 
+Annotation
+ ] ... ) ; # 0..* 
+Comments about the observation
+
+ fhir:
+bodySite
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+
+I
+
+Observed body part
+
+ fhir:
+bodyStructure
+
+[ 
+Reference
+(
+BodyStructure
+) ] ; # 0..1 
+
+I
+
+Observed body structure
+
+ fhir:
+method
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+How it was done
+
+ fhir:
+specimen
+
+[ 
+Reference
+(
+Group
+|
+Specimen
+) ] ; # 0..1 
+Specimen used for this observation
+
+ fhir:
+device
+
+[ 
+Reference
+(
+Device
+|
+DeviceMetric
+) ] ; # 0..1 
+A reference to the device that generates the measurements or the device settings for the device
+
+ fhir:
+referenceRange
+
+( [ # 0..* 
+Provides guide for interpretation
+
+ fhir:
+low
+
+[ 
+Quantity
+(
+SimpleQuantity
+) ] ; # 0..1 
+
+I
+
+Low Range, if relevant
+
+ fhir:
+high
+
+[ 
+Quantity
+(
+SimpleQuantity
+) ] ; # 0..1 
+
+I
+
+High Range, if relevant
+
+ fhir:
+normalValue
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+Normal value, if relevant
+
+ fhir:
+type
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+Reference range qualifier
+
+ fhir:
+appliesTo
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+Reference range population
+
+ fhir:
+age
+
+[ 
+Range
+ ] ; # 0..1 
+Applicable age range, if relevant
+
+ fhir:
+text
+
+[ 
+markdown
+ ] ; # 0..1 
+
+I
+
+Text based reference range in an observation
+
+ ] ... ) ;
+ fhir:
+hasMember
+
+ ( [ 
+Reference
+(
+MolecularSequence
+|
+Observation
+|
+QuestionnaireResponse
+) ] ... ) ; # 0..* 
+Related resource that belongs to the Observation group
+
+ fhir:
+derivedFrom
+
+ ( [ 
+Reference
+(
+DocumentReference
+|
+GenomicStudy
+|
+ImagingSelection
+|
+ImagingStudy
+|
+MolecularSequence
+|
+
+Observation
+|
+QuestionnaireResponse
+) ] ... ) ; # 0..* 
+Related resource from which the observation is made
+
+ fhir:
+component
+
+( [ # 0..* 
+
+I
+
+Component results
+
+ fhir:
+code
+
+[ 
+CodeableConcept
+ ] ; # 1..1 
+
+I
+
+Type of component observation (code / type)
+
+ # 
+value[x]
+
+: 0..1 
+Actual component result
+. One of these 13
+ fhir:
+value
+
+[ a fhir:Quantity ; 
+Quantity
+ ]
+ fhir:
+value
+
+[ a fhir:CodeableConcept ; 
+CodeableConcept
+ ]
+ fhir:
+value
+
+[ a fhir:string ; 
+string
+ ]
+ fhir:
+value
+
+[ a fhir:boolean ; 
+boolean
+ ]
+ fhir:
+value
+
+[ a fhir:integer ; 
+integer
+ ]
+ fhir:
+value
+
+[ a fhir:Range ; 
+Range
+ ]
+ fhir:
+value
+
+[ a fhir:Ratio ; 
+Ratio
+ ]
+ fhir:
+value
+
+[ a fhir:SampledData ; 
+SampledData
+ ]
+ fhir:
+value
+
+[ a fhir:time ; 
+time
+ ]
+ fhir:
+value
+
+[ a fhir:dateTime ; 
+dateTime
+ ]
+ fhir:
+value
+
+[ a fhir:Period ; 
+Period
+ ]
+ fhir:
+value
+
+[ a fhir:Attachment ; 
+Attachment
+ ]
+ fhir:
+value
+
+[ a fhir:Reference ; 
+Reference
+(
+MolecularSequence
+) ]
+ fhir:
+dataAbsentReason
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+Why the component result is missing
+
+ fhir:
+interpretation
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+High, low, normal, etc
+
+ fhir:
+referenceRange
+
+ ( [ 
+
+See Observation.referenceRange
+
+ ] ... ) ; # 0..* 
+Provides guide for interpretation of component result
+
+ ] ... ) ;
+]
+
+Changes from both R4 and R4B
+
+Observation
+
+Observation.instantiates[x]
+
+Added Element
+
+Observation.triggeredBy
+
+Added Element
+
+Observation.triggeredBy.observation
+
+Added Mandatory Element
+
+Observation.triggeredBy.type
+
+Added Mandatory Element
+
+Observation.triggeredBy.reason
+
+Added Element
+
+Observation.partOf
+
+Type Reference: Added Target Type GenomicStudy
+
+Observation.subject
+
+Type Reference: Added Target Types Organization, Procedure, Practitioner, Medication, Substance, BiologicallyDerivedProduct, NutritionProduct
+
+Observation.value[x]
+
+Add Types Attachment, Reference(MolecularSequence)
+
+Observation.bodyStructure
+
+Added Element
+
+Observation.specimen
+
+Type Reference: Added Target Type Group
+
+Observation.referenceRange.normalValue
+
+Added Element
+
+Observation.referenceRange.text
+
+Type changed from string to markdown
+
+Observation.derivedFrom
+
+Type Reference: Added Target Types ImagingSelection, GenomicStudy
+
+Type Reference: Removed Target Type Media
+
+Observation.component.value[x]
+
+Add Types Attachment, Reference(MolecularSequence)
+
+See the 
+Full Difference
+ for further information
+
+ This analysis is available for R4 as 
+XML
+ or 
+JSON
+
+ and for R4B as 
+XML
+ or 
+JSON
+.
+
+See 
+R4 <--> R5 Conversion Maps
+ (status = See 
+Conversions Summary
+.)
+
+Structure
+
+Name
+
+Flags
+
+Card.
+
+Type
+
+Description & Constraints
+
+Observation
+
+N
+
+DomainResource
+
+Measurements and simple assertions
+
++ Rule: dataAbsentReason SHALL only be present if Observation.value[x] is not present
+
++ Rule: If Observation.component.code is the same as Observation.code, then Observation.value SHALL NOT be present (the Observation.component.value[x] holds the value).
+
++ Rule: bodyStructure SHALL only be present if Observation.bodySite is not present
+
+Elements defined in Ancestors: 
+id
+, 
+meta
+, 
+implicitRules
+, 
+language
+, 
+text
+, 
+contained
+, 
+extension
+, 
+modifierExtension
+
+identifier
+
+Σ
+
+0..*
+
+Identifier
+
+Business Identifier for observation
+
+instantiates[x]
+
+Σ
+
+TU
+
+0..1
+
+Instantiates FHIR ObservationDefinition
+
+ instantiatesCanonical
+
+canonical
+(
+ObservationDefinition
+)
+
+ instantiatesReference
+
+Reference
+(
+ObservationDefinition
+)
+
+basedOn
+
+Σ
+
+0..*
+
+Reference
+(
+CarePlan
+ | 
+DeviceRequest
+ | 
+ImmunizationRecommendation
+ | 
+MedicationRequest
+ | 
+NutritionOrder
+ | 
+ServiceRequest
+)
+
+Fulfills plan, proposal or order
+
+triggeredBy
+
+TU
+
+0..*
+
+BackboneElement
+
+Triggering observation(s)
+
+observation
+
+Σ
+
+1..1
+
+Reference
+(
+Observation
+)
+
+Triggering observation
+
+type
+
+Σ
+
+1..1
+
+code
+
+reflex | repeat | re-run
+Binding: 
+triggered Bytype
+ (
+Required
+)
+
+reason
+
+0..1
+
+string
+
+Reason that the observation was triggered
+
+partOf
+
+Σ
+
+0..*
+
+Reference
+(
+MedicationAdministration
+ | 
+MedicationDispense
+ | 
+MedicationStatement
+ | 
+Procedure
+ | 
+Immunization
+ | 
+ImagingStudy
+ | 
+GenomicStudy
+)
+
+Part of referenced event
+
+status
+
+?!
+
+Σ
+
+1..1
+
+code
+
+registered | preliminary | final | amended +
+Binding: 
+Observation Status
+ (
+Required
+)
+
+category
+
+0..*
+
+CodeableConcept
+
+Classification of type of observation
+Binding: 
+Observation Category Codes
+ (
+Preferred
+)
+
+code
+
+Σ
+
+C
+
+1..1
+
+CodeableConcept
+
+Type of observation (code / type)
+Binding: 
+LOINC Codes
+ (
+Example
+)
+
+subject
+
+Σ
+
+0..1
+
+Reference
+(
+Patient
+ | 
+Group
+ | 
+Device
+ | 
+Location
+ | 
+Organization
+ | 
+Procedure
+ | 
+Practitioner
+ | 
+Medication
+ | 
+Substance
+ | 
+BiologicallyDerivedProduct
+ | 
+NutritionProduct
+)
+
+Who and/or what the observation is about
+
+focus
+
+Σ
+
+TU
+
+0..*
+
+Reference
+(
+Any
+)
+
+What the observation is about, when it is not about the subject of record
+
+encounter
+
+Σ
+
+0..1
+
+Reference
+(
+Encounter
+)
+
+Healthcare event during which this observation is made
+
+effective[x]
+
+Σ
+
+0..1
+
+Clinically relevant time/time-period for observation
+
+effectiveDateTime
+
+dateTime
+
+effectivePeriod
+
+Period
+
+effectiveTiming
+
+Timing
+
+effectiveInstant
+
+instant
+
+issued
+
+Σ
+
+0..1
+
+instant
+
+Date/Time this version was made available
+
+performer
+
+Σ
+
+0..*
+
+Reference
+(
+Practitioner
+ | 
+PractitionerRole
+ | 
+Organization
+ | 
+CareTeam
+ | 
+Patient
+ | 
+RelatedPerson
+)
+
+Who is responsible for the observation
+
+value[x]
+
+Σ
+
+C
+
+0..1
+
+Actual result
+
+valueQuantity
+
+Quantity
+
+valueCodeableConcept
+
+CodeableConcept
+
+valueString
+
+string
+
+valueBoolean
+
+boolean
+
+valueInteger
+
+integer
+
+valueRange
+
+Range
+
+valueRatio
+
+Ratio
+
+valueSampledData
+
+SampledData
+
+valueTime
+
+time
+
+valueDateTime
+
+dateTime
+
+valuePeriod
+
+Period
+
+valueAttachment
+
+Attachment
+
+ valueReference
+
+Reference
+(
+MolecularSequence
+)
+
+dataAbsentReason
+
+C
+
+0..1
+
+CodeableConcept
+
+Why the result is missing
+Binding: 
+Data Absent Reason
+ (
+Extensible
+)
+
+interpretation
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+Binding: 
+Observation Interpretation Codes
+ (
+Extensible
+)
+
+note
+
+0..*
+
+Annotation
+
+Comments about the observation
+
+bodySite
+
+C
+
+0..1
+
+CodeableConcept
+
+Observed body part
+Binding: 
+SNOMED CT Body Structures
+ (
+Example
+)
+
+bodyStructure
+
+C
+
+TU
+
+0..1
+
+Reference
+(
+BodyStructure
+)
+
+Observed body structure
+
+method
+
+0..1
+
+CodeableConcept
+
+How it was done
+Binding: 
+Observation Methods
+ (
+Example
+)
+
+specimen
+
+C
+
+0..1
+
+Reference
+(
+Specimen
+ | 
+Group
+)
+
+Specimen used for this observation
+
++ Rule: If Observation.specimen is a reference to Group, the group can only have specimens
+
+device
+
+0..1
+
+Reference
+(
+Device
+ | 
+DeviceMetric
+)
+
+A reference to the device that generates the measurements or the device settings for the device
+
+referenceRange
+
+C
+
+0..*
+
+BackboneElement
+
+Provides guide for interpretation
+
++ Rule: Must have at least a low or a high or text
+
+low
+
+C
+
+0..1
+
+SimpleQuantity
+
+Low Range, if relevant
+
+high
+
+C
+
+0..1
+
+SimpleQuantity
+
+High Range, if relevant
+
+normalValue
+
+TU
+
+0..1
+
+CodeableConcept
+
+Normal value, if relevant
+Binding: 
+Observation Reference Range Normal Value Codes
+ (
+Extensible
+)
+
+type
+
+TU
+
+0..1
+
+CodeableConcept
+
+Reference range qualifier
+Binding: 
+Observation Reference Range Meaning Codes
+ (
+Preferred
+)
+
+appliesTo
+
+0..*
+
+CodeableConcept
+
+Reference range population
+Binding: 
+Observation Reference Range Applies To Codes
+ (
+Example
+)
+
+age
+
+0..1
+
+Range
+
+Applicable age range, if relevant
+
+text
+
+C
+
+0..1
+
+markdown
+
+Text based reference range in an observation
+
+hasMember
+
+Σ
+
+0..*
+
+Reference
+(
+Observation
+ | 
+QuestionnaireResponse
+ | 
+MolecularSequence
+)
+
+Related resource that belongs to the Observation group
+
+derivedFrom
+
+Σ
+
+0..*
+
+Reference
+(
+DocumentReference
+ | 
+ImagingStudy
+ | 
+ImagingSelection
+ | 
+QuestionnaireResponse
+ | 
+Observation
+ | 
+MolecularSequence
+ | 
+GenomicStudy
+)
+
+Related resource from which the observation is made
+
+component
+
+Σ
+
+C
+
+0..*
+
+BackboneElement
+
+Component results
+
+code
+
+Σ
+
+C
+
+1..1
+
+CodeableConcept
+
+Type of component observation (code / type)
+Binding: 
+LOINC Codes
+ (
+Example
+)
+
+value[x]
+
+Σ
+
+0..1
+
+Actual component result
+
+valueQuantity
+
+Quantity
+
+valueCodeableConcept
+
+CodeableConcept
+
+valueString
+
+string
+
+valueBoolean
+
+boolean
+
+valueInteger
+
+integer
+
+valueRange
+
+Range
+
+valueRatio
+
+Ratio
+
+valueSampledData
+
+SampledData
+
+valueTime
+
+time
+
+valueDateTime
+
+dateTime
+
+valuePeriod
+
+Period
+
+valueAttachment
+
+Attachment
+
+ valueReference
+
+Reference
+(
+MolecularSequence
+)
+
+dataAbsentReason
+
+0..1
+
+CodeableConcept
+
+Why the component result is missing
+Binding: 
+Data Absent Reason
+ (
+Extensible
+)
+
+interpretation
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+Binding: 
+Observation Interpretation Codes
+ (
+Extensible
+)
+
+referenceRange
+
+0..*
+
+see 
+referenceRange
+
+Provides guide for interpretation of component result
+
+ Documentation for this format 
+
+See the Extensions
+ for this resource
+
+UML Diagram
+ (
+Legend
+)
+
+XML Template
+
+<
+
+Observation
+
+ xmlns="http://hl7.org/fhir"> 
+
+ <!-- from 
+Resource
+: 
+id
+, 
+meta
+, 
+implicitRules
+, and 
+language
+ -->
+ <!-- from 
+DomainResource
+: 
+text
+, 
+contained
+, 
+extension
+, and 
+modifierExtension
+ -->
+ <
+
+identifier
+
+>
+<!--
+
+0..*
+
+Identifier
+
+Business Identifier for observation
+
+ -->
+</identifier>
+ <
+
+instantiates[x]
+
+>
+<!--
+
+0..1
+
+canonical
+(
+ObservationDefinition
+)|
+Reference
+(
+
+ObservationDefinition
+)
+
+Instantiates FHIR ObservationDefinition
+
+ -->
+</instantiates[x]>
+ <
+
+basedOn
+
+>
+<!--
+
+0..*
+
+Reference
+(
+CarePlan
+|
+DeviceRequest
+|
+ImmunizationRecommendation
+|
+
+MedicationRequest
+|
+NutritionOrder
+|
+ServiceRequest
+)
+
+Fulfills plan, proposal or order
+
+ -->
+</basedOn>
+ <
+
+triggeredBy
+
+> 
+<!-- 
+
+0..*
+
+ Triggering observation(s) -->
+
+ <
+
+observation
+
+>
+<!--
+
+1..1
+
+Reference
+(
+Observation
+)
+
+Triggering observation
+
+ -->
+</observation>
+ <
+
+type
+
+ value="[
+
+code
+
+]"/>
+<!--
+
+1..1
+
+reflex | repeat | re-run
+
+ -->
+
+ <
+
+reason
+
+ value="[
+
+string
+
+]"/>
+<!--
+
+0..1
+
+Reason that the observation was triggered
+
+ -->
+
+ </triggeredBy>
+ <
+
+partOf
+
+>
+<!--
+
+0..*
+
+Reference
+(
+GenomicStudy
+|
+ImagingStudy
+|
+Immunization
+|
+
+MedicationAdministration
+|
+MedicationDispense
+|
+MedicationStatement
+|
+Procedure
+)
+
+Part of referenced event
+
+ -->
+</partOf>
+ <
+
+status
+
+ value="[
+
+code
+
+]"/>
+<!--
+
+1..1
+
+registered | preliminary | final | amended +
+
+ -->
+
+ <
+
+category
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+Classification of type of observation
+
+ -->
+</category>
+ <
+
+code
+
+>
+<!--
+
+I
+ 1..1
+
+CodeableConcept
+
+Type of observation (code / type)
+
+ -->
+</code>
+ <
+
+subject
+
+>
+<!--
+
+0..1
+
+Reference
+(
+BiologicallyDerivedProduct
+|
+Device
+|
+Group
+|
+Location
+|
+
+Medication
+|
+NutritionProduct
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+Procedure
+|
+
+Substance
+)
+
+Who and/or what the observation is about
+
+ -->
+</subject>
+ <
+
+focus
+
+>
+<!--
+
+0..*
+
+Reference
+(
+Any
+)
+
+What the observation is about, when it is not about the subject of record
+
+ -->
+</focus>
+ <
+
+encounter
+
+>
+<!--
+
+0..1
+
+Reference
+(
+Encounter
+)
+
+Healthcare event during which this observation is made
+
+ -->
+</encounter>
+ <
+
+effective[x]
+
+>
+<!--
+
+0..1
+
+dateTime
+|
+Period
+|
+Timing
+|
+instant
+
+Clinically relevant time/time-period for observation
+
+ -->
+</effective[x]>
+ <
+
+issued
+
+ value="[
+
+instant
+
+]"/>
+<!--
+
+0..1
+
+Date/Time this version was made available
+
+ -->
+
+ <
+
+performer
+
+>
+<!--
+
+0..*
+
+Reference
+(
+CareTeam
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+
+PractitionerRole
+|
+RelatedPerson
+)
+
+Who is responsible for the observation
+
+ -->
+</performer>
+ <
+
+value[x]
+
+>
+<!--
+
+I
+ 0..1
+
+Quantity
+|
+CodeableConcept
+|
+string
+|
+boolean
+|
+integer
+|
+Range
+|
+Ratio
+|
+
+SampledData
+|
+time
+|
+dateTime
+|
+Period
+|
+Attachment
+|
+Reference
+(
+MolecularSequence
+)
+
+Actual result
+
+ -->
+</value[x]>
+ <
+
+dataAbsentReason
+
+>
+<!--
+
+I
+ 0..1
+
+CodeableConcept
+
+Why the result is missing
+
+ -->
+</dataAbsentReason>
+ <
+
+interpretation
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+
+ -->
+</interpretation>
+ <
+
+note
+
+>
+<!--
+
+0..*
+
+Annotation
+
+Comments about the observation
+
+ -->
+</note>
+ <
+
+bodySite
+
+>
+<!--
+
+I
+ 0..1
+
+CodeableConcept
+
+Observed body part
+
+ -->
+</bodySite>
+ <
+
+bodyStructure
+
+>
+<!--
+
+I
+ 0..1
+
+Reference
+(
+BodyStructure
+)
+
+Observed body structure
+
+ -->
+</bodyStructure>
+ <
+
+method
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+How it was done
+
+ -->
+</method>
+ <
+
+specimen
+
+>
+<!--
+
+0..1
+
+Reference
+(
+Group
+|
+Specimen
+)
+
+Specimen used for this observation
+
+ -->
+</specimen>
+ <
+
+device
+
+>
+<!--
+
+0..1
+
+Reference
+(
+Device
+|
+DeviceMetric
+)
+
+A reference to the device that generates the measurements or the device settings for the device
+
+ -->
+</device>
+ <
+
+referenceRange
+
+> 
+<!-- 
+
+0..*
+
+ Provides guide for interpretation -->
+
+ <
+
+low
+
+>
+<!--
+
+I
+ 0..1
+
+Quantity
+(
+SimpleQuantity
+)
+
+Low Range, if relevant
+
+ -->
+</low>
+ <
+
+high
+
+>
+<!--
+
+I
+ 0..1
+
+Quantity
+(
+SimpleQuantity
+)
+
+High Range, if relevant
+
+ -->
+</high>
+ <
+
+normalValue
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+Normal value, if relevant
+
+ -->
+</normalValue>
+ <
+
+type
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+Reference range qualifier
+
+ -->
+</type>
+ <
+
+appliesTo
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+Reference range population
+
+ -->
+</appliesTo>
+ <
+
+age
+
+>
+<!--
+
+0..1
+
+Range
+
+Applicable age range, if relevant
+
+ -->
+</age>
+ <
+
+text
+
+ value="[
+
+markdown
+
+]"/>
+<!--
+
+I
+ 0..1
+
+Text based reference range in an observation
+
+ -->
+
+ </referenceRange>
+ <
+
+hasMember
+
+>
+<!--
+
+0..*
+
+Reference
+(
+MolecularSequence
+|
+Observation
+|
+
+QuestionnaireResponse
+)
+
+Related resource that belongs to the Observation group
+
+ -->
+</hasMember>
+ <
+
+derivedFrom
+
+>
+<!--
+
+0..*
+
+Reference
+(
+DocumentReference
+|
+GenomicStudy
+|
+ImagingSelection
+|
+
+ImagingStudy
+|
+MolecularSequence
+|
+Observation
+|
+QuestionnaireResponse
+)
+
+Related resource from which the observation is made
+
+ -->
+</derivedFrom>
+ <
+
+component
+
+> 
+<!-- 
+
+I
+ 0..*
+
+ Component results -->
+
+ <
+
+code
+
+>
+<!--
+
+I
+ 1..1
+
+CodeableConcept
+
+Type of component observation (code / type)
+
+ -->
+</code>
+ <
+
+value[x]
+
+>
+<!--
+
+0..1
+
+Quantity
+|
+CodeableConcept
+|
+string
+|
+boolean
+|
+integer
+|
+Range
+|
+
+Ratio
+|
+SampledData
+|
+time
+|
+dateTime
+|
+Period
+|
+Attachment
+|
+Reference
+(
+MolecularSequence
+)
+
+Actual component result
+
+ -->
+</value[x]>
+ <
+
+dataAbsentReason
+
+>
+<!--
+
+0..1
+
+CodeableConcept
+
+Why the component result is missing
+
+ -->
+</dataAbsentReason>
+ <
+
+interpretation
+
+>
+<!--
+
+0..*
+
+CodeableConcept
+
+High, low, normal, etc
+
+ -->
+</interpretation>
+ <
+
+referenceRange
+
+>
+<!--
+
+0..*
+
+Content as for Observation.referenceRange
+
+Provides guide for interpretation of component result
+
+ -->
+</referenceRange>
+ </component>
+</Observation>
+
+JSON Template
+
+{
+
+ "resourceType" : "
+
+Observation
+
+",
+ // from 
+Resource
+: 
+id
+, 
+meta
+, 
+implicitRules
+, and 
+language
+
+ // from 
+DomainResource
+: 
+text
+, 
+contained
+, 
+extension
+, and 
+modifierExtension
+
+ "
+identifier
+" : [{ 
+
+Identifier
+
+ }], 
+//
+
+Business Identifier for observation
+
+// instantiates[x]: 
+Instantiates FHIR ObservationDefinition
+. One of these 2:
+
+ "
+instantiatesCanonical
+" : "<
+
+canonical
+
+(
+ObservationDefinition
+)>",
+ "
+instantiatesReference
+" : { 
+
+Reference
+(
+ObservationDefinition
+)
+ },
+ "
+basedOn
+" : [{ 
+
+Reference
+(
+CarePlan
+|
+DeviceRequest
+|
+ImmunizationRecommendation
+|
+
+MedicationRequest
+|
+NutritionOrder
+|
+ServiceRequest
+)
+ }], 
+//
+
+Fulfills plan, proposal or order
+
+ "
+triggeredBy
+" : [{ 
+//
+
+Triggering observation(s)
+
+ "
+observation
+" : { 
+
+Reference
+(
+Observation
+)
+ }, 
+//
+
+R!
+
+Triggering observation
+
+ "
+type
+" : "<
+
+code
+
+>", 
+//
+
+R!
+
+reflex | repeat | re-run
+
+ "
+reason
+" : "<
+
+string
+
+>" 
+//
+
+Reason that the observation was triggered
+
+ }],
+ "
+partOf
+" : [{ 
+
+Reference
+(
+GenomicStudy
+|
+ImagingStudy
+|
+Immunization
+|
+
+MedicationAdministration
+|
+MedicationDispense
+|
+MedicationStatement
+|
+Procedure
+)
+ }], 
+//
+
+Part of referenced event
+
+ "
+
+status
+
+" : "<
+
+code
+
+>", 
+//
+
+R!
+
+registered | preliminary | final | amended +
+
+ "
+category
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+Classification of type of observation
+
+ "
+code
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+R!
+
+Type of observation (code / type)
+
+ "
+subject
+" : { 
+
+Reference
+(
+BiologicallyDerivedProduct
+|
+Device
+|
+Group
+|
+Location
+|
+
+Medication
+|
+NutritionProduct
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+Procedure
+|
+
+Substance
+)
+ }, 
+//
+
+Who and/or what the observation is about
+
+ "
+focus
+" : [{ 
+
+Reference
+(
+Any
+)
+ }], 
+//
+
+What the observation is about, when it is not about the subject of record
+
+ "
+encounter
+" : { 
+
+Reference
+(
+Encounter
+)
+ }, 
+//
+
+Healthcare event during which this observation is made
+
+// effective[x]: 
+Clinically relevant time/time-period for observation
+. One of these 4:
+
+ "
+effectiveDateTime
+" : "<
+
+dateTime
+
+>",
+ "
+effectivePeriod
+" : { 
+
+Period
+
+ },
+ "
+effectiveTiming
+" : { 
+
+Timing
+
+ },
+ "
+effectiveInstant
+" : "<
+
+instant
+
+>",
+ "
+issued
+" : "<
+
+instant
+
+>", 
+//
+
+Date/Time this version was made available
+
+ "
+performer
+" : [{ 
+
+Reference
+(
+CareTeam
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+
+PractitionerRole
+|
+RelatedPerson
+)
+ }], 
+//
+
+Who is responsible for the observation
+
+// value[x]: 
+Actual result
+. One of these 13:
+
+ "
+valueQuantity
+" : { 
+
+Quantity
+
+ },
+ "
+valueCodeableConcept
+" : { 
+
+CodeableConcept
+
+ },
+ "
+valueString
+" : "<
+
+string
+
+>",
+ "
+valueBoolean
+" : <
+
+boolean
+
+>,
+ "
+valueInteger
+" : <
+
+integer
+
+>,
+ "
+valueRange
+" : { 
+
+Range
+
+ },
+ "
+valueRatio
+" : { 
+
+Ratio
+
+ },
+ "
+valueSampledData
+" : { 
+
+SampledData
+
+ },
+ "
+valueTime
+" : "<
+
+time
+
+>",
+ "
+valueDateTime
+" : "<
+
+dateTime
+
+>",
+ "
+valuePeriod
+" : { 
+
+Period
+
+ },
+ "
+valueAttachment
+" : { 
+
+Attachment
+
+ },
+ "
+valueReference
+" : { 
+
+Reference
+(
+MolecularSequence
+)
+ },
+ "
+dataAbsentReason
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+Why the result is missing
+
+ "
+interpretation
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+High, low, normal, etc
+
+ "
+note
+" : [{ 
+
+Annotation
+
+ }], 
+//
+
+Comments about the observation
+
+ "
+bodySite
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+Observed body part
+
+ "
+bodyStructure
+" : { 
+
+Reference
+(
+BodyStructure
+)
+ }, 
+//
+
+I
+
+Observed body structure
+
+ "
+method
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+How it was done
+
+ "
+specimen
+" : { 
+
+Reference
+(
+Group
+|
+Specimen
+)
+ }, 
+//
+
+Specimen used for this observation
+
+ "
+device
+" : { 
+
+Reference
+(
+Device
+|
+DeviceMetric
+)
+ }, 
+//
+
+A reference to the device that generates the measurements or the device settings for the device
+
+ "
+referenceRange
+" : [{ 
+//
+
+Provides guide for interpretation
+
+ "
+low
+" : { 
+
+Quantity
+(
+SimpleQuantity
+)
+ }, 
+//
+
+I
+
+Low Range, if relevant
+
+ "
+high
+" : { 
+
+Quantity
+(
+SimpleQuantity
+)
+ }, 
+//
+
+I
+
+High Range, if relevant
+
+ "
+normalValue
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+Normal value, if relevant
+
+ "
+type
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+Reference range qualifier
+
+ "
+appliesTo
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+Reference range population
+
+ "
+age
+" : { 
+
+Range
+
+ }, 
+//
+
+Applicable age range, if relevant
+
+ "
+text
+" : "<
+
+markdown
+
+>" 
+//
+
+I
+
+Text based reference range in an observation
+
+ }],
+ "
+hasMember
+" : [{ 
+
+Reference
+(
+MolecularSequence
+|
+Observation
+|
+
+QuestionnaireResponse
+)
+ }], 
+//
+
+Related resource that belongs to the Observation group
+
+ "
+derivedFrom
+" : [{ 
+
+Reference
+(
+DocumentReference
+|
+GenomicStudy
+|
+ImagingSelection
+|
+
+ImagingStudy
+|
+MolecularSequence
+|
+Observation
+|
+QuestionnaireResponse
+)
+ }], 
+//
+
+Related resource from which the observation is made
+
+ "
+component
+" : [{ 
+//
+
+I
+
+Component results
+
+ "
+code
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+I
+
+R!
+
+Type of component observation (code / type)
+
+// value[x]: 
+Actual component result
+. One of these 13:
+
+ "
+valueQuantity
+" : { 
+
+Quantity
+
+ },
+ "
+valueCodeableConcept
+" : { 
+
+CodeableConcept
+
+ },
+ "
+valueString
+" : "<
+
+string
+
+>",
+ "
+valueBoolean
+" : <
+
+boolean
+
+>,
+ "
+valueInteger
+" : <
+
+integer
+
+>,
+ "
+valueRange
+" : { 
+
+Range
+
+ },
+ "
+valueRatio
+" : { 
+
+Ratio
+
+ },
+ "
+valueSampledData
+" : { 
+
+SampledData
+
+ },
+ "
+valueTime
+" : "<
+
+time
+
+>",
+ "
+valueDateTime
+" : "<
+
+dateTime
+
+>",
+ "
+valuePeriod
+" : { 
+
+Period
+
+ },
+ "
+valueAttachment
+" : { 
+
+Attachment
+
+ },
+ "
+valueReference
+" : { 
+
+Reference
+(
+MolecularSequence
+)
+ },
+ "
+dataAbsentReason
+" : { 
+
+CodeableConcept
+
+ }, 
+//
+
+Why the component result is missing
+
+ "
+interpretation
+" : [{ 
+
+CodeableConcept
+
+ }], 
+//
+
+High, low, normal, etc
+
+ "
+referenceRange
+" : [{ 
+Content as for Observation.referenceRange
+ }] 
+//
+
+Provides guide for interpretation of component result
+
+ }]
+}
+
+Turtle Template
+
+@prefix fhir: <http://hl7.org/fhir/> .
+
+[ a fhir:
+
+Observation
+
+;
+ fhir:nodeRole fhir:treeRoot; # if this is the parser root
+
+ # from 
+Resource
+: 
+.id
+, 
+.meta
+, 
+.implicitRules
+, and 
+.language
+
+ # from 
+DomainResource
+: 
+.text
+, 
+.contained
+, 
+.extension
+, and 
+.modifierExtension
+
+ fhir:
+identifier
+
+ ( [ 
+Identifier
+ ] ... ) ; # 0..* 
+Business Identifier for observation
+
+ # 
+instantiates[x]
+
+: 0..1 
+Instantiates FHIR ObservationDefinition
+. One of these 2
+ fhir:
+instantiates
+
+[ a fhir:canonical ; 
+canonical
+(
+ObservationDefinition
+) ]
+ fhir:
+instantiates
+
+[ a fhir:Reference ; 
+Reference
+(
+ObservationDefinition
+) ]
+ fhir:
+basedOn
+
+ ( [ 
+Reference
+(
+CarePlan
+|
+DeviceRequest
+|
+ImmunizationRecommendation
+|
+MedicationRequest
+|
+
+NutritionOrder
+|
+ServiceRequest
+) ] ... ) ; # 0..* 
+Fulfills plan, proposal or order
+
+ fhir:
+triggeredBy
+
+( [ # 0..* 
+Triggering observation(s)
+
+ fhir:
+observation
+
+[ 
+Reference
+(
+Observation
+) ] ; # 1..1 
+Triggering observation
+
+ fhir:
+type
+
+[ 
+code
+ ] ; # 1..1 
+reflex | repeat | re-run
+
+ fhir:
+reason
+
+[ 
+string
+ ] ; # 0..1 
+Reason that the observation was triggered
+
+ ] ... ) ;
+ fhir:
+partOf
+
+ ( [ 
+Reference
+(
+GenomicStudy
+|
+ImagingStudy
+|
+Immunization
+|
+MedicationAdministration
+|
+
+MedicationDispense
+|
+MedicationStatement
+|
+Procedure
+) ] ... ) ; # 0..* 
+Part of referenced event
+
+ fhir:
+
+status
+
+[ 
+code
+ ] ; # 1..1 
+registered | preliminary | final | amended +
+
+ fhir:
+category
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+Classification of type of observation
+
+ fhir:
+code
+
+[ 
+CodeableConcept
+ ] ; # 1..1 
+
+I
+
+Type of observation (code / type)
+
+ fhir:
+subject
+
+[ 
+Reference
+(
+BiologicallyDerivedProduct
+|
+Device
+|
+Group
+|
+Location
+|
+Medication
+|
+NutritionProduct
+|
+
+Organization
+|
+Patient
+|
+Practitioner
+|
+Procedure
+|
+Substance
+) ] ; # 0..1 
+Who and/or what the observation is about
+
+ fhir:
+focus
+
+ ( [ 
+Reference
+(
+Any
+) ] ... ) ; # 0..* 
+What the observation is about, when it is not about the subject of record
+
+ fhir:
+encounter
+
+[ 
+Reference
+(
+Encounter
+) ] ; # 0..1 
+Healthcare event during which this observation is made
+
+ # 
+effective[x]
+
+: 0..1 
+Clinically relevant time/time-period for observation
+. One of these 4
+ fhir:
+effective
+
+[ a fhir:dateTime ; 
+dateTime
+ ]
+ fhir:
+effective
+
+[ a fhir:Period ; 
+Period
+ ]
+ fhir:
+effective
+
+[ a fhir:Timing ; 
+Timing
+ ]
+ fhir:
+effective
+
+[ a fhir:instant ; 
+instant
+ ]
+ fhir:
+issued
+
+[ 
+instant
+ ] ; # 0..1 
+Date/Time this version was made available
+
+ fhir:
+performer
+
+ ( [ 
+Reference
+(
+CareTeam
+|
+Organization
+|
+Patient
+|
+Practitioner
+|
+PractitionerRole
+|
+RelatedPerson
+) ] ... ) ; # 0..* 
+Who is responsible for the observation
+
+ # 
+value[x]
+
+: 0..1 
+
+I
+
+Actual result
+. One of these 13
+ fhir:
+value
+
+[ a fhir:Quantity ; 
+Quantity
+ ]
+ fhir:
+value
+
+[ a fhir:CodeableConcept ; 
+CodeableConcept
+ ]
+ fhir:
+value
+
+[ a fhir:string ; 
+string
+ ]
+ fhir:
+value
+
+[ a fhir:boolean ; 
+boolean
+ ]
+ fhir:
+value
+
+[ a fhir:integer ; 
+integer
+ ]
+ fhir:
+value
+
+[ a fhir:Range ; 
+Range
+ ]
+ fhir:
+value
+
+[ a fhir:Ratio ; 
+Ratio
+ ]
+ fhir:
+value
+
+[ a fhir:SampledData ; 
+SampledData
+ ]
+ fhir:
+value
+
+[ a fhir:time ; 
+time
+ ]
+ fhir:
+value
+
+[ a fhir:dateTime ; 
+dateTime
+ ]
+ fhir:
+value
+
+[ a fhir:Period ; 
+Period
+ ]
+ fhir:
+value
+
+[ a fhir:Attachment ; 
+Attachment
+ ]
+ fhir:
+value
+
+[ a fhir:Reference ; 
+Reference
+(
+MolecularSequence
+) ]
+ fhir:
+dataAbsentReason
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+
+I
+
+Why the result is missing
+
+ fhir:
+interpretation
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+High, low, normal, etc
+
+ fhir:
+note
+
+ ( [ 
+Annotation
+ ] ... ) ; # 0..* 
+Comments about the observation
+
+ fhir:
+bodySite
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+
+I
+
+Observed body part
+
+ fhir:
+bodyStructure
+
+[ 
+Reference
+(
+BodyStructure
+) ] ; # 0..1 
+
+I
+
+Observed body structure
+
+ fhir:
+method
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+How it was done
+
+ fhir:
+specimen
+
+[ 
+Reference
+(
+Group
+|
+Specimen
+) ] ; # 0..1 
+Specimen used for this observation
+
+ fhir:
+device
+
+[ 
+Reference
+(
+Device
+|
+DeviceMetric
+) ] ; # 0..1 
+A reference to the device that generates the measurements or the device settings for the device
+
+ fhir:
+referenceRange
+
+( [ # 0..* 
+Provides guide for interpretation
+
+ fhir:
+low
+
+[ 
+Quantity
+(
+SimpleQuantity
+) ] ; # 0..1 
+
+I
+
+Low Range, if relevant
+
+ fhir:
+high
+
+[ 
+Quantity
+(
+SimpleQuantity
+) ] ; # 0..1 
+
+I
+
+High Range, if relevant
+
+ fhir:
+normalValue
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+Normal value, if relevant
+
+ fhir:
+type
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+Reference range qualifier
+
+ fhir:
+appliesTo
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+Reference range population
+
+ fhir:
+age
+
+[ 
+Range
+ ] ; # 0..1 
+Applicable age range, if relevant
+
+ fhir:
+text
+
+[ 
+markdown
+ ] ; # 0..1 
+
+I
+
+Text based reference range in an observation
+
+ ] ... ) ;
+ fhir:
+hasMember
+
+ ( [ 
+Reference
+(
+MolecularSequence
+|
+Observation
+|
+QuestionnaireResponse
+) ] ... ) ; # 0..* 
+Related resource that belongs to the Observation group
+
+ fhir:
+derivedFrom
+
+ ( [ 
+Reference
+(
+DocumentReference
+|
+GenomicStudy
+|
+ImagingSelection
+|
+ImagingStudy
+|
+MolecularSequence
+|
+
+Observation
+|
+QuestionnaireResponse
+) ] ... ) ; # 0..* 
+Related resource from which the observation is made
+
+ fhir:
+component
+
+( [ # 0..* 
+
+I
+
+Component results
+
+ fhir:
+code
+
+[ 
+CodeableConcept
+ ] ; # 1..1 
+
+I
+
+Type of component observation (code / type)
+
+ # 
+value[x]
+
+: 0..1 
+Actual component result
+. One of these 13
+ fhir:
+value
+
+[ a fhir:Quantity ; 
+Quantity
+ ]
+ fhir:
+value
+
+[ a fhir:CodeableConcept ; 
+CodeableConcept
+ ]
+ fhir:
+value
+
+[ a fhir:string ; 
+string
+ ]
+ fhir:
+value
+
+[ a fhir:boolean ; 
+boolean
+ ]
+ fhir:
+value
+
+[ a fhir:integer ; 
+integer
+ ]
+ fhir:
+value
+
+[ a fhir:Range ; 
+Range
+ ]
+ fhir:
+value
+
+[ a fhir:Ratio ; 
+Ratio
+ ]
+ fhir:
+value
+
+[ a fhir:SampledData ; 
+SampledData
+ ]
+ fhir:
+value
+
+[ a fhir:time ; 
+time
+ ]
+ fhir:
+value
+
+[ a fhir:dateTime ; 
+dateTime
+ ]
+ fhir:
+value
+
+[ a fhir:Period ; 
+Period
+ ]
+ fhir:
+value
+
+[ a fhir:Attachment ; 
+Attachment
+ ]
+ fhir:
+value
+
+[ a fhir:Reference ; 
+Reference
+(
+MolecularSequence
+) ]
+ fhir:
+dataAbsentReason
+
+[ 
+CodeableConcept
+ ] ; # 0..1 
+Why the component result is missing
+
+ fhir:
+interpretation
+
+ ( [ 
+CodeableConcept
+ ] ... ) ; # 0..* 
+High, low, normal, etc
+
+ fhir:
+referenceRange
+
+ ( [ 
+
+See Observation.referenceRange
+
+ ] ... ) ; # 0..* 
+Provides guide for interpretation of component result
+
+ ] ... ) ;
+]
+
+Changes from both R4 and R4B
+
+Observation
+
+Observation.instantiates[x]
+
+Added Element
+
+Observation.triggeredBy
+
+Added Element
+
+Observation.triggeredBy.observation
+
+Added Mandatory Element
+
+Observation.triggeredBy.type
+
+Added Mandatory Element
+
+Observation.triggeredBy.reason
+
+Added Element
+
+Observation.partOf
+
+Type Reference: Added Target Type GenomicStudy
+
+Observation.subject
+
+Type Reference: Added Target Types Organization, Procedure, Practitioner, Medication, Substance, BiologicallyDerivedProduct, NutritionProduct
+
+Observation.value[x]
+
+Add Types Attachment, Reference(MolecularSequence)
+
+Observation.bodyStructure
+
+Added Element
+
+Observation.specimen
+
+Type Reference: Added Target Type Group
+
+Observation.referenceRange.normalValue
+
+Added Element
+
+Observation.referenceRange.text
+
+Type changed from string to markdown
+
+Observation.derivedFrom
+
+Type Reference: Added Target Types ImagingSelection, GenomicStudy
+
+Type Reference: Removed Target Type Media
+
+Observation.component.value[x]
+
+Add Types Attachment, Reference(MolecularSequence)
+
+See the 
+Full Difference
+ for further information
+
+ This analysis is available for R4 as 
+XML
+ or 
+JSON
+
+ and for R4B as 
+XML
+ or 
+JSON
+.
+
+See 
+R4 <--> R5 Conversion Maps
+ (status = See 
+Conversions Summary
+.)
+
+Additional definitions: Master Definition 
+XML
+ + 
+JSON
+,
+
+XML
+
+Schema
+/
+Schematron
+ + 
+JSON
+
+Schema
+, 
+ShEx
+ (for 
+Turtle
+) + 
+see the extensions
+, the 
+spreadsheet version
+ & the 
+dependency analysis
+
+10.1.4.1
+
+Terminology Bindings
+
+Path
+
+ValueSet
+
+Type
+
+Documentation
+
+Observation.triggeredBy.type 
+
+TriggeredBytype
+
+Required
+
+Codes providing the type of triggeredBy observation.
+
+Observation.status 
+
+ObservationStatus
+
+Required
+
+Codes providing the status of an observation.
+
+Observation.category 
+
+ObservationCategoryCodes
+
+Preferred
+
+Observation Category codes.
+
+Observation.code 
+
+LOINCCodes
+ (a valid code from 
+LOINC 
+
+)
+
+Example
+
+This value set includes all LOINC codes
+
+Observation.dataAbsentReason 
+
+DataAbsentReason
+
+Extensible
+
+Used to specify why the normally expected content of the data element is missing.
+
+Observation.interpretation 
+
+ObservationInterpretationCodes
+ (a valid code from 
+ObservationInterpretation 
+
+)
+
+Extensible
+
+A categorical assessment, providing a rough qualitative interpretation of the observation value, such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. The value set is intended to be for ANY use where coded representation of an interpretation is needed.
+
+Notes:
+
+This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version.
+
+Observation.bodySite 
+
+SNOMEDCTBodyStructures
+
+Example
+
+This value set includes all codes from 
+SNOMED CT 
+
+ where concept is-a 442083009 (Anatomical or acquired body site (body structure)).
+
+Observation.method 
+
+ObservationMethods
+
+Example
+
+Observation Method codes from 
+SNOMED CT 
+
+ where concept is-a 272394005 (Technique (qualifier value)) or is-a 129264002 (Action (qualifier value)) or is-a 386053000 (Evaluation procedure(procedure))
+
+Observation.referenceRange.normalValue 
+
+ObservationReferenceRangeNormalValueCodes
+ (a valid code from 
+ObservationreferenceRangeNormalValue
+)
+
+Extensible
+
+Codes that describe the normal value in the reference range, such as “Negative” or “Absent”
+
+Observation.referenceRange.type 
+
+ObservationReferenceRangeMeaningCodes
+
+Preferred
+
+This value set defines a set of codes that can be used to indicate the meaning/use of a reference range for a particular target population.
+
+Observation.referenceRange.appliesTo 
+
+ObservationReferenceRangeAppliesToCodes
+
+Example
+
+This value set defines a set of codes that can be used to indicate the particular target population the reference range applies to.
+
+Observation.component.code 
+
+LOINCCodes
+ (a valid code from 
+LOINC 
+
+)
+
+Example
+
+This value set includes all LOINC codes
+
+Observation.component.dataAbsentReason 
+
+DataAbsentReason
+
+Extensible
+
+Used to specify why the normally expected content of the data element is missing.
+
+Observation.component.interpretation 
+
+ObservationInterpretationCodes
+ (a valid code from 
+ObservationInterpretation 
+
+)
+
+Extensible
+
+A categorical assessment, providing a rough qualitative interpretation of the observation value, such as “normal”/ “abnormal”,”low” / “high”, “better” / “worse”, “susceptible” / “resistant”, “expected”/ “not expected”. The value set is intended to be for ANY use where coded representation of an interpretation is needed.
+
+Notes:
+
+This is being communicated in v2.x in OBX-8 (Observation Interpretation), in v3 in ObservationInterpretation (CWE) in R1 (Representative Realm) and in FHIR in Observation.interpretation. Historically these values come from the laboratory domain, and these codes are extensively used. The value set binding is extensible, so codes outside the value set that are needed for interpretation concepts (i.e. particular meanings) that are not included in the value set can be used, and these new codes may also be added to the value set and published in a future version.
+
+10.1.4.2
+ Constraints 
+
+UniqueKey
+
+Level
+
+Location
+
+Description
+
+Expression
+
+ obs-3
+
+Rule
+
+Observation.referenceRange
+
+Must have at least a low or a high or text
+
+low.exists() or high.exists() or text.exists()
+
+ obs-6
+
+Rule
+
+(base)
+
+dataAbsentReason SHALL only be present if Observation.value[x] is not present
+
+dataAbsentReason.empty() or value.empty()
+
+ obs-7
+
+Rule
+
+(base)
+
+If Observation.component.code is the same as Observation.code, then Observation.value SHALL NOT be present (the Observation.component.value[x] holds the value).
+
+value.empty() or component.code.where(coding.intersect(%resource.code.coding).exists()).empty()
+
+ obs-8
+
+Rule
+
+(base)
+
+bodyStructure SHALL only be present if Observation.bodySite is not present
+
+bodySite.exists() implies bodyStructure.empty()
+
+ obs-9
+
+Rule
+
+Observation.specimen
+
+If Observation.specimen is a reference to Group, the group can only have specimens
+
+(reference.resolve().exists() and reference.resolve() is Group) implies reference.resolve().member.entity.resolve().all($this is Specimen)
+
+10.1.5
+ Notes: 
+
+10.1.5.1
+ Profiling Observation 
+
+ At its simplest, a resource instance can consist of only a code and a value, and status flag. The relevance of other properties will vary based on the type of observation.
+
+Profiles
+ are created to provide guidance on capturing certain types of observations for a given use case. The Observation resource focuses on the level of detail captured by most systems. However, for a given use case there may be additional constraints and additional information relevant in certain circumstances. As with other resources, 
+extensions
+ can be used to introduce this additional complexity. 
+
+10.1.5.2
+ Subject of an Observation 
+
+ Typically, an observation is made about the subject - a patient, or group of patients, location, or device - and the distinction between the subject and what is directly measured for an observation is specified in the observation code itself ( e.g., "Blood Glucose") and does not need to be represented separately. However, three attributes may be used for representing the focus of the observation if it is not the subject itself. The 
+specimen
+ and 
+bodySite
+ elements are used to represent measurements taken on subject samples or anatomic and morphological locations, and 
+focus
+ represents specific aspect of the subject that are the point of attention such as another observation or a device implanted in a patient.
+
+10.1.5.3
+ Observation Grouping 
+
+Many observations need to be grouped together in some fashion to document critical
+ relationships for interpretation of the observations. The methods to do so primarily are
+ through DiagnosticReport using 
+DiagnosticReport.result
+ and Observation using
+
+Observation.component
+, 
+Observation.hasMember
+, and
+
+Observation.derivedFrom
+. See the 
+Diagnostics Module
+ for guidance related to
+ Microbiology reporting and relevant relationships necessary to support reflex, follow-up,
+ and add-on orders.
+
+Note that Composition may also be used to organize observations and
+ diagnostic reports, but that is only for purpose of readability, not to record critical
+ relationships for interpretations. See DiagnosticReport.composition and Composition for
+ further considerations for that separate purpose.
+
+10.1.5.3.1
+ DiagnosticReport.result
+
+ DiagnosticReport relates directly to an order (ServiceRequest). The 
+DiagnosticReport.code
+ names the panel and serves as the grouping element, which is traditionally referred to as a "panel" or "battery" by laboratories. The 
+DiagnosticReport.result
+ element references the individual observations. Several 
+examples
+ demonstrate observation grouping using DiagnosticReport as the grouping structure.
+
+10.1.5.3.2
+ Observation.component
+
+Observation.component
+ is used for any supporting result that cannot reasonably be interpreted and used outside the scope of the Observation it is a component of. Component observations may make up the separate and individual parts of the observation or may provide qualifying information to 
+Observation.code
+ and may only be able to be understood in relation to the 
+Observation.code
+ (for example, see the 
+
+$stats
+ operation
+). Therefore 
+all
+ code-value and component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation. Components should only be used when there is only one method, one observation, one performer, one device, and one time. Some use cases for using this structure include:
+
+Observations that are commonly produced and interpreted together. For example, systolic and diastolic blood pressure are represented as a single 
+Blood pressure panel
+.
+
+Assessment tool results that are commonly produced and interpreted together. For example, a newborn 
+Apgar score
+ that is a single Observation with five components.
+
+Representing multiple answers to a question (
+relationship and boundaries
+ between Observation and Questionnaire/QuestionnaireResponse). For example, reporting the 
+types of alcohol
+ consumed by a patient
+
+ On the other hand, any observations that are clinically relevant outside the context of being a component of another observation should be represented by separate Observation resources. For example a 
+Body Mass Index (BMI)
+ Observation should 
+not
+ contain components for height and weight because they are clinically relevant observations on their own and should be represented by separate Observation resources. See the section below on how to relate independent Observations.
+
+10.1.5.3.3
+ Observation.hasMember of and Observation.derivedFrom
+
+Observation.hasMember
+ and 
+Observation.derivedFrom
+ and the core extensions: 
+Observation-sequelTo 
+
+ and 
+Observation-replaces 
+
+ are used for any supporting result that can be interpreted and used on its own and has one or more different values for method, observation, performer, device, time, and/or error conditions. Two common use cases for using this structure are:
+
+For grouping related observations such as for a "panel" or "battery". In this case the 
+Observation.code
+ represents the "panel" code, typically 
+Observation.value[x]
+ is not present, and the set of member Observations are listed in 
+Observation.hasMember
+. This structure permits 
+nested grouping
+ when used with DiagnosticReport (e.g. 
+complex micro isolate and sensitivities report
+)
+ as described in the 
+Diagnostics
+ Module
+
+ When linking to other Observations from which an Observation is derived. In this case both 
+Observation.code
+ and 
+Observation.value[x]
+ are present, and the linked observations are listed in 
+Observation.derivedFrom
+. An example of this would be a 
+Body Mass Index (BMI)
+ Observation where the height and weight measurements are referenced.
+
+10.1.5.4
+ Using codes in Observation 
+
+When a result value is represented as a predefined concept using a code, 
+valueCodeableConcept
+ is used. This element is 
+bound
+ to a value set comprised of a standard nomenclature such as SNOMED CT or a source system ("local") coded result values.
+
+10.1.5.4.1
+ Multiple Codings 
+
+Results may be coded in multiple value sets based on different code systems and these may be mapped using the 
+ConceptMap
+ resource and/or given as 
+additional codings
+ directly in the element as shown in the example below.
+
+For example the LOINC 43304-5 
+Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method
+ is typically associated with coded presence/absence concepts. Using the coded value for 'negative' with a standard code translation, 
+valueCodeableConcept
+ would be:
+
+ "valueCodeableConcept": {
+ "coding": [
+ {
+ "system": "http://snomed.info/sct",
+ "code": "260385009",
+ "display": "Negative"
+ }, {
+ "system": "https://acme.lab/resultcodes",
+ "code": "NEG",
+ "display": "Negative"
+ }
+ ],
+ "text": "Negative for Chlamydia Trachomatis rRNA"
+ }
+
+10.1.5.4.2
+ Text values for coded results: 
+
+When the data element is usually coded or the type associated with the 
+code
+ element defines a coded value, use 
+valueCodeableConcept
+
+even if
+ there is no appropriate code and only free text is available. For example using text only, the 
+valueCodeableConcept
+ element would be:
+
+ "valueCodeableConcept": {
+ "text": "uncoded free text result"
+ }
+
+When a coded answer list includes a concept code for "other" and there is a free text description of the concept, the 
+valueCodeableConcept.text
+ element should be used to capture the full meaning of the source. In the example below, the answer code "Other" is provided in the 
+valueCodeableConcept
+ element and the text value supplied value in the 
+CodeableConcept.text
+ element.
+
+ {
+ "resourceType": "Observation",
+ ... snip ...
+ "code": {
+ "coding": [
+ {
+ "system": "http://loinc.org",
+ "code": "74076-1",
+ "display": "Medication or substance involved"
+ }
+ ]
+ },
+ .. snip ...
+ "valueCodeableConcept": {
+ "coding": [
+ {
+ "system": "http://loinc.org",
+ "code": " LA20343-2",
+ "display": "Other substance: PLEASE SPECIFY"
+ }
+ ],
+ "text": "Other: Blue pills I found under my couch"
+ }
+ .. snip ...
+ }
+
+10.1.5.4.3
+ Interoperability Issues using code value pairs in FHIR 
+
+A recurring issue for many observation events, regardless of the particular pattern, is determining how to populate observation.code and observation.value. While this is typically straight-forward for laboratory observations, it can get blurry for other types of observations, such as findings and disorders, family history observations, etc. This discussion focuses on the way in which the coded representation of such statements is expressed using the 
+Observation.code
+ and 
+Observation.value
+ elements. 
+
+There are two distinct facets that are central to a FHIR Observations:
+
+The action taken to make the finding and/or the property about which the property was observed. For example: measurement of blood hemoglobin.
+
+The result of the observation. For example: 14 g/dl.
+
+Several different ways of representing the same information exist using different combinations of the 
+Observation.code
+ and 
+Observation.value
+. Unconstrained use of the alternatives presents a major challenge for computation of semantic equivalence and for safe interpretation of observations originating from different applications and users. The following four patterns could reasonably represent the same case. Considering that the Observation resource needs to support many use cases, the appropriate place to define the specific pattern is expected to be done through profiles and implementation guides as specified by the jurisdictions and/or organizations implementing FHIR:
+
+Observation.code
+ represents the nature of the observation and the 
+Observation.value
+ a code represents the non-numeric result value. These are two distinct facets that are central to a FHIR Observations. For example:
+
+ code=[Examination] 
+
+value=[Abdomen tender]
+
+Observation.code
+ is nearly identical to 1) above, but the level of granularity is shifted from the value to code. For example:
+
+code=[Abdominal examination] 
+
+value=[Tenderness]
+
+ The 
+Observation.code
+ is also expressed in a way that does not specify the observation action but indicates a statement about findings reduced to a single name (or term), as in the above item. In this example, the 
+Observation.value
+ is present and "qualifies" the finding typically confirming or refuting it. For example:
+
+code=[Abdominal tenderness] 
+
+value=[found/true]
+
+ in this example the 
+Observation.code
+ is expressed in a way that does not specify the observation action but indicates a statement about findings reduced to a single name (or term). In this particular example in that context, the 
+Observation.value
+ is omitted. For example:
+
+ code=[Abdominal tenderness]
+
+value element is omitted
+
+10.1.5.4.4
+ Guidance: 
+
+Recommended rules for case 1 and 2 patterns:
+
+The Observation.code is preferably a 
+LOINC 
+
+ concept code.
+
+If a 
+SNOMED CT 
+
+ concept code is used, the expression SHOULD represent a 363787002 (Observable entity(Observable entity)) or 386053000 (Evaluation procedure(evaluation procedure))
+
+For non-numeric values, the Observation.value is preferably a SNOMED CT concept code.
+
+Recommended rules for case 3 pattern:
+
+The Observation.code is preferably a LOINC or SNOMED CT concept code.
+
+If a SNOMED CT concept code is used, the expression SHOULD represent a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+
+The Observation.value is represented by either
+
+valueBoolean
+
+valueCodeableConcept preferably using:
+
+ SNOMED CT where concept is-a 362981000 (Qualifier value (qualifier value))
+
+v2 Yes/no Indicator
+
+v2 Expanded Yes/no Indicator
+ (unfortunately is missing 'not given')
+
+Recommended rules for case 4 pattern:
+
+The Observation.code is preferably a SNOMED CT concept code where the concept is-a 404684003 (Clinical finding (finding)) , 413350009 (Finding with explicit context(finding)), or 272379006 (Event(event)).
+
+The Observation.value is omitted. The default interpretation is the concept (single code or expression) represented in Observation.code is present in the patient. An Observation.dataAbsentReason value of 'clinical-finding' SHOULD be used to indicate why the expected value is missing.
+
+SHOULD NOT use the 
+Assertion
+ pattern as described in 
+HL7 Version 3 Implementation Guide: TermInfo - Using SNOMED CT in CDA R2 Models, Release 1 
+
+. ( The code is 'ASSERTION' and the value is a SNOMED CT concept or expression )
+
+10.1.5.5
+ Refining the interpretation of an Observation using additional codes or Observations 
+
+The following list provides guidance on using codes or other observations to provide additional context that may alter how an observation is interpreted.: 
+
+If possible, use the most specific code you can
+
+e.g.:
+
+ {
+ "resourceType": "Observation",
+ ... snip ...
+ "code": {
+ "coding": [
+ {
+ "system": "http://loinc.org",
+ "code": "6689-4",
+ "display": "Glucose [Mass/​volume] in Blood --2 hours post meal"
+ }
+ ]
+ },
+ ... snip ...
+ }
+
+Alternatively, use additional codes in Observation.code as described 
+above
+.
+
+e.g.: Observation.code = coding-1: 59408-5 Oxygen saturation in Arterial blood by Pulse oximetry, coding-2: 20564-1 Oxygen saturation in Blood
+
+ {
+ "resourceType": "Observation",
+ ... snip ...
+ "code": {
+ "coding": [
+ {
+ "system": "http://loinc.org",
+ "code": "59408-5",
+ "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+ },
+ {
+ "system": "http://loinc.org",
+ "code": "20564-1",
+ "display": "Oxygen saturation in Blood"
+ }
+ ]
+ },
+ ... snip ...
+ }
+
+As described 
+above
+, observations are typically grouped together
+ to provide additional information needed for correctly understanding and interpreting the observation.
+ As an alternative to grouping observations, extensions may be used to provide references to other
+ observations needed for understanding and interpreting an observation.
+
+Note to Implementers:
+
+ We are seeking input from the implementer community in evaluating existing 
+Observation Extensions
+ for this purpose
+
+ Feedback 
+here 
+
+.
+
+10.1.5.6
+ Value[x] and Datatypes 
+
+ The element, Observation.value[x], has a variable name depending on the type as follows: 
+
+valueQuantity
+
+valueCodeableConcept
+
+valueString
+
+valueBoolean
+
+valueInteger
+
+valueRange
+
+valueRatio
+
+valueSampledData
+
+valueTime
+
+valueDateTime
+
+valuePeriod
+
+valueAttachment
+
+See above section on 
+Using codes for result values
+
+ The Attachment data type is used to represent an observation result value if the 
+actual
+ value is a binary file such as an image. If the observation result value is 
+derived
+ from the binary file (for example 'X' detected and here is the the proof in this image), the binary file may be directly represented using DocumentReference and referenced in the Observation with 
+derivedFrom
+. Images that are referenced as part of a report should be represented with 
+DiagnosticReport.media
+ or, if the entire report is in a binary format such as pdf, with 
+DiagnosticReport.presentedForm
+.
+
+ The Boolean data type is rarely used for 
+value[x]
+ because most observations result values are never truly Boolean due to exceptional values such as "unknown", therefore they should use the CodeableConcept data type instead and select codes from 
+http://terminology.hl7.org/ValueSet/v2-0136 
+
+ (these "yes/no" concepts can be mapped to the display name "true/false" or other mutually exclusive terms that may be needed") 
+
+The special values "E" (error), "L" (below detection limit) and "U" (above detection limit) can be used are in the SampledData data type. However, when using valueQuantity in an observation for above and below detection limit values, valueQuantity should be used by stating the limit along with the comparator. In addition, when there is an error the dataAbsentReason element should be used with the appropriate value ('error' or 'NaN'). For example if the value was below the lower limit of detection of <2.0 mmol/L the 
+valueQuantity
+ would be:
+
+ "valueQuantity": {
+ "value": 2.0,
+ "comparator": "<",
+ "unit": "mmol/l",
+ "system": "http://unitsofmeasure.org",
+ "code": "mmol/L"
+ }
+
+ If the value was "NaN" (i.e. an error) the 
+valueCodeableConcept
+ element would be absent and 
+dataAbsentReason
+ element would be:
+
+ "dataAbsentReason": {
+ "coding": [
+ {
+ "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+ "code": "NaN",
+ "display": "Not a Number"
+ }
+ ]
+ }
+
+ Because there are multiple types allowed for the 
+value
+ element, multiple value search parameters are defined. There is no standard parameter for searching values of type Ratio 
+
+10.1.5.7
+ Physiologically Relevant Time of the Observation 
+
+ The effectiveDateTime or effectivePeriod is the time that the observation is most relevant as an observation of the subject. For a biological subject (e.g. a human patient), this is the physiologically relevant time of the observation. In the case of an observation using a specimen, this represents the start and end of the specimen collection (e.g. 24-hour Urine Sodium), but if the collection time is sufficiently short, this is reported as a point in time value (e.g. normal venipuncture). In the case of an observation obtained directly from a subject (e.g. BP, Chest X-ray), this is the start and end time of the observation process, which again, is often reported as a single point in time.
+
+10.1.5.8
+ Reference Range 
+
+ Most common observations will only have one generic reference range. Reference ranges may be useful for laboratory tests and other measures like systolic blood pressure but will have little relevance for something like "pregnancy status". Systems MAY choose to restrict to only supplying the relevant reference range based on knowledge about the patient (e.g. specific to the patient's age, gender, weight and other factors), but this might not be possible or appropriate. Whenever more than one reference range is supplied, the differences between them SHOULD be provided in the reference range and/or age properties. 
+
+10.1.5.9
+ Canceled or Aborted Observations 
+
+If a measurement or test could not be completed (for example if the specimen is unsatisfactory or the provider cancelled the order), then the status value should be updated to "cancelled" and the specific details given - preferably as coded values in the dataAbsentReason or valueCodeableConcept element. Additional information may be provided in the `note` element as well. The 
+specimen reject example
+ demonstrates this using a coded value for unsatisfactory specimen in dataAbsentReason.
+
+10.1.5.10
+ Genomic Reporting - Trial Use 
+
+Genomic reporting makes heavy use of the DiagnosticReport and Observation resources to represent structured, computable genomic data. An implementation guide describing how to represent genetic results can be found 
+here 
+
+.
+
+ Beyond the structured, computable data available in DiagnosticReport and Observation, metadata about the analysis performed is captured in the 
+GenomicStudy
+ resource. GenomicStudy aims at delineating relevant information of a genomic study. A genomic study might comprise one or more analyses, each serving a specific purpose. These analyses may vary in method (e.g., karyotyping, CNV, or SNV detection), performer, software, devices used, or regions targeted.
+
+ When referencing genomic analysis from an Observation, the 
+partOf
+ attribute MAY be used to reference the GenomicStudy that led to this observation being made. Another option is that 
+derivedFrom
+ MAY be used to reference a DocumentReference when the observation was derived from the data in the file, even with that file was produced as part of a GenomicStudy output. Also, 
+derivedFrom
+ MAY be used to reference the GenomicStudy where the data was produced.
+
+10.1.6
+ Operations defined for Observation 
+
+10.1.6.1
+ Searching for the Last N Observations 
+
+The 
+lastn
+ query operation meets the common need for searching for the most recent or "last known" Observations for a subject. Examples where this query could be used:
+
+Fetch the last 5 temperatures for a patient to view trends
+
+Get the most recent laboratory results for patient
+
+Fetch the last 3 results for all vitals for a patient
+
+See the 
+Last N Observations Query
+ section in the Observation resource operations page for more information and examples
+
+10.1.6.2
+ Retrieving Statistics for Laboratory Observations 
+
+The 
+stats
+ operation performs a set of statistical calculations on a set of clinical measurements such as a blood pressure as stored on the server. This operation is focused on Observation resources with valueQuantity elements that have UCUM unit codes. Examples where this operation could be used:
+
+Get the average, min, max and count of a series of BP measurements for a patient
+
+Determine 20th or 80th percentile on a set of measurements over a time period
+
+See the 
+Observation Statistics
+ section in the Observation resource operations page for more information and examples
+
+10.1.7
+ Search Parameters 
+
+Search parameters for this resource. See also the 
+full list of search parameters for this resource
+,
+and check the 
+Extensions registry
+ for search parameters on extensions related to this resource.
+The 
+common parameters
+ also apply. See 
+Searching
+ for more 
+information about searching in REST, messaging, and services.
+
+Name
+
+Type
+
+Description
+
+Expression
+
+In Common
+
+based-on
+
+reference
+
+Reference to the service request.
+
+Observation.basedOn
+(
+CarePlan
+, 
+MedicationRequest
+, 
+NutritionOrder
+, 
+DeviceRequest
+, 
+ServiceRequest
+, 
+ImmunizationRecommendation
+)
+
+category
+
+token
+
+The classification of the type of observation
+
+Observation.category
+
+code
+
+token
+
+The code of the observation type
+
+Observation.code
+
+22 Resources
+
+code-value-concept
+
+composite
+
+Code and coded value parameter pair
+
+On Observation:
+  code: code
+  value-concept: value.ofType(CodeableConcept)
+
+code-value-date
+
+composite
+
+Code and date/time value parameter pair
+
+On Observation:
+  code: code
+  value-date: value.ofType(dateTime) | value.ofType(Period)
+
+code-value-quantity
+
+composite
+
+Code and quantity value parameter pair
+
+On Observation:
+  code: code
+  value-quantity: value.ofType(Quantity)
+
+code-value-string
+
+composite
+
+Code and string value parameter pair
+
+On Observation:
+  code: code
+  value-string: value.ofType(string)
+
+combo-code
+
+token
+
+The code of the observation type or component type
+
+Observation.code | Observation.component.code
+
+combo-code-value-concept
+
+composite
+
+Code and coded value parameter pair, including in components
+
+On Observation | Observation.component:
+  combo-code: code
+  combo-value-concept: value.ofType(CodeableConcept)
+
+combo-code-value-quantity
+
+composite
+
+Code and quantity value parameter pair, including in components
+
+On Observation | Observation.component:
+  combo-code: code
+  combo-value-quantity: value.ofType(Quantity)
+
+combo-data-absent-reason
+
+token
+
+The reason why the expected value in the element Observation.value[x] or Observation.component.value[x] is missing.
+
+Observation.dataAbsentReason | Observation.component.dataAbsentReason
+
+combo-value-concept
+
+token
+
+The value or component value of the observation, if the value is a CodeableConcept
+
+Observation.value.ofType(CodeableConcept) | Observation.component.value.ofType(CodeableConcept)
+
+combo-value-quantity
+
+quantity
+
+The value or component value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)
+
+Observation.value.ofType(Quantity) | Observation.value.ofType(SampledData) | Observation.component.value.ofType(Quantity) | Observation.component.value.ofType(SampledData)
+
+component-code
+
+token
+
+The component code of the observation type
+
+Observation.component.code
+
+component-code-value-concept
+
+composite
+
+Component code and component coded value parameter pair
+
+On Observation.component:
+  component-code: code
+  component-value-concept: value.ofType(CodeableConcept)
+
+component-code-value-quantity
+
+composite
+
+Component code and component quantity value parameter pair
+
+On Observation.component:
+  component-code: code
+  component-value-quantity: value.ofType(Quantity)
+
+component-data-absent-reason
+
+token
+
+The reason why the expected value in the element Observation.component.value[x] is missing.
+
+Observation.component.dataAbsentReason
+
+component-value-canonical
+
+uri
+
+URL contained in valueCanonical.
+
+Observation.component.value.ofType(canonical)
+
+component-value-concept
+
+token
+
+The value of the component observation, if the value is a CodeableConcept
+
+Observation.component.value.ofType(CodeableConcept)
+
+component-value-quantity
+
+quantity
+
+The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)
+
+Observation.component.value.ofType(Quantity) | Observation.component.value.ofType(SampledData)
+
+component-value-reference
+
+reference
+
+Reference contained in valueReference.
+
+Observation.component.value.ofType(Reference)
+(
+MolecularSequence
+)
+
+data-absent-reason
+
+token
+
+The reason why the expected value in the element Observation.value[x] is missing.
+
+Observation.dataAbsentReason
+
+date
+
+date
+
+Clinically relevant time/time-period for observation
+
+Observation.effective.ofType(dateTime) | Observation.effective.ofType(Period) | Observation.effective.ofType(Timing) | Observation.effective.ofType(instant)
+
+27 Resources
+
+derived-from
+
+reference
+
+Related measurements the observation is made from
+
+Observation.derivedFrom
+(
+GenomicStudy
+, 
+Observation
+, 
+ImagingStudy
+, 
+MolecularSequence
+, 
+ImagingSelection
+, 
+QuestionnaireResponse
+, 
+DocumentReference
+)
+
+device
+
+reference
+
+The Device that generated the observation data.
+
+Observation.device
+(
+Device
+, 
+DeviceMetric
+)
+
+encounter
+
+reference
+
+Encounter related to the observation
+
+Observation.encounter
+(
+Encounter
+)
+
+29 Resources
+
+focus
+
+TU
+
+reference
+
+The focus of an observation when the focus is not the patient of record.
+
+Observation.focus
+(Any)
+
+has-member
+
+reference
+
+Related resource that belongs to the Observation group
+
+Observation.hasMember
+(
+Observation
+, 
+MolecularSequence
+, 
+QuestionnaireResponse
+)
+
+identifier
+
+token
+
+The unique id for a particular observation
+
+Observation.identifier
+
+65 Resources
+
+method
+
+token
+
+The method used for the observation
+
+Observation.method
+
+part-of
+
+reference
+
+Part of referenced event
+
+Observation.partOf
+(
+GenomicStudy
+, 
+Immunization
+, 
+MedicationDispense
+, 
+MedicationAdministration
+, 
+Procedure
+, 
+ImagingStudy
+, 
+MedicationStatement
+)
+
+patient
+
+reference
+
+The subject that the observation is about (if patient)
+
+Observation.subject.where(resolve() is Patient)
+(
+Patient
+)
+
+66 Resources
+
+performer
+
+reference
+
+Who performed the observation
+
+Observation.performer
+(
+Practitioner
+, 
+Organization
+, 
+CareTeam
+, 
+Patient
+, 
+PractitionerRole
+, 
+RelatedPerson
+)
+
+specimen
+
+reference
+
+Specimen used for this observation
+
+Observation.specimen
+(
+Specimen
+, 
+Group
+)
+
+status
+
+token
+
+The status of the observation
+
+Observation.status
+
+subject
+
+reference
+
+The subject that the observation is about
+
+Observation.subject
+(
+Practitioner
+, 
+Group
+, 
+Organization
+, 
+BiologicallyDerivedProduct
+, 
+NutritionProduct
+, 
+Device
+, 
+Medication
+, 
+Patient
+, 
+Procedure
+, 
+Substance
+, 
+Location
+)
+
+value-canonical
+
+uri
+
+URL contained in valueCanonical.
+
+Observation.value.ofType(canonical)
+
+value-concept
+
+token
+
+The value of the observation, if the value is a CodeableConcept
+
+Observation.value.ofType(CodeableConcept)
+
+value-date
+
+date
+
+The value of the observation, if the value is a date or period of time
+
+Observation.value.ofType(dateTime) | Observation.value.ofType(Period)
+
+value-markdown
+
+string
+
+The value of the observation, if the value is a string, and also searches in CodeableConcept.text
+
+Observation.value.ofType(markdown) | Observation.value.ofType(CodeableConcept).text
+
+value-quantity
+
+quantity
+
+The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)
+
+Observation.value.ofType(Quantity) | Observation.value.ofType(SampledData)
+
+value-reference
+
+reference
+
+Reference contained in valueReference.
+
+Observation.value.ofType(Reference)
+(
+MolecularSequence
+)
+
+ FHIR ®© HL7.org 2011+. FHIR R5 hl7.fhir.core#5.0.0 generated on Sun, Mar 26, 2023 15:25+1100. 
+
+ Links: 
+Search 
+
+ | 
+
+Version History
+ | 
+
+Contents
+ | 
+
+Glossary
+ |
+
+QA
+ |
+
+Compare to R4 
+
+ | 
+
+Compare to R4B 
+
+ | 
+
+ | 
+
+Propose a change

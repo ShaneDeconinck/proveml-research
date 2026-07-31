@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProveML source markup</title>
+  <style>
+:root {
+  --ink: #221f1b;
+  --muted: #6c6861;
+  --line: #d9d4cc;
+  --entity: #1a7a6d;
+  --violet: #6b4c9a;
+  --blue: #2f6fb3;
+  --red: #b64236;
+  --amber: #a87510;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 28px 34px;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: Charter, Georgia, "Times New Roman", serif;
+}
+
+.page {
+  width: 980px;
+}
+
+.panel-title {
+  margin: 0 0 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.narrative {
+  font-size: 28px;
+  line-height: 1.72;
+}
+
+.narrative p {
+  margin: 0 0 18px;
+}
+
+.meta {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.proveml-entity {
+  color: var(--entity-color, var(--entity));
+  border-bottom: 1.6px solid var(--entity-color, var(--entity));
+  text-decoration: none;
+}
+
+.proveml-entity.proveml-name-mismatch,
+.proveml-entity.proveml-unverifiable {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.proveml-fact {
+  padding: 0 1px;
+}
+
+.proveml-fact.proveml-verified {
+  border-bottom: 1.8px dotted var(--entity-color, var(--entity));
+}
+
+.proveml-fact.proveml-verified::after,
+.proveml-inference.proveml-verified::after {
+  content: '✓';
+  margin-left: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.48em;
+  font-weight: 700;
+  vertical-align: super;
+}
+
+.proveml-fact.proveml-verified::after {
+  color: var(--entity-color, var(--entity));
+}
+
+.proveml-inference.proveml-verified::after {
+  color: var(--violet);
+}
+
+.proveml-fact.proveml-mismatch {
+  border-bottom: 1.8px dotted var(--red);
+  color: var(--red);
+}
+
+.proveml-fact.proveml-mismatch::after,
+.proveml-inference.proveml-failed::after {
+  content: '✗';
+  margin-left: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.48em;
+  font-weight: 700;
+  vertical-align: super;
+  color: var(--red);
+}
+
+.proveml-fact.proveml-unverifiable,
+.proveml-fact.proveml-no-context {
+  border-bottom: 1.8px dotted var(--amber);
+  color: var(--amber);
+}
+
+.proveml-fact.proveml-unverifiable::after,
+.proveml-fact.proveml-no-context::after {
+  content: '?';
+  margin-left: 2px;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.48em;
+  font-weight: 700;
+  vertical-align: super;
+  color: var(--amber);
+}
+
+.proveml-inference.proveml-verified {
+  border-bottom: 1.8px dashed var(--violet);
+}
+
+.proveml-inference.proveml-failed {
+  border-bottom: 1.8px dashed var(--red);
+  color: var(--red);
+}
+
+.proof-path,
+.proveml-proof {
+  margin-left: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.62em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+pre.source {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #27231f;
+}
+
+.index {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.index h1 {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.index ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.index a {
+  color: #184e97;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="panel-title">ProveML source markup</div>
+    <pre class="source">@[class:204]{3MA} has %[studentCount]{22} students with a pass rate of %[passRate]{43}%. ?[below: IS_BELOW_HALF]{This is below the passing threshold}. Only %[evalRate]{38}% of attainment levels have been evaluated, so ?[coverage: IS_LOW_COVERAGE]{coverage is low}.
+
+@[student:1087]{Emma Vos} has passed %[passed]{2} of %[evaluated]{31} evaluated attainment levels (%[passRate]{6}%). ?[low: IS_LOW_PASS]{This is a critically low result}. With %[absent]{47} absences, ?[abs: IS_GREY_RISK]{there is a risk of grey status}. ?[combined: @low AND @abs]{The combination of low results and high absence is notable}.
+
+@[student:1092]{Sander De Witt} has a pass rate of %[passRate]{78}% across %[evaluated]{41} evaluated attainment levels. ?[strong: IS_STRONG]{This is a strong result}. The gap of %[diffVs1087]{72} percentage points is ?[gap: IS_MUCH_HIGHER(student:1092._diff)]{much higher} than @[student:1087]{Emma Vos}.</pre>
+    <div class="meta">Same source used to generate the verified and audit views</div>
+  </div>
+</body>
+</html>

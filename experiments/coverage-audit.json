@@ -1,0 +1,825 @@
+{
+  "generated": "2026-07-29T22:11:20.319Z",
+  "rows": [
+    {
+      "benchmark": "education",
+      "model": "haiku",
+      "runs": 3,
+      "marked": 322,
+      "unmarked": 47,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-haiku-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-haiku-run1.json",
+          "id": "threshold_pass_below_60",
+          "unmarkedTokens": [
+            "60"
+          ]
+        },
+        {
+          "file": "convergence-results-haiku-run1.json",
+          "id": "threshold_eval_at_least_80",
+          "unmarkedTokens": [
+            "80"
+          ]
+        },
+        {
+          "file": "convergence-results-haiku-run1.json",
+          "id": "threshold_classes_under_five_students",
+          "unmarkedTokens": [
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-haiku-run1.json",
+          "id": "threshold_overview_high_pass_and_size",
+          "unmarkedTokens": [
+            "8",
+            "75"
+          ]
+        }
+      ],
+      "coverage": 87.3
+    },
+    {
+      "benchmark": "education",
+      "model": "phi3:mini",
+      "runs": 3,
+      "marked": 102,
+      "unmarked": 143,
+      "responses": 80,
+      "examples": [
+        {
+          "file": "convergence-results-phi3:mini-run1.json",
+          "id": "lookup_students_3bs",
+          "unmarkedTokens": [
+            "10340"
+          ]
+        },
+        {
+          "file": "convergence-results-phi3:mini-run1.json",
+          "id": "lookup_eval_5bs",
+          "unmarkedTokens": [
+            "10523"
+          ]
+        },
+        {
+          "file": "convergence-results-phi3:mini-run1.json",
+          "id": "lookup_students_1c",
+          "unmarkedTokens": [
+            "10375"
+          ]
+        },
+        {
+          "file": "convergence-results-phi3:mini-run1.json",
+          "id": "aggregate_highest_pass_small_set",
+          "unmarkedTokens": [
+            "10340",
+            "10217"
+          ]
+        },
+        {
+          "file": "convergence-results-phi3:mini-run1.json",
+          "id": "aggregate_lowest_eval_small_set",
+          "unmarkedTokens": [
+            "50"
+          ]
+        }
+      ],
+      "coverage": 41.6
+    },
+    {
+      "benchmark": "education",
+      "model": "qwen2.5:3b",
+      "runs": 3,
+      "marked": 259,
+      "unmarked": 112,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-qwen2.5:3b-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "5",
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:3b-run1.json",
+          "id": "compare_eval_5bo_6ol",
+          "unmarkedTokens": [
+            "59",
+            "79",
+            "59",
+            "79",
+            "59",
+            "100",
+            "14",
+            "59",
+            "100",
+            "23.59"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:3b-run1.json",
+          "id": "threshold_pass_below_60",
+          "unmarkedTokens": [
+            "60",
+            "60",
+            "60"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:3b-run1.json",
+          "id": "threshold_eval_at_least_80",
+          "unmarkedTokens": [
+            "80",
+            "80",
+            "80",
+            "80"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:3b-run1.json",
+          "id": "threshold_overview_high_pass_and_size",
+          "unmarkedTokens": [
+            "8",
+            "75"
+          ]
+        }
+      ],
+      "coverage": 69.8
+    },
+    {
+      "benchmark": "education",
+      "model": "qwen2.5:7b",
+      "runs": 3,
+      "marked": 184,
+      "unmarked": 80,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-qwen2.5:7b-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "5",
+            "5",
+            "4",
+            "4",
+            "4"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:7b-run1.json",
+          "id": "threshold_pass_below_60",
+          "unmarkedTokens": [
+            "60",
+            "60"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:7b-run1.json",
+          "id": "threshold_classes_under_five_students",
+          "unmarkedTokens": [
+            "2",
+            "1",
+            "4",
+            "7"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:7b-run1.json",
+          "id": "overview_classes_1c_3bs_5bs",
+          "unmarkedTokens": [
+            "44",
+            "59",
+            "82"
+          ]
+        },
+        {
+          "file": "convergence-results-qwen2.5:7b-run1.json",
+          "id": "overview_two_weakest_small_set",
+          "unmarkedTokens": [
+            "59"
+          ]
+        }
+      ],
+      "coverage": 69.7
+    },
+    {
+      "benchmark": "education-en",
+      "model": "haiku",
+      "runs": 3,
+      "marked": 296,
+      "unmarked": 35,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-en-haiku-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-en-haiku-run1.json",
+          "id": "compare_eval_5bo_6ol",
+          "unmarkedTokens": [
+            "24"
+          ]
+        },
+        {
+          "file": "convergence-results-en-haiku-run1.json",
+          "id": "threshold_pass_below_60",
+          "unmarkedTokens": [
+            "60"
+          ]
+        },
+        {
+          "file": "convergence-results-en-haiku-run1.json",
+          "id": "threshold_eval_at_least_80",
+          "unmarkedTokens": [
+            "80"
+          ]
+        },
+        {
+          "file": "convergence-results-en-haiku-run1.json",
+          "id": "threshold_classes_under_five_students",
+          "unmarkedTokens": [
+            "5"
+          ]
+        }
+      ],
+      "coverage": 89.4
+    },
+    {
+      "benchmark": "education-en",
+      "model": "phi3:mini",
+      "runs": 3,
+      "marked": 276,
+      "unmarked": 126,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-en-phi3:mini-run1.json",
+          "id": "lookup_students_3bs",
+          "unmarkedTokens": [
+            "10340",
+            "10340",
+            "10340"
+          ]
+        },
+        {
+          "file": "convergence-results-en-phi3:mini-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-en-phi3:mini-run1.json",
+          "id": "compare_pass_6zw_3bs",
+          "unmarkedTokens": [
+            "10323",
+            "74",
+            "59",
+            "10323",
+            "10323",
+            "10340",
+            "10340"
+          ]
+        },
+        {
+          "file": "convergence-results-en-phi3:mini-run1.json",
+          "id": "compare_count_1c_6zw",
+          "unmarkedTokens": [
+            "10375",
+            "2",
+            "50",
+            "44",
+            "10323",
+            "3",
+            "74",
+            "51"
+          ]
+        },
+        {
+          "file": "convergence-results-en-phi3:mini-run1.json",
+          "id": "compare_pass_small_set",
+          "unmarkedTokens": [
+            "70"
+          ]
+        }
+      ],
+      "coverage": 68.7
+    },
+    {
+      "benchmark": "education-en",
+      "model": "qwen2.5:3b",
+      "runs": 3,
+      "marked": 303,
+      "unmarked": 21,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-en-qwen2.5:3b-run1.json",
+          "id": "threshold_pass_below_60",
+          "unmarkedTokens": [
+            "60"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:3b-run1.json",
+          "id": "threshold_overview_high_pass_and_size",
+          "unmarkedTokens": [
+            "8",
+            "75"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:3b-run1.json",
+          "id": "student_zero_pass_subset",
+          "unmarkedTokens": [
+            "0"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:3b-run1.json",
+          "id": "unsupported_cause_ali",
+          "unmarkedTokens": [
+            "103",
+            "4"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:3b-run1.json",
+          "id": "unsupported_intervention_noor",
+          "unmarkedTokens": [
+            "4",
+            "31",
+            "68",
+            "13"
+          ]
+        }
+      ],
+      "coverage": 93.5
+    },
+    {
+      "benchmark": "education-en",
+      "model": "qwen2.5:7b",
+      "runs": 3,
+      "marked": 187,
+      "unmarked": 105,
+      "responses": 84,
+      "examples": [
+        {
+          "file": "convergence-results-en-qwen2.5:7b-run1.json",
+          "id": "aggregate_lowest_eval_small_set",
+          "unmarkedTokens": [
+            "44"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:7b-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "2",
+            "1",
+            "4",
+            "7",
+            "13",
+            "3",
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:7b-run1.json",
+          "id": "threshold_pass_below_60",
+          "unmarkedTokens": [
+            "60",
+            "60",
+            "60"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:7b-run1.json",
+          "id": "threshold_classes_under_five_students",
+          "unmarkedTokens": [
+            "2",
+            "1",
+            "4",
+            "7"
+          ]
+        },
+        {
+          "file": "convergence-results-en-qwen2.5:7b-run1.json",
+          "id": "threshold_overview_high_pass_and_size",
+          "unmarkedTokens": [
+            "10",
+            "59",
+            "13",
+            "78",
+            "3",
+            "74",
+            "14",
+            "63"
+          ]
+        }
+      ],
+      "coverage": 64
+    },
+    {
+      "benchmark": "education-fullctx",
+      "model": "phi3:mini",
+      "runs": 1,
+      "marked": 0,
+      "unmarked": 38,
+      "responses": 22,
+      "examples": [
+        {
+          "file": "convergence-results-fullctx-phi3:mini-run1.json",
+          "id": "lookup_students_1c",
+          "unmarkedTokens": [
+            "2"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-phi3:mini-run1.json",
+          "id": "aggregate_highest_pass_small_set",
+          "unmarkedTokens": [
+            "2",
+            "100",
+            "8"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-phi3:mini-run1.json",
+          "id": "compare_pass_6zw_3bs",
+          "unmarkedTokens": [
+            "10249"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-phi3:mini-run1.json",
+          "id": "compare_count_1c_6zw",
+          "unmarkedTokens": [
+            "1",
+            "2",
+            "0"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-phi3:mini-run1.json",
+          "id": "threshold_classes_under_five_students",
+          "unmarkedTokens": [
+            "900",
+            "18",
+            "32"
+          ]
+        }
+      ],
+      "coverage": 0
+    },
+    {
+      "benchmark": "education-fullctx",
+      "model": "qwen2.5:3b",
+      "runs": 1,
+      "marked": 0,
+      "unmarked": 97,
+      "responses": 24,
+      "examples": [
+        {
+          "file": "convergence-results-fullctx-qwen2.5:3b-run1.json",
+          "id": "lookup_students_1c",
+          "unmarkedTokens": [
+            "12",
+            "59",
+            "60",
+            "97",
+            "64"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:3b-run1.json",
+          "id": "aggregate_count_small_classes",
+          "unmarkedTokens": [
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "5",
+            "5"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:3b-run1.json",
+          "id": "aggregate_rank_by_passrate",
+          "unmarkedTokens": [
+            "1",
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:3b-run1.json",
+          "id": "compare_count_1c_6zw",
+          "unmarkedTokens": [
+            "2",
+            "3"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:3b-run1.json",
+          "id": "compare_eval_5bo_6ol",
+          "unmarkedTokens": [
+            "115",
+            "97",
+            "89",
+            "47",
+            "115",
+            "89",
+            "115",
+            "100",
+            "26",
+            "115",
+            "100",
+            "22.61",
+            "97",
+            "47",
+            "97",
+            "100",
+            "50",
+            "97",
+            "100",
+            "51.98",
+            "22.61",
+            "47"
+          ]
+        }
+      ],
+      "coverage": 0
+    },
+    {
+      "benchmark": "education-fullctx",
+      "model": "qwen2.5:7b",
+      "runs": 1,
+      "marked": 0,
+      "unmarked": 200,
+      "responses": 27,
+      "examples": [
+        {
+          "file": "convergence-results-fullctx-qwen2.5:7b-run1.json",
+          "id": "lookup_students_3bs",
+          "unmarkedTokens": [
+            "6",
+            "10259",
+            "10249"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:7b-run1.json",
+          "id": "lookup_pass_6zw",
+          "unmarkedTokens": [
+            "90"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:7b-run1.json",
+          "id": "lookup_eval_5bs",
+          "unmarkedTokens": [
+            "95"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:7b-run1.json",
+          "id": "lookup_students_1c",
+          "unmarkedTokens": [
+            "6",
+            "10089"
+          ]
+        },
+        {
+          "file": "convergence-results-fullctx-qwen2.5:7b-run1.json",
+          "id": "aggregate_highest_pass_small_set",
+          "unmarkedTokens": [
+            "91",
+            "84",
+            "70",
+            "82"
+          ]
+        }
+      ],
+      "coverage": 0
+    },
+    {
+      "benchmark": "finance",
+      "model": "haiku",
+      "runs": 3,
+      "marked": 150,
+      "unmarked": 23,
+      "responses": 30,
+      "examples": [
+        {
+          "file": "convergence-results-finance-haiku-run1.json",
+          "id": "fin_threshold_debt",
+          "unmarkedTokens": [
+            "23",
+            "1.0"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-haiku-run1.json",
+          "id": "fin_threshold_liquidity",
+          "unmarkedTokens": [
+            "1.0"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-haiku-run1.json",
+          "id": "fin_unsupported_forecast",
+          "unmarkedTokens": [
+            "3",
+            "1.0"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-haiku-run2.json",
+          "id": "fin_comparison_balance",
+          "unmarkedTokens": [
+            "72",
+            "3.5",
+            "4"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-haiku-run2.json",
+          "id": "fin_threshold_debt",
+          "unmarkedTokens": [
+            "1.23",
+            "1.00",
+            "0.13",
+            "1.0"
+          ]
+        }
+      ],
+      "coverage": 86.7
+    },
+    {
+      "benchmark": "finance",
+      "model": "phi3:mini",
+      "runs": 3,
+      "marked": 77,
+      "unmarked": 14,
+      "responses": 30,
+      "examples": [
+        {
+          "file": "convergence-results-finance-phi3:mini-run1.json",
+          "id": "fin_comparison_balance",
+          "unmarkedTokens": [
+            "12",
+            "0.13"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-phi3:mini-run1.json",
+          "id": "fin_overview",
+          "unmarkedTokens": [
+            "1.23"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-phi3:mini-run1.json",
+          "id": "fin_unsupported_forecast",
+          "unmarkedTokens": [
+            "19"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-phi3:mini-run2.json",
+          "id": "fin_lookup_revenue_aapl",
+          "unmarkedTokens": [
+            "30"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-phi3:mini-run2.json",
+          "id": "fin_threshold_liquidity",
+          "unmarkedTokens": [
+            "35934000000",
+            "30242000000",
+            "1",
+            "1.24"
+          ]
+        }
+      ],
+      "coverage": 84.6
+    },
+    {
+      "benchmark": "finance",
+      "model": "qwen2.5:3b",
+      "runs": 3,
+      "marked": 91,
+      "unmarked": 8,
+      "responses": 30,
+      "examples": [
+        {
+          "file": "convergence-results-finance-qwen2.5:3b-run1.json",
+          "id": "fin_threshold_debt",
+          "unmarkedTokens": [
+            "1.23",
+            "1",
+            "0.13"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:3b-run2.json",
+          "id": "fin_threshold_debt",
+          "unmarkedTokens": [
+            "1.23",
+            "0.13"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:3b-run3.json",
+          "id": "fin_threshold_debt",
+          "unmarkedTokens": [
+            "1.23",
+            "0.13"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:3b-run3.json",
+          "id": "fin_overview",
+          "unmarkedTokens": [
+            "27"
+          ]
+        }
+      ],
+      "coverage": 91.9
+    },
+    {
+      "benchmark": "finance",
+      "model": "qwen2.5:7b",
+      "runs": 3,
+      "marked": 77,
+      "unmarked": 19,
+      "responses": 30,
+      "examples": [
+        {
+          "file": "convergence-results-finance-qwen2.5:7b-run1.json",
+          "id": "fin_threshold_liquidity",
+          "unmarkedTokens": [
+            "0.87",
+            "1.24"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:7b-run1.json",
+          "id": "fin_overview",
+          "unmarkedTokens": [
+            "1.23",
+            "0.87"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:7b-run2.json",
+          "id": "fin_threshold_debt",
+          "unmarkedTokens": [
+            "1.23",
+            "0.13"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:7b-run2.json",
+          "id": "fin_threshold_liquidity",
+          "unmarkedTokens": [
+            "0.87",
+            "1.24"
+          ]
+        },
+        {
+          "file": "convergence-results-finance-qwen2.5:7b-run2.json",
+          "id": "fin_overview",
+          "unmarkedTokens": [
+            "7.49",
+            "73733000000",
+            "90678000000",
+            "1.23",
+            "0.87"
+          ]
+        }
+      ],
+      "coverage": 80.2
+    }
+  ]
+}

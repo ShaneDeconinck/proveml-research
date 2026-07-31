@@ -1,0 +1,49 @@
+(* ProveML Grammar — canonical EBNF *)
+(* Specifies ProveML constructs only; surrounding block *)
+(* structure is delegated to the host Markdown parser.  *)
+
+entity_ref_simple = "@[" , entity_path , "]{" , display_text , "}" ;
+entity_ref_scoped = "@[" , entity_path , " " , DQUOTE ,
+                    entity_name , DQUOTE , "]{" ,
+                    scoped_content , "}" ;
+entity_ref        = entity_ref_simple | entity_ref_scoped ;
+
+fact_ref          = "%[" , field_name , "]{" , value_text , "}" ;
+inference_ref     = "?[" , label , ": " , condition , "]{" ,
+                    display_text , "}" ;
+
+(* Paths and identifiers *)
+entity_path       = identifier , ":" , entity_id ;
+entity_id         = ( letter | digit ) ,
+                    { letter | digit | "_" | "-" } ;
+
+field_name        = field_segment , { "." , field_segment } ;
+field_segment     = meta_field | path_field | identifier ;
+meta_field        = "_" , identifier ;
+path_field        = identifier , ":" , entity_id ;
+
+label             = identifier ;
+identifier        = letter , { letter | digit | "_" } ;
+
+(* Text content *)
+entity_name       = { char - DQUOTE } ;
+display_text      = { char - "}" } ;
+scoped_content    = { char } ;   (* parsed recursively *)
+value_text        = { char - "}" } ;
+
+(* Condition grammar *)
+condition         = or_expr ;
+or_expr           = and_expr , { " OR " , and_expr } ;
+and_expr          = unary_expr , { " AND " , unary_expr } ;
+unary_expr        = [ "NOT " ] , primary ;
+primary           = threshold_name
+                  | threshold_name , "(" , path , ")"
+                  | "@" , label ;
+
+(* Terminals *)
+threshold_name    = uppercase , { uppercase | "_" } ;
+path              = entity_path , "." , field_name ;
+DQUOTE            = '"' ;
+letter            = "a"-"z" | "A"-"Z" ;
+uppercase         = "A"-"Z" ;
+digit             = "0"-"9" ;

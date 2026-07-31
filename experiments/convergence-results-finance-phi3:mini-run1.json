@@ -1,0 +1,332 @@
+{
+  "timestamp": "2026-03-30T08:29:49.794Z",
+  "domain": "finance",
+  "provider": "ollama",
+  "model": "phi3:mini",
+  "run": 1,
+  "maxLoops": 3,
+  "benchmark": {
+    "name": "ProveML Finance Benchmark",
+    "version": "v1",
+    "snapshot": "sec-edgar-fy2025"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "fin_lookup_revenue_aapl",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported total revenue of %[revenue]{416161000000 USD}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 7.4
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "fin_lookup_eps_msft",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "coverage": 100,
+      "finalResponse": "@[company:msft]{Microsoft Corporation} earned %[eps]{13.7 USD/shares}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 2.6
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "fin_lookup_debt_aapl",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} has a longTermDebt of %[longTermDebt]{90678000000 USD} and totalEquity amounting to %[equity]{73733000000 USD}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 3.4
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "fin_comparison_revenue",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported a revenue of @[revenue]{416161000000 USD} with net income of @[netIncome]{112010000000 USD}. Meanwhile, [@[company:msft]{Microsoft Corporation}] earned revenues amounting to @[revenue]{281724000000 USD} and a net income of @[netIncome]{101832000000 USD}. When comparing the two companies' financial performance for FY2025, it is evident that Apple had substantially higher revenue and net income compared to Microsoft.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 6.5
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "fin_comparison_balance",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 7,
+      "finalClaims": 7,
+      "coverage": 88,
+      "finalResponse": "@[company:aapl]{Apple Inc.} has total assets amounting to %[assets]{359241000000 USD} with current ratio calculated as %[currentRatio]{0.87}, indicating liquidity standing at a level less than one, which suggests that its short-term liabilities exceed the value of their easily convertible assets into cash within 12 months if required to do so immediately without generating new revenue or selling long-term investments. On debt to equity terms, Apple has %[debtToEquity]{1.23}, meaning it uses more borrowed capital than shareholder funds in its financing mix - a higher ratio implies greater financial risk and leverage for the company as well.\n\nConversely, @[company:msft]{Microsoft Corporation} exhibits stronger balance sheet stability with total assets of %[assets]{619003000000 USD}, which is significantly larger than Apple's when comparing absolute figures - this demonstrates Microsoft’s ability to leverage resources for growth and investment. The current ratio stands at a more comfortable level, signifying that its short-term assets comfortably cover its immediate liabilities with %[currentRatio]{1.24}, reflecting better liquidity position over Apple's when assessed on this front alone. Microsoft’s debt to equity ratio is noticeably lower, at only 0.13—indicating a leaner capital structure in comparison and suggesting that it relies less heavily on external borrowings relative to its own funds for financing operations.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 7,
+          "total": 7,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 88,
+          "time": 11.1
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "fin_threshold_debt",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 57,
+      "finalRate": 60,
+      "initialClaims": 7,
+      "finalClaims": 10,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} has a Debt to Equity Ratio of %[debtToEquity]{1.23}, with assets, liabilities, and equity amounting to USD%[assets]{3592410midnights}.\n\n\n@[company:aapl]{Apple Inc.} has a Debt to Equity Ratio of %[debtToEquity]{1.23}, with assets totaling at USD%[assets]{35,924,100,000}, liabilities amounting to USD%[liabilities]{28,550,800,000}, and equity standing tall at USD%[equity]{73,733,000,000} respectively. @[company:msft]{Microsoft Corporation} demonstrates a Debt to Equity Ratio of %[debtToEquity]{0.13}. When comparing the two companies' capital structures through their respective ratios, it is evident that Apple Inc.'s higher ratio suggests more financial leverage and potentially greater risk; however, such an interpretation must be tempered with knowledge about industry norms or company-specific operations to draw a full conclusion.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 7,
+          "errors": 3,
+          "rate": 57,
+          "coverage": 100,
+          "time": 7.7
+        },
+        {
+          "loop": 1,
+          "verified": 6,
+          "total": 10,
+          "errors": 4,
+          "rate": 60,
+          "coverage": 100,
+          "time": 13.9,
+          "accepted": true
+        },
+        {
+          "loop": 2,
+          "verified": 6,
+          "total": 10,
+          "errors": 4,
+          "rate": 60,
+          "coverage": 100,
+          "time": 12,
+          "accepted": false
+        },
+        {
+          "loop": 3,
+          "verified": 6,
+          "total": 10,
+          "errors": 4,
+          "rate": 60,
+          "coverage": 100,
+          "time": 6.5,
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "fin_threshold_liquidity",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "coverage": 100,
+      "finalResponse": "@[company:aapl]{Apple Inc.} has a current ratio of %[currentRatio]{0.87}, with cash reserves amounting to %[cash]{35934000000 USD}. @[company:msft]{Microsoft Corporation} boasts a higher current ratio of %[currentRatio]{1.24}, holding %[cash]{30242000000 USD}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 6.9
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "fin_overview",
+      "category": "overview",
+      "expectedMode": "verified",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 90,
+      "finalRate": 90,
+      "initialClaims": 10,
+      "finalClaims": 10,
+      "coverage": 91,
+      "finalResponse": "@[company:aapl]{Apple Inc.} reported revenue of %[revenue]{416161000000 USD} with net income of %[netIncome]{112010000000 USD}. The company's profitability is indicated by its earnings per share, which stands at %[eps]{7.49 USD/shares}, and a total cash balance amounting to %[cash]{35934000000 USD} on hand. Apple Inc.' end-of-year financial position is strengthened by substantial assets worth %[assets]{359241000000 USD}, a liabilities figure of %[liabilities]{285508000000 USD}, and equity totaling to %[equity]{73733000000 USD}. The company holds outstanding shares in the amount of %[sharesOutstanding]{14773260000} with long-term debt at %[longTermDebt]{90678000000 USD}, and maintains a healthy Debt to Equity ratio of 1.23, alongside its current ratio standing firmly at %. [/ProveML]",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 10,
+          "errors": 1,
+          "rate": 90,
+          "coverage": 91,
+          "time": 10
+        },
+        {
+          "loop": 1,
+          "verified": 9,
+          "total": 10,
+          "errors": 1,
+          "rate": 90,
+          "coverage": 91,
+          "time": 15.5,
+          "accepted": false
+        },
+        {
+          "loop": 2,
+          "verified": 9,
+          "total": 10,
+          "errors": 1,
+          "rate": 90,
+          "coverage": 91,
+          "time": 12,
+          "accepted": false
+        },
+        {
+          "loop": 3,
+          "verified": 9,
+          "total": 10,
+          "errors": 1,
+          "rate": 90,
+          "coverage": 91,
+          "time": 12.6,
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "fin_unit_aware",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "coverage": 100,
+      "finalResponse": "@[company:msft]{Microsoft Corporation} has total assets of %[assets]{619003000000 USD} and an earnings per share (eps) of %[eps]{13.7 USD/shares}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 100,
+          "time": 6.9
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "fin_unsupported_forecast",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "coverage": 67,
+      "finalResponse": "Based on historical trends and industry analysis from @[company:aapl]{Apple Inc.} , it is projected that their revenue will continue to increase, but precise figures for fiscal year (FY) 2026 have not been disclosed in available data. Analysts typically use various methods such as time-series analysis and industry growth forecasts when predicting future revenues; however, these projections can be affected by several risks:\n\n1. Market Saturation - Apple operates within a competitive consumer electronics market where rapid innovation is commonplace. As the company reaches deeper into markets saturated with established brands and products like smartphones, there's potential for revenue growth to slow or plateau without continual product differentiation and customer engagement strategies.\n\n2. Supply Chain Disruptions - Apple heavily relies on a global supply chain that is susceptible to disruptions due to factors such as political tensions, natural disasters, pandemics (e.g., COVID-19), or trade disputes which could affect production volumes and thereby impact revenues negatively if not adequately managed through diversification of suppliers and inventory strategies.\n\n3. Regulatory Environment - Changes in the regulatory environment can significantly influence Apple's operations, particularly regarding antitrust investigations or tax laws that might increase costs for consumers which could potentially reduce demand and impact revenues. Ongoing legal scrutiny over data privacy issues also poses a risk to brand reputation if not appropriately addressed through transparent policies and compliance measures.\n\n4. Technology Evolution - As the tech landscape evolves, consumer preferences shift rapidly towards new products or platforms (e.g., wearables, augmented reality). If Apple fails to innovate at pace with these trends it may struggle to maintain its market share contributing indirectly to revenue growth potentials not being met and facing heightened competition from emer",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "rate": 100,
+          "coverage": 67,
+          "time": 23.1
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 95,
+    "avgFinal": 95,
+    "avgCoverage": 95,
+    "converged": 8,
+    "total": 10
+  }
+}

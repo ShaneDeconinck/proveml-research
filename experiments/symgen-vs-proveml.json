@@ -1,0 +1,206 @@
+{
+  "perModel": [
+    {
+      "domain": "finance",
+      "model": "phi3:mini",
+      "symgen": {
+        "runs": 3,
+        "queries": 30,
+        "refs": 100,
+        "resolutionRate": 82,
+        "unresolved": 18,
+        "coverage": 80.3,
+        "noMarkup": 0
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 30,
+        "claims": 125,
+        "coverage": 84.6,
+        "caught": 9,
+        "detectedAddressability": 0,
+        "detectedValue": 0,
+        "noMarkup": 0
+      }
+    },
+    {
+      "domain": "finance",
+      "model": "qwen2.5:3b",
+      "symgen": {
+        "runs": 3,
+        "queries": 30,
+        "refs": 105,
+        "resolutionRate": 96.2,
+        "unresolved": 4,
+        "coverage": 80.6,
+        "noMarkup": 1
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 30,
+        "claims": 129,
+        "coverage": 91.9,
+        "caught": 2,
+        "detectedAddressability": 0,
+        "detectedValue": 0,
+        "noMarkup": 1
+      }
+    },
+    {
+      "domain": "finance",
+      "model": "haiku",
+      "symgen": {
+        "runs": 3,
+        "queries": 30,
+        "refs": 218,
+        "resolutionRate": 100,
+        "unresolved": 0,
+        "coverage": 90.4,
+        "noMarkup": 0
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 30,
+        "claims": 232,
+        "coverage": 86.7,
+        "caught": 29,
+        "detectedAddressability": 0,
+        "detectedValue": 0,
+        "noMarkup": 0
+      }
+    },
+    {
+      "domain": "finance",
+      "model": "qwen2.5:7b",
+      "symgen": {
+        "runs": 3,
+        "queries": 30,
+        "refs": 91,
+        "resolutionRate": 95.6,
+        "unresolved": 4,
+        "coverage": 83.3,
+        "noMarkup": 0
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 30,
+        "claims": 122,
+        "coverage": 80.2,
+        "caught": 3,
+        "detectedAddressability": 0,
+        "detectedValue": 0,
+        "noMarkup": 0
+      }
+    },
+    {
+      "domain": "education",
+      "model": "phi3:mini",
+      "symgen": {
+        "runs": 3,
+        "queries": 83,
+        "refs": 409,
+        "resolutionRate": 56.2,
+        "unresolved": 179,
+        "coverage": 64.1,
+        "noMarkup": 0
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 80,
+        "claims": 172,
+        "coverage": 41.6,
+        "caught": 61,
+        "detectedAddressability": 52,
+        "detectedValue": 9,
+        "noMarkup": 56
+      }
+    },
+    {
+      "domain": "education",
+      "model": "qwen2.5:3b",
+      "symgen": {
+        "runs": 3,
+        "queries": 84,
+        "refs": 270,
+        "resolutionRate": 68.9,
+        "unresolved": 84,
+        "coverage": 70.7,
+        "noMarkup": 12
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 84,
+        "claims": 474,
+        "coverage": 69.8,
+        "caught": 72,
+        "detectedAddressability": 57,
+        "detectedValue": 15,
+        "noMarkup": 0
+      }
+    },
+    {
+      "domain": "education",
+      "model": "haiku",
+      "symgen": {
+        "runs": 3,
+        "queries": 84,
+        "refs": 509,
+        "resolutionRate": 78.6,
+        "unresolved": 109,
+        "coverage": 93.3,
+        "noMarkup": 0
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 84,
+        "claims": 545,
+        "coverage": 87.3,
+        "caught": 74,
+        "detectedAddressability": 64,
+        "detectedValue": 10,
+        "noMarkup": 0
+      }
+    },
+    {
+      "domain": "education",
+      "model": "qwen2.5:7b",
+      "symgen": {
+        "runs": 3,
+        "queries": 84,
+        "refs": 270,
+        "resolutionRate": 89.6,
+        "unresolved": 28,
+        "coverage": 73.6,
+        "noMarkup": 1
+      },
+      "proveml": {
+        "runs": 3,
+        "queries": 84,
+        "claims": 364,
+        "coverage": 69.7,
+        "caught": 22,
+        "detectedAddressability": 16,
+        "detectedValue": 6,
+        "noMarkup": 0
+      }
+    }
+  ],
+  "aggregate": {
+    "finance": {
+      "symgenCoverage": 83.6,
+      "provemlCoverage": 85.9,
+      "symgenUnresolved": 26,
+      "symgenRefs": 514,
+      "provemlDetected": 43,
+      "provemlValueErrors": 0
+    },
+    "education": {
+      "symgenCoverage": 75.4,
+      "provemlCoverage": 67.1,
+      "symgenUnresolved": 400,
+      "symgenRefs": 1458,
+      "provemlDetected": 229,
+      "provemlValueErrors": 40
+    }
+  }
+}

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<meta name="description" content="
+The Challenge of Factual Data in LLMs
+Retrieval-Augmented Generation
+Introducing Oracle-Augmented Generation
+
+Example Interaction
+Current Limitations
+
+
+OAG vs. RAG
+OAG and Kamu for Data Supply Chain Verifiability
+Role of OAG in AI and Data Economy
+Future work
+
+In collaboration between Kamu and Brian we are excited to introduce a new technique for connecting LLM-based AI agents to verifiable data we call Oracle-Augmented Generation.
+You can find a quick overview of the technique in this video:" />
+
+
+
+    
+
+
+
+<meta itemprop="name" content="Oracle-Augmented Generation: Connecting AI to Real-Time Verifiable Data | Kamu Data">
+<meta itemprop="description" content="
+The Challenge of Factual Data in LLMs
+Retrieval-Augmented Generation
+Introducing Oracle-Augmented Generation
+
+Example Interaction
+Current Limitations
+
+
+OAG vs. RAG
+OAG and Kamu for Data Supply Chain Verifiability
+Role of OAG in AI and Data Economy
+Future work
+
+In collaboration between Kamu and Brian we are excited to introduce a new technique for connecting LLM-based AI agents to verifiable data we call Oracle-Augmented Generation.
+You can find a quick overview of the technique in this video:">
+<meta itemprop="image" content="https://www.kamu.dev/images/posts/2025-01-08-oag/title.png">
+
+
+<meta name="twitter:card" value="summary_large_image">
+<meta name="twitter:title" content="Oracle-Augmented Generation: Connecting AI to Real-Time Verifiable Data | Kamu Data">
+<meta name="twitter:description" content="
+The Challenge of Factual Data in LLMs
+Retrieval-Augmented Generation
+Introducing Oracle-Augmented Generation
+
+Example Interaction
+Current Limitations
+
+
+OAG vs. RAG
+OAG and Kamu for Data Supply Chain Verifiability
+Role of OAG in AI and Data Economy
+Future work
+
+In collaboration between Kamu and Brian we are excited to introduce a new technique for connecting LLM-based AI agents to verifiable data we call Oracle-Augmented Generation.
+You can find a quick overview of the technique in this video:">
+<meta name="twitter:image" content="https://www.kamu.dev/images/posts/2025-01-08-oag/title.png">
+
+
+<meta property="og:title" content="Oracle-Augmented Generation: Connecting AI to Real-Time Verifiable Data | Kamu Data" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.kamu.dev/blog/2025-01-08-oracle-augmented-generation/" />
+<meta property="og:image" content="https://www.kamu.dev/images/posts/2025-01-08-oag/title.png" />
+<meta property="og:description" content="
+The Challenge of Factual Data in LLMs
+Retrieval-Augmented Generation
+Introducing Oracle-Augmented Generation
+
+Example Interaction
+Current Limitations
+
+
+OAG vs. RAG
+OAG and Kamu for Data Supply Chain Verifiability
+Role of OAG in AI and Data Economy
+Future work
+
+In collaboration between Kamu and Brian we are excited to introduce a new technique for connecting LLM-based AI agents to verifiable data we call Oracle-Augmented Generation.
+You can find a quick overview of the technique in this video:" />
+
+
+<meta name="ahrefs-site-verification" content="dd10692eec09d969484622218df66694c6e215ec04682e40c1250bc94138461f">
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="iO+Q/k2VDAOFAG7z52KKCw" async></script>
+
+    <title>Oracle-Augmented Generation: Connecting AI to Real-Time Verifiable Data | Kamu Data</title>
+    
+
+
+<link rel="icon" type="image/png" href="https://www.kamu.dev/images/favicon.png" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/swiper.min.css" />
+<link rel="stylesheet" href="/css/normalize.css" />
+<link rel="stylesheet" href="/css/fonts.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="/css/style.min.34b4ec67ae46c2519ab45204d2190be15765630d8b2fbc0c8cabf1984e5b9009.css">
+
+
+    </head>
+<body>
+    
+
+<header id="header" class="main-header">
+  <div class="container">
+    <div class="header">
+      <div class="header__logo">
+        <a href="/">
+          <img  src="/images/logo.svg" alt="Kamu logo">
+        </a>
+      </div>
+      <div class="header__nav">
+        <div class="close-menu">
+          <img src="/img/icons/close.svg" alt="Close image">
+        </div>
+        <nav class="navbar">
+          <ul>
+            
+            
+              
+              
+              
+                <li>
+                  <a 
+                    class="navbar__item " 
+                    href='https://docs.kamu.dev/'
+                  >
+                    Documentation
+                  </a>
+                  <ul class="navbar__submenu">
+                    
+                      <li>
+                        <a 
+                          class="navbar__item" 
+                          href='https://docs.kamu.dev/cli/'
+                        >
+                          Kamu CLI
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a 
+                          class="navbar__item" 
+                          href='https://docs.kamu.dev/node/'
+                        >
+                          Kamu Node
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a 
+                          class="navbar__item" 
+                          href='https://docs.kamu.dev/platform/'
+                        >
+                          Kamu Web Platform
+                        </a>
+                      </li>
+                    
+                      <li>
+                        <a 
+                          class="navbar__item" 
+                          href='https://docs.kamu.dev/odf/'
+                        >
+                          Open Data Fabric
+                        </a>
+                      </li>
+                    
+                  </ul>
+                </li>
+              
+            
+              
+              
+              
+                <li>
+                  <a 
+                    class="navbar__item " 
+                    href='/whitepaper/'
+                  >
+                    Whitepaper
+                  </a>
+                </li>
+              
+            
+              
+              
+              
+                <li>
+                  <a 
+                    class="navbar__item " 
+                    href='/blog/'
+                  >
+                    Blog
+                  </a>
+                </li>
+              
+            
+              
+              
+              
+                <li>
+                  <a 
+                    class="navbar__item " 
+                    href='/jobs/'
+                  >
+                    Jobs
+                  </a>
+                </li>
+              
+            
+              
+              
+              
+                <li>
+                  <a 
+                    class="navbar__item " 
+                    href='/about/'
+                  >
+                    About
+                  </a>
+                </li>
+              
+            
+              
+              
+              
+                <li>
+                  <a 
+                    class="navbar__item " 
+                    href='/contact/'
+                  >
+                    Contact
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+        
+
+<div class="social">
+    <a
+      class="social__item"
+      href="https://github.com/kamu-data"
+      target="_blank"
+    >
+      <i class="icon-github"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://discord.gg/nU6TXRQNXC"
+      target="_blank"
+    >
+      <i class="icon-discord"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://www.youtube.com/channel/UCWciDIWI_HsJ6Md_DdyJPIQ"
+      target="_blank"
+    >
+      <i class="icon-youtube"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://medium.com/kamu-data"
+      target="_blank"
+    >
+      <i class="icon-medium"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://www.linkedin.com/company/kamu-data/"
+      target="_blank"
+    >
+      <i class="icon-linkedin"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://bsky.app/profile/kamu.dev"
+      target="_blank"
+    >
+      <i class="icon-bluesky"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://x.com/kamu_data"
+      target="_blank"
+    >
+      <i class="icon-twitter-x"></i>
+    </a>
+</div>
+      </div>
+      <div class="header__buttons">
+        <div class="nav-toggle">
+          <img src="/img/icons/menu.svg" alt="Menu icon">
+        </div>
+        <a
+          class="btn btn-primary"
+          href="/get-started"
+        >
+          Get started
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.header__nav').classList.add('active')
+  });
+
+  document.querySelector('.close-menu').addEventListener('click', function() {
+    document.querySelector('.header__nav').classList.remove('active')
+  });
+</script>
+
+
+
+    <main>
+        
+  <section class="blog-single white-page">
+  <div class="container container-blog">
+    <button onclick="history.back()" class="back-btn">
+      <i class="icon-arrow-l"></i>
+      Back
+    </button>
+    <h1 class="blog-title mb-0">Oracle-Augmented Generation: Connecting AI to Real-Time Verifiable Data</h1>
+    <span class="blog-date">January 7, 2025</span>
+
+    <div class="blog-authors">
+      
+        <a
+          class="blog-author"
+          href="https://www.linkedin.com/in/ozge-nilay-yalcin/"
+          target="_blank"
+        >
+          <div class="blog-author__img">
+            <img src="/images/avatars/nilay-medium.jpg" alt="Nilay Yalcin, PhD photo">
+          </div>
+          <div class="blog-author__info">
+            <span class="blog-author-name">Nilay Yalcin, PhD</span>
+            <span class="blog-author-role">Founder</span>
+          </div>
+        </a>
+      
+        <a
+          class="blog-author"
+          href="https://www.linkedin.com/in/mikhtonyuk/"
+          target="_blank"
+        >
+          <div class="blog-author__img">
+            <img src="/images/avatars/sergii.jpg" alt="Sergii Mikhtoniuk photo">
+          </div>
+          <div class="blog-author__info">
+            <span class="blog-author-name">Sergii Mikhtoniuk</span>
+            <span class="blog-author-role">Founder</span>
+          </div>
+        </a>
+      
+    </div>
+
+    <div class="blog-content"><ul>
+<li><a href="#the-challenge-of-factual-data-in-llms">The Challenge of Factual Data in LLMs</a></li>
+<li><a href="#retrieval-augmented-generation">Retrieval-Augmented Generation</a></li>
+<li><a href="#introducing-oracle-augmented-generation">Introducing Oracle-Augmented Generation</a>
+<ul>
+<li><a href="#example-interaction">Example Interaction</a></li>
+<li><a href="#current-limitations">Current Limitations</a></li>
+</ul>
+</li>
+<li><a href="#oag-vs-rag">OAG vs. RAG</a></li>
+<li><a href="#oag-and-kamu-for-data-supply-chain-verifiability">OAG and Kamu for Data Supply Chain Verifiability</a></li>
+<li><a href="#role-of-oag-in-ai-and-data-economy">Role of OAG in AI and Data Economy</a></li>
+<li><a href="#future-work">Future work</a></li>
+</ul>
+<p>In collaboration between Kamu and <a href="https://brianknows.org">Brian</a> we are excited to introduce a new technique for connecting LLM-based AI agents to verifiable data we call Oracle-Augmented Generation.</p>
+<p>You can find a quick overview of the technique in this video:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/RuQQNAgfOlY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>In this post we will quickly set the stage and then dive deeper into technical and implementation details.</p>
+<h2 id="the-challenge-of-factual-data-in-llms">The Challenge of Factual Data in LLMs<a href="#the-challenge-of-factual-data-in-llms" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>Large language models (LLMs) have become very powerful reasoning and automation tools. Trained on vast quantities of data they rely on generalization to extract concepts, find rules and patterns, and infer relationships between them.</p>
+<p>The model training is akin to multi-dimensional approximation or lossy compression. The generalization of knowledge that gives models their power of high-level reasoning is the same thing that takes away their ability to manipulate accurate factual data points. Asking models to recall specific facts often leads to &ldquo;hallucinations&rdquo; - models making up plausible-sounding but false information.</p>
+<p>Embedding the world&rsquo;s factual data into LLMs not only would be impractical from the model size perspective, but because such models take months to re-train they would also be always lagging far behind the real-time data the world is increasingly relying on for decision-making.</p>
+<h2 id="retrieval-augmented-generation">Retrieval-Augmented Generation<a href="#retrieval-augmented-generation" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>To address this, many AI systems employ Retrieval-Augmented Generation (RAG), pairing LLMs with vector databases to retrieve contextually relevant information at the time of the query.</p>
+<figure><img src="/images/posts/2025-01-08-oag/rag.png"><figcaption>
+      <h4>Retrieval-Augmented Generation</h4>
+    </figcaption>
+</figure>
+
+<p>While this approach improves the factualness and recency of responses, it has notable drawbacks:</p>
+<ul>
+<li><strong>Source staleness and credibility</strong> - major LLM companies employ RAG mostly to search for relevant web pages, lots of which may contain outdated or unreliable information. While different ranking mechanisms are employed to pick the best results, it is difficult to imagine a sustainable approach to assigning and maintaining such ranks on a global scale.</li>
+<li><strong>Complex query conditions</strong> - RAG performs best when required information already exists close to its desired form, a form that can be easily processed by an LLM. But the number of questions with non-trivial conditions (e.g. narrowing down geographically, or by time) is so large that we cannot expect a web page to exist for each of them - answering a question correctly may require non-trivial computations over a large amount of data to be performed <em>uniquely</em> for that user.</li>
+<li><strong>Opaque data selection and centralized control</strong> - The RAG operator has full control over which sources are included in search results and which aren&rsquo;t, raising concerns about transparency and potential bias. The proprietary data collection pipelines built by LLM companies to improve model training and RAG also have an adverse effect of concentrating an alarming amount of power in very few hands.</li>
+</ul>
+<h2 id="introducing-oracle-augmented-generation">Introducing Oracle-Augmented Generation<a href="#introducing-oracle-augmented-generation" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>We propose a new technique called Oracle-Augmented Generation (OAG) that pairs an AI agent with a <strong>verifiable analytical data processing system</strong> working with a set of <strong>trusted data sources</strong>.</p>
+<p>The term &ldquo;oracle&rdquo; here is borrowed from the domain of Web3 and blockchains where &ldquo;oracle&rdquo; is a system that acts as a bridge between blockchains and the external world, enabling smart contracts to access off-chain data while providing some form of <strong>guarantees of the validity of data</strong>. The term &ldquo;oracle&rdquo; also exists in computational theory as a black-box function or device that can answer queries that might otherwise be difficult or impossible to compute, as is the case for recalling facts from a generalized language model.</p>
+<p>On the high level OAG proceeds in 4 stages:</p>
+<ol>
+<li><strong>Context gathering</strong> - where in its simplest form the Oracle system is asked to provide top N most relevant datasets to user&rsquo;s question</li>
+<li><strong>Query generation</strong> - where the LLM is asked to use dataset metadata to generate a query (e.g. SQL) that computes data that may answer the question</li>
+<li><strong>Query execution</strong> - where Oracle performs the query and returns a <em>verifiable</em> result</li>
+<li><strong>Answer generation</strong> - where LLM is asked to interpret the data from the query result to the user</li>
+</ol>
+<figure><img src="/images/posts/2025-01-08-oag/sequence.png"><figcaption>
+      <h4>OAG Sequence Diagram</h4>
+    </figcaption>
+</figure>
+
+<p>A key distinction from typical &ldquo;Text-to-SQL&rdquo; approaches here is the requirement for oracle to provide <strong>cryptographic proofs</strong> for context gathering and query execution stages.</p>
+<h3 id="example-interaction">Example Interaction<a href="#example-interaction" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h3>
+<p>Using <a href="https://brianknows.org">Brian</a> LLM agent and <a href="https://docs.kamu.dev/node/">Kamu Node</a> playing the role of an oracle, let&rsquo;s see how one OAG user interaction may look like.</p>
+<p><strong>User Prompt:</strong>
+<em>What was the total trading volume of USDC between Oct 10th and Oct 20th 2024?</em></p>
+<p><strong>Context gathering:</strong>
+Brian agent passes the prompt to Kamu Node&rsquo;s search API verbatim, and Kamu will perform a semantic search to find datasets that are most relevant to this question, returning datasets like:</p>
+<ul>
+<li><a href="https://platform.demo.kamu.dev/kamu/io.codex.tokens.olhcv"><code>kamu/io.codex.tokens.olhcv</code></a> - DeFi trading data, most relevant to us</li>
+<li><a href="https://platform.demo.kamu.dev/kamu/com.cryptocompare.ohlcv.eth-usd"><code>kamu/com.cryptocompare.ohlcv.eth-usd</code></a> - a crypto exchange dataset that has mentions of trading volumes</li>
+<li><a href="https://platform.demo.kamu.dev/kamu/com.defillama.tokens.prices"><code>kamu/com.defillama.tokens.prices</code></a> - crypto token prices dataset that has mentions of <code>USDC</code></li>
+</ul>
+<p>Brian agent fetches lots of metadata about these datasets from Kamu, including their schemas and column descriptions, readme files, and popular queries.</p>
+<p>Although Brian naturally prioritizes DeFi datasets, OAG in Kamu is domain agnostic. Any dataset added by our community becomes automatically available for querying.</p>
+<p><strong>Query generation:</strong>
+Brian passes the above context to its underlying language model, prompting it to generate a Postgres-compatible SQL query that answers the user&rsquo;s prompt.</p>
+<p>The model returns:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#cf222e">select</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">sum</span><span style="color:#1f2328">(</span>volume<span style="color:#1f2328">)</span><span style="color:#fff"> </span><span style="color:#cf222e">as</span><span style="color:#fff"> </span>total_volume<span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">from</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;kamu/io.codex.tokens.olhcv&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff"></span><span style="color:#cf222e">where</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span>symbol<span style="color:#fff"> </span><span style="color:#0550ae">=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;USDC&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">and</span><span style="color:#fff"> </span>event_time<span style="color:#fff"> </span><span style="color:#0550ae">&gt;=</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;2024-10-10&#39;</span><span style="color:#fff">
+</span></span></span><span style="display:flex;"><span><span style="color:#fff">  </span><span style="color:#cf222e">and</span><span style="color:#fff"> </span>event_time<span style="color:#fff"> </span><span style="color:#0550ae">&lt;</span><span style="color:#fff"> </span><span style="color:#0a3069">&#39;2024-10-21&#39;</span><span style="color:#fff">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Query execution:</strong>
+This SQL is sent to Kamu&rsquo;s query endpoint and returns a response in JSON:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;input&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;query&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;select\n  sum(volume) as total_volume\nfrom &#39;kamu/io.codex.tokens.olhcv&#39;\nwhere ...&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;queryDialect&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;SqlDataFusion&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;dataFormat&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;JsonAoS&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;include&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;Input&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;Proof&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;datasets&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;id&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;did:odf:fed011b209e776577c1688affdab1db2d3bda4822852dcaf9d59d108df8b441544938&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;alias&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;kamu/io.codex.tokens.olhcv&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;blockHash&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;f16206ead4be7fd3c3efbaa3de1c15e303e2ce9f6c2bc605f11e033e83a0206573722&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;skip&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">0</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;limit&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;output&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;data&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[{</span> <span style="color:#0550ae">&#34;total_volume&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">4039963082.961011</span> <span style="color:#1f2328">}],</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;dataFormat&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;JsonAoS&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;subQueries&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[],</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;commitment&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;inputHash&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;f16207ad1730665365efa3acb77ea33a169e49b292c03a13ae01d2718b7d958afb46b&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;outputHash&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;f1620510c1a4b28136b6f79c971e86c37e9b6ea77833ad511515c7a4e0133e47113b6&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;subQueriesHash&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;f1620ca4510738395af1429224dd785675309c344b2b549632e20275c69b15ed1d210&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;proof&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;type&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;Ed25519Signature2020&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;verificationMethod&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;did:key:z6MkkhJQPHpA41mTPLFgBeygnjeeADUSwuGDoF9pbGQsfwZp&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;proofValue&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;uLaanvQHkx5w6yOcLmI-VH1IquEFTMjmlJRqqgd1Na1qYYcb6CIpxERLjtlYRasqiIwL2hg6NAEHMoNz68xwSBQ&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The <code>&quot;output&quot;</code> part of the response is the actual result of the query, while the rest of the fields form a <strong>cryptographic proof</strong> of this request.</p>
+<p>In this example we have a proof via <strong>reproducibility</strong>, where a specific Kamu node (identified by <code>did:key:z6..fwZp</code> <a href="https://www.w3.org/TR/did-core/">W3C DID</a>) commits to having correctly executed the query on the dataset <code>did:odf:fe..4938</code> at a specific state snapshot (block) <code>f1..3722</code>.</p>
+<p>Other types of proofs, including <strong>zero-knowledge</strong> can similarly be used in OAG to achieve desired effects.</p>
+<p>For a detailed overview of the query proofs mechanism and its properties see <a href="https://docs.kamu.dev/node/commitments/">our documentation</a>.</p>
+<p><strong>Answer generation:</strong>
+LLM is asked to interpret the result for the user given the:</p>
+<ul>
+<li>Original user prompt</li>
+<li>Context with metadata about the datasets</li>
+<li>Generated SQL query</li>
+<li>Response data (in our case just <code>[{ &quot;total_volume&quot;: 4039963082.961011 }]</code>)</li>
+</ul>
+<p>LLM returns the final answer:
+<em>The total trading volume of USDC between October 10th and October 20th, 2024, was approximately $4,039,963,083.</em></p>
+<p>Both the final answer and the cryptographic commitment are saved in the chat history.</p>
+<figure><img src="/images/posts/2025-01-08-oag/proof.png"><figcaption>
+      <h4>Proof saved alongside the agent&#39;s chat history</h4>
+    </figcaption>
+</figure>
+
+<p>A hyperlink that Brian includes into the response allows users to quickly decode the proof and audit the query in Kamu&rsquo;s Web UI.</p>
+<figure><img src="/images/posts/2025-01-08-oag/explainer.png"><figcaption>
+      <h4>Auditing proof in Kamu Web UI</h4>
+    </figcaption>
+</figure>
+
+<p>User can see:</p>
+<ul>
+<li>Which SQL query was executed</li>
+<li>What datasets and what snapshots of their state were used in the computation</li>
+<li>The result data that was reproduced identically to the past query</li>
+<li>The validation status of the proof, that ties the response to one or more nodes that executed the query</li>
+</ul>
+<p>The ability of Kamu to provide indefinite reproducibility of queries even for fast-moving datasets relies on ledgerized data structure of the Open Data Fabric protocol. You can find more details in the <a href="https://docs.kamu.dev/odf/spec/">ODF specification</a>.</p>
+<h3 id="current-limitations">Current Limitations<a href="#current-limitations" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h3>
+<p>Kamu node does not yet provide the <code>Proof&lt;S&gt;</code> - a proof of executing context gathering phase and returning the most relevant datasets without any additions and omissions correctly. A reproducibility-based proof similar to the query proof <code>Proof&lt;Q&gt;</code> will be soon provided by anchoring the state of all &ldquo;known datasets&rdquo; of a node in an ODF dataset and using deterministic embeddings generation and vectorized search algorithms.</p>
+<h2 id="oag-vs-rag">OAG vs. RAG<a href="#oag-vs-rag" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>While in RAG the model has to infer the answer directly from unstructured context data, in OAG the model generates query code and delegates the execution to an analytical system. OAG thus <strong>can work with much larger volumes of data</strong> that would otherwise never fit into the RAG context. This also significantly <strong>decreases the likelihood of hallucinating</strong> because most computations are performed by a deterministic system.</p>
+<p>When it comes to structured data, OAG can work with significantly <strong>wider range of questions</strong>, including:</p>
+<ul>
+<li>Point-in-time and time-range questions</li>
+<li>Complex filters</li>
+<li>Statistical aggregations (medians, quantiles, OLAP cubes etc.)</li>
+</ul>
+<p>In RAG it&rsquo;s often hard to understand if LLM have made a correct conclusion based on the context data. Verifying this would require a human to analyze the entire context themselves, defeating the purpose. OAG offers superior <strong>auditability and provenance</strong>. Even if the answer requires processing terabytes of data - the generated query can be easily inspected and understood. The oracle system can also provide ways to also check if the query is using reliable data sources. As the query usually would aggregate many data points into an easily digestible statistical summary or a chart - it&rsquo;s a lot easier for humans to check if the LLM&rsquo;s interpretation of a result is correct.</p>
+<p>In OAG, proofs introduce <strong>accountability</strong>. A query proof described above allows users to hold data providers and the parties that executed the query <strong>forever accountable</strong> for validity of the results. They can expose any attempts to alter or withhold data and thus become building blocks for penalizing malicious actors. Succinct cryptographic proofs provided by Kamu remain small even when result includes millions of data points, and thus can be cheaply stored alongside the chat history of agent responses.</p>
+<h2 id="oag-and-kamu-for-data-supply-chain-verifiability">OAG and Kamu for Data Supply Chain Verifiability<a href="#oag-and-kamu-for-data-supply-chain-verifiability" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>The verifiability aspect of OAG is subtle yet transformative. Today companies pay huge sums for data APIs that don&rsquo;t offer a single mechanism to hold the API provider accountable for correctness of their data. But as the world increases its reliance on real-time data and taps into more independent data sources - we will inevitably need to consider the consequences a presence of a few malicious actors may lead to in such a system.</p>
+<p>While OAG can work with any verifiable database, we are especially excited about the properties it unlocks in combination with a <strong>decentralized data processing network</strong> like Kamu. Through its use of verifiable stream processing, Kamu extends OAG&rsquo;s verifiability from a single query to <strong>cover an entire data supply chain</strong>.</p>
+<figure><img src="/images/posts/2025-01-08-oag/supply-chain.png"><figcaption>
+      <h4>Data supply chain verifiability</h4>
+    </figcaption>
+</figure>
+
+<p>Data from a reputable publisher or a blockchain can be processed by multiple third parties, cleaned and combined into higher-order more useful datasets that AI agents will naturally prefer to work with when mining for answers. But thanks to Kamu, the proof of a single query will automatically include provenance proofs of the entire supply chain, no matter how many hands the data went through!</p>
+<p>We believe that Kamu and OAG can help elevate the state of data exchange from all of us just scrambling to get any satisfactory data to get by, to us collectively caring about the quality of data and where it comes from, and inventing new ways to organize efficient and trustworthy data supply chains on a global scale.</p>
+<h2 id="role-of-oag-in-ai-and-data-economy">Role of OAG in AI and Data Economy<a href="#role-of-oag-in-ai-and-data-economy" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>We believe that conversational AI agents will soon become the primary way of how humans interact with data. We will increasingly rely on AI to source and distill important information for us. It is therefore important to make sure AI agents play nicely with the global data economy and that all incentives are aligned.</p>
+<p>We unfortunately see a big problem in how big AI companies apply RAG today. With LLMs providing us the results we need, many users might no longer feel the need to open the web pages where RAG sourced the information from. This means that the websites RAG sourced data from start losing their traffic and ad revenue. We may soon see data brokers banning AI agents on their websites. This may in turn make major LLM companies use their virtually bottomless pockets to invest into their own proprietary data pipelines. With legislation around AI and IP rights still stuck in limbo, such a degree of centralization would be catastrophic.</p>
+<p>We have previously shown <a href="/blog/2024-06-27-next-decade-of-data/">[1]</a><a href="/blog/2024-08-28-intro-to-web3-data-engineering/">[2]</a> how a decentralized system like Kamu offers a better foundation for data economy:</p>
+<ul>
+<li>Through <strong>federated querying</strong> it allows us to efficiently combine data from multiple independent sources without the need to move data into one place</li>
+<li>Integrated provenance makes answers based on official reputable sources <strong>more valuable</strong> than unverifiable data from proprietary sources</li>
+<li>Verifiable pipelines allow data sourcing, cleaning, and composition to be <strong>crowd-sourced to a global community</strong> that can self-organize into a new generation of more transparent data brokers and aggregators.</li>
+</ul>
+<p>Now with OAG we <strong>extend these properties to the AI economy</strong>.</p>
+<p>Once again, verifiable provenance is playing the key role. After all, a query proof that tells us where every bit of data came from and who participated in computations is the exact information we need to fairly compensate everyone involved.</p>
+<figure><img src="/images/posts/2025-01-08-oag/reward-distribution.png"><figcaption>
+      <h4>Provenance-based reward distribution</h4>
+    </figcaption>
+</figure>
+
+<p>Provenance provides us a <strong>quantifiable way to distribute the revenue</strong> upstream to every participant of a data supply chain:</p>
+<ul>
+<li>Data publishers</li>
+<li>Storage and compute providers</li>
+<li>And the global community that builds and maintains the processing pipelines.</li>
+</ul>
+<h2 id="future-work">Future work<a href="#future-work" class="hanchor" ariaLabel="Anchor"> #&#xFE0E;</a> </h2>
+<p>The first OAG prototype has exceeded our expectations, but we have many more ideas to try:</p>
+<ul>
+<li><strong>Agentic exploratory data analysis</strong> - to help with one of the biggest problems today where LLM sometimes struggle to filter data correctly without engough hints about the specific values present in data, we want the agent to be able to decide when it doesn&rsquo;t have sufficient information to form a query and needs to perform intermediate steps to explore the content of candidate datasets.</li>
+<li><strong>Progressive context expansion via knowledge/semantic graph</strong> - to help LLM generate correct <code>JOIN</code>s between datasets in separate domains we want to extend the metadata with semantic annotations (e.g. <a href="https://en.wikipedia.org/wiki/Resource_Description_Framework">RDF</a>).</li>
+<li><strong>Fuzzy querying</strong> - where SQL layer on Kamu&rsquo;s side could notice and auto-correct typical mistakes in queries</li>
+<li><strong>Fine-tuning with OAG-in-the-loop</strong> - as we believe best results can be achieved when LLM is trained in conjunction with an oracle and learns how to use it for best advantage.</li>
+</ul>
+<hr>
+<p>Thanks for reading! Please give <a href="https://brianknows.org">Brian</a> AI agent a try and let us know what you think on <a href="https://discord.gg/nU6TXRQNXC">Discord</a>!</p>
+</div>
+  </div>
+  <section class="home-blog more-articles">
+    <div class="container">
+      <h2 class="title text-center mb-48">
+        Read more from the blog
+      </h2>
+      <div class="swiper l-blog-slider">
+        <div class="swiper-wrapper latest-blog">
+          <a href="/blog/2026-02-26-odf-consortium/" class="blog-item swiper-slide">
+              <div class="blog-item__img">
+                <img src="/images/posts/2026-02-26-odf-consortium/odf.png" alt="">
+              </div>
+              <div class="blog-item__body">
+                <p class="blog-item-date">February 26, 2026</p>
+                <h3 class="blog-item__title">Open Data Fabric Consortium</h3>
+                <div class="blog-item-authors">
+                  <div class="blog-item-authors__photos">
+                    
+                      <img src="/images/avatars/sergii.jpg" alt="Sergii Mikhtoniuk photo">
+                    
+                      <img src="/images/avatars/nilay-medium.jpg" alt="Nilay Yalcin photo">
+                    
+                  </div>
+                  <div class="blog-item-authors__names">
+                    
+                      <p class="blog-item-author-name">Sergii Mikhtoniuk</p>
+                    
+                      <p class="blog-item-author-name">Nilay Yalcin</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </a>
+          <a href="/blog/2025-11-15-kamu-update/" class="blog-item swiper-slide">
+              <div class="blog-item__img">
+                <img src="/images/products/kamu_logo_icon_bg_square.png" alt="">
+              </div>
+              <div class="blog-item__body">
+                <p class="blog-item-date">November 15, 2025</p>
+                <h3 class="blog-item__title">Kamu Update: A Year-Worth of Features</h3>
+                <div class="blog-item-authors">
+                  <div class="blog-item-authors__photos">
+                    
+                      <img src="/images/avatars/sergii.jpg" alt="Sergii Mikhtoniuk photo">
+                    
+                      <img src="/images/avatars/nilay-medium.jpg" alt="Nilay Yalcin photo">
+                    
+                  </div>
+                  <div class="blog-item-authors__names">
+                    
+                      <p class="blog-item-author-name">Sergii Mikhtoniuk</p>
+                    
+                      <p class="blog-item-author-name">Nilay Yalcin</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </a>
+          <a href="/blog/2025-08-23-depin-data/" class="blog-item swiper-slide">
+              <div class="blog-item__img">
+                <img src="/images/posts/2025-08-23-depin-data.png" alt="">
+              </div>
+              <div class="blog-item__body">
+                <p class="blog-item-date">August 23, 2025</p>
+                <h3 class="blog-item__title">Ownership and Decentralization of Data in DePINs</h3>
+                <div class="blog-item-authors">
+                  <div class="blog-item-authors__photos">
+                    
+                      <img src="/images/avatars/sergii.jpg" alt="Sergii Mikhtoniuk photo">
+                    
+                  </div>
+                  <div class="blog-item-authors__names">
+                    
+                      <p class="blog-item-author-name">Sergii Mikhtoniuk</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </a>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cb852c7b57ed596"></script>
+
+    </main>
+
+    
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer">
+      <div class="footer__info">
+        <h3>Kamu</h3>
+        <div class="footer__menu show-md">
+              <a
+                class="footer__item"
+                href="https://docs.kamu.dev/"
+              >
+                Documentation
+              </a>
+              <a
+                class="footer__item"
+                href="/blog/"
+              >
+                Blog
+              </a>
+              <a
+                class="footer__item"
+                href="/jobs/"
+              >
+                Careers
+              </a>
+              <a
+                class="footer__item"
+                href="/about/"
+              >
+                Team
+              </a>
+        </div>
+        <p>Supply chain of global data &amp; AI economy</p>
+        <div class="mt-40">
+          
+
+<div class="social">
+    <a
+      class="social__item"
+      href="https://github.com/kamu-data"
+      target="_blank"
+    >
+      <i class="icon-github"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://discord.gg/nU6TXRQNXC"
+      target="_blank"
+    >
+      <i class="icon-discord"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://www.youtube.com/channel/UCWciDIWI_HsJ6Md_DdyJPIQ"
+      target="_blank"
+    >
+      <i class="icon-youtube"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://medium.com/kamu-data"
+      target="_blank"
+    >
+      <i class="icon-medium"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://www.linkedin.com/company/kamu-data/"
+      target="_blank"
+    >
+      <i class="icon-linkedin"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://bsky.app/profile/kamu.dev"
+      target="_blank"
+    >
+      <i class="icon-bluesky"></i>
+    </a>
+    <a
+      class="social__item"
+      href="https://x.com/kamu_data"
+      target="_blank"
+    >
+      <i class="icon-twitter-x"></i>
+    </a>
+</div>
+        </div>
+        <p class="mt-40">© Kamu Data Inc. 2026</p>
+      </div>
+      <div class="footer__menu hide-md">
+            <a
+              class="footer__item"
+              href="https://docs.kamu.dev/"
+            >
+              Documentation
+            </a>
+            <a
+              class="footer__item"
+              href="/blog/"
+            >
+              Blog
+            </a>
+            <a
+              class="footer__item"
+              href="/jobs/"
+            >
+              Careers
+            </a>
+            <a
+              class="footer__item"
+              href="/about/"
+            >
+              Team
+            </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YKB0Y4Y1HC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'G-YKB0Y4Y1HC');
+</script>
+
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/fixed-header.js"></script>
+<script src="/js/typed.min.js"></script>
+<script src="/js/swiper.min.js"></script>
+<script src="/js/tabs.js"></script>
+
+
+<script src="/js/cookieconsent.min.js"></script>
+<script src="/js/cookies.js"></script>
+
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      if (regs && regs.length > 0) {
+        for (var registration of regs) {
+          registration.unregister();
+        }
+      }
+    });
+  }
+</script>
+</body> 
+</html>

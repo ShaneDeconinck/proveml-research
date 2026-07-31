@@ -1,0 +1,94 @@
+{
+  "name": "ProveML Finance Benchmark",
+  "version": "v1",
+  "domain": "finance",
+  "source": "SEC EDGAR XBRL (FY2025 10-K filings)",
+  "snapshot": "sec-edgar-fy2025",
+  "notes": [
+    "Based on real SEC filings for Apple Inc. and Microsoft Corporation.",
+    "Values are as-filed (not scaled). Units are USD unless noted.",
+    "Unsupported prompts test abstention behavior on forward-looking claims."
+  ],
+  "prompts": [
+    {
+      "id": "fin_lookup_revenue_aapl",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "What was Apple's total revenue in FY2025?",
+      "context_refs": ["Apple Inc."],
+      "must_reference": ["revenue"]
+    },
+    {
+      "id": "fin_lookup_eps_msft",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "What were Microsoft's basic earnings per share in FY2025?",
+      "context_refs": ["Microsoft Corporation"],
+      "must_reference": ["eps"]
+    },
+    {
+      "id": "fin_lookup_debt_aapl",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "What is Apple's long-term debt and total equity?",
+      "context_refs": ["Apple Inc."],
+      "must_reference": ["longTermDebt", "equity"]
+    },
+    {
+      "id": "fin_comparison_revenue",
+      "category": "comparison",
+      "expected_mode": "verified",
+      "prompt": "Compare Apple and Microsoft's revenue and net income for FY2025.",
+      "context_refs": ["Apple Inc.", "Microsoft Corporation"],
+      "must_reference": ["revenue", "netIncome"]
+    },
+    {
+      "id": "fin_comparison_balance",
+      "category": "comparison",
+      "expected_mode": "verified",
+      "prompt": "Compare the balance sheet strength of Apple and Microsoft: assets, liabilities, and equity.",
+      "context_refs": ["Apple Inc.", "Microsoft Corporation"],
+      "must_reference": ["assets", "liabilities", "equity"]
+    },
+    {
+      "id": "fin_threshold_debt",
+      "category": "threshold",
+      "expected_mode": "verified",
+      "prompt": "Is Apple's debt-to-equity ratio concerning? Assess both companies.",
+      "context_refs": ["Apple Inc.", "Microsoft Corporation"],
+      "must_reference": ["debtToEquity"]
+    },
+    {
+      "id": "fin_threshold_liquidity",
+      "category": "threshold",
+      "expected_mode": "verified",
+      "prompt": "Assess the liquidity position of both companies using their current ratio and cash holdings.",
+      "context_refs": ["Apple Inc.", "Microsoft Corporation"],
+      "must_reference": ["currentRatio", "cash"]
+    },
+    {
+      "id": "fin_overview",
+      "category": "overview",
+      "expected_mode": "verified",
+      "prompt": "Give a financial overview of Apple Inc. covering revenue, profitability, and balance sheet health.",
+      "context_refs": ["Apple Inc."],
+      "must_reference": ["revenue", "netIncome", "assets", "liabilities"]
+    },
+    {
+      "id": "fin_unit_aware",
+      "category": "lookup",
+      "expected_mode": "verified",
+      "prompt": "What are Microsoft's total assets and earnings per share, including the units?",
+      "context_refs": ["Microsoft Corporation"],
+      "must_reference": ["assets", "eps"]
+    },
+    {
+      "id": "fin_unsupported_forecast",
+      "category": "unsupported",
+      "expected_mode": "suggestion-or-limit",
+      "prompt": "Will Apple's revenue grow in FY2026? What are the main risks?",
+      "context_refs": ["Apple Inc."],
+      "must_reference": []
+    }
+  ]
+}

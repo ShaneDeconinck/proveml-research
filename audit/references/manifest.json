@@ -1,0 +1,82 @@
+[
+  {
+    "id": "ixbrl",
+    "name": "iXBRL (XBRL International)",
+    "sourceUrl": "https://www.xbrl.org/ixbrl",
+    "sourceLabel": "Official iXBRL overview",
+    "fetchFormat": "html",
+    "localPath": "references/raw/ixbrl.html"
+  },
+  {
+    "id": "factscore",
+    "name": "FActScore (Min et al., 2023)",
+    "sourceUrl": "https://arxiv.org/abs/2305.14251",
+    "sourceLabel": "arXiv:2305.14251",
+    "fetchFormat": "html",
+    "localPath": "references/raw/factscore.html"
+  },
+  {
+    "id": "safe",
+    "name": "SAFE (Wei et al., 2024)",
+    "sourceUrl": "https://arxiv.org/abs/2403.18802",
+    "sourceLabel": "arXiv:2403.18802",
+    "fetchFormat": "html",
+    "localPath": "references/raw/safe.html"
+  },
+  {
+    "id": "factool",
+    "name": "FacTool (Chern et al., 2023)",
+    "sourceUrl": "https://arxiv.org/abs/2307.13528",
+    "sourceLabel": "arXiv:2307.13528",
+    "fetchFormat": "html",
+    "localPath": "references/raw/factool.html"
+  },
+  {
+    "id": "guardrails-ai",
+    "name": "Guardrails AI",
+    "sourceUrl": "https://guardrailsai.com/guardrails/docs/concepts/validators",
+    "sourceLabel": "Guardrails AI validators docs",
+    "fetchFormat": "html",
+    "localPath": "references/raw/guardrails-ai.html"
+  },
+  {
+    "id": "dspy-assertions",
+    "name": "DSPy Assertions (Singhvi et al., 2023)",
+    "sourceUrl": "https://arxiv.org/abs/2312.13382",
+    "sourceLabel": "arXiv:2312.13382",
+    "fetchFormat": "html",
+    "localPath": "references/raw/dspy-assertions.html"
+  },
+  {
+    "id": "nemo-guardrails",
+    "name": "NeMo Guardrails (NVIDIA)",
+    "sourceUrl": "https://docs.nvidia.com/nemo-guardrails/index.html",
+    "sourceLabel": "NVIDIA docs",
+    "fetchFormat": "html",
+    "localPath": "references/raw/nemo-guardrails.html"
+  },
+  {
+    "id": "rarr",
+    "name": "RARR (Gao et al., 2022)",
+    "sourceUrl": "https://arxiv.org/abs/2210.08726",
+    "sourceLabel": "arXiv:2210.08726",
+    "fetchFormat": "html",
+    "localPath": "references/raw/rarr.html"
+  },
+  {
+    "id": "webgpt",
+    "name": "WebGPT (Nakano et al., 2021)",
+    "sourceUrl": "https://arxiv.org/abs/2112.09332",
+    "sourceLabel": "arXiv:2112.09332",
+    "fetchFormat": "html",
+    "localPath": "references/raw/webgpt.html"
+  },
+  {
+    "id": "gemini-double-check",
+    "name": "Gemini double-check (Google)",
+    "sourceUrl": "https://support.google.com/gemini/answer/14143489?co=GENIE.Platform%3DDesktop&p=faq_double_check",
+    "sourceLabel": "Gemini help page",
+    "fetchFormat": "html",
+    "localPath": "references/raw/gemini-double-check.html"
+  }
+]

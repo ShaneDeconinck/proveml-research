@@ -1,0 +1,402 @@
+\begin{thebibliography}{57}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Akhter et~al.(2026)Akhter, Ruggeri, Bilal, Procter, and
+  Liakata]{alignmentbottleneck}
+M.~E. Akhter, F.~Ruggeri, I.~M. Bilal, R.~Procter, and M.~Liakata.
+\newblock The alignment bottleneck in decomposition-based claim verification.
+\newblock arXiv:2602.10380, 2026.
+
+\bibitem[Bainbridge(1983)]{bainbridge1983}
+L.~Bainbridge.
+\newblock Ironies of automation.
+\newblock \emph{Automatica}, 19\penalty0 (6):\penalty0 775--779, 1983.
+\newblock \doi{10.1016/0005-1098(83)90046-8}.
+
+\bibitem[Chern et~al.(2023)Chern, Chern, Chen, Yuan, Feng, Zhou, He, Neubig,
+  and Liu]{factool}
+I-C. Chern, S.~Chern, S.~Chen, W.~Yuan, K.~Feng, C.~Zhou, J.~He, G.~Neubig, and
+  P.~Liu.
+\newblock {FacTool}: Factuality detection in generative {AI} -- a tool
+  augmented framework for multi-task and multi-domain scenarios.
+\newblock \emph{arXiv:2307.13528}, 2023.
+
+\bibitem[{Coalition for Content Provenance and Authenticity}(2022)]{c2pa}
+{Coalition for Content Provenance and Authenticity}.
+\newblock {C2PA} technical specification.
+\newblock \url{https://c2pa.org/specifications/}, 2022.
+
+\bibitem[Coulter and Bensinger(2023)]{googlebard2023}
+M.~Coulter and G.~Bensinger.
+\newblock {Google} {AI} chatbot {Bard} offers inaccurate information in company
+  ad.
+\newblock Reuters, 2023.
+
+\bibitem[{European Parliament and Council of the European
+  Union}(2024)]{euaiact}
+{European Parliament and Council of the European Union}.
+\newblock Regulation ({EU}) 2024/1689 laying down harmonised rules on
+  artificial intelligence (artificial intelligence act).
+\newblock Official Journal of the European Union, 2024.
+
+\bibitem[{European Parliament and Council of the European
+  Union}(2026)]{omnibus2026}
+{European Parliament and Council of the European Union}.
+\newblock Regulation ({EU}) 2026/1744 of 8 july 2026 amending regulations
+  ({EU}) 2024/1689, ({EU}) 2018/1139 and ({EU}) 2023/1230 as regards the
+  simplification of the implementation of harmonised rules on artificial
+  intelligence ({Digital Omnibus} on {AI}).
+\newblock Official Journal of the European Union,
+  \url{https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng}, 2026.
+
+\bibitem[Farquhar et~al.(2024)Farquhar, Kossen, Kuhn, and Gal]{farquhar2024}
+S.~Farquhar, J.~Kossen, L.~Kuhn, and Y.~Gal.
+\newblock Detecting hallucinations in large language models using semantic
+  entropy.
+\newblock \emph{Nature}, 630:\penalty0 625--630, 2024.
+\newblock \doi{10.1038/s41586-024-07421-0}.
+
+\bibitem[Gao et~al.(2023{\natexlab{a}})Gao, Dai, Pasupat, Chen, Chaganty, Fan,
+  Zhao, Lao, Lee, Juan, and Guu]{rarr}
+L.~Gao, Z.~Dai, P.~Pasupat, A.~Chen, A.~T. Chaganty, Y.~Fan, V.~Zhao, N.~Lao,
+  H.~Lee, D.~Juan, and K.~Guu.
+\newblock {RARR}: Researching and revising what language models say, using
+  language models.
+\newblock In \emph{Proc. ACL}, 2023{\natexlab{a}}.
+\newblock \doi{10.18653/v1/2023.acl-long.910}.
+
+\bibitem[Gao et~al.(2023{\natexlab{b}})Gao, Yen, Yu, and Chen]{alce}
+T.~Gao, H.~Yen, J.~Yu, and D.~Chen.
+\newblock Enabling large language models to generate text with citations.
+\newblock In \emph{Proc. EMNLP}, pages 6465--6488, 2023{\natexlab{b}}.
+\newblock \doi{10.18653/v1/2023.emnlp-main.398}.
+
+\bibitem[{Gartner}(2023)]{gartner2023}
+{Gartner}.
+\newblock More than 80\% of enterprises will have used generative {AI} {APIs}
+  or deployed generative {AI}-enabled applications by 2026.
+\newblock Press Release, 2023.
+
+\bibitem[{Google}(2024)]{googleground}
+{Google}.
+\newblock Grounding with {Google} search.
+\newblock Gemini API documentation,
+  \url{https://ai.google.dev/gemini-api/docs/grounding}, 2024.
+
+\bibitem[{Guardrails AI}(2024)]{guardrails}
+{Guardrails AI}.
+\newblock Guardrails: Adding guardrails to large language models.
+\newblock \url{https://github.com/guardrails-ai/guardrails}, 2024.
+
+\bibitem[Guo et~al.(2026)Guo, Wu, and Yiu]{finground}
+D.~Guo, J.~Wu, and S.~M. Yiu.
+\newblock {FinGround}: Detecting and grounding financial hallucinations via
+  atomic claim verification.
+\newblock In \emph{Proc. ACL Industry Track}, 2026.
+\newblock arXiv:2604.23588.
+
+\bibitem[Hind et~al.(2026)Hind, Shbita, Wu, Ahmed, DeLuca, Fulton, Cox, and
+  Gutfreund]{llmon}
+M.~Hind, B.~Shbita, B.~Wu, F.~Ahmed, C.~DeLuca, N.~Fulton, D.~Cox, and
+  D.~Gutfreund.
+\newblock {LLMON}: An {LLM}-native markup language to leverage structure and
+  semantics at the {LLM} interface.
+\newblock arXiv:2603.22519, 2026.
+
+\bibitem[{HL7 International}(2023)]{fhir}
+{HL7 International}.
+\newblock {FHIR} (fast healthcare interoperability resources), release 5, 2023.
+\newblock URL \url{https://hl7.org/fhir/R5/}.
+
+\bibitem[Hu et~al.(2024)Hu, Ru, Qiu, Guo, Zhang, Xu, Luo, Liu, Zhang, and
+  Zhang]{refchecker}
+Xiangkun Hu, Dongyu Ru, Lin Qiu, Qipeng Guo, Tianhang Zhang, Yang Xu, Yun Luo,
+  Pengfei Liu, Yue Zhang, and Zheng Zhang.
+\newblock Knowledge-centric hallucination detection.
+\newblock In \emph{Proc. EMNLP}, pages 6953--6975, 2024.
+\newblock \doi{10.18653/v1/2024.emnlp-main.395}.
+
+\bibitem[Isch and Jennings(2026)]{narrativelicense}
+C.~Isch and G.~Jennings.
+\newblock Narrative license and model sycophancy in {LLM} summaries of
+  scientific work.
+\newblock In \emph{Proc. ACL}, 2026.
+\newblock \doi{10.18653/v1/2026.acl-long.746}.
+
+\bibitem[Ji et~al.(2023)Ji, Lee, Frieske, Yu, Su, Xu, Ishii, Bang, Madotto, and
+  Fung]{ji2023}
+Z.~Ji, N.~Lee, R.~Frieske, T.~Yu, D.~Su, Y.~Xu, E.~Ishii, Y.~J. Bang,
+  A.~Madotto, and P.~Fung.
+\newblock Survey of hallucination in natural language generation.
+\newblock \emph{ACM Computing Surveys}, 55\penalty0 (12), 2023.
+\newblock \doi{10.1145/3571730}.
+
+\bibitem[Kalai and Vempala(2024)]{kalai2024}
+A.~T. Kalai and S.~S. Vempala.
+\newblock Calibrated language models must hallucinate.
+\newblock In \emph{Proc. STOC}, 2024.
+\newblock arXiv:2311.14648.
+
+\bibitem[Kalai et~al.(2025)Kalai, Nachum, Vempala, and Zhang]{kalai2025}
+A.~T. Kalai, O.~Nachum, S.~S. Vempala, and E.~Zhang.
+\newblock Why language models hallucinate.
+\newblock OpenAI, arXiv:2509.04664, 2025.
+
+\bibitem[{Kamu Data}(2025)]{oraclegen}
+{Kamu Data}.
+\newblock Oracle-augmented generation: Connecting {AI} to real-time verifiable
+  data.
+\newblock
+  \url{https://www.kamu.dev/blog/2025-01-08-oracle-augmented-generation/},
+  2025.
+
+\bibitem[Khattab et~al.(2024)Khattab, Singhvi, Maheshwari, Zhang, Santhanam,
+  Vardhamanan, Haq, Sharma, Joshi, Moazam, Miller, Zaharia, and Potts]{dspy}
+O.~Khattab, A.~Singhvi, P.~Maheshwari, Z.~Zhang, K.~Santhanam, S.~Vardhamanan,
+  S.~Haq, A.~Sharma, T.~T. Joshi, H.~Moazam, H.~Miller, M.~Zaharia, and
+  C.~Potts.
+\newblock {DSPy}: Compiling declarative language model calls into
+  state-of-the-art pipelines.
+\newblock In \emph{Proc. ICLR}, 2024.
+\newblock arXiv:2310.03714.
+
+\bibitem[Lebo et~al.(2013)Lebo, Sahoo, McGuinness, et~al.]{prov}
+T.~Lebo, S.~Sahoo, D.~McGuinness, et~al.
+\newblock {PROV-O}: The {PROV} ontology.
+\newblock W3C Recommendation, \url{https://www.w3.org/TR/prov-o/}, 2013.
+
+\bibitem[Lee and See(2004)]{leesee2004}
+J.~D. Lee and K.~A. See.
+\newblock Trust in automation: Designing for appropriate reliance.
+\newblock \emph{Human Factors}, 46\penalty0 (1):\penalty0 50--80, 2004.
+\newblock \doi{10.1518/hfes.46.1.50_30392}.
+
+\bibitem[Liu et~al.(2026)Liu, Peng, Cao, Wang, Deng, Chen, Yin, and
+  Zhang]{toolgate}
+Y.~Liu, X.~Peng, J.~Cao, X.~Wang, S.~Deng, J.~Chen, J.~Yin, and X.~Zhang.
+\newblock {ToolGate}: Contract-grounded and verified tool execution for {LLMs}.
+\newblock In \emph{Findings of ACL}, 2026.
+\newblock \doi{10.18653/v1/2026.findings-acl.470}.
+
+\bibitem[Magesh et~al.(2025)Magesh, Surani, Dahl, Suzgun, Manning, and
+  Ho]{magesh2025}
+V.~Magesh, F.~Surani, M.~Dahl, M.~Suzgun, C.~D. Manning, and D.~E. Ho.
+\newblock Hallucination-free? assessing the reliability of leading {AI} legal
+  research tools.
+\newblock \emph{Journal of Empirical Legal Studies}, 22\penalty0 (2):\penalty0
+  216--242, 2025.
+\newblock \doi{10.1111/jels.12413}.
+
+\bibitem[Manakul et~al.(2023)Manakul, Liusie, and Gales]{selfcheckgpt}
+P.~Manakul, A.~Liusie, and M.~J.~F. Gales.
+\newblock {SelfCheckGPT}: Zero-resource black-box hallucination detection for
+  generative large language models.
+\newblock In \emph{Proc. EMNLP}, 2023.
+\newblock \doi{10.18653/v1/2023.emnlp-main.557}.
+
+\bibitem[McCain et~al.(2026)McCain, Millar, Huang, Eaton, Handa, Stern,
+  et~al.]{mccain2026}
+M.~McCain, T.~Millar, S.~Huang, J.~Eaton, K.~Handa, M.~Stern, et~al.
+\newblock Measuring {AI} agent autonomy in practice.
+\newblock Anthropic Research,
+  \url{https://www.anthropic.com/research/measuring-agent-autonomy}, 2026.
+
+\bibitem[{McKinsey \& Company}(2025)]{mckinsey2025}
+{McKinsey \& Company}.
+\newblock The state of {AI}.
+\newblock
+  \url{https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai},
+  2025.
+
+\bibitem[Mehrotra et~al.(2026)Mehrotra, Kumar, Gulwani, Radhakrishna, and
+  Tiwari]{ten2026}
+N.~Mehrotra, A.~Kumar, S.~Gulwani, A.~Radhakrishna, and A.~Tiwari.
+\newblock {TEN}: Table explicitization, neurosymbolically.
+\newblock In \emph{Proc. ACL Industry Track}, 2026.
+\newblock \doi{10.18653/v1/2026.acl-industry.138}.
+
+\bibitem[Min et~al.(2023)Min, Krishna, Lyu, Lewis, Yih, Koh, Iyyer,
+  Zettlemoyer, and Hajishirzi]{factscore}
+S.~Min, K.~Krishna, X.~Lyu, M.~Lewis, W.~Yih, P.~Koh, M.~Iyyer, L.~Zettlemoyer,
+  and H.~Hajishirzi.
+\newblock {FActScore}: Fine-grained atomic evaluation of factual precision in
+  long form text generation.
+\newblock In \emph{Proc. EMNLP}, 2023.
+\newblock \doi{10.18653/v1/2023.emnlp-main.741}.
+
+\bibitem[Moortgat and Deconinck(2026)]{naviskore}
+Rony Moortgat and Shane Deconinck.
+\newblock Designing curriculum-aligned digital assessment infrastructures: a
+  design-based case study of {Naviskore} in {Flemish} secondary education.
+\newblock \emph{Frontiers in Education}, 11, 2026.
+\newblock \doi{10.3389/feduc.2026.1856724}.
+
+\bibitem[Nakano et~al.(2021)]{webgpt}
+R.~Nakano et~al.
+\newblock {WebGPT}: Browser-assisted question-answering with human feedback.
+\newblock \emph{arXiv:2112.09332}, 2021.
+
+\bibitem[Necula(1997)]{pcc}
+G.~C. Necula.
+\newblock Proof-carrying code.
+\newblock In \emph{Proc. POPL}, pages 106--119, 1997.
+\newblock \doi{10.1145/263699.263712}.
+
+\bibitem[Onweller et~al.(2026)Onweller, Lumer, Huber, Ramchandani, Subbiah, and
+  Feld]{citednotverified}
+H.~Onweller, E.~Lumer, A.~Huber, P.~Ramchandani, V.~K. Subbiah, and C.~Feld.
+\newblock Cited but not verified: Parsing and evaluating source attribution in
+  {LLM} deep research agents.
+\newblock arXiv:2605.06635, 2026.
+
+\bibitem[Orgad et~al.(2025)Orgad, Toker, Gekhman, Reichart, Szpektor, Kotek,
+  and Belinkov]{orgad2025}
+H.~Orgad, M.~Toker, Z.~Gekhman, R.~Reichart, I.~Szpektor, H.~Kotek, and
+  Y.~Belinkov.
+\newblock {LLMs} know more than they show: On the intrinsic representation of
+  {LLM} hallucinations.
+\newblock In \emph{Proc. ICLR}, 2025.
+\newblock arXiv:2410.02707.
+
+\bibitem[Ouyang et~al.(2022)]{ouyang2022}
+L.~Ouyang et~al.
+\newblock Training language models to follow instructions with human feedback.
+\newblock In \emph{Proc. NeurIPS}, 2022.
+\newblock arXiv:2203.02155.
+
+\bibitem[Panda(2026)]{finverbench}
+S.~Panda.
+\newblock {FinVerBench}: Benchmark validity and calibration in large language
+  model financial statement verification.
+\newblock arXiv:2605.29586, 2026.
+
+\bibitem[Paoli(2025)]{deloitte2025}
+N.~Paoli.
+\newblock Deloitte was caught using {AI} in \$290,000 report to help the
+  {Australian} government crack down on welfare after a researcher flagged
+  hallucinations.
+\newblock Fortune,
+  \url{https://fortune.com/2025/10/07/deloitte-ai-australia-government-report-hallucinations-technology-290000-refund/},
+  2025.
+
+\bibitem[Parasuraman and Riley(1997)]{parasuraman1997}
+R.~Parasuraman and V.~Riley.
+\newblock Humans and automation: Use, misuse, disuse, abuse.
+\newblock \emph{Human Factors}, 39\penalty0 (2):\penalty0 230--253, 1997.
+\newblock \doi{10.1518/001872097778543886}.
+
+\bibitem[Parikh et~al.(2020)Parikh, Wang, Gehrmann, Faruqui, Dhingra, Yang, and
+  Das]{totto}
+A.~Parikh, X.~Wang, S.~Gehrmann, M.~Faruqui, B.~Dhingra, D.~Yang, and D.~Das.
+\newblock {ToTTo}: A controlled table-to-text generation dataset.
+\newblock In \emph{Proc. EMNLP}, 2020.
+\newblock \doi{10.18653/v1/2020.emnlp-main.89}.
+
+\bibitem[Pinheiro~da Silva et~al.(2006)Pinheiro~da Silva, McGuinness, and
+  Fikes]{pml}
+Paulo Pinheiro~da Silva, Deborah~L. McGuinness, and Richard Fikes.
+\newblock A proof markup language for {Semantic Web} services.
+\newblock \emph{Information Systems}, 31\penalty0 (4--5):\penalty0 381--395,
+  2006.
+\newblock \doi{10.1016/j.is.2005.02.003}.
+
+\bibitem[Pronesti et~al.(2026)Pronesti, Belz, and Hou]{verifiableprm}
+M.~Pronesti, A.~Belz, and Y.~Hou.
+\newblock Beyond outcome verification: Verifiable process reward models for
+  structured reasoning.
+\newblock In \emph{Findings of ACL}, 2026.
+\newblock \doi{10.18653/v1/2026.findings-acl.1611}.
+
+\bibitem[Rebedea et~al.(2023)Rebedea, Dinu, Sreedhar, Parisien, and
+  Cohen]{nemo}
+T.~Rebedea, R.~Dinu, M.~Sreedhar, C.~Parisien, and J.~Cohen.
+\newblock {NeMo Guardrails}: A toolkit for controllable and safe {LLM}
+  applications with programmable rails.
+\newblock In \emph{Proc. EMNLP System Demonstrations}, pages 431--445, 2023.
+\newblock \doi{10.18653/v1/2023.emnlp-demo.40}.
+
+\bibitem[Santillana(2026)]{santillana2026}
+J.~S. Santillana.
+\newblock Precision is not faithfulness: Coverage-aware evaluation of grounded
+  generation with a complete oracle.
+\newblock arXiv:2606.09376, 2026.
+
+\bibitem[Schreieder et~al.(2026)Schreieder, Schopf, and
+  F{\"a}rber]{evidencesurvey}
+T.~Schreieder, T.~Schopf, and M.~F{\"a}rber.
+\newblock Attribution, citation, and quotation: A survey of evidence-based text
+  generation with large language models.
+\newblock In \emph{Proc. ACL}, 2026.
+\newblock \doi{10.18653/v1/2026.acl-long.1430}.
+
+\bibitem[Solatorio(2025)]{pcn2025}
+Aivin~V. Solatorio.
+\newblock Proof-carrying numbers ({PCN}): A protocol for trustworthy numeric
+  answers from {LLMs} via claim verification.
+\newblock arXiv:2509.06902, 2025.
+
+\bibitem[Theologitis et~al.(2026)Theologitis, Dammu, Shah, and Suciu]{claimdb}
+M.~Theologitis, P.~P.~S. Dammu, C.~Shah, and D.~Suciu.
+\newblock {ClaimDB}: A fact verification benchmark over large structured data.
+\newblock In \emph{Proc. ACL}, pages 34428--34451, 2026.
+\newblock \doi{10.18653/v1/2026.acl-long.1589}.
+\newblock arXiv:2601.14698.
+
+\bibitem[Torroba~Hennigen et~al.(2024)Torroba~Hennigen, Shen, Nrusimha, Gapp,
+  Sontag, and Kim]{symgen}
+L.~Torroba~Hennigen, S.~Z. Shen, A.~Nrusimha, B.~Gapp, D.~Sontag, and Y.~Kim.
+\newblock Towards verifiable text generation with symbolic references.
+\newblock In \emph{Proc. COLM}, 2024.
+\newblock arXiv:2311.09188.
+
+\bibitem[{U.S. District Court, S.D.N.Y.}(2023)]{mata2023}
+{U.S. District Court, S.D.N.Y.}
+\newblock \textit{Mata v. Avianca, Inc.}
+\newblock 678 F.Supp.3d 443, 2023.
+
+\bibitem[{W3C}(2015)]{rdfa}
+{W3C}.
+\newblock {RDFa} 1.1 primer --- third edition.
+\newblock W3C Working Group Note, \url{https://www.w3.org/TR/rdfa-primer/},
+  2015.
+
+\bibitem[Wei et~al.(2024)Wei, Yang, Song, Lu, Hu, Huang, Tran, Peng, Liu,
+  Huang, Du, and Le]{safe}
+J.~Wei, C.~Yang, X.~Song, Y.~Lu, N.~Hu, J.~Huang, D.~Tran, D.~Peng, R.~Liu,
+  D.~Huang, C.~Du, and Q.~V. Le.
+\newblock Long-form factuality in large language models.
+\newblock In \emph{Proc. NeurIPS}, 2024.
+\newblock arXiv:2403.18802.
+
+\bibitem[Wei et~al.(2026)Wei, Wang, Liao, Dong, Liu, Jia, Yu, and
+  Zhu]{genprove}
+J.~Wei, X.~Wang, Y.~Liao, J.~Dong, Y.~Liu, C.~Jia, B.~Yu, and J.~Zhu.
+\newblock {GenProve}: Learning to generate text with fine-grained provenance.
+\newblock In \emph{Proc. ACL}, 2026.
+\newblock \doi{10.18653/v1/2026.acl-long.228}.
+
+\bibitem[{XBRL International}(2013)]{ixbrl}
+{XBRL International}.
+\newblock Inline {XBRL} part 1: Specification 1.1.
+\newblock
+  \url{https://www.xbrl.org/specification/inlinexbrl-part1/rec-2013-11-18/inlinexbrl-part1-rec-2013-11-18.html},
+  2013.
+
+\bibitem[Xu et~al.(2026)Xu, Li, and Sheng]{gavel}
+R.~Xu, G.~Li, and V.~S. Sheng.
+\newblock {GAVEL}: Evidence-contract debate with mechanized scrutiny for
+  provenance-grounded fact-checking.
+\newblock In \emph{Findings of ACL}, 2026.
+\newblock \doi{10.18653/v1/2026.findings-acl.1789}.
+
+\bibitem[Xu et~al.(2024)Xu, Jain, and Kankanhalli]{xu2024}
+Z.~Xu, S.~Jain, and M.~Kankanhalli.
+\newblock Hallucination is inevitable: An innate limitation of large language
+  models.
+\newblock arXiv:2401.11817, 2024.
+
+\end{thebibliography}

@@ -1,0 +1,31 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright 2026 Shane Deconinck
+
+This licence covers the paper and the datasets in this repository — see the
+Licence section of README.md for exactly which paths. The code is under
+Apache-2.0 (see LICENSE).
+
+The full legal text is at:
+
+    https://creativecommons.org/licenses/by/4.0/legalcode
+
+A plain-language summary, which is not a substitute for the licence, is at:
+
+    https://creativecommons.org/licenses/by/4.0/
+
+In short: you may share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the licence, and
+indicate whether you made changes. You may do so in any reasonable manner, but
+not in any way that suggests the licensor endorses you or your use.
+
+Suggested attribution:
+
+    Deconinck, S. (2026). ProveML: Inline Claim Markup for Deterministic
+    Verification of AI-Generated Text. Licensed under CC BY 4.0.
+
+Note on the finance dataset: data/sec-edgar-finance.json is derived from public
+SEC EDGAR filings, which are United States government works in the public
+domain, and the figures it holds are facts rather than protectable expression.
+The CC BY licence above applies to the selection and arrangement in that file,
+not to the underlying filings.

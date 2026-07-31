@@ -31,9 +31,20 @@ public SEC EDGAR filings.
 
 ## Licence
 
-Not yet decided. Until a licence file lands here, treat everything in this
-repository as all rights reserved. The `proveml` package is separate and is
-Apache-2.0.
+Two licences, because this repository holds two kinds of work.
+
+| path | licence |
+|---|---|
+| `paper/`, `data/` | CC BY 4.0 (`LICENSE-CC-BY-4.0`) |
+| everything else — `experiments/`, `audit/`, `benchmarks/`, `demo/`, scripts | Apache-2.0 (`LICENSE`) |
+
+Apache-2.0 matches the `proveml` package and carries an explicit patent grant.
+CC BY 4.0 covers the paper and the datasets: reuse them, build on them, publish
+about them — just say where they came from.
+
+The education dataset is generated, so it is ours to license. The finance
+dataset is derived from public SEC EDGAR filings, which are US government works
+in the public domain; see `LICENSE-CC-BY-4.0` for what that means for that file.
 
 ## Local setup
 

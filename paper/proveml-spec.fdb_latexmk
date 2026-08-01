@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex proveml-spec"] 1785610147.62716 "proveml-spec.aux" "proveml-spec.bbl" "proveml-spec" 1785610156.14586 0
+["bibtex proveml-spec"] 1785615163.2863 "proveml-spec.aux" "proveml-spec.bbl" "proveml-spec" 1785615192.81597 0
   "./proveml.bib" 1785477212.77784 15678 8e3ac0da393f72fe15a0b4a26b02b47b ""
   "/usr/local/texlive/2026/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "proveml-spec.aux" 1785610154.69028 25827 d78d844816cba58da08e6b9b335eb00f "pdflatex"
+  "proveml-spec.aux" 1785615191.62735 26155 58c0612651c4df9c95c7d16df2c0c1a2 "pdflatex"
   (generated)
   "proveml-spec.bbl"
   "proveml-spec.blg"
   (rewritten before read)
-["pdflatex"] 1785610148.12945 "proveml-spec.tex" "proveml-spec.pdf" "proveml-spec" 1785610156.14619 0
+["pdflatex"] 1785615185.08018 "proveml-spec.tex" "proveml-spec.pdf" "proveml-spec" 1785615192.81636 0
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -234,10 +234,10 @@
   "fig-audit-mode.png" 1775071268.74349 53134 40cae9f38b8776fc01d804dca77a5408 ""
   "fig-verify-correct.png" 1775071223.5104 33094 dc805bdb2c848421bfef23d355689387 ""
   "fig-verify-errors.png" 1775071241.88869 23091 94ebc2c87e1fd7d7d2564dd745254767 ""
-  "proveml-spec.aux" 1785610154.69028 25827 d78d844816cba58da08e6b9b335eb00f "pdflatex"
-  "proveml-spec.bbl" 1785610148.11837 16627 7d065d6faa0b005be84893162bcf3444 "bibtex proveml-spec"
-  "proveml-spec.out" 1785610154.69503 4842 cf8f6a964167560544f1f08cf37a4d37 "pdflatex"
-  "proveml-spec.tex" 1785610139.31346 109802 b6f352aaed80ac86c3b53122c6da9629 ""
+  "proveml-spec.aux" 1785615191.62735 26155 58c0612651c4df9c95c7d16df2c0c1a2 "pdflatex"
+  "proveml-spec.bbl" 1785615163.90384 16627 7d065d6faa0b005be84893162bcf3444 "bibtex proveml-spec"
+  "proveml-spec.out" 1785615191.63244 4842 cf8f6a964167560544f1f08cf37a4d37 "pdflatex"
+  "proveml-spec.tex" 1785615184.81197 109996 1fb49dbf9fdac34c49fe2ceff3f4fcdb ""
   (generated)
   "proveml-spec.aux"
   "proveml-spec.log"

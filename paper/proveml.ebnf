@@ -26,7 +26,7 @@ label             = identifier ;
 identifier        = letter , { letter | digit | "_" } ;
 
 (* Text content *)
-entity_name       = { char - DQUOTE } ;
+entity_name       = { char - DQUOTE - ']' } ;
 display_text      = { char - "}" } ;
 scoped_content    = { char } ;   (* parsed recursively *)
 value_text        = { char - "}" } ;

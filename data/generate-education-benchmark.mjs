@@ -273,7 +273,9 @@ function generate({ offeringCount = 95, studentCount = 741 } = {}) {
     return {
         meta: {
             schoolyear: '2025-2026',
-            generatedAt: new Date().toISOString(),
+            // No generatedAt: a wall-clock field would make regeneration differ
+            // by one byte per run and falsify "regenerates byte-identically".
+            // Provenance lives in the seed.
             totalStudents: placed,
             totalALEntries: totalEntries,
             offerings: offerings.length,
@@ -330,8 +332,11 @@ function pinBenchmarkPupils(offerings) {
 
 function verifyAgainst(sourcePath, generated) {
     if (!existsSync(sourcePath)) {
-        console.log(`No source at ${sourcePath} to compare against — nothing to check.`);
-        return true;
+        // No source, no verdict. Returning success here would print
+        // "nothing carried over" on machines where nothing was compared.
+        console.log(`No source at ${sourcePath} to compare against — nothing was checked.`);
+        console.log('Pass --against <path> to compare against a real source.');
+        process.exit(2);
     }
     const src = JSON.parse(readFileSync(sourcePath, 'utf8'));
     const vec = (d) => new Set(d.offerings.flatMap(o => o.students

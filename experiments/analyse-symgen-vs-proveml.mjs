@@ -86,7 +86,7 @@ function provemlCoverage(text) {
 function provemlStats(domain, model) {
     const runs = provemlRuns(domain, model);
     if (!runs.length) return null;
-    let marked = 0, unmarked = 0, addr = 0, value = 0, caught = 0, claims = 0, noMarkup = 0, queries = 0;
+    let marked = 0, unmarked = 0, addr = 0, ctx = 0, value = 0, caught = 0, claims = 0, noMarkup = 0, queries = 0;
     for (const run of runs) {
         for (const r of run.results) {
             if (!r) continue;
@@ -106,7 +106,8 @@ function provemlStats(domain, model) {
                 for (const e of details) {
                     const cls = e.errorClass || e.status;
                     if (cls === 'value') value++;
-                    else if (cls === 'reference' || cls === 'context') addr++;
+                    else if (cls === 'reference') addr++;
+                    else if (cls === 'context') ctx++;
                 }
                 caught += details.length;
             } else {
@@ -119,7 +120,10 @@ function provemlStats(domain, model) {
     return {
         runs: runs.length, queries, claims,
         coverage: marked + unmarked ? +(100 * marked / (marked + unmarked)).toFixed(1) : 0,
-        caught, detectedAddressability: addr, detectedValue: value, noMarkup,
+        // reference (wrong path) and context (no entity binding) reported
+        // separately: the paper's addressability counts are reference-only,
+        // and printing them merged made the script disagree with the paper.
+        caught, detectedAddressability: addr, detectedContext: ctx, detectedValue: value, noMarkup,
     };
 }
 
@@ -150,7 +154,7 @@ for (const domain of DOMAINS) {
             `${r.model.padEnd(13)} | ${s ? (s.coverage + '%').padStart(10) : '        —'} ` +
             `| ${s ? (s.resolutionRate + '%').padStart(10) : '         —'} ` +
             `| ${p ? (p.coverage + '%').padStart(11) : '          —'} ` +
-            `| ${p ? String(p.caught).padStart(6) + (p.detectedAddressability + p.detectedValue ? ` (${p.detectedAddressability} addr, ${p.detectedValue} val)` : '') : '—'}`
+            `| ${p ? String(p.caught).padStart(6) + (p.detectedAddressability + p.detectedContext + p.detectedValue ? ` (${p.detectedAddressability} addr, ${p.detectedContext} ctx, ${p.detectedValue} val)` : '') : '—'}`
         );
     }
     console.log();

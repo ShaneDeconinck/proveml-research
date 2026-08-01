@@ -2,7 +2,7 @@
   "education-fullctx · phi3:mini": {
     "model": "education-fullctx · phi3:mini",
     "runs": 1,
-    "queries": 22,
+    "queries": 28,
     "initial": {
       "mean": 0,
       "sd": 0,
@@ -35,7 +35,7 @@
   "education-fullctx · qwen2.5:3b": {
     "model": "education-fullctx · qwen2.5:3b",
     "runs": 1,
-    "queries": 24,
+    "queries": 28,
     "initial": {
       "mean": 0,
       "sd": 0,
@@ -68,7 +68,7 @@
   "education-fullctx · qwen2.5:7b": {
     "model": "education-fullctx · qwen2.5:7b",
     "runs": 1,
-    "queries": 27,
+    "queries": 28,
     "initial": {
       "mean": 0,
       "sd": 0,
@@ -103,31 +103,31 @@
     "runs": 3,
     "queries": 28,
     "initial": {
-      "mean": 14.7,
-      "sd": 25.4,
+      "mean": 37.7,
+      "sd": 33.7,
       "min": 0,
-      "max": 44,
+      "max": 65,
       "n": 3
     },
     "final": {
-      "mean": 14.7,
-      "sd": 25.4,
+      "mean": 38.3,
+      "sd": 34.3,
       "min": 0,
-      "max": 44,
+      "max": 66,
       "n": 3
     },
     "converged": {
-      "mean": 1.7,
-      "sd": 2.9,
+      "mean": 7.3,
+      "sd": 6.7,
       "min": 0,
-      "max": 5,
+      "max": 13,
       "n": 3
     },
     "zeroShot": {
-      "mean": 1.7,
-      "sd": 2.9,
+      "mean": 6.3,
+      "sd": 5.7,
       "min": 0,
-      "max": 5,
+      "max": 11,
       "n": 3
     }
   },
@@ -136,97 +136,31 @@
     "runs": 3,
     "queries": 28,
     "initial": {
-      "mean": 56.3,
-      "sd": 8.3,
-      "min": 47,
-      "max": 63,
+      "mean": 60.3,
+      "sd": 8.7,
+      "min": 53,
+      "max": 70,
       "n": 3
     },
     "final": {
-      "mean": 59.7,
-      "sd": 7.8,
-      "min": 51,
-      "max": 66,
+      "mean": 63.3,
+      "sd": 8.5,
+      "min": 55,
+      "max": 72,
       "n": 3
     },
     "converged": {
-      "mean": 11,
-      "sd": 4.4,
-      "min": 6,
-      "max": 14,
+      "mean": 13.3,
+      "sd": 3.2,
+      "min": 11,
+      "max": 17,
       "n": 3
     },
     "zeroShot": {
-      "mean": 10,
-      "sd": 4.4,
-      "min": 5,
-      "max": 13,
-      "n": 3
-    }
-  },
-  "education · qwen2.5:3b": {
-    "model": "education · qwen2.5:3b",
-    "runs": 3,
-    "queries": 28,
-    "initial": {
-      "mean": 86,
-      "sd": 1.7,
-      "min": 85,
-      "max": 88,
-      "n": 3
-    },
-    "final": {
-      "mean": 87.3,
-      "sd": 0.6,
-      "min": 87,
-      "max": 88,
-      "n": 3
-    },
-    "converged": {
-      "mean": 19,
-      "sd": 1,
-      "min": 18,
-      "max": 20,
-      "n": 3
-    },
-    "zeroShot": {
-      "mean": 18.3,
-      "sd": 1.5,
-      "min": 17,
-      "max": 20,
-      "n": 3
-    }
-  },
-  "education-en · haiku": {
-    "model": "education-en · haiku",
-    "runs": 3,
-    "queries": 28,
-    "initial": {
-      "mean": 88,
-      "sd": 2,
-      "min": 86,
-      "max": 90,
-      "n": 3
-    },
-    "final": {
-      "mean": 91.7,
-      "sd": 3.1,
-      "min": 89,
-      "max": 95,
-      "n": 3
-    },
-    "converged": {
-      "mean": 21.7,
-      "sd": 2.1,
-      "min": 20,
-      "max": 24,
-      "n": 3
-    },
-    "zeroShot": {
-      "mean": 20.3,
-      "sd": 1.5,
-      "min": 19,
-      "max": 22,
+      "mean": 11.3,
+      "sd": 3.5,
+      "min": 8,
+      "max": 15,
       "n": 3
     }
   },
@@ -235,82 +169,16 @@
     "runs": 3,
     "queries": 28,
     "initial": {
-      "mean": 90.7,
-      "sd": 1.5,
-      "min": 89,
-      "max": 92,
-      "n": 3
-    },
-    "final": {
-      "mean": 91.3,
-      "sd": 0.6,
-      "min": 91,
-      "max": 92,
-      "n": 3
-    },
-    "converged": {
-      "mean": 25,
-      "sd": 0,
-      "min": 25,
-      "max": 25,
-      "n": 3
-    },
-    "zeroShot": {
-      "mean": 24.3,
-      "sd": 1.2,
-      "min": 23,
-      "max": 25,
-      "n": 3
-    }
-  },
-  "education · haiku": {
-    "model": "education · haiku",
-    "runs": 3,
-    "queries": 28,
-    "initial": {
       "mean": 87,
       "sd": 3.5,
-      "min": 83,
-      "max": 89,
+      "min": 85,
+      "max": 91,
       "n": 3
     },
     "final": {
-      "mean": 87.7,
-      "sd": 1.5,
+      "mean": 88,
+      "sd": 2.6,
       "min": 86,
-      "max": 89,
-      "n": 3
-    },
-    "converged": {
-      "mean": 17.7,
-      "sd": 1.5,
-      "min": 16,
-      "max": 19,
-      "n": 3
-    },
-    "zeroShot": {
-      "mean": 17.3,
-      "sd": 2.1,
-      "min": 15,
-      "max": 19,
-      "n": 3
-    }
-  },
-  "education-en · qwen2.5:3b": {
-    "model": "education-en · qwen2.5:3b",
-    "runs": 3,
-    "queries": 28,
-    "initial": {
-      "mean": 89.7,
-      "sd": 0.6,
-      "min": 89,
-      "max": 90,
-      "n": 3
-    },
-    "final": {
-      "mean": 90.7,
-      "sd": 0.6,
-      "min": 90,
       "max": 91,
       "n": 3
     },
@@ -322,10 +190,109 @@
       "n": 3
     },
     "zeroShot": {
+      "mean": 22.3,
+      "sd": 1.5,
+      "min": 21,
+      "max": 24,
+      "n": 3
+    }
+  },
+  "education-en · qwen2.5:3b": {
+    "model": "education-en · qwen2.5:3b",
+    "runs": 3,
+    "queries": 28,
+    "initial": {
+      "mean": 89.3,
+      "sd": 5.8,
+      "min": 86,
+      "max": 96,
+      "n": 3
+    },
+    "final": {
+      "mean": 90.3,
+      "sd": 4.9,
+      "min": 87,
+      "max": 96,
+      "n": 3
+    },
+    "converged": {
+      "mean": 22.3,
+      "sd": 2.5,
+      "min": 20,
+      "max": 25,
+      "n": 3
+    },
+    "zeroShot": {
       "mean": 21.3,
       "sd": 1.5,
       "min": 20,
       "max": 23,
+      "n": 3
+    }
+  },
+  "education-en · haiku": {
+    "model": "education-en · haiku",
+    "runs": 3,
+    "queries": 28,
+    "initial": {
+      "mean": 88.7,
+      "sd": 2.9,
+      "min": 87,
+      "max": 92,
+      "n": 3
+    },
+    "final": {
+      "mean": 92,
+      "sd": 2.6,
+      "min": 89,
+      "max": 94,
+      "n": 3
+    },
+    "converged": {
+      "mean": 21.7,
+      "sd": 2.3,
+      "min": 19,
+      "max": 23,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 20,
+      "sd": 1,
+      "min": 19,
+      "max": 21,
+      "n": 3
+    }
+  },
+  "education · haiku": {
+    "model": "education · haiku",
+    "runs": 3,
+    "queries": 28,
+    "initial": {
+      "mean": 87.7,
+      "sd": 2.5,
+      "min": 85,
+      "max": 90,
+      "n": 3
+    },
+    "final": {
+      "mean": 90.3,
+      "sd": 2.5,
+      "min": 88,
+      "max": 93,
+      "n": 3
+    },
+    "converged": {
+      "mean": 19.7,
+      "sd": 2.3,
+      "min": 17,
+      "max": 21,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 19.3,
+      "sd": 2.9,
+      "min": 16,
+      "max": 21,
       "n": 3
     }
   },
@@ -383,6 +350,72 @@
     },
     "zeroShot": null
   },
+  "education · qwen2.5:3b": {
+    "model": "education · qwen2.5:3b",
+    "runs": 3,
+    "queries": 28,
+    "initial": {
+      "mean": 88.7,
+      "sd": 1.2,
+      "min": 88,
+      "max": 90,
+      "n": 3
+    },
+    "final": {
+      "mean": 90.3,
+      "sd": 1.5,
+      "min": 89,
+      "max": 92,
+      "n": 3
+    },
+    "converged": {
+      "mean": 20.3,
+      "sd": 2.5,
+      "min": 18,
+      "max": 23,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 20,
+      "sd": 2,
+      "min": 18,
+      "max": 22,
+      "n": 3
+    }
+  },
+  "education · qwen2.5:7b": {
+    "model": "education · qwen2.5:7b",
+    "runs": 3,
+    "queries": 28,
+    "initial": {
+      "mean": 88.7,
+      "sd": 4.9,
+      "min": 83,
+      "max": 92,
+      "n": 3
+    },
+    "final": {
+      "mean": 88.7,
+      "sd": 4.9,
+      "min": 83,
+      "max": 92,
+      "n": 3
+    },
+    "converged": {
+      "mean": 23,
+      "sd": 2,
+      "min": 21,
+      "max": 25,
+      "n": 3
+    },
+    "zeroShot": {
+      "mean": 23,
+      "sd": 2,
+      "min": 21,
+      "max": 25,
+      "n": 3
+    }
+  },
   "finance · phi3:mini": {
     "model": "finance · phi3:mini",
     "runs": 3,
@@ -409,39 +442,6 @@
       "n": 3
     },
     "zeroShot": null
-  },
-  "education · qwen2.5:7b": {
-    "model": "education · qwen2.5:7b",
-    "runs": 3,
-    "queries": 28,
-    "initial": {
-      "mean": 93,
-      "sd": 4.4,
-      "min": 88,
-      "max": 96,
-      "n": 3
-    },
-    "final": {
-      "mean": 93,
-      "sd": 4.4,
-      "min": 88,
-      "max": 96,
-      "n": 3
-    },
-    "converged": {
-      "mean": 25,
-      "sd": 2,
-      "min": 23,
-      "max": 27,
-      "n": 3
-    },
-    "zeroShot": {
-      "mean": 25,
-      "sd": 2,
-      "min": 23,
-      "max": 27,
-      "n": 3
-    }
   },
   "finance · qwen2.5:7b": {
     "model": "finance · qwen2.5:7b",

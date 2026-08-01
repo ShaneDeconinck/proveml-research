@@ -1,0 +1,1440 @@
+{
+  "timestamp": "2026-07-31T17:00:29.911Z",
+  "provider": "ollama",
+  "model": "qwen2.5:7b",
+  "run": 2,
+  "maxLoops": 3,
+  "contextMode": "slice",
+  "callTimeoutMs": 900000,
+  "timedOutCalls": 0,
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1",
+    "path": "benchmarks/proveml-pilot.v1.json"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} has %[studentCount]{8} students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 8.8
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} has a pass rate of %[passRate]{74}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 8.2
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10009]{5BS} has a pass rate of %[passRate]{68}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 7.9
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10001]{1C} has %[studentCount]{11} students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.7
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} has a pass rate of %[passRate]{74}%, which is the highest among 6ZW, 3BS, 5BS, and 6HO.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 15.1
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10007]{4WE} has the lowest pass rate at %[passRate]{84}% among 1C, 2D, and 6ZW. However, based on the question's context, it seems to ask for the lowest pass rate, not strictly the lowest. Thus, none of the given classes (1C, 2D, 4WE, 6ZW) have a pass rate lower than their respective values: 79%, 71%, 84%, and 74% respectively. If we are to strictly answer based on pass rates provided, no class among these has the lowest pass rate as all are higher than the suggested lowest (potentially a misinterpretation of the question).",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 35.3
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 5,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10003]{2ZW} has fewer than 5 students.\n@[offering:10005]{3SV} has fewer than 5 students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 12.9
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} %[passRate]{60}%  \n@[offering:10002]{2D} %[passRate]{71}%  \n@[offering:10001]{1C} %[passRate]{79}%",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 14.9
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} heeft een slaagrate van %[passRate]{74}%, terwijl @[offering:10004]{3BS} een slaagrate van %[passRate]{60}% behaalde.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 14.5
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 50,
+      "finalRate": 50,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [
+        {
+          "status": "entity-not-found",
+          "errorClass": "reference",
+          "path": "student:8"
+        }
+      ],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} heeft het laagste aantal leerlingen met @[student:8]{8}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "student:8"
+            }
+          ],
+          "rate": 50,
+          "time": 8.5
+        },
+        {
+          "loop": 1,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "student:8"
+            }
+          ],
+          "rate": 50,
+          "time": 10.7,
+          "candidate": {
+            "verified": 1,
+            "total": 2,
+            "rate": 50,
+            "errorDetails": [
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:8"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "student:8"
+            }
+          ],
+          "rate": 50,
+          "time": 6.9,
+          "candidate": {
+            "verified": 1,
+            "total": 2,
+            "rate": 50,
+            "errorDetails": [
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:8"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 1,
+          "total": 2,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "student:8"
+            }
+          ],
+          "rate": 50,
+          "time": 13.3,
+          "candidate": {
+            "verified": 1,
+            "total": 2,
+            "rate": 50,
+            "errorDetails": [
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "student:8"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10008]{5BO} has a pass rate of %[passRate]{85}% while@[offering:10011]{6OL} has a pass rate of %[passRate]{82}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 16.3
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 7,
+      "finalClaims": 7,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10002]{2D} has a pass rate of %[passRate]{71}%.\n@[offering:10007]{4WE} has a pass rate of %[passRate]{84}%.\n@[offering:10010]{6HO} has a pass rate of %[passRate]{76}%.\n@[offering:10007]{4WE} has the highest pass rate.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 7,
+          "total": 7,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 21.7
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 1,
+      "finalClaims": 1,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} heeft een slaagpercentage onder 60%, met exactly 60%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 1,
+          "total": 1,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 10.5
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 50,
+      "finalRate": 50,
+      "initialClaims": 8,
+      "finalClaims": 8,
+      "initialErrorDetails": [
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10009.dropRate"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10011.dropRate"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10007.dropRate"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10012.dropRate"
+        }
+      ],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10009]{5BS} has a drop rate of %[dropRate]{32%}.\n@[offering:10011]{6OL} has a drop rate of %[dropRate]{17%}.\n@[offering:10007]{4WE} has a drop rate of %[dropRate]{16%}.\n@[offering:10012]{6ZW} has a drop rate of %[dropRate]{11%}.\n\nNone of the offerings have a drop rate of at least 80%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 8,
+          "errors": 4,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10009.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10011.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10007.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10012.dropRate"
+            }
+          ],
+          "rate": 50,
+          "time": 27.1
+        },
+        {
+          "loop": 1,
+          "verified": 4,
+          "total": 8,
+          "errors": 4,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10009.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10011.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10007.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10012.dropRate"
+            }
+          ],
+          "rate": 50,
+          "time": 41.6,
+          "candidate": {
+            "verified": 4,
+            "total": 4,
+            "rate": 100,
+            "errorDetails": []
+          },
+          "accepted": false,
+          "reason": "claims-dropped"
+        },
+        {
+          "loop": 2,
+          "verified": 4,
+          "total": 8,
+          "errors": 4,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10009.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10011.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10007.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10012.dropRate"
+            }
+          ],
+          "rate": 50,
+          "time": 22.3,
+          "candidate": {
+            "verified": 4,
+            "total": 8,
+            "rate": 50,
+            "errorDetails": [
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10009.dropRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10011.dropRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10007.dropRate"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "offering:10012.dropRate"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 4,
+          "total": 8,
+          "errors": 4,
+          "errorDetails": [
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10009.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10011.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10007.dropRate"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10012.dropRate"
+            }
+          ],
+          "rate": 50,
+          "time": 32.5,
+          "candidate": {
+            "verified": 4,
+            "total": 4,
+            "rate": 100,
+            "errorDetails": []
+          },
+          "accepted": false,
+          "reason": "claims-dropped"
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10003]{2ZW} has less than 5 students.\n@[offering:10005]{3SV} has less than 5 students.\n@[offering:10006]{4OB} has less than 5 students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 18.8
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} combineren [studentCount]{8} leerlingen met een slaagpercentage van %[passRate]{74}%, wat niet boven de 75%-grens is.\n@[offering:10010]{6HO} combineren [studentCount]{9} leerlingen met een slaagpercentage van %[passRate]{76}%, wel boven de 75%-grens.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 23.5
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10001]{1C} has %@[studentCount]{11} students with a pass rate of %@[passRate]{79}% and an evaluation rate of %@[evalRate]{96}%.\n@[offering:10004]{3BS} has %@[studentCount]{8} students with a pass rate of %@[passRate]{60}% and an evaluation rate of %@[evalRate]{85}%.\n@[offering:10009]{5BS} has %@[studentCount]{10} students with a pass rate of %@[passRate]{68}% and an evaluation rate of %@[evalRate]{91}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 31.1
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 5,
+      "finalClaims": 5,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10002]{2D} has the lowest pass rate at %[passRate]{71}%.\n@[offering:10001]{1C} has a slightly higher pass rate at %[passRate]{79}%, but fewer students evaluated at %[evalRate]{96}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 5,
+          "total": 5,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 16.8
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 9,
+      "finalClaims": 9,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10003]{2ZW} has %[studentCount]{4} students with a pass rate of %[passRate]{86}%.\n@[offering:10005]{3SV} has %[studentCount]{3} students with a pass rate of %[passRate]{81}%.\n@[offering:10006]{4OB} has %[studentCount]{6} students with a pass rate of %[passRate]{82}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 9,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 22.5
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "@[student:20414]{Amir Janssens} scored a pass rate of %[passRate]{0}% with 0 absences on 18 evaluated attainment levels.\n@[student:20459]{Ayoub Peeters} achieved a pass rate of 0% with 3 absences on 13 out of 16 evaluated attainment levels.\n@[student:20400]{Ali Peeters} passed 5%, having 5 absences while being evaluated on 22 of 27 attainment levels.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 29.8
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:20400]{Ali Peeters} scored a pass rate of %[passRate]{5}% on %[evaluated]{22} attainment levels.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 10.3
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [
+        {
+          "status": "entity-not-found",
+          "errorClass": "reference",
+          "path": "strugglingStudent:20376"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "strugglingStudent:20376.absent"
+        }
+      ],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[strugglingStudent:20376]{Noor Maes} heeft %[absent]{4} afwezigheden.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 2,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376.absent"
+            }
+          ],
+          "rate": 0,
+          "time": 8.9
+        },
+        {
+          "loop": 1,
+          "verified": 0,
+          "total": 2,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376.absent"
+            }
+          ],
+          "rate": 0,
+          "time": 11.3,
+          "candidate": {
+            "verified": 0,
+            "total": 2,
+            "rate": 0,
+            "errorDetails": [
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "strugglingStudent:20376"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "strugglingStudent:20376.absent"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 0,
+          "total": 2,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376.absent"
+            }
+          ],
+          "rate": 0,
+          "time": 6.3,
+          "candidate": {
+            "verified": 0,
+            "total": 2,
+            "rate": 0,
+            "errorDetails": [
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "strugglingStudent:20376"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "strugglingStudent:20376.absent"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 0,
+          "total": 2,
+          "errors": 2,
+          "errorDetails": [
+            {
+              "status": "entity-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "strugglingStudent:20376.absent"
+            }
+          ],
+          "rate": 0,
+          "time": 5.9,
+          "candidate": {
+            "verified": 0,
+            "total": 2,
+            "rate": 0,
+            "errorDetails": [
+              {
+                "status": "entity-not-found",
+                "errorClass": "reference",
+                "path": "strugglingStudent:20376"
+              },
+              {
+                "status": "field-not-found",
+                "errorClass": "reference",
+                "path": "strugglingStudent:20376.absent"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 2,
+      "finalResponse": "@[student:20400]{Ali Peeters} scored %[passRate]{5}% on %[evaluated]{22} attainment levels.\n@[student:20376]{Noor Maes} scored %[passRate]{6}% on %[evaluated]{17} attainment levels.\nTherefore, Ali Peeters scores lower than Noor Maes.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 22
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "@[student:20414]{Amir Janssens} scored %[passRate]{0}% on %[evaluated]{18} attainment levels.\n@[student:20459]{Ayoub Peeters} scored %[passRate]{0}% on %[evaluated]{13} attainment levels.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 20.5
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 67,
+      "finalRate": 67,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "student:20400.passRate",
+          "expected": "5"
+        }
+      ],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:20400]{Ali Peeters} has a pass rate of %[passRate]{5%} on %[evaluated]{22} attainment levels, with only 1 pass out of 27 total evaluations due to being absent for 5 sessions.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "student:20400.passRate",
+              "expected": "5"
+            }
+          ],
+          "rate": 67,
+          "time": 13.9
+        },
+        {
+          "loop": 1,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "student:20400.passRate",
+              "expected": "5"
+            }
+          ],
+          "rate": 67,
+          "time": 16.2,
+          "candidate": {
+            "verified": 1,
+            "total": 2,
+            "rate": 50,
+            "errorDetails": [
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "student:20400.passRate",
+                "expected": "5"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "student:20400.passRate",
+              "expected": "5"
+            }
+          ],
+          "rate": 67,
+          "time": 19.5,
+          "candidate": {
+            "verified": 2,
+            "total": 3,
+            "rate": 67,
+            "errorDetails": [
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "student:20400.passRate",
+                "expected": "5"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "student:20400.passRate",
+              "expected": "5"
+            }
+          ],
+          "rate": 67,
+          "time": 13.3,
+          "candidate": {
+            "verified": 2,
+            "total": 3,
+            "rate": 67,
+            "errorDetails": [
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "student:20400.passRate",
+                "expected": "5"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 1,
+      "finalClaims": 1,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} has no teacher information provided in the data.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 1,
+          "total": 1,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 8.7
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 67,
+      "finalRate": 67,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10050.passRate",
+          "expected": "75"
+        }
+      ],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[offering:10050]{5WEWI} has a pass rate of %[passRate]{75%}. @[student:20376]{Noor Maes} passed 1 out of 17 evaluated attainment levels, indicating she is struggling. To improve her performance next month, consider focusing on the areas where she was evaluated but did not pass.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10050.passRate",
+              "expected": "75"
+            }
+          ],
+          "rate": 67,
+          "time": 18.1
+        },
+        {
+          "loop": 1,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10050.passRate",
+              "expected": "75"
+            }
+          ],
+          "rate": 67,
+          "time": 21,
+          "candidate": {
+            "verified": 2,
+            "total": 3,
+            "rate": 67,
+            "errorDetails": [
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "offering:10050.passRate",
+                "expected": "75"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 2,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10050.passRate",
+              "expected": "75"
+            }
+          ],
+          "rate": 67,
+          "time": 15.6,
+          "candidate": {
+            "verified": 2,
+            "total": 3,
+            "rate": 67,
+            "errorDetails": [
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "offering:10050.passRate",
+                "expected": "75"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        },
+        {
+          "loop": 3,
+          "verified": 2,
+          "total": 3,
+          "errors": 1,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10050.passRate",
+              "expected": "75"
+            }
+          ],
+          "rate": 67,
+          "time": 15.9,
+          "candidate": {
+            "verified": 2,
+            "total": 3,
+            "rate": 67,
+            "errorDetails": [
+              {
+                "status": "value-mismatch",
+                "errorClass": "value",
+                "path": "offering:10050.passRate",
+                "expected": "75"
+              }
+            ]
+          },
+          "accepted": false,
+          "reason": "not-better"
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10001]{1C} has a pass rate of %[passRate]{79}% and an evaluation rate of 96%. Given the current high performance, it may not show as much improvement. Comparatively,@[offering:10004]{3BS} with a pass rate of %[passRate]{60}% and an evaluation rate of 85% might have more room for improvement.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 24.1
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 91,
+    "avgFinal": 91,
+    "converged": 23,
+    "total": 28,
+    "avgLoops": "0.0",
+    "zeroShot": 23,
+    "oneLoop": 23,
+    "timedOutCalls": 0
+  }
+}

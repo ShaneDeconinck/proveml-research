@@ -97,22 +97,22 @@
       "model": "phi3:mini",
       "symgen": {
         "runs": 3,
-        "queries": 83,
-        "refs": 409,
-        "resolutionRate": 56.2,
-        "unresolved": 179,
-        "coverage": 64.1,
+        "queries": 84,
+        "refs": 320,
+        "resolutionRate": 65.3,
+        "unresolved": 111,
+        "coverage": 62.2,
         "noMarkup": 0
       },
       "proveml": {
         "runs": 3,
-        "queries": 80,
-        "claims": 172,
-        "coverage": 41.6,
-        "caught": 61,
-        "detectedAddressability": 52,
+        "queries": 84,
+        "claims": 304,
+        "coverage": 60.7,
+        "caught": 62,
+        "detectedAddressability": 53,
         "detectedValue": 9,
-        "noMarkup": 56
+        "noMarkup": 40
       }
     },
     {
@@ -121,20 +121,20 @@
       "symgen": {
         "runs": 3,
         "queries": 84,
-        "refs": 270,
-        "resolutionRate": 68.9,
-        "unresolved": 84,
-        "coverage": 70.7,
-        "noMarkup": 12
+        "refs": 291,
+        "resolutionRate": 77,
+        "unresolved": 67,
+        "coverage": 72.5,
+        "noMarkup": 10
       },
       "proveml": {
         "runs": 3,
         "queries": 84,
-        "claims": 474,
-        "coverage": 69.8,
-        "caught": 72,
-        "detectedAddressability": 57,
-        "detectedValue": 15,
+        "claims": 497,
+        "coverage": 72.5,
+        "caught": 55,
+        "detectedAddressability": 43,
+        "detectedValue": 12,
         "noMarkup": 0
       }
     },
@@ -144,20 +144,20 @@
       "symgen": {
         "runs": 3,
         "queries": 84,
-        "refs": 509,
-        "resolutionRate": 78.6,
-        "unresolved": 109,
-        "coverage": 93.3,
+        "refs": 516,
+        "resolutionRate": 80.8,
+        "unresolved": 99,
+        "coverage": 94.3,
         "noMarkup": 0
       },
       "proveml": {
         "runs": 3,
         "queries": 84,
-        "claims": 545,
-        "coverage": 87.3,
-        "caught": 74,
-        "detectedAddressability": 64,
-        "detectedValue": 10,
+        "claims": 515,
+        "coverage": 91.9,
+        "caught": 69,
+        "detectedAddressability": 57,
+        "detectedValue": 12,
         "noMarkup": 0
       }
     },
@@ -167,21 +167,21 @@
       "symgen": {
         "runs": 3,
         "queries": 84,
-        "refs": 270,
-        "resolutionRate": 89.6,
-        "unresolved": 28,
-        "coverage": 73.6,
-        "noMarkup": 1
+        "refs": 265,
+        "resolutionRate": 89.1,
+        "unresolved": 29,
+        "coverage": 73.8,
+        "noMarkup": 2
       },
       "proveml": {
         "runs": 3,
         "queries": 84,
-        "claims": 364,
-        "coverage": 69.7,
-        "caught": 22,
-        "detectedAddressability": 16,
-        "detectedValue": 6,
-        "noMarkup": 0
+        "claims": 300,
+        "coverage": 60.5,
+        "caught": 26,
+        "detectedAddressability": 19,
+        "detectedValue": 7,
+        "noMarkup": 2
       }
     }
   ],
@@ -195,11 +195,11 @@
       "provemlValueErrors": 0
     },
     "education": {
-      "symgenCoverage": 75.4,
-      "provemlCoverage": 67.1,
-      "symgenUnresolved": 400,
-      "symgenRefs": 1458,
-      "provemlDetected": 229,
+      "symgenCoverage": 75.7,
+      "provemlCoverage": 71.4,
+      "symgenUnresolved": 306,
+      "symgenRefs": 1392,
+      "provemlDetected": 212,
       "provemlValueErrors": 40
     }
   }

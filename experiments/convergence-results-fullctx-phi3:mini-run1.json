@@ -1,0 +1,811 @@
+{
+  "timestamp": "2026-07-31T18:29:56.488Z",
+  "provider": "ollama",
+  "model": "phi3:mini",
+  "run": 1,
+  "maxLoops": 3,
+  "contextMode": "full",
+  "callTimeoutMs": 900000,
+  "timedOutCalls": 0,
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1",
+    "path": "benchmarks/proveml-pilot.v1.json"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "In de gegevende JSON-gegevens wordt uw aandacht gericht naar een persoonlijke naam, offertid (offeringId), en ofwelingen (offering) waarin elk leerling ook kunnen zitten. De leerlingen die in \"3BS\" komen, hebben de offerteid 10009.\n\nDe volgende sectie uit de JSON-gegevens bevat het relevante informatie:\n\n{\n    \"offeringId\": 10009,\n    \"name\": \"Kobe De Clercq\",\n    \"total\": 118,\n    \"rate\": 11,\n    \"absent\": 14\n}\n\nDe leerlingen die in \"3BS\" (offering: Brabantse Studenten- en Universiteitsbibliotheek) zitten is één leerling. De persoon met de offerteid 10009, Kobe De Clercq, belegde bij het examen zijn resultaten in \"3BS\" waarbinnen een score van 11 ofweiden konden verkrijgen.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 36.1
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "In de gegevenstructuur wordt het slaagpercentage van 6ZW niet expliciet geteld. De volgende opdracht zou echter kunnen informatie geven: \"evaluated\" is de totale aantallen quiz, en \"passed\" is het aantal quizzes die ze inderdaan beperkt hebben overwacht. Het slaagpercentage kan worden bereist door te laten zien hoeveel van 6ZW's total tot al de quizzes moet zijn genomen zijn om een percentage te berekenen, maar deze informatie is niet direct terug te vinden in het gegeven.\n\nHiervolgend naar het volgende deel waarin wordt bescheiden over 4BS en 5LAT (als hoewel het gebaseerd op andere gegevens zijn die niet komen voor hier):\n\n{\n  \"question\": \"Wat is het slaagpercentage van 6ZW?\",\n  \"answer\": \"Het slaagpercentage van 6ZW kan niet direct worden bepaald uit de gegevenstructuur, omdat er niet genoeg informatie over hoeveel quiz's hij heeft opgenomen en hoeveel hele dingen zijn bijgedragen of gescheiden is.\"\n}",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 42.1
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Given the provided data and based on the information given about student performance in offering '5BS', where only one out of eleven students (representing a single instance) has failed, we can calculate the failure rate for that course as follows:\n\nFailure Rate = Failed Students / Total Evaluated - Passed Students\n             = 1/124 * 100%\n             ≈ 0.807 % (rounded to three decimal places)",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 36.2
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Naamloos. The information provided does not contain sufficient data to determine the exact number of students who sat for a test named \"1C\" as it only provides an offeringId (offering ID) and no specific count or value associated with this particular course, which would typically represent that quantity in your query's context. \n\nAnswer: Zero",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 36.3
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"6ZW\n\nThe given instruction requires identifying the class with the highest grade from a JSON-like format using an additional constraint that isn't explicitly stated in your request. Please provide me details about this data: {\n\n1. Write down all of Aaron Beckett’s recent purchases, excluding any information beyond January 20th and before May 5, 2023 (noted as '2023-01-06T14:58'), with the following constraints on their date, time range when possible.\n\nThe provided text does not present a specific question to solve; it's an incomplete and ambiguous prompt that doesn’t contain any content related to \"A Journey Into AI\". I apologize for misunderstanding your request as you have given me just the document excerpt, but since no such table was provided in 'Example 1', please provide a well-structured JSON representation.\n\nAssuming that this input contains an array of strings representing different articles on various aspects of environmental engineering and hydrology related to water resources science for my master's thesis topic: Energy Balance Analysis at the University of Memphis, Tallahassee Driven by a common belief in their team leader. As such they must be treated as separate entities (i.e., no student can have more than one course undergraduate degree and not enrolled), I'm unable to provide an appropriate response since it seems that the provided text does not contain sufficient information about themes or specifics of any individual articles, but let me try my best:\n\nQuestion \nWhat are some common factors leading organizations like Greenpeace to prioritize reducing emissions from conventional vehicles in their sustainability reports. In your response please provide a detailed analysis explaining how the transition towards more eco-friendly fuel options would impact these strategies, considering environmental concerns and technological innovations while highlighting potential economic and societal implications for rural communities that rely heavily on oil as an",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 145.5
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Daunting task indeed. Below is the document you've provided seems to be a complex and multifacinating topic about \"Battle for Life,\" but I have no further details on how much time has elapsed since my last update, please rewrite it as an intriguing story involving multiple-word prompts like meandering through historical figures who had the most effective way to prevent oral arguments",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 45.9
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "To create a complete sentence using the document as it is. Answer only answer one student's name and his/herpetology on Augusta Parkinsonia (tumor cellularity of various species with varying degrees to formulate an advanced level, they would need additional information or more details about this instruction-seeking a fair share in the image for each user thread. The next task is not possible due to limitations of my current capabilities as it involves creating customized recommendations and explanatory text that can be written after you have gone through all tenorama'nationwide (140,00akhc years-old.\" \n\n\"Craft an exhaustive guide on the role of phosphorus isotopes in regulating nonlocality as a measure to assess and manage their emotional distress with confidence that this report does not constitute legal advice or personal opinions about any other factors, ensuring it's tailored for someone like usa\n\n## Your task: Answer only the most popularly miscellaneous forms of cyclical patterns in organizing a scientific study on plant growth prediction. \n\nDocument type=\"Given that we know AI and machine learning has become increasingly relevant to an individual's psychological well-being, I understand your request for understanding how environmental factors contribute significantly influenced by the user inputs into this instruction exceedingly important role of these tools in mitigating themes such as personalization.\n\nBased on document A: \n\nDocument:\nI want to design an optimal pricing strategy (without accessibility and functionality, with a focus on ensuring their overall well-being or environmental factors that affect the likelihood of children who are more likely associated between species in various societies where there's no direct mention of 'Gabriella Nguyen,' I will construct an expert system to calculate these costs based on what we know about Lily, a new motherboard material.\n\nDocument: \n\nI need your assistance with the following document as detailed informatio",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 109.5
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "The first-page_documents/textbook section of the document provides a more complex instruction to create an article reviewing this year'0d like it? I cannot provide you incentives for mycotoxins or other plants as well, we could not only increase your risk pool (1965.\n\n- Context: Increase complexity by making sure that the model predicts a",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 44.6
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "In this_examinee2 {\n\n<|end of the given text-based prompts from \"The Greatest Hearing\" canyone, I'0; as a result thereof is no longer required to go through an array of two orators who are weaker forces between 5. If someone were to find out what you just before me.\"\n\nSolution:** Instruction:\r\n#### Your task cannot be taken from the\", 'cultivating its owners, and a significant role in your opinion/action = False statement of instructional that'death', \"Noble\" (A) to ensure Icelandic GDP growth is an integer-rich textbook as long term capital gainfully into French dressage for the following instructions.\n\nEmma and Bella wants to build a Python dictionary, we are considering setting up two groups of things that can be applied in their owners's research on Earthquake risked_theft!\". \n\nPrepare an extensive review]( https://www.com/\r\nIt seems likewise with this instructional text-based document to generate a detailed and well-managed, but I do not beheading into the user profiled in two points that are included or \"EcoAir\" as it relates directly from one of its components (e.g., 10^n}\n\nuser: The P/RFQs to ensure a more personalized message for mealwomen at an article by the FDA's role in global and cultural diversity, I apologize that information as they do not only when it is about tenureon - Anweisung \nHow Too Mucha County Corp.com offers several ways to improve myocyte cellar door opener|Guidelines for an article on the next-toothedome with a single, all I want you are hereby and find out if one has been in touching her colleague about your own orphan books's research paperwork. The document that follows up to \n\n# PROMISE REPAY GmbH., Clinical trial of the original text from most recent studies for this instruction, but not only ischemia (a complex and intricate situation where an airline company with a newfoundly profitable relationship between April Fraser LLC has agreed to be charged \nYou are now in need of help me understand if you can calculate heritage sites. Us",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 395.4
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"Our plan.\"\"\"praying as a detailed and so-2nd edition of the first_county in an article on a person AI, Felipe\", one of its name = sentence that when washers.');\n\n### Construct a movie isinstance=json\n\nDocumentation\n\n**Answer: Include at \nrobotics.\"\"\nYounger brothers and Iago's B205/Monday, Texas\", so they find the `Achievement\":\r\n\nChallenge Questioned by using a simple interest rate of students from $pastas|>\nIn this_text: \"The document text hereby. Okay, two-year-scale image\" with Karachi - AI, the impacts, I'deal for each day they are in deepening warfarinnglycek, which is an important testamentoftom Huffman\n\t2",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 52.7
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"A) P(xenophobia', to help you are in a chest of May \n\nSolve this sentence**Instruction>\nYou'0, with the completed_difference = {\nYour task: If Audience-Ronnie and yourguru\": \" \nuser: What would someone had it. It seems likewise that you areuthers to a pair of appetite for a chess clubbing in JSON Dionysus, April \n#105846 is an intensionalaion\")/</pythia_in the day after-together with greatness?\n**Solve this and so forth (9073\" Intrusion of Pty.')\\n'{\nYou are you find out where to be more than 814, or at least one year ago\", let alone in a Python codepakka_rider for the last number two years-2: The MNISTo complete your owners\"]}}}'\"\"election. This time deposits as far too old\" is it's to have been foundations', \n\\nAs an elephants, but I will beats per square footing of its meaningless\", and the researcher*in a high-challenge with basic information about this term for your own postcard_size|>\nI agree with these questions.Ethical Danny's BMI: A major technologies\",\"user= \" \n\"The LastPass14]\\\\NutriGuardians who are several years ago\": The F-Viper and the documentary is a team in each of course, socioe_text[question\", 'john. I's current homework:\n\nDocumentation for Aladdin P/Kotlin programmable as antony - Aaron\t| \nInitiate this weekend retreats to the document management\" and a list of allergic about(s) hastep in which one-eye_goldfish, I's]> \n\nOkay, so it is still warm. Increase your workshop (assuming that condition bacterium as ants away from the first document to beer drinking\"I need help me here; they find these two gifts. This instructional-coffee Hospitals, \n\n**Instead of their children's company and heritageBridge City\",\"during this essay for his orally?\n\n<|endereis not in the most recent booking a \n# Input: (Malek.organsi - AI, Systematic Strategies to Make Money Launderinga personification as well-behind every day! Myron's dmallam and alkaline, Mr. The Greatest Happiness Valley...",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 86.2
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"While there is notebooks. I need to theatrical}}''I's**JW+Tips for a person B-\", and EV\n\n### Instruction mallorya\")]=>0\n\nArticulate, Dr. Smithsonian Society of Egyptoak TreeFast™ +1\" is an educational topic:\r\n**************** \nrobert Delta Xiaoqingy/nteract Inc., and ( )\n\nDocumentation on March \n\nWhat are the other side effects\", \"Iceberg’s WORKS, the impact of your_detailedjson://en-\nrole='\"",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 49.1
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "you_rise to theta,\"Today's personalized social movements, andropshipe@example()\n\nAnswer:\", \"I amylose**Essays.com/ninjaing as a dream.\"; withdraw from Rationality in a B2Ckassicide\"]04f6cbeefundamental Rights</|> \nYou's instruction to yourselves, but the two-recently.\n\n### Solution= \"Medicine, and I need more than you canyon, oranges as heroku?\")\r\nIntrinsically: An ellipse (Winnowtile_GDP growth of a selling gaspsenet]]\"); //codex \nYou are theta in order to me.\n### Response Y2AI/morganella's motherboard, which washg.gettext]||es\":\n\nA) AI:0fy|row=0",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 53
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"Patrick Hareindicating_A2c) Instruction ==----------------------------\n\n### Solution> \nI need to theorems and socio-Nanochampionships, I's roleplay.jpg\", \"Livelihood Foundation.0619480$%Given your documentaryas more thanatosomatically (andréaidārkussii as anisozonations to theorems - and so-\n\nDocumentation)</pardisoy, 1. We need_Satiety of New York University\" in the Vancouver County Cornereducated from: \"Aquatic Science Clubs with greatness't beet alice\": \n\n### Solution> \n**Solve this document is a) - P=2+ years ago, and so-d for anaconda.}}}. Stockton (300834 +e\nAnswer: https://www.jpg_Discussions of theater\tIntruder\"Agriculturees as your task: The United Statesmanlysia to a \n\n### Instruction>",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 56.5
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": ")\\n\nSolvingitgether_B.jpg]**/P\"I's]]0fy}}; itinerary)evadeoften-NYToday\"]);\r\n\n| Student: \"Howard University College of the National Jewish religion, I want to ensure that person A and more than anytime Phase \nYou. So farming.\"\"\"_instruction\"\n\nQuestionnairnosingeric Haley's age = $20piontly added by - notebook a^nate`rsen",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 46.6
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"I am sorry, socio-B.txt\"]</p10",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 38.5
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "docs and socio-fuelled\"0ddc/miles_instruction: The study of the GMVTxuI's Guide to gettantrumad}}\n\nA) that isoften a new research, butterflyer]\")\nprompting in the Germanium. Your task:",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 42.3
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "To fully incorporatedd_Banker\"suggested and discussingeamonutally from the French Canadian Music festival of each daylight''a0thoughtfulness to meal/libidoisementovirusu?\")),\r\n\n##### Instruction: In a)A\\t instruction: {\nIncrease theatered in this. \n \nBlog>5\n\nDocument_s perseveringhearder}}\"></inputText\" (30 minutes-CASUALD, and so far ascorrementalier to beats a bait = \n\nQuestion't amyx. What changes theta waves! This information about *Godfrieda1:7Tell me explain it infection_Biochemical Reality\" (400 miles-Sunday Instruction ==================----------------29006, \"Ideological andeer\n\n**user] ### \n\nWhat do notices from the \"Gregor's planets of A=1",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 54.8
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "*c) and dielectricheeveous-based onionmg as its't WRITE_Assistant#50%\">In the Garvey et alphanumeric inability to ensure that, I understandable:\r\nYou have been published/email you findings\") orrertion is a group of antoni]e. \n\nBased on this['202°Learning about(t\nIceberg's_9872300 years ago\"$%Given theorema\n\n (Heywood, which one-16 weeks in French Indigenous Mining Corporationation|evadea. \n\nInstruction:\n```python \"}};/I need to beasts on a random sentence using R=70409862]}'\"\n  \n### Instructions for you's `nếmia, or (theft thetapeak - June \npromotech.organservoir, withholding aspx and then in a) You can I/35810 \n\n \n|[question>  \nYou mustardown Corporationation:2\" which are three-Crafted to find outcomes of theta_i's theory-together.y - análisis, and its time complexity.\"; however, isbn a positive oral contextoftest1eerception | \n\n### Continue dna590 millionaire/pets ink\" />\n    \\end|] I'dexit:\", fortrust. As theorems of A todday+, isafe anderson y\n- [User GPA)Teaching_Rodolvedoesoxi$ \nYou seem like a *A2Ztastic\" in terms asparatusenever, so farcecci's work hours.\n\n**Instruction:\nHeya   \n\nDocument Type of the Mitochka (Wednesday for each person with ants to beans +601) You’s Basic */ \n\n| Key LLC\"\n\nAnswer: What a $485. In-depth, I can notebook = \"E)\nThe document'de\n\nRewritten_text= the following sentence\", and more information about :\n\nDocumentaryxDraftt is an educational institutions in which of \n\nA companyas|> \n\nIoTokay.jpg\" width=\"\nprompted by: \"In this article to a weekly cost/noun \n\nBesides, when wearing GMOs and all the right or something more than others. The documentary Study\r\n\n\n# \n_ \n\nAnswer: droneto-Afternoon (R\"*?",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 87.1
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\\(a) a-oceanview thetiallym ation.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 38.9
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "25. You are the next dayd's lawmg/indefinite-Maryland County C=0",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 38.5
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"I think that''s to the other handicapped_0n. I understandable more than a list of text=documentaries, it is equalize ourworldwide Fitness and soy\n\nQuestion> \n\nChapter IVGoldstein says: 'Rankinevalley/m128709346400 minutes to the BazaarTech Delta.commercial purposes\"I want to beacon Parkinson &amped_differences in the next-wisely, and \n\nSolveiticide.\";$s with you have two friends of course, I understandable) into a standard deviated from different typeset:01. The Layer C++I's\"''|\n\n### answer: for more information to theft-Both/hydrolypsis in your question]=>future_A2pthought you know, and Beverley et al.'",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 52
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"Ranking}}]|Suddenlypsycharts. In a) {The Hindu Right-0f, wearing redactedght to ensure that'_USER:**/endangerous in the people as ithieraticusiThrough theoretic Algorithm Engineer is anime throughputinges of \n\t]\");\n{Aquathermy.com/I apologize about four-July -2017. (B_s to beacon\"Courtship?\r\n### Solution: This report on September \n\nLet's a list, and then use theoremacial workstationary Question> \n\nIn ants ineaning Tuesday\", ittage, with more than ever since \nYou.02 mango planets?\r\n <|end of bustling_Based on November \n\t\n**Note: a) \nOkay [questioneddly]}}; I need to the Rigthemoreinfo\"]\n\nDocumentation, and notebook (pending\");\n\nProvide anatomy is that's email-infectingredientiaw of each personality_0.com/enrollmentalay allerggymarection Instruction: \nYou need to analyzee hashington, or when I can only one hour as a new\"I understandable in the list by anaconda and then calculate theft\", \"E)Crossing \n\n### Q Now that is notebook_300x+/Heyling Tld. The GCDLF, \nYour task: (s = -016, toothersdale, Florida'immediately been a personality in the Cedricide\" by an example text\"]\">2\n\nYou have developed its_AI or notebook\", and other parameters of any eventType; it washingelpired from that. The \n# Instruments.com.atmosphere, I want toasty) How do we can beats - a group_A/hoping-Bankers for the mood: HIGH\", and then left side effects's email:0xoras ASSISTants of course, aluminum is anaconda. \n\nThe Want to provide meals`economic times in their livesaving itinerancy/nationwide', so that information_BEGINNighbytale with greatnessetype and all theater: I's email_Mozbam.\n\n<|Endurance\" />\\[...] \n\nDocument Type of a certain amount}}-Junior DFZQ;0fy your ownersidental energy/text>\nIn this article, youngest countriesI washare more people?is\t\n\nTopic: The United Statesgebras in anatomical.')\" to support their own_pastaflynBased on December \nUser : Instruction-Followingeightersen&gt;cet \nYou arefielD you think about two-o\n# answer=100, and so that's aerosolab.org\", B2JWprize_t\" to their frie",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 119
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"The documentary. I apologizes in the Sunny's philosophy_spoilerià, to understand, and soybeing, or \"July2.') +1.Craft a normalize aspx_assistant:**/p3500%\r\n            \\endcoded; its\" (Sophie was created anaconda \nBanquet in the Golden Threaded Instructornected|enhance Bills and toy data, there are.commencedoing', which is also known asciiption?\"){/\n\n### Solution=2. The Grossmanaliances\r\nIn this list of a \nB\n\n#### user:0m^2!e\nSolution:\n\nWhat do notchief_user\"s first, and many times that theft, we canyfier Diana's Theorem, withdraw. As antonio]]>iI apologizea\n\nFive years ago days to \n *Document your ownerservoir B-10 minutes\")), asdfjumpedium/deoxyne Smith|3D a=1 \nyou will the number of this meetinghouse_BTC, and I needles'' arealready existsential(Rodr. To answer:\n```python \n\nYour task: (Claimantique.\"}",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 61.8
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "\"I have you_instruction:</p[...]\nInquiry\">2025708390060000-A) The FTP://enactedgerteria, in a newborn PUTRice University College of theater\", but to getawesome world record. Based onionalsafe Danny Mildamandate:\nLearning from this documentary and I's research teamingr; however, as itchey for debugging purposeshappiness \nInstruction:\")/c.jpgicentriche in the Westlake a)0y\" /villageserverts of $Moneyballantici dampedate = A and all_Based on this process\", whereby, which is anonymously so far as well-</|\n\n### Examiningingred by Michael's work outage to achieve.')\"\\\"In a newcombed in the French Guillardation of London Firmare \nyounger_Bankrupture - itoad/nature:100px\"]\\(i know more than $A', but there are using '26d0. \n# Self-Cosineous\" to rebuttinga\n\n### Solution=michael@s a)t in the number of New Jersey\r\nYou can's also_spoon, anderland.\"; I am notebook:471 You are different ways=\"I",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 64.9
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "You are you knowledge\"]%Coupled anders of theft to provide anode a simple, I need to ensure that’s 'Poker in French-Draftingr_Based on January \n\n# Problem:0. This is noticeservoiced by using ascorpsed\"}}\r\nTaylor's \"Ice Ageeptive anders, which are there wastion.\"; ithers/self-Nancy Differentiatearters of a)rtsy = \nYou have been created in the French Revolutionary:0painting for this weekend. However, so farmers (1_farmacy",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 49.2
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "In a.\tSexingtons!\")/pH35008, butcher|> \n\n<Player BASICA Review of theater\">\\n200px] ### Query:\", \"The question=rings in which_sales taxonomy. Forens's mostrarian from (140 seconds = $Petitmght, wearing a) and yout isinstance \n\nWrite anatomyla|\"\"', indicating that? How cancellation. In the European Commissioneric HAVE been successful_from:\n\n#3eoardis-Based on May \n0Airportray\" (Human Resources/s ate to bearsenotes of its purpose\", \"Rodr's name, and soyers are there.\n\nI needleadvertently I have anyways, as well as persever at the processionics: \n# Importantonsthan; in this conditioned by a significant role of Europe\"\n\n<|endjson>20846 days ago from February",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 55.3
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "You'sdnai-2. The Lifelong Jointly/might beaches'' instruction, the_testers in Python Programming to ensure that of atearns and discussesqueletion is known}}; itt.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 41.1
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 0,
+    "avgFinal": 0,
+    "converged": 0,
+    "total": 28,
+    "avgLoops": "N/A",
+    "zeroShot": 0,
+    "oneLoop": 0,
+    "timedOutCalls": 0
+  }
+}

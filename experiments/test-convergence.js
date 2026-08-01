@@ -126,6 +126,18 @@ function buildPromptContext(spec) {
 const model = args.find((_, i) => args[i - 1] === '--model') || '';
 const provider = args.find((_, i) => args[i - 1] === '--provider') || 'claude';
 
+// How long a single generation may take before we give up on it.
+//
+// This is a harness limit, not a measurement: a call that is killed at the wall
+// clock leaves the query out of the run and quietly shrinks the denominator, so
+// the number would then partly describe our patience. It is set well above the
+// slowest observed generation (a small model rambling through a correction loop
+// on a large slice) so that it fires only on a genuinely stuck call. Override
+// with --timeout <seconds>.
+const CALL_TIMEOUT_MS = (Number(args.find((_, i) => args[i - 1] === '--timeout')) || 900) * 1000;
+
+let timedOut = 0;
+
 function callLLM(prompt) {
     const tmpFile = join(__dirname, '.tmp-convergence.txt');
     writeFileSync(tmpFile, prompt);
@@ -140,9 +152,10 @@ function callLLM(prompt) {
             cmd = `cat "${tmpFile}" | claude -p${modelFlag}`;
         }
         return execSync(cmd, {
-            encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: 300000,
+            encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: CALL_TIMEOUT_MS,
         }).trim();
     } catch (e) {
+        if (/ETIMEDOUT/.test(e.message)) timedOut++;
         console.error(`    LLM error: ${e.message.slice(0, 100)}`);
         return null;
     }
@@ -183,10 +196,32 @@ for (let qi = 0; qi < queries.length; qi++) {
     console.log(`  context: ${promptContext.offerings.length} offerings, ${promptContext.strugglingStudents.length} students`);
 
     // Initial generation
+    const timedOutBefore = timedOut;
     const t0 = Date.now();
     let response = callLLM(`${SYSTEM}\n\nDATA:\n${promptContextJson}\n\nQuestion: ${prompt}`);
     const genTime = ((Date.now() - t0) / 1000).toFixed(1);
-    if (!response) { console.log('  ✗ Failed\n'); results.push(null); continue; }
+    // An empty answer is not a missing measurement, it is a model that produced
+    // nothing verifiable — the extreme case of the zero-markup rule applied a few
+    // lines down. Dropping it would shrink the denominator and flatter the model
+    // that stayed silent. A call the harness killed at the wall clock is
+    // different: there we have no answer at all, so that one is left out and
+    // counted in timedOutCalls.
+    if (!response) {
+        const killed = timedOut > timedOutBefore;
+        console.log(killed ? '  ✗ Call timed out — query left out\n' : '  ✗ Empty answer — scored 0%\n');
+        if (killed) { results.push(null); continue; }
+        results.push({
+            query: qi + 1, id, category, expectedMode, contextMode,
+            converged: false, loopsToConverge: null,
+            initialRate: 0, finalRate: 0, initialClaims: 0, finalClaims: 0,
+            initialErrorDetails: [], coverage: 0, emptyResponse: true,
+            contextOfferings: promptContext.offerings.length,
+            contextStudents: promptContext.strugglingStudents.length,
+            finalResponse: '',
+            steps: [{ loop: 0, verified: 0, total: 0, errors: 0, errorDetails: [], rate: 0, coverage: 0, time: +genTime }],
+        });
+        continue;
+    }
 
     let v = verify(response);
     const errorDetails = v.details ? v.details.filter(d => d.status !== 'verified').map(d => ({ status: d.status, errorClass: d.errorClass, path: d.path, field: d.field, expected: d.expected })) : [];
@@ -303,12 +338,16 @@ writeFileSync(outFile,
         run: +runId,
         maxLoops,
         contextMode,
+        callTimeoutMs: CALL_TIMEOUT_MS,
+        // Calls the harness killed at the wall clock. Any number above zero
+        // means the run is missing queries and its denominator is short.
+        timedOutCalls: timedOut,
         benchmark: {
             name: benchmark.name,
             version: benchmark.version,
             path: benchmarkArg || 'benchmarks/proveml-pilot.v1.json',
         },
         results: valid,
-        summary: { avgInitial, avgFinal, converged: conv.length, total: valid.length, avgLoops, zeroShot, oneLoop },
+        summary: { avgInitial, avgFinal, converged: conv.length, total: valid.length, avgLoops, zeroShot, oneLoop, timedOutCalls: timedOut, emptyResponses: valid.filter(r => r.emptyResponse).length },
     }, null, 2));
 console.log(`\nSaved to ${outFile}`);

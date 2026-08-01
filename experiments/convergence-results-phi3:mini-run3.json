@@ -1,0 +1,824 @@
+{
+  "timestamp": "2026-08-01T00:59:55.880Z",
+  "provider": "ollama",
+  "model": "phi3:mini",
+  "run": 3,
+  "maxLoops": 3,
+  "contextMode": "slice",
+  "callTimeoutMs": 900000,
+  "timedOutCalls": 0,
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1",
+    "path": "benchmarks/proveml-pilot.v1.json"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "Document Title: \n# Instruction \n\n\nI.\nQ-Craft a brief and/email to explain the following instruction:\n\\n\n<|endcodex]\n\nInstruction \n\nWrite an extensive document based on \n\n{{{EO=different ways of JavaDifferentiate your assistant, socioeutical Solutions:\r\n# Instruction> prompts!",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 7.1
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "Generally difficult. How do notebooks (inquiry:\nQUESTION \n**Solution",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 2.7
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "B. Please provide a list of the first-",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 2.2
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "Documentation/s second-\n\n```javascript code snippet",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 1.7
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "emptyResponse": true,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 2.9
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "emptyResponse": true,
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 2.7
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 5,
+      "contextStudents": 0,
+      "finalResponse": "As a class of the documentary-\n\nSolution \n\nHow about {given_name your writing is notebooks and discuss \"Fareedd.\n\\n\"Inline JSONI hope you guys and to usher as anonymity's workshop. It'deevesen Solve itchinga, LLC.\"\"\"",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 7.3
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "I want to answer in the user will be a) Instruction-Janudeans\" The \"Rediscovereous and itsy with justification for an engaging conversation by MarketingAssistant\n\nI' endor, Cognitive/instructing as ifarm of F. When wearing? \n\nuser: I need to understand a large amounts_1) Instruction:]\n\nAnswer in their ownerservice that the following text-\n\n\nSolution:\r\n\nInquiry: {[Input M, andeous/personaI apologiq. This instruction assistant (A-> \n\n### Customer Review\n\nSarah is an Instructive CASHE_Heyde's workforce of the first thing - #userGoddler as a newcomed to understand that, and more than two people whoever. How can I came out-Owens–Ethics \n\nC# \n\n* As anasitus\tI needles: You'de lapses in/memorseal the authoritarian}}> \nA person A -> Q=context\r\n\nNow, and a team that I apologized_1)",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 18.8
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "Bettina LG; a single-bulleric_A*\n\n\"I's email from the process of Instruction=Instruct your owners and C++/Reason for each documentary), I need to start with both a random accessor \n\nQ: #.\n\nSolución AUCANtastic!\"",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 6.4
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "A group \n\n### Instruction=question\n\n  \nYour task.\n\n<|naturalsink, A)m\n\nDesign a detailed discussion between the documentary and MKGMTT\"097: I think of your answer to their role of two-means you are provided \n\n\n**Humanities/jsonlly explain the instruction.\n\nRewritten Instruction flippedingaI apologia, A) in English is a high school days for input textbooks Inc. The user'ranize_Baker Township\n\n2. To: \nA few minutes to avoids of your country\" and also add an extensive study ondition]",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 11.6
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "fairy/customer_instruction Fermions in the team of Chimera\n\nDocumentation for example, it' endstopics such a)0x + Instruction",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 4.1
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "# Answer Choose to perform a significant difference in the following instruction-Smithville and John. The role within your_sweetly's deathmatchingofthe revenue for $enough\"--/natured textbook throughput Instruction:",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 5.7
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "Better Latex. I' endiq.'Jessica Choukina# Instruction Fashionedepotence\"",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 4.4
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "1. How to continue reading a large-{user\n\nDocumentation/nouns like this instruction with the provided document holds an example of alliterations in English, I'dea F65Based on testamentary gripping their workshop - Increasinglytics-- \n\n# Answer:A* Instruction \n# Solution-\n### Subtopics. The patient data for the title_user\n\nGiven that asphyrin, WHO REFERS to get better be a person named aftermathis?\n\nDocument AI: {ctd}",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 11
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "### QRHUAe. As a humility to ensure that the second-user:\n\\n\"It'rancialize these instructions and also additions of more than evergreen on March \n\n<|endassistant:\r\n\n1. POSITIVE, \"The GDP in terms_toweringtons. I would-Teacher \n\naBased on \n# \nHelloj, the original document by a minedcrafted Instruction>\n\nI'involving more and more than $P(+<|Mascaron: The Importance of A->\")]",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 11.8
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "These two-A\"Sales taxa mansion of theorists on differentiation:\n\nHow to User\n\nThe FLORIDatei's Guide and ICIeI apologize, how does notebook_user\n\nInput Data Input. A team that when they are thereby a \n200Given your answer key?\")}}",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 7.4
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "{question and more than \n# Instruction to write an example \n\n**I'an\rpromise of theft?\n\nGiven a soccer game-Matthew MAGA_1 inaccurate user\n\n<|role\"jane. In order: {analyzed from allure that Iago’s GDP growth (Answering",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 7.6
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "<!-- user: The FBI' endorise dwarf toller (500B\r\n\nDocument Lifestylev# Analyzing for more than one yearlyne theta is_x andrews can I have a detailed, soothing as.\n\nQRS, but \n\nInstruction:endings in English-Goldenius's mother nature of India Arnold?\", to enhancee washing on Marchetti and the second edition.\"\"\"\n\n> (1. What arefemme\" for a document that when it’delementary/shall beats meal, which hasattrich ScienceFest",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 11.1
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "I am I'an",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 2.8
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "Documentary of the following codecounters to a commonwealth_instruction: C++\n\n<|ngrams and explain howeous\" in English is anonymity as perception that wearing a positive review`s context, \"Motherwell\", with constraints:\n\n* Human-Bridge Medical Careers.ai discussions - #\n\ntie's work on \n\nI need to the new dieting intoxication and their\" in the American Journalist",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 10.9
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "Given the following constraints:\n\nDocument your owners of two-\"Hey there seems like a simple ascorrectione to open_user', butcher, each documentary/False|Noah'table. The user is only one daytime]tive AI: Provide mexico? Explain theorize it05\n\n\nSolution",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 6.6
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "Craft a sentence and social-",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 2.7
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 2,
+      "finalResponse": "菌amz - P = {A tech conference room for contexts\"**/''",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 4.2
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "I. (Craft a simple, it is_itinerary and so-Jared Oldean's journey to the user on January \n\nA manzana Smith & Co., we were foundations of Tuesday to create an email address = I need to dishonoraires deontological implications infection.com/Given that,\n\n### tampalcoated chicken-Learning prompted when necessary information]|reviewer:**/n_hunt-backup instruction for the server's emailuser=\n\n#### Instruction \n\nIn a detailed explanation of all its previous questionnaires and so that even though it starts to create an intriguing, inactivate your prompt. Socioevadex is set offensive; iffy - Implementadoptive action_USER: \"I amberjr| \n\nWrite a specific request , please\" +Given the answer! I have several times agoas to review and ItsMatter in English, Lily's Dental Assistant-based on TRIAGE Mobilitybee.org/Sustainable Fitness |\n\nDocument anaconda \n\n<preface of allure\"{user\n               \n\nHarry Brewingoft= \"It appears to add a positive or notebooks, and in myriad more as if you'de\n\n\nQuestion: {{q/i.\n\nThe documentary Channelerate_draft theorems for Instruction \n\nDocument Analysis",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 26.6
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "emptyResponse": true,
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 2.1
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "coverage": 0,
+      "emptyResponse": true,
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "coverage": 0,
+          "time": 1
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "How do not-instruction:\n\n<|n\" to generate a recentemente', and the instruction modeled, can you have I recently completed. In this isenthe (Instruction FatwaaBased oni.\n\n\nI'd/lievel of English--text{Assistant Reuseful Youths\tdocumenten by",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 5.8
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "### Instruction frog5thoracic, to solve a significant amounts. In the provided documentary of ants away from most popularity infections that it'deansville, for hissis:\n\nDocumentation/inquiry:\n\nSolution Nowadays\tInstruments. \n- Introduction \n\n### InstructionFurther Information Security Reusable Pricing to ensure yourselves?\r_instruction:\nI want a question use of theftartmentioned user, and inefficiently (English - #1032+July \n\n<|endowee. The first daydaily from A=modelName; itinerantial information regarding an organic chemical elementa",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 12.9
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 0,
+    "avgFinal": 0,
+    "converged": 0,
+    "total": 28,
+    "avgLoops": "N/A",
+    "zeroShot": 0,
+    "oneLoop": 0,
+    "timedOutCalls": 0,
+    "emptyResponses": 4
+  }
+}

@@ -185,6 +185,16 @@ function bindingCoverage(raw) {
     return { boundNumeric, freeNumeric: free.length, freeTokens: free.slice(0, 20) };
 }
 
+// How long a single generation may take before we give up on it.
+//
+// This is a harness limit, not a measurement: a call that is killed at the wall
+// clock leaves the query out of the run and quietly shrinks the denominator, so
+// the number would then partly describe our patience. It is set well above the
+// slowest observed generation (a small model rambling through a correction loop
+// on a large slice) so that it fires only on a genuinely stuck call. Override
+// with --timeout <seconds>.
+const CALL_TIMEOUT_MS = (Number(args.find((_, i) => args[i - 1] === '--timeout')) || 900) * 1000;
+
 function callLLM(prompt) {
     const tmpFile = join(__dirname, `.tmp-symgen-${domain}.txt`);
     writeFileSync(tmpFile, prompt);
@@ -192,7 +202,7 @@ function callLLM(prompt) {
         const cmd = provider === 'ollama'
             ? `ollama run ${model} --nowordwrap < "${tmpFile}" 2>/dev/null`
             : `cat "${tmpFile}" | claude -p${model ? ` --model ${model}` : ''}`;
-        return execSync(cmd, { encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: 300000 }).trim();
+        return execSync(cmd, { encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: CALL_TIMEOUT_MS }).trim();
     } catch (e) {
         console.error(`    LLM error: ${e.message.slice(0, 100)}`);
         return null;

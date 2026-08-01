@@ -74,6 +74,16 @@ function buildPromptContext(spec) {
 }
 
 // LLM call
+// How long a single generation may take before we give up on it.
+//
+// This is a harness limit, not a measurement: a call that is killed at the wall
+// clock leaves the query out of the run and quietly shrinks the denominator, so
+// the number would then partly describe our patience. It is set well above the
+// slowest observed generation (a small model rambling through a correction loop
+// on a large slice) so that it fires only on a genuinely stuck call. Override
+// with --timeout <seconds>.
+const CALL_TIMEOUT_MS = (Number(args.find((_, i) => args[i - 1] === '--timeout')) || 900) * 1000;
+
 function callLLM(prompt) {
     const tmpFile = join(__dirname, '.tmp-convergence-finance.txt');
     writeFileSync(tmpFile, prompt);
@@ -86,7 +96,7 @@ function callLLM(prompt) {
             cmd = `cat "${tmpFile}" | claude -p${modelFlag}`;
         }
         return execSync(cmd, {
-            encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: 300000,
+            encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: CALL_TIMEOUT_MS,
         }).trim();
     } catch (e) {
         console.error(`    LLM error: ${e.message.slice(0, 100)}`);

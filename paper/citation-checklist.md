@@ -4,9 +4,21 @@ For each reference: read what the paper says it does, open the source, and decid
 whether the sentence is a fair description. Metadata is already machine-checked
 (`npm run audit:bibliography`); this is the part that needs a person.
 
-55 references, 55 cited in prose.
+57 references, 57 cited in prose.
 
 ---
+
+## alce
+
+**Enabling Large Language Models to Generate Text with Citations**  
+Gao, T. and Yen, H. and Yu, J. and Chen, D. · Proc. EMNLP 2023  
+<https://doi.org/10.18653/v1/2023.emnlp-main.398>
+
+What the paper claims (1 place):
+
+- ALCE benchmarks citation generation directly, scoring whether generated statements are supported by the passages they cite.
+
+- [ ] checked
 
 ## alignmentbottleneck
 
@@ -212,7 +224,7 @@ Xu, R. and Li, G. and Sheng, V. S. · Findings of ACL 2026
 
 What the paper claims (2 places):
 
-- A sweep of the ACL 2026 proceedings (4,617 papers across the main, short, findings and industry volumes) found systems that bind claims to evidence contracts, emit provenance triples, or maintain typed key-value state with non-probabilistic admission, but none that extends an authoring format with inline claim markup, and none that constrains qualitative wording through a declared threshold vocabulary.
+- That sweep found systems that bind claims to evidence contracts, emit provenance triples, or maintain typed key-value state with non-probabilistic admission, but none that extends an authoring format with inline claim markup, and none that constrains qualitative wording through a declared threshold vocabulary.
 - GAVEL moves partway toward a binding contract: debating agents must state atomic subclaims bound to explicit evidence units, and a scrutinizer validates cited identifiers and quoted spans deterministically --- but the debate that produces the subclaims is model-driven, and the evidence units are text spans rather than addressable data paths.
 
 - [ ] checked
@@ -225,7 +237,7 @@ Wei, J. and Wang, X. and Liao, Y. and Dong, J. and Liu, Y. and Jia, C. and Yu, B
 
 What the paper claims (2 places):
 
-- A sweep of the ACL 2026 proceedings (4,617 papers across the main, short, findings and industry volumes) found systems that bind claims to evidence contracts, emit provenance triples, or maintain typed key-value state with non-probabilistic admission, but none that extends an authoring format with inline claim markup, and none that constrains qualitative wording through a declared threshold vocabulary.
+- That sweep found systems that bind claims to evidence contracts, emit provenance triples, or maintain typed key-value state with non-probabilistic admission, but none that extends an authoring format with inline claim markup, and none that constrains qualitative wording through a declared threshold vocabulary.
 - GenProve learns to emit provenance triples alongside the answer, and reports a sharp gap between surface quotation, which models handle, and inference-backed provenance, which they do not --- a split that maps onto which claims ProveML can bind deterministically at all.
 
 - [ ] checked
@@ -277,7 +289,7 @@ What the paper claims (3 places):
 
 - itemize The closest structural analog is iXBRL (Inline XBRL), which embeds machine-readable tags in human-readable financial reports, enabling automated audit of reported figures.
 - Design philosophy. ProveML is deliberately assembled from established patterns rather than invented from scratch: itemize[nosep] Host language: Markdown (natively produced by LLMs) Inline tagging model from iXBRL Operator vocabulary from FHIR clinical reference ranges and JSON Schema validation Fact store from the Entity-Attribute-Value (EAV) pattern; arrive at a comparable typed key-value state with a non-probabilistic admission check, in the agent/tool setting rather than in text Verify-then-render pipeline from standard compiler design itemize A skeptical reader should find each component familiar.
-- Inline tagging. iXBRL embeds machine-readable tags in human-readable financial reports, the closest structural analog to ProveML.
+- What ProveML adds to that lineage is not the binding but the verdict: RDFa says what a span refers to, and assumes the author meant it; ProveML asks whether the claim survives comparison with the record. iXBRL embeds machine-readable tags in human-readable financial reports, the closest structural analog among document standards.
 
 - [ ] checked
 
@@ -409,7 +421,7 @@ Moortgat, Rony and Deconinck, Shane · Frontiers in Education 2026
 
 What the paper claims (1 place):
 
-- The first is a fully synthetic dataset inspired by an educational assessment context, modeled on the reporting patterns of curriculum-aligned assessment platforms in Flemish secondary education.
+- The first is generated, in the shape of a curriculum-aligned assessment platform in Flemish secondary education: 741 pupils across 95 class offerings, each pupil carrying a mastery level per curriculum goal, plus the aggregates such a platform reports.
 
 - [ ] checked
 
@@ -433,7 +445,7 @@ European Parliament and Council of the European Union · Official Journal of the
 
 What the paper claims (1 place):
 
-- The 2026 Digital Omnibus deferred those stand-alone high-risk obligations to 2 December 2027 (and to 2 August 2028 for AI embedded in regulated products) while leaving the Article 50 transparency duties in force from 2 August 2026 --- a deferral that buys deployers time to build verifiable-claim infrastructure rather than removing the need for it.
+- The 2026 Digital Omnibus deferred those stand-alone high-risk obligations to 2 December 2027 (and to 2 August 2028 for AI embedded in regulated products) while leaving the Article 50 transparency duties in force from 2 August 2026 --- a deferral that buys providers and deployers time to build verifiable-claim infrastructure rather than removing the need for it.
 
 - [ ] checked
 
@@ -503,8 +515,9 @@ What the paper claims (1 place):
 Solatorio, Aivin V. · arXiv:2509.06902 2025  
 <https://arxiv.org/abs/2509.06902>
 
-What the paper claims (1 place):
+What the paper claims (2 places):
 
+- We baseline against SymGen rather than the nearer neighbour, Proof-Carrying Numbers, for a specific reason: SymGen's mechanism is fully specified in its paper down to the delimiter, so a faithful reimplementation is possible from the published description alone.
 - Proof-Carrying Numbers is the closest recent neighbour: the LLM emits claim-bound tokens tying numeric spans to structured claims, verified deterministically in the renderer with explicit status marks and tolerance policies; it lacks entity scoping and a composable threshold registry.
 
 - [ ] checked
@@ -543,6 +556,18 @@ What the paper claims (2 places):
 
 - Attribution (RARR, WebGPT, OpenAI response annotations): link claims to source documents or passages.
 - RARR and WebGPT attach URLs.
+
+- [ ] checked
+
+## rdfa
+
+**RDFa 1.1 Primer --- Third Edition**  
+W3C · W3C Working Group Note, \urlhttps://www.w3.org/TR/rdfa-primer/ 2015  
+<https://www.w3.org/TR/rdfa-primer/>
+
+What the paper claims (1 place):
+
+- RDFa adds attributes to HTML that bind spans of prose to entities and properties in a structured vocabulary, resolvable without reading the prose --- the same shape of idea, developed for documents people wrote themselves.
 
 - [ ] checked
 
@@ -630,7 +655,7 @@ Liu, Y. and Peng, X. and Cao, J. and Wang, X. and Deng, S. and Chen, J. and Yin,
 
 What the paper claims (2 places):
 
-- A sweep of the ACL 2026 proceedings (4,617 papers across the main, short, findings and industry volumes) found systems that bind claims to evidence contracts, emit provenance triples, or maintain typed key-value state with non-probabilistic admission, but none that extends an authoring format with inline claim markup, and none that constrains qualitative wording through a declared threshold vocabulary.
+- That sweep found systems that bind claims to evidence contracts, emit provenance triples, or maintain typed key-value state with non-probabilistic admission, but none that extends an authoring format with inline claim markup, and none that constrains qualitative wording through a declared threshold vocabulary.
 - Design philosophy. ProveML is deliberately assembled from established patterns rather than invented from scratch: itemize[nosep] Host language: Markdown (natively produced by LLMs) Inline tagging model from iXBRL Operator vocabulary from FHIR clinical reference ranges and JSON Schema validation Fact store from the Entity-Attribute-Value (EAV) pattern; arrive at a comparable typed key-value state with a non-probabilistic admission check, in the agent/tool setting rather than in text Verify-then-render pipeline from standard compiler design itemize A skeptical reader should find each component familiar.
 
 - [ ] checked

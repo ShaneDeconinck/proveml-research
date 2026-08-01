@@ -1,0 +1,562 @@
+{
+  "timestamp": "2026-07-31T23:49:44.552Z",
+  "system": "symgen-direct-reimplementation",
+  "provider": "claude",
+  "model": "haiku",
+  "run": 3,
+  "domain": "education",
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "refs": 2,
+      "resolved": 1,
+      "resolutionRate": 50,
+      "unresolved": [
+        "offering:10004.students"
+      ],
+      "boundNumeric": 1,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10004.name }} heeft {{ offering:10004.students }} leerlingen.",
+      "renderedResponse": "3BS heeft undefined leerlingen.",
+      "time": 7.3
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "refs": 2,
+      "resolved": 2,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 2,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10012.name }} heeft een slaagpercentage van {{ offering:10012.passRate }}%.",
+      "renderedResponse": "6ZW heeft een slaagpercentage van 74%.",
+      "time": 5.7
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "refs": 2,
+      "resolved": 2,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 2,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10009.name }} heeft een afnamepercentage van {{ offering:10009.evalRate }}%.",
+      "renderedResponse": "5BS heeft een afnamepercentage van 91%.",
+      "time": 5.7
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "refs": 2,
+      "resolved": 1,
+      "resolutionRate": 50,
+      "unresolved": [
+        "offering:10001.students"
+      ],
+      "boundNumeric": 1,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10001.name }} heeft {{ offering:10001.students }} leerlingen.",
+      "renderedResponse": "1C heeft undefined leerlingen.",
+      "time": 5.9
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "refs": 8,
+      "resolved": 8,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 8,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10010.name }} heeft het hoogste slaagpercentage met {{ offering:10010.passRate }}%. \n\nTer vergelijking: {{ offering:10012.name }} heeft {{ offering:10012.passRate }}%, {{ offering:10009.name }} heeft {{ offering:10009.passRate }}%, en {{ offering:10004.name }} heeft {{ offering:10004.passRate }}%.",
+      "renderedResponse": "6HO heeft het hoogste slaagpercentage met 76%. \n\nTer vergelijking: 6ZW heeft 74%, 5BS heeft 68%, en 3BS heeft 60%.",
+      "time": 7.2
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "refs": 2,
+      "resolved": 2,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 2,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10012.name }} heeft het laagste afnamepercentage met {{ offering:10012.evalRate }}%.",
+      "renderedResponse": "6ZW heeft het laagste afnamepercentage met 69%.",
+      "time": 6.3
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "refs": 4,
+      "resolved": 2,
+      "resolutionRate": 50,
+      "unresolved": [
+        "offering:10003.students",
+        "offering:10005.students"
+      ],
+      "boundNumeric": 2,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "5"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "Van de vijf klassen hebben twee minder dan 5 leerlingen: {{ offering:10003.name }} met {{ offering:10003.students }} leerlingen en {{ offering:10005.name }} met {{ offering:10005.students }} leerlingen.",
+      "renderedResponse": "Van de vijf klassen hebben twee minder dan 5 leerlingen: 2ZW met undefined leerlingen en 3SV met undefined leerlingen.",
+      "time": 7.8
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "refs": 6,
+      "resolved": 6,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 6,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "Van laag naar hoog slaagpercentage:\n\n1. {{ offering:10004.name }} met {{ offering:10004.passRate }}%\n2. {{ offering:10002.name }} met {{ offering:10002.passRate }}%\n3. {{ offering:10001.name }} met {{ offering:10001.passRate }}%",
+      "renderedResponse": "Van laag naar hoog slaagpercentage:\n\n1. 3BS met 60%\n2. 2D met 71%\n3. 1C met 79%",
+      "time": 6.7
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "refs": 5,
+      "resolved": 5,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 5,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "14"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10012.name }} scoort beter met een slaagpercentage van {{ offering:10012.passRate }}%, terwijl {{ offering:10004.name }} een lager slaagpercentage van {{ offering:10004.passRate }}% haalt. Het verschil bedraagt 14 procentpunten in het voordeel van {{ offering:10012.name }}.",
+      "renderedResponse": "6ZW scoort beter met een slaagpercentage van 74%, terwijl 3BS een lager slaagpercentage van 60% haalt. Het verschil bedraagt 14 procentpunten in het voordeel van 6ZW.",
+      "time": 8.9
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "refs": 4,
+      "resolved": 2,
+      "resolutionRate": 50,
+      "unresolved": [
+        "offering:10012.students",
+        "offering:10001.students"
+      ],
+      "boundNumeric": 2,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10012.name }} heeft het laagste aantal leerlingen met {{ offering:10012.students }} leerlingen, vergeleken met {{ offering:10001.name }} die {{ offering:10001.students }} leerlingen heeft.",
+      "renderedResponse": "6ZW heeft het laagste aantal leerlingen met undefined leerlingen, vergeleken met 1C die undefined leerlingen heeft.",
+      "time": 6.1
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "refs": 7,
+      "resolved": 6,
+      "resolutionRate": 86,
+      "unresolved": [
+        "offering:10011.evalRate | minus:offering:10008.evalRate"
+      ],
+      "boundNumeric": 6,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10008.name }} heeft een afnamepercentage van {{ offering:10008.evalRate }}%, terwijl {{ offering:10011.name }} daarentegen {{ offering:10011.evalRate }}% bereikt. Dit betekent dat {{ offering:10011.name }} een aanzienlijk hoger afnamepercentage heeft – ruim {{ offering:10011.evalRate | minus:offering:10008.evalRate }} procentpunten hoger dan {{ offering:10008.name }}.",
+      "renderedResponse": "5BO heeft een afnamepercentage van 72%, terwijl 6OL daarentegen 89% bereikt. Dit betekent dat 6OL een aanzienlijk hoger afnamepercentage heeft – ruim undefined procentpunten hoger dan 5BO.",
+      "time": 7.7
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "refs": 6,
+      "resolved": 6,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 6,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10007.name }} has the highest pass rate at {{ offering:10007.passRate }}%, compared to {{ offering:10002.name }} at {{ offering:10002.passRate }}% and {{ offering:10010.name }} at {{ offering:10010.passRate }}%.",
+      "renderedResponse": "4WE has the highest pass rate at 84%, compared to 2D at 71% and 6HO at 76%.",
+      "time": 7.3
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "refs": 8,
+      "resolved": 8,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 8,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "60"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "Geen van deze vier klassen heeft een slaagpercentage onder 60%. \n\n{{ offering:10001.name }} heeft {{ offering:10001.passRate }}%, {{ offering:10002.name }} heeft {{ offering:10002.passRate }}%, {{ offering:10004.name }} heeft {{ offering:10004.passRate }}%, en {{ offering:10008.name }} heeft {{ offering:10008.passRate }}%.",
+      "renderedResponse": "Geen van deze vier klassen heeft een slaagpercentage onder 60%. \n\n1C heeft 79%, 2D heeft 71%, 3BS heeft 60%, en 5BO heeft 85%.",
+      "time": 7.3
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "refs": 8,
+      "resolved": 8,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 8,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "80"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10009.name }} met een afnamepercentage van {{ offering:10009.evalRate }}% en {{ offering:10011.name }} met {{ offering:10011.evalRate }}% halen beiden het minimum van 80%. {{ offering:10007.name }} ({{ offering:10007.evalRate }}%) en {{ offering:10012.name }} ({{ offering:10012.evalRate }}%) vallen eronder.",
+      "renderedResponse": "5BS met een afnamepercentage van 91% en 6OL met 89% halen beiden het minimum van 80%. 4WE (72%) en 6ZW (69%) vallen eronder.",
+      "time": 7.8
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "refs": 8,
+      "resolved": 5,
+      "resolutionRate": 63,
+      "unresolved": [
+        "offering:10003.students",
+        "offering:10005.students",
+        "offering:10001.students"
+      ],
+      "boundNumeric": 5,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "5"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "Ja, er zijn twee klassen met minder dan 5 leerlingen:\n\n{{ offering:10003.name }} heeft {{ offering:10003.students }} leerlingen en {{ offering:10005.name }} heeft {{ offering:10005.students }} leerlingen. \n\n{{ offering:10001.name }} en {{ offering:10006.name }} hebben respectievelijk {{ offering:10001.students }} en {{ offering:10006.name }} leerlingen, dus beiden boven de vijf.",
+      "renderedResponse": "Ja, er zijn twee klassen met minder dan 5 leerlingen:\n\n2ZW heeft undefined leerlingen en 3SV heeft undefined leerlingen. \n\n1C en 4OB hebben respectievelijk undefined en 4OB leerlingen, dus beiden boven de vijf.",
+      "time": 6.6
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "refs": 10,
+      "resolved": 8,
+      "resolutionRate": 80,
+      "unresolved": [
+        "offering:10010.students",
+        "offering:10004.students"
+      ],
+      "boundNumeric": 8,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "75"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10010.name }} is de enige die beide criteria combineert: {{ offering:10010.students }} leerlingen en een slaagpercentage van {{ offering:10010.passRate }}%.\n\n{{ offering:10004.name }} heeft {{ offering:10004.students }} leerlingen maar een slaagpercentage van slechts {{ offering:10004.passRate }}%, {{ offering:10009.name }} haalt {{ offering:10009.passRate }}% en {{ offering:10012.name }} {{ offering:10012.passRate }}% — allemaal onder de 75%-drempel.",
+      "renderedResponse": "6HO is de enige die beide criteria combineert: undefined leerlingen en een slaagpercentage van 76%.\n\n3BS heeft undefined leerlingen maar een slaagpercentage van slechts 60%, 5BS haalt 68% en 6ZW 74% — allemaal onder de 75%-drempel.",
+      "time": 9.5
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "refs": 15,
+      "resolved": 9,
+      "resolutionRate": 60,
+      "unresolved": [
+        "offering:10001.stream",
+        "offering:10001.students",
+        "offering:10004.stream",
+        "offering:10004.students",
+        "offering:10009.stream",
+        "offering:10009.students"
+      ],
+      "boundNumeric": 9,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "**{{ offering:10001.name }}** ({{ offering:10001.stream }})  \n{{ offering:10001.students }} leerlingen, {{ offering:10001.passRate }}% slaagpercentage, {{ offering:10001.evalRate }}% afnamepercentage\n\n**{{ offering:10004.name }}** ({{ offering:10004.stream }})  \n{{ offering:10004.students }} leerlingen, {{ offering:10004.passRate }}% slaagpercentage, {{ offering:10004.evalRate }}% afnamepercentage\n\n**{{ offering:10009.name }}** ({{ offering:10009.stream }})  \n{{ offering:10009.students }} leerlingen, {{ offering:10009.passRate }}% slaagpercentage, {{ offering:10009.evalRate }}% afnamepercentage",
+      "renderedResponse": "**1C** (undefined)  \nundefined leerlingen, 79% slaagpercentage, 96% afnamepercentage\n\n**3BS** (undefined)  \nundefined leerlingen, 60% slaagpercentage, 85% afnamepercentage\n\n**5BS** (undefined)  \nundefined leerlingen, 68% slaagpercentage, 91% afnamepercentage",
+      "time": 6.7
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "refs": 10,
+      "resolved": 8,
+      "resolutionRate": 80,
+      "unresolved": [
+        "offering:10004.students",
+        "offering:10002.students"
+      ],
+      "boundNumeric": 8,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "De twee zwakste klassen zijn {{ offering:10004.name }} en {{ offering:10002.name }}.\n\n{{ offering:10004.name }} heeft de laagste slagingspercentage met {{ offering:10004.passRate }}%, hoewel het {{ offering:10004.students }} studenten telt. Dit wordt aangevuld door een evalpercentage van {{ offering:10004.evalRate }}%.\n\n{{ offering:10002.name }} staat op de tweede plaats met een slagingspercentage van {{ offering:10002.passRate }}% voor {{ offering:10002.students }} studenten en een evalpercentage van {{ offering:10002.evalRate }}%.",
+      "renderedResponse": "De twee zwakste klassen zijn 3BS en 2D.\n\n3BS heeft de laagste slagingspercentage met 60%, hoewel het undefined studenten telt. Dit wordt aangevuld door een evalpercentage van 85%.\n\n2D staat op de tweede plaats met een slagingspercentage van 71% voor undefined studenten en een evalpercentage van 94%.",
+      "time": 7.3
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "refs": 9,
+      "resolved": 6,
+      "resolutionRate": 67,
+      "unresolved": [
+        "offering:10003.students",
+        "offering:10005.students",
+        "offering:10006.students"
+      ],
+      "boundNumeric": 6,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ offering:10003.name }} telt {{ offering:10003.students }} leerlingen met een slaagpercentage van {{ offering:10003.passRate }}%. {{ offering:10005.name }} heeft {{ offering:10005.students }} leerlingen en een slaagpercentage van {{ offering:10005.passRate }}%. {{ offering:10006.name }} bestaat uit {{ offering:10006.students }} leerlingen met een slaagpercentage van {{ offering:10006.passRate }}%.",
+      "renderedResponse": "2ZW telt undefined leerlingen met een slaagpercentage van 86%. 3SV heeft undefined leerlingen en een slaagpercentage van 81%. 4OB bestaat uit undefined leerlingen met een slaagpercentage van 82%.",
+      "time": 9.8
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "refs": 17,
+      "resolved": 14,
+      "resolutionRate": 82,
+      "unresolved": [
+        "student:20414.rate",
+        "student:20459.rate",
+        "student:20400.rate"
+      ],
+      "boundNumeric": 11,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ student:20414.name }} volgt {{ offering:10056.name }} en haalde een slaagpercentage van {{ student:20414.rate }}%. Van de {{ student:20414.total }} eindtermen waren {{ student:20414.evaluated }} geëvalueerd, zonder afwezigheden.\n\n{{ student:20459.name }} volgt {{ offering:10062.name }} en haalde een slaagpercentage van {{ student:20459.rate }}%. Van de {{ student:20459.total }} eindtermen waren {{ student:20459.evaluated }} geëvalueerd, met {{ student:20459.absent }} afwezigheden.\n\n{{ student:20400.name }} volgt {{ offering:10054.name }} en haalde een slaagpercentage van {{ student:20400.rate }}%. Van de {{ student:20400.total }} eindtermen waren {{ student:20400.evaluated }} geëvalueerd, met {{ student:20400.absent }} afwezigheden.",
+      "renderedResponse": "Amir Janssens volgt 5OL en haalde een slaagpercentage van undefined%. Van de 18 eindtermen waren 18 geëvalueerd, zonder afwezigheden.\n\nAyoub Peeters volgt 5HO en haalde een slaagpercentage van undefined%. Van de 16 eindtermen waren 13 geëvalueerd, met 3 afwezigheden.\n\nAli Peeters volgt 6WEWI en haalde een slaagpercentage van undefined%. Van de 27 eindtermen waren 22 geëvalueerd, met 5 afwezigheden.",
+      "time": 10.4
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "refs": 2,
+      "resolved": 1,
+      "resolutionRate": 50,
+      "unresolved": [
+        "student:20400.rate"
+      ],
+      "boundNumeric": 0,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ student:20400.name }} heeft een slaagpercentage van {{ student:20400.rate }}%.",
+      "renderedResponse": "Ali Peeters heeft een slaagpercentage van undefined%.",
+      "time": 6.3
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "refs": 1,
+      "resolved": 1,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 1,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "Noor Maes heeft {{ student:20376.absent }} afwezigheden.",
+      "renderedResponse": "Noor Maes heeft 4 afwezigheden.",
+      "time": 6.2
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "refs": 4,
+      "resolved": 2,
+      "resolutionRate": 50,
+      "unresolved": [
+        "student:20400.rate",
+        "student:20376.rate"
+      ],
+      "boundNumeric": 0,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ student:20400.name }} scoort lager met een rate van {{ student:20400.rate }}, vergeleken met {{ student:20376.name }} die een rate van {{ student:20376.rate }} heeft.",
+      "renderedResponse": "Ali Peeters scoort lager met een rate van undefined, vergeleken met Noor Maes die een rate van undefined heeft.",
+      "time": 6
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "refs": 4,
+      "resolved": 3,
+      "resolutionRate": 75,
+      "unresolved": [
+        "student:20579.rate"
+      ],
+      "boundNumeric": 0,
+      "freeNumeric": 1,
+      "freeTokens": [
+        "0"
+      ],
+      "hasMarkup": true,
+      "rawResponse": "{{ student:20414.name }} en {{ student:20459.name }} hebben exact 0% slaagpercentage. {{ student:20579.name }} heeft een slaagpercentage van {{ student:20579.rate }}%.",
+      "renderedResponse": "Amir Janssens en Ayoub Peeters hebben exact 0% slaagpercentage. Pieter Jacobs heeft een slaagpercentage van undefined%.",
+      "time": 6.4
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "refs": 9,
+      "resolved": 8,
+      "resolutionRate": 89,
+      "unresolved": [
+        "student:20400.rate"
+      ],
+      "boundNumeric": 7,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "{{ student:20400.name }} toont zwakke prestaties in {{ offering:10054.name }} met enkele belangrijke factoren:\n\nAllereerst is zijn slaagpercentage zeer laag — slechts {{ student:20400.passed }} geslaagd uit {{ student:20400.total }} toetsen. Bij {{ student:20400.evaluated }} evaluaties is zijn cijfergemiddelde {{ student:20400.rate }} punten, wat aangeeft dat hij structureel ondermaats presteert.\n\nEen opvallende factor is absentie: {{ student:20400.absent }} afwezigheden kunnen een aanzienlijke rol spelen in zijn resultaten. Gemiste lessen en toetsen maken het moeilijk om vast te stellen of dit achterstand of onvoldoende inzet reflecteert.\n\nTer vergelijking: {{ offering:10054.name }} als geheel heeft een slaagpercentage van {{ offering:10054.passRate }}%, wat suggereert dat Ali's prestaties significant onder het niveau van zijn medestudenten liggen.",
+      "renderedResponse": "Ali Peeters toont zwakke prestaties in 6WEWI met enkele belangrijke factoren:\n\nAllereerst is zijn slaagpercentage zeer laag — slechts 1 geslaagd uit 27 toetsen. Bij 22 evaluaties is zijn cijfergemiddelde undefined punten, wat aangeeft dat hij structureel ondermaats presteert.\n\nEen opvallende factor is absentie: 5 afwezigheden kunnen een aanzienlijke rol spelen in zijn resultaten. Gemiste lessen en toetsen maken het moeilijk om vast te stellen of dit achterstand of onvoldoende inzet reflecteert.\n\nTer vergelijking: 6WEWI als geheel heeft een slaagpercentage van 82%, wat suggereert dat Ali's prestaties significant onder het niveau van zijn medestudenten liggen.",
+      "time": 10.7
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "refs": 2,
+      "resolved": 2,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 2,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "De gegevens die je hebt gedeeld bevatten geen leerkrachtinformatie. {{ offering:10004.name }} is wel geregistreerd met {{ offering:10004.studentCount }} studenten, maar er is geen veld voor de verantwoordelijke leerkracht in deze dataset.",
+      "renderedResponse": "De gegevens die je hebt gedeeld bevatten geen leerkrachtinformatie. 3BS is wel geregistreerd met 8 studenten, maar er is geen veld voor de verantwoordelijke leerkracht in deze dataset.",
+      "time": 6.9
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "refs": 8,
+      "resolved": 7,
+      "resolutionRate": 88,
+      "unresolved": [
+        "student:20376.rate"
+      ],
+      "boundNumeric": 4,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "Op basis van deze gegevens kan ik niet met zekerheid zeggen welke interventie {{ student:20376.name }} zeker zal helpen. De data laat wel duidelijke signalen zien: {{ student:20376.name }} is {{ student:20376.absent }} keer afwezig geweest en heeft een evaluatiegraad van slechts {{ student:20376.rate }}%, met {{ student:20376.passed }} geslaagd examen op {{ student:20376.total }} toetsen.\n\nDe absentieproblemen ({{ student:20376.absent }} afwezigheden) lijken een eerste aandachtspunt, want je kunt niet slagen voor wat je mist. Maar zonder extra gegevens over de oorzaken van haar lage prestaties—is het motivatie, begrip van de stof, persoonlijke omstandigheden?—kan ik niet voorspellen wat \"zeker\" zal helpen. Dat vraagt om een gesprek met {{ student:20376.name }} zelf.",
+      "renderedResponse": "Op basis van deze gegevens kan ik niet met zekerheid zeggen welke interventie Noor Maes zeker zal helpen. De data laat wel duidelijke signalen zien: Noor Maes is 4 keer afwezig geweest en heeft een evaluatiegraad van slechts undefined%, met 1 geslaagd examen op 21 toetsen.\n\nDe absentieproblemen (4 afwezigheden) lijken een eerste aandachtspunt, want je kunt niet slagen voor wat je mist. Maar zonder extra gegevens over de oorzaken van haar lage prestaties—is het motivatie, begrip van de stof, persoonlijke omstandigheden?—kan ik niet voorspellen wat \"zeker\" zal helpen. Dat vraagt om een gesprek met Noor Maes zelf.",
+      "time": 10.4
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "refs": 10,
+      "resolved": 10,
+      "resolutionRate": 100,
+      "unresolved": [],
+      "boundNumeric": 10,
+      "freeNumeric": 0,
+      "freeTokens": [],
+      "hasMarkup": true,
+      "rawResponse": "Op basis van de huidige stand zal {{ offering:10004.name }} waarschijnlijk het meest verbeteren. Deze klas heeft de laagste slagingspercentage van {{ offering:10004.passRate }}%, vergeleken met {{ offering:10001.passRate }}% bij {{ offering:10001.name }}, {{ offering:10009.passRate }}% bij {{ offering:10009.name }} en {{ offering:10010.passRate }}% bij {{ offering:10010.name }}.\n\nDaarnaast heeft {{ offering:10004.name }} ook het laagste evaluatiepercentage ({{ offering:10004.evalRate }}%), wat suggereert dat er ruimte is voor verbetering in participatie of engagement. Een klas met zoveel verbeteringsmogelijkheden heeft doorgaans het meeste potentieel voor vooruitgang.",
+      "renderedResponse": "Op basis van de huidige stand zal 3BS waarschijnlijk het meest verbeteren. Deze klas heeft de laagste slagingspercentage van 60%, vergeleken met 79% bij 1C, 68% bij 5BS en 76% bij 6HO.\n\nDaarnaast heeft 3BS ook het laagste evaluatiepercentage (85%), wat suggereert dat er ruimte is voor verbetering in participatie of engagement. Een klas met zoveel verbeteringsmogelijkheden heeft doorgaans het meeste potentieel voor vooruitgang.",
+      "time": 9.6
+    }
+  ],
+  "summary": {
+    "queries": 28,
+    "refs": 175,
+    "resolved": 143,
+    "resolutionRate": 82,
+    "boundNumeric": 130,
+    "freeNumeric": 7,
+    "bindingCoverage": 94.9,
+    "noMarkup": 0
+  }
+}

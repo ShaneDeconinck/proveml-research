@@ -1,0 +1,811 @@
+{
+  "timestamp": "2026-07-31T19:37:18.212Z",
+  "provider": "ollama",
+  "model": "qwen2.5:7b",
+  "run": 1,
+  "maxLoops": 3,
+  "contextMode": "full",
+  "callTimeoutMs": 900000,
+  "timedOutCalls": 0,
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark",
+    "version": "v1",
+    "path": "benchmarks/proveml-pilot.v1.json"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het object, zitten er 5 leerlingen in de klas 3BS. Dit is te zien aan het onderdeel \"classes\" waarin een object met id 10009 beschreven staat, en het veld \"students\" hierbinnen bevat het getal 5.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 85.3
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het object, is het slaagpercentage voor de aangeboden cursus 6ZW:\n\n68%\n\nDit kan berekend worden uit de \"passed\" (slaaggeraden) en \"total\" (geëvalueerde) velden van de strugglingStudents-array. Voor de student met offeringId 20347 is het resultaat als volgt:\n- passed: 19\n- total: 28\n\nHet slaagpercentage wordt berekend als:\n\n(19 / 28) * 100 = 67.857 ≈ 68%\n\nDus het exacte slaagpercentage voor de cursus 6ZW is ongeveer 68%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 94.9
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het object, heeft de vakkenaam \"5BS\" een afnamepercentage van 58%. Dit kan worden opgedoken uit de \"offerings\"lijst waarin de vakken met hun respectieve percentage staan.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 77.4
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens zijn er geen leerlingen die in 1C zitten. De enige klasse die genoemd wordt is 1D2, maar dat is een variant van 1D (met \"2\" eraan toe). Er staat ook niets over 1C specifically.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 76.5
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegeven data heeft klas 6ZW het hoogste slaagpercentage:\n\nDe klas 6ZW wordt vermeld als een van de offertes in de \"successfulStudents\" lijst met een slaagpercentage (passed/total) van 97%.\n\nDit is hoger dan de percentages voor de andere klassen die men hierover vraagt:\n- 3BS: 81%\n- 5BS: 76%\n- 6HO: 62%\n\nZo kan worden geconcludeerd dat 6ZW het beste presteert met een slaagpercentage van 97%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 88.9
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Basisgegevens:\n\n- Klasse 1C heeft 39 inschrijvingen en 50 geëvalueerde leerlingen (afname 78%)\n- Klasse 2D heeft 31 inschrijvingen en 46 geëvalueerde leerlingen (afname 76%)\n- Klasse 4WE heeft 19 inschrijvingen en 25 geëvalueerde leerlingen (afname 84%)\n- Klasse 6ZW heeft 36 inschrijvingen en 40 geëvalueerde leerlingen (afname 89%)\n\nHet laagste afnamepercentage is dus bij klasse **6ZW** met 89%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 92.8
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegeven data bevinden zich de volgende klassen met minder dan 1 leerling:\n\n1. 1C (niet in de lijst)\n2. 2ZW: 0 leerlingen\n3. 3SV (niet in de lijst)\n4. 4OB (niet in de lijst)\n5. 5BS: 0 leerlingen\n\nDus er zijn 3 klassen met minder dan 1 leerling:\n\n- 2ZW (0 leerlingen)\n- 5BS (0 leerlingen)\n\nDe klassen 1C en 3SV & 4OB staan niet in de gegeven lijst.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 91.2
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Hier is de rangschikking van de lessen 1C, 2D en 3BS op ascending order (laag naar hoog) op basis van het slaagpercentage:\n\n1. 3BS:\n   - Offering ID: 10004\n   - Slaagpercentage: 86%\n   \n2. 2D:\n   - Offering ID: 10075\n   - Slaagpercentage: 89%\n\n3. 1C:\n   - Offering ID: 10017\n   - Slaagpercentage: 94% (volgens de gegeven data, deze lessen is er niet in de gegeven dataset)\n\nLet op: De les 1C is niet in de gegeven dataset aanwezig. Als je het slaagpercentage voor 1C wilt vergelijken, moet dat dan toegevoegd worden aan de dataset.\n\nDeze rangschikking is gebaseerd op de beschikbare data over deze drie lessen.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 103.3
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het object:\n\n- Het slaagpercentage (passed / total) voor offering 6ZW is 97% (0,97)\n- Het slaagpercentage voor offering 3BS is 52% (0,52)\n\nDus het slaagpercentage van 6ZW (97%) is significantly hoger dan dat van 3BS (52%).",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 79.2
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Basing on the information provided in your JSON data, let's compare the number of students for both offerings:\n\nFor offering \"1C\":\n```json\n{\n  \"id\": 10025,\n  \"name\": \"1C\",\n  ...\n  \"students\": [\n    {\n      \"id\": 20367,\n      \"name\": \"Jasper De Roover\",\n      ...\n    },\n    // ... (other student objects)\n  ],\n  \"strugglingStudents\": [ ],\n  \"totalStudents\": 14\n}\n```\nThe total number of students for offering \"1C\" is 14.\n\nFor offering \"6ZW\":\n```json\n{\n  \"id\": 10083,\n  \"name\": \"6ZW\",\n  ...\n  \"students\": [\n    {\n      \"id\": 20579,\n      \"name\": \"Pieter Jacobs\",\n      ...\n    },\n    // ... (other student objects)\n  ],\n  \"strugglingStudents\": [ ],\n  \"totalStudents\": 10\n}\n```\nThe total number of students for offering \"6ZW\" is 10.\n\nTherefore, the offering with the lowest number of students is **6ZW** with only 10 students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 112.4
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Op basis van het gegeven data, kunnen we de afnamepercentages vergelijken voor de aanbiedingen 5BO en 6OL.\n\n1. Aanbod 5BO:\n   - Studenten: 4\n   - Gesneueld: 0\n   - Afnamepercentage = (4/4) * 100 = 100%\n\n2. Aanbod 6OL:\n   - Studenten: 8\n   - Gesneueld: 5\n   - Afnamepercentage = (8-5)/8 * 100 ≈ 37.5%\n\nDus we kunnen concluderen dat de afnamepercentages zitten op:\n\n5BO: 100%\n6OL: ongeveer 37,5% \n\nHet lijkt erop dat het aantal studenten dat deelneemt aan 5BO volledig is (afname 100%), terwijl voor 6OL slechts ongeveer 38% van de ingeschreven studenten eindigde bij deze cursus.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 107.7
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het object, heeft offering \"2D\" het hoogste slaagpercentage met 95%. \n\nDe relevante informatie vindt u bij:\n\n- Offering \"2D\": slaagpercentage = 97%\n- Offering \"4WE\": slaagpercentage = 99% \n- Offering \"6HO\": slaagpercentage = 100%\n\nHoewel 6HO het absolute hoogste percentage heeft, is 2D de vraag die u beantwoordt.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 82.7
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Baseren op de gegeven data, bevinden er zich geen offerings (cursussen) met de namen 1C, 2D, 3BS of 5BO in het object. \n\nHet enige offering dat iets dichter bij deze code lijkt is \"5BO\" als abbréviation van \"5BW\", maar dit heeft een slaagpercentage van 95%, dus boven de 60% drempel.\n\nGeen van de andere gevraagde offerings (1C, 2D, 3BS) staan in het object en hebben dus ook geen relevante informatie.\n\nDus op basis van deze gegevens kan er niet worden beantwoord welke van deze offerings een slaagpercentage onder 60% heeft.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 94.2
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Based on the data provided in the JSON, none of the offerings (5BS, 6OL, 4WE, or 6ZW) have an absenteeism rate of at least 80%.\n\nHere are the absenteeism rates for those specific offerings:\n\n- 5BS: 11.3% (7 absent out of 62 evaluated)\n- 6OL: 11.9% (3 absent out of 24 evaluated)\n- 4WE: 5.5% (1 absent out of 18 evaluated)\n- 6ZW: 0% (0 absent out of 9 evaluated)\n\nNone of these rates are at least 80%, so no offerings meet the criteria you specified.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 92
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Nee, de klassen 1C, 2ZW, 3SV en 4OB zijn niet voorwaarts vermeld in het JSON-object. Het lijkt erop dat deze klassen ontbreken of er is een fout in de data.\n\nHier zijn de klassen die wel voorkomen in de data:\n\n- 1D2 (onder \"classes\")\n- 3WET (onder \"classes\")\n\nDe klassen die u noemt (1C, 2ZW, 3SV en 4OB) zitten niet in het JSON-object dat je hebt gegeven. Dit zou kunnen wijzen op een fout of misverstand in de gegevens.\n\nAls u meer informatie wil over specifieke klassen, is het raadzaam om te controleren of deze correct zijn weergegeven in het JSON-object.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 97.2
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Blijkbaar moeten we kijken welk combinatie van deze vakken minstens 8 leerlingen bevat met meer dan een 75% slaagpercentijge. Laten we dat stap voor stap analyseren:\n\n1) 3BS:\n   - Gebruikt: Ja, 10 leerlingen\n   - Slaagpercentage: 97%, wat boven de 75% grens ligt\n\n2) 5BS:\n   - Gebruikt: Ja, 11 leerlingen\n   - Slaagpercentage: 97%, wat boven de 75% grens ligt\n\n3) 6ZW:\n   - Gebruikt: Nee, 0 leerlingen gebruiken dit vak\n\n4) 6HO:\n   - Gebruikt: Ja, 1 leerling gebruikt dit vak\n   - Slaagpercentage: 99%, wat boven de 75% grens ligt\n\nDus we hebben:\n\n- 3BS & 5BS: 20 leerlingen met >75%\n- 6HO: 1 leerling met >75%\n\nDit voldoet aan het criterium van \"minstens 8 leerlingen\", dus de juiste combinatie is 3BS en 5BS.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 119.6
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Hier is het overzicht:\n\n1C:\n- Leerlingen: 8\n- Slaaggrens: 60%\n- Afnamegraad: 72%\n\n3BS:\n- Leerlingen: 4\n- Slaaggrens: 59%\n- Afnamegraad: 73%\n\n5BS:\n- Leerlingen: 10\n- Slaaggrens: 87%\n- Afnamegraad: 69%",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 84
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Op basis van het gegeven JSON-bericht, kun je het volgende overzicht maken voor de twee zwakste klassen:\n\n1. 1C:\n   - Aantal studenten: 6\n   - Geslaagde studenten: 2 (33%)\n   - Geëvalueerde studenten: 7 (83%)\n   - Minderheid: 4 studenten\n\n2. 2D:\n   - Aantal studenten: 10\n   - Geslaagde studenten: 5 (50%)\n   - Geëvalueerde studenten: 9 (90%)\n   - Minderheid: 3 studenten\n\nHier zijn de redenen waarom ik deze twee klassen als zwakst beschouw:\n\n- 1C heeft een lage passingsgraad van slechts 33%, wat hoger is dan het gemiddelde.\n- 2D heeft een passingsgraad van net boven het gemiddelde, maar met een hoge minderheid (30%).\n\nDeze klassen hebben de laagste passingsgraden ten opzichte van de andere klassen in de lijst.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 111.7
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Hier is de samenvatting voor 2ZW, 3SV en 4OB:\n\nAantal leerlingen:\n2ZW: 7\n3SV: 5 \n4OB: 4\n\nTotaal aantal leerlingen: 16\n\nSlaagpercentage (gemiddeld):\n- 2ZW: 92.86% (6/7)\n- 3SV: 80% (4/5)\n- 4OB: 75% (3/4)\n\nGemiddeld slaagpercentage: 81.25%\n\nOpmerking:\nDeze gemiddelde is lager dan het overige offeringen, wat indicatie geeft dat deze lessen misschien een iets harder niveau hebben of meer uitdagingen bieden aan de leerlingen.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 95.4
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Hier is het overzicht voor de drie studenten:\n\nAmir Janssens:\n- Offerte: 5OL\n- Geëvalueerde eindtermen: 18\n- Slaagpercentage: 0%\n- Afwezigheid: 0\n\nAyoub Peeters:\n- Offerte: 5HO\n- Geëvalueerde eindtermen: 13 (van de 16 mogelijke)\n- Slaagpercentage: 0%\n- Afwezigheid: 3 van 16 mogelijke eindtermen\n\nAli Peeters:\n- Offerte: 6WEWI\n- Geëvalueerde eindtermen: 22\n- Slaagpercentage: 4.5% (1/22)\n- Afwezigheid: 5 van 27 mogelijke eindtermen\n\nLet op dat de gegevens voor Ali Peeters en Ayoub Peeters niet volledig zijn. Bij Ayoub Peeters wordt alleen het aantal afwezigheden genoemd, terwijl er voor Ali Peeters ook de exacte cijfers (1/22) worden opgenomen, maar de exacte getallen in de overige kolommen ontbreken.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 112.8
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het JSON-object, heeft Ali Peeters een slaagpercentage van 5%. Dit kan zien uit het \"rate\" veld in zijn record onder \"strugglingStudents\", waarin staat dat hij 1 op 27 eindcijfers had die geslaagd waren (27 - 1 = 26 niet-geslaagde cijfers, dus een rate van ongeveer 5%).",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 80.3
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegevens in het berekeningsverslag hebben Noor Maes 4 afwezigheden. Dit kan uit de \"absent\" (afwezigheid) veld in haar record worden opgenomen:\n\n{\n  \"id\": 20376,\n  \"name\": \"Noor Maes\",\n  \"offeringId\": 10050,\n  \"offering\": \"5WEWI\",\n  \"passed\": 1,\n  \"evaluated\": 17,\n  \"total\": 21,\n  \"rate\": 6,\n  \"absent\": 4\n}",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 88.8
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Berekend op de gegeven cijfers:\n\n- Ali Peeters: 5/27 = 18.5%\n- Noor Maes: 6/21 = 28.6%\n\nDus Noor Maes scoort lager dan Ali Peeters.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 75.2
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Blijkbaar heb je een stukje data over leerlingen die problemen hebben met hun lessen. Bij deze vraag moeten we specificallyk kijken naar de \"passed\" (slaagen) en \"evaluated\" (ingespeeld) velden.\n\nHier zijn de relevant gegevens:\n\n1. Amir Janssens:\n   - passed: 0\n   - evaluated: 18\n\n2. Ayoub Peeters:\n   - passed: 0\n   - evaluated: 13\n\n3. Pieter Jacobs:\n   - passed: 2\n   - evaluated: 65\n\nAlleen Ayoub Peeters heeft een exact 0% slaagpercentage, omdat hij helemaal niet geslaagd is (passed: 0) terwijl hij wel inspeldtijd had (evaluated: 13).\n\nAmir Janssens en Pieter Jacobs hebben beiden wel geslaagden, dus hun percentage is groter dan 0%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 101.8
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Blijkbaar heeft Ali Peeters moeite met het vak 6WEWI (offeringId 10054). Volgens de gegevens heeft hij slechts 1 keer geslaagd op 27 mogelijke vragen of toetsen, wat een betere prestatie is dan sommigen van zijn klasgenoten. Hij mistte ook 5 lesuren.\n\nDit kan een indicatie zijn dat Ali Peeters extra hulp nodig heeft in dit vak. Het zou goed kunnen zijn om met hem en de docent over deze uitdaging te praten, zodat eventuele extra ondersteuning of helpende stappen kunnen worden georganiseerd.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 91
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Volgens de gegeven data is de lesvoering voor het vak 3BS bijgedragen door offeringId 10009, met de naam \"5BS\" in de lijst van lesvoeringen. \n\nDit zou betekenen dat meerdere leerkrachten bijdragen aan het vak 3BS, aangezien er meerdere offeringIds zijn die vermelden dat ze verantwoordelijk zijn voor 3BS.\n\nAls we kiezen voor één specifieke docent, kunnen we op grond van het aantal bijdragen kiezen. In deze case is offeringId 10009 met de naam \"5BS\" het meest frequent voorkomend (6 keer), dus dat zou een logische keuze zijn.\n\nDeze offering wordt door Kobe De Clercq vertaapt, volgens de data in \"strugglingStudents\".\n\nDus de leerkracht die verantwoordelijk is voor 3BS, op basis van het meest frequent voorkomende docentennaam, lijkt Kobe De Clercq te zijn.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 107.3
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Basis van mijn antwoord is dat we niet specifiek genoeg informatie hebben over de behoeften en situatie van Noor Maes om een precies raadpleging te geven. Maar ik kan wel enkele algemene interventies suggereren die kunnen helpen:\n\n1. Persoonlijk contact: Een persoonlijke ontmoeting met Noor om haar zorgen en behoeften te bespreken.\n\n2. Regelmatige controle: Meer frequent controleren van haar prestaties en betrokkenheid.\n\n3. Studieplannen: Samenzweten aan het maken van een stappenplan voor verbetering, eventueel samen met een leerdocent.\n\n4. Betrokkenheid versterken: Aanzetten aan deelnemen aan studiegroepen of vragenbureaus.\n\n5. Motiverende bijeenkomsten: Haar betrekking aan het onderwijs versterken door bijvoorbeeld extra motivatie of belooningstactieken.\n\n6. Contact met ouders: Informatie delen met haar ouders over haar situatie en welke hulp zij kunnen bieden thuis.\n\n7. Korter lesuur: Overwegen om een kortere lesuurperiode in te voeren als dat haalbaar is.\n\n8. Extra lessen: Aanbieding van extra bijles of tutorstenen.\n\n9. Gezondheidsaspecten: Raadpleging over mogelijke gezondheidsoptimalisatie, aangesloten op haar evaluatie.\n\n10. Motivatierecepten: Afstemming op een individueel recept om haar motivatie te verbeteren.\n\nHet belangrijkste is om Noor betrokken te houden in het besluitvormingsproces en haar gevoelens en zorgen te respecteren, terwijl er wordt getracht om effectieve interventies aan te nemen.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 141.5
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "full",
+      "converged": false,
+      "loopsToConverge": null,
+      "initialRate": 0,
+      "finalRate": 0,
+      "initialClaims": 0,
+      "finalClaims": 0,
+      "initialErrorDetails": [],
+      "contextOfferings": 95,
+      "contextStudents": 20,
+      "finalResponse": "Om te bepalen welk klassenprofiel het meest verbeteren zal volgend trimester, moeten we een aantal factoren overwegen:\n\n1. De cijfers van de huidige termijn:\n   - Klassen met lage cijfers in combinatie met veel onaandacht (absenties) hebben meer ruimte voor verbetering.\n\n2. Het aantal studenten dat al geslaagd is:\n   - Klassen waar een klein proportionaal deel van de studenten reeds geslaagd is, kunnen groter verbeteringen verwachten.\n\n3. De betrouwbaarheid van de cijfers:\n   - Klasses met meer ongeevalideerde cijfers (hoge aantallen absenties) hebben minder betrouwbare cijfers en dus meer mogelijkheden voor verbetering.\n\nBekijkend deze factoren, zie ik de volgende klas als het meest verbeteren kan verwachten:\n\n5OL: \n- Cijfers 0% (alleen geslaagden)\n- Heel weinig studenten (2)\n- Hoge aantallen onaandacht (18 uit 18 geslagen)\n- Meest waarschijnlijk ondersteund door de school\n\nAndere klasses met lage cijfers en veel onaandacht, zoals:\n- 5HO\n- 3LAT2\n- 2D2\n\nZullen ook goede kandidaten zijn voor een meerdere verbetering.\n\nHet is belangrijk op te merken dat dit alleen een schatting is gebaseerd op de beschikbare data. De werkelijke verbeteringen kunnen variëren en worden beïnvloed door vele andere factoren die niet in deze data zijn weergegeven.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 0,
+          "total": 0,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 0,
+          "time": 134.5
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 0,
+    "avgFinal": 0,
+    "converged": 0,
+    "total": 28,
+    "avgLoops": "N/A",
+    "zeroShot": 0,
+    "oneLoop": 0,
+    "timedOutCalls": 0
+  }
+}

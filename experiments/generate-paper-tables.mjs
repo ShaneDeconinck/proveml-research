@@ -37,6 +37,10 @@ const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
 const sd = (xs) => xs.length < 2 ? 0
     : Math.sqrt(xs.reduce((s, v) => s + (v - mean(xs)) ** 2, 0) / (xs.length - 1));
 const r1 = (x) => (Math.round((x + Number.EPSILON) * 10) / 10).toFixed(1).replace(/\.0$/, '');
+// Spreads keep their trailing zero (± 3.0, not ± 3): the paper's tables use one
+// decimal for every sd, and the generator has to produce rows that match them
+// byte for byte — that equality is the whole point of generating them.
+const sd1 = (x) => (Math.round((x + Number.EPSILON) * 10) / 10).toFixed(1);
 
 function load(pattern) {
     const groups = {};
@@ -91,8 +95,8 @@ function rows(groups, { withClasses = false } = {}) {
                 model, sortKey: mean(initial),
                 cells: [
                     LABEL[model] || model,
-                    `${Math.round(mean(initial))}\\% $\\pm$ ${r1(sd(initial))}`,
-                    `${Math.round(mean(final))}\\% $\\pm$ ${r1(sd(final))}`,
+                    `${Math.round(mean(initial))}\\% $\\pm$ ${sd1(sd(initial))}`,
+                    `${Math.round(mean(final))}\\% $\\pm$ ${sd1(sd(final))}`,
                     `${r1(mean(conv))}/${n}`,
                     ...(cls ? [cls.addr, cls.value] : []),
                 ],
@@ -138,7 +142,7 @@ console.log('\n%% Table: language ablation — tab:langablation');
         const nl = edu[m].map(r => r.summary.avgInitial);
         const eng = en[m].map(r => r.summary.avgInitial);
         const cNl = cov[`education|${m}`], cEn = cov[`education-en|${m}`];
-        return `    ${LABEL[m] || m} & ${Math.round(mean(nl))}\\% $\\pm$ ${r1(sd(nl))} & ${Math.round(mean(eng))}\\% $\\pm$ ${r1(sd(eng))}`
+        return `    ${LABEL[m] || m} & ${Math.round(mean(nl))}\\% $\\pm$ ${sd1(sd(nl))} & ${Math.round(mean(eng))}\\% $\\pm$ ${sd1(sd(eng))}`
             + ` & ${cNl == null ? '--' : r1(cNl) + '\\%'} & ${cEn == null ? '--' : r1(cEn) + '\\%'} \\\\`;
     });
     console.log(line.sort().join('\n'));

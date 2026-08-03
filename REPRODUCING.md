@@ -85,7 +85,7 @@ bash run-experiments-finance.sh 3
 
 Pre-computed results from the paper are preserved in `experiments/convergence-results-*-run*.json`.
 
-Ablations (full-context and English-prompt; Section 7.4 of the paper) resume-safely:
+Ablations (full-context and English-prompt; Section 7.4 of the technical report) resume-safely:
 
 ```bash
 cd experiments
@@ -95,7 +95,7 @@ bash run-ablations.sh
 Outputs are tagged (`convergence-results-fullctx-*`, `convergence-results-en-*`) so they
 never overwrite the primary runs; `aggregate-results.js` groups them separately.
 
-SymGen baseline (Section 7.5 of the paper), resume-safe like the ablations:
+SymGen baseline (Section 7.5 of the technical report), resume-safe like the ablations:
 
 ```bash
 cd experiments
@@ -106,7 +106,7 @@ node analyse-symgen-vs-proveml.mjs
 The baseline is a reimplementation of SymGen's published Direct strategy against the
 same fact stores, prompts and models; it is not the authors' code.
 
-Markup coverage audit (Section 7.6 of the paper) over the stored final responses:
+Markup coverage audit (Section 7.6 of the technical report) over the stored final responses:
 
 ```bash
 cd experiments

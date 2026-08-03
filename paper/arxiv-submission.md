@@ -25,7 +25,7 @@ venue-submissie; CC BY is onherroepelijk. Dit staat los van de repo, die wél
 CC BY 4.0 draagt op paper en data — daar kies je zelf en kun je terugkomen.
 
 **Comments**
-33 pages, 6 figures, 8 tables. Reference implementation: https://github.com/ShaneDeconinck/proveml
+34 pages, 6 figures, 8 tables. Reference implementation: https://github.com/ShaneDeconinck/proveml
 (npm: proveml). Benchmarks, experiment artifacts and reproducibility guide:
 https://github.com/ShaneDeconinck/proveml-research
 
@@ -48,7 +48,7 @@ We evaluate across four models (3.8B to API-scale) and two domains — a generat
 - [ ] Citatiechecklist doorlopen (`citation-checklist.md`, 55 referenties) — de
       metadata is machinaal gecontroleerd, of de zin klopt niet.
 - [ ] npm 1.1.0 publiceren, zodat het pakket overeenkomt met wat het paper beschrijft
-- [ ] Tarball uploaden, compilatie-preview controleren (32 pagina's)
+- [ ] Tarball uploaden, compilatie-preview controleren (34 pagina's)
 - [ ] Metadata uit dit bestand plakken
 - [ ] Na publicatie: arXiv-ID toevoegen aan beide repo-README's, trustedagentic.ai
       en de trusted-ai-pagina op abovebeyond; de drie GitHub-links op

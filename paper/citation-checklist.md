@@ -4,9 +4,21 @@ For each reference: read what the paper says it does, open the source, and decid
 whether the sentence is a fair description. Metadata is already machine-checked
 (`npm run audit:bibliography`); this is the part that needs a person.
 
-57 references, 57 cited in prose.
+66 references, 61 cited in prose.
 
 ---
+
+## ais
+
+**Measuring Attribution in Natural Language Generation Models**  
+Rashkin, H. and Nikolaev, V. and Lamm, M. and Aroyo, L. and Collins, M. and Das, D. and Petrov, S. and Tomar, G. S. and Turc, I. and Reitter, D. · Computational Linguistics 2023  
+<https://doi.org/10.1162/coli_a_00486>
+
+What the paper claims (1 place):
+
+- The AIS framework gives this field its shared evaluation vocabulary --- whether a statement is attributable to identified sources, as judged by humans --- and ALCE benchmarks citation generation directly, scoring whether generated statements are supported by the passages they cite.
+
+- [ ] checked
 
 ## alce
 
@@ -16,7 +28,7 @@ Gao, T. and Yen, H. and Yu, J. and Chen, D. · Proc. EMNLP 2023
 
 What the paper claims (1 place):
 
-- ALCE benchmarks citation generation directly, scoring whether generated statements are supported by the passages they cite.
+- The AIS framework gives this field its shared evaluation vocabulary --- whether a statement is attributable to identified sources, as judged by humans --- and ALCE benchmarks citation generation directly, scoring whether generated statements are supported by the passages they cite.
 
 - [ ] checked
 
@@ -166,6 +178,30 @@ What the paper claims (1 place):
 
 - [ ] checked
 
+## fever
+
+**FEVER: a Large-scale Dataset for Fact Extraction and VERification**  
+Thorne, J. and Vlachos, A. and Christodoulopoulos, C. and Mittal, A. · Proc. NAACL-HLT 2018  
+<https://doi.org/10.18653/v1/N18-1074>
+
+What the paper claims (1 place):
+
+- Data-grounded generation. Fact verification against evidence has a canonical benchmark lineage --- FEVER for textual sources, TabFact for tables, FEVEROUS for both at once --- in which a trained model judges whether evidence supports a claim; ProveML sits outside that lineage by making the judgment a lookup rather than a model.
+
+- [ ] checked
+
+## feverous
+
+**FEVEROUS: Fact Extraction and VERification Over Unstructured and Structured information**  
+Aly, R. and Guo, Z. and Schlichtkrull, M. and Thorne, J. and Vlachos, A. and Christodoulopoulos, C. and Cocarascu, O. and Mittal, A. · Proc. NeurIPS Datasets and Benchmarks Track 2021  
+<https://arxiv.org/abs/2106.05707>
+
+What the paper claims (1 place):
+
+- Data-grounded generation. Fact verification against evidence has a canonical benchmark lineage --- FEVER for textual sources, TabFact for tables, FEVEROUS for both at once --- in which a trained model judges whether evidence supports a claim; ProveML sits outside that lineage by making the judgment a lookup rather than a model.
+
+- [ ] checked
+
 ## fhir
 
 **FHIR (Fast Healthcare Interoperability Resources), Release 5**  
@@ -212,7 +248,7 @@ Gartner · Press Release 2023
 
 What the paper claims (1 place):
 
-- Yet the majority of organizations now use AI in at least one function, and Gartner projected over 80\% of enterprises would deploy generative AI by 2026.
+- Yet the majority of organizations now use AI in at least one function, and Gartner projected that over 80\% of enterprises would have used generative AI APIs or deployed generative AI-enabled applications by 2026.
 
 - [ ] checked
 
@@ -313,7 +349,7 @@ Kalai, A. T. and Vempala, S. S. · Proc. STOC 2024
 
 What the paper claims (1 place):
 
-- prove formally that any language model satisfying natural calibration conditions must hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty.
+- prove formally that any language model satisfying natural calibration conditions must hallucinate, at a rate approaching the fraction of facts that appear exactly once in the training data; subsequent work by shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty.
 
 - [ ] checked
 
@@ -325,7 +361,7 @@ Kalai, A. T. and Nachum, O. and Vempala, S. S. and Zhang, E. · OpenAI, arXiv:25
 
 What the paper claims (1 place):
 
-- prove formally that any language model satisfying natural calibration conditions must hallucinate, at a rate bounded by the number of facts appearing rarely in training data; subsequent work shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty.
+- prove formally that any language model satisfying natural calibration conditions must hallucinate, at a rate approaching the fraction of facts that appear exactly once in the training data; subsequent work by shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty.
 
 - [ ] checked
 
@@ -361,7 +397,7 @@ Magesh, V. and Surani, F. and Dahl, M. and Suzgun, M. and Manning, C. D. and Ho,
 
 What the paper claims (1 place):
 
-- RAG grounds responses in documents but models can still misrepresent retrieved context; found hallucination rates of over 17\% (Lexis+ AI) and over 33\% (Westlaw AI-Assisted Research), despite vendor claims of near-elimination.
+- RAG grounds responses in documents but models can still misrepresent retrieved context; found that the leading legal research tools --- Lexis+ AI and Thomson Reuters' Westlaw AI-Assisted Research and Ask Practical Law AI --- each hallucinate between 17\% and 33\% of the time, despite vendor claims of near-elimination.
 
 - [ ] checked
 
@@ -397,7 +433,7 @@ McKinsey \& Company · \urlhttps://www.mckinsey.com/capabilities/quantumblack/ou
 
 What the paper claims (1 place):
 
-- Yet the majority of organizations now use AI in at least one function, and Gartner projected over 80\% of enterprises would deploy generative AI by 2026.
+- Yet the majority of organizations now use AI in at least one function, and Gartner projected that over 80\% of enterprises would have used generative AI APIs or deployed generative AI-enabled applications by 2026.
 
 - [ ] checked
 
@@ -628,10 +664,23 @@ What the paper claims (2 places):
 Torroba Hennigen, L. and Shen, S. Z. and Nrusimha, A. and Gapp, B. and Sontag, D. and Kim, Y. · Proc. COLM 2024  
 <https://arxiv.org/abs/2311.09188>
 
-What the paper claims (2 places):
+What the paper claims (3 places):
 
 - Baseline: Substitution versus Verification sec:symgen Setup. SymGen is the closest published mechanism, and it takes the opposite strategy: the model emits Jinja-like \\ field \\ references into the conditioning data and a parser substitutes each one, so the model never states a value itself.
 - SymGen embeds symbolic references in AI-generated text that are resolved against table data.
+- We have not measured whether this reduces human verification effort, and the evidence from adjacent systems is mixed: report their user study reduced average verification time by 20\%, while report a 21-participant study in which verification and correction effort did not differ significantly from their baseline, even though their system reduced hallucination.
+
+- [ ] checked
+
+## tabfact
+
+**TabFact: A Large-scale Dataset for Table-based Fact Verification**  
+Chen, W. and Wang, H. and Chen, J. and Zhang, Y. and Wang, H. and Li, S. and Zhou, X. and Wang, W. Y. · Proc. ICLR 2020  
+<https://arxiv.org/abs/1909.02164>
+
+What the paper claims (1 place):
+
+- Data-grounded generation. Fact verification against evidence has a canonical benchmark lineage --- FEVER for textual sources, TabFact for tables, FEVEROUS for both at once --- in which a trained model judges whether evidence supports a claim; ProveML sits outside that lineage by making the judgment a lookup rather than a model.
 
 - [ ] checked
 
@@ -643,7 +692,7 @@ Mehrotra, N. and Kumar, A. and Gulwani, S. and Radhakrishna, A. and Tiwari, A. �
 
 What the paper claims (1 place):
 
-- We have not measured whether this reduces human verification effort, and the evidence from adjacent systems counsels caution --- report a 21-participant study in which verification and correction effort did not differ significantly from their baseline, even though their system reduced hallucination.
+- We have not measured whether this reduces human verification effort, and the evidence from adjacent systems is mixed: report their user study reduced average verification time by 20\%, while report a 21-participant study in which verification and correction effort did not differ significantly from their baseline, even though their system reduced hallucination.
 
 - [ ] checked
 
@@ -668,7 +717,7 @@ Parikh, A. and Wang, X. and Gehrmann, S. and Faruqui, M. and Dhingra, B. and Yan
 
 What the paper claims (1 place):
 
-- Data-grounded generation. The data-to-text community and StructFact (ACL 2025 Findings) benchmark faithful generation from structured data.
+- The data-to-text community and StructFact (ACL 2025 Findings) benchmark faithful generation from structured data.
 
 - [ ] checked
 
@@ -709,3 +758,14 @@ What the paper claims (1 place):
 
 - [ ] checked
 
+---
+
+## Not cited in prose
+
+These appear only in the bibliography — either cite them or drop them:
+
+- `alignscore` — AlignScore: Evaluating Factual Consistency with A Unified Alignment Function
+- `minicheck` — MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents
+- `picard` — PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding from Language Models
+- `summac` — SummaC: Re-Visiting NLI-based Models for Inconsistency Detection in Summarization
+- `synchromesh` — Synchromesh: Reliable code generation from pre-trained language models

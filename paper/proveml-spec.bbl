@@ -1,4 +1,4 @@
-\begin{thebibliography}{57}
+\begin{thebibliography}{66}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,11 +11,27 @@ M.~E. Akhter, F.~Ruggeri, I.~M. Bilal, R.~Procter, and M.~Liakata.
 \newblock The alignment bottleneck in decomposition-based claim verification.
 \newblock arXiv:2602.10380, 2026.
 
+\bibitem[Aly et~al.(2021)Aly, Guo, Schlichtkrull, Thorne, Vlachos,
+  Christodoulopoulos, Cocarascu, and Mittal]{feverous}
+R.~Aly, Z.~Guo, M.~Schlichtkrull, J.~Thorne, A.~Vlachos, C.~Christodoulopoulos,
+  O.~Cocarascu, and A.~Mittal.
+\newblock {FEVEROUS}: Fact extraction and {VERification} over unstructured and
+  structured information.
+\newblock In \emph{Proc. NeurIPS Datasets and Benchmarks Track}, 2021.
+\newblock arXiv:2106.05707.
+
 \bibitem[Bainbridge(1983)]{bainbridge1983}
 L.~Bainbridge.
 \newblock Ironies of automation.
 \newblock \emph{Automatica}, 19\penalty0 (6):\penalty0 775--779, 1983.
 \newblock \doi{10.1016/0005-1098(83)90046-8}.
+
+\bibitem[Chen et~al.(2020)Chen, Wang, Chen, Zhang, Wang, Li, Zhou, and
+  Wang]{tabfact}
+W.~Chen, H.~Wang, J.~Chen, Y.~Zhang, H.~Wang, S.~Li, X.~Zhou, and W.~Y. Wang.
+\newblock {TabFact}: A large-scale dataset for table-based fact verification.
+\newblock In \emph{Proc. ICLR}, 2020.
+\newblock arXiv:1909.02164.
 
 \bibitem[Chern et~al.(2023)Chern, Chern, Chen, Yuan, Feng, Zhou, He, Neubig,
   and Liu]{factool}
@@ -164,6 +180,14 @@ O.~Khattab, A.~Singhvi, P.~Maheshwari, Z.~Zhang, K.~Santhanam, S.~Vardhamanan,
 \newblock In \emph{Proc. ICLR}, 2024.
 \newblock arXiv:2310.03714.
 
+\bibitem[Laban et~al.(2022)Laban, Schnabel, Bennett, and Hearst]{summac}
+P.~Laban, T.~Schnabel, P.~N. Bennett, and M.~A. Hearst.
+\newblock {SummaC}: Re-visiting {NLI}-based models for inconsistency detection
+  in summarization.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  10:\penalty0 163--177, 2022.
+\newblock \doi{10.1162/tacl_a_00453}.
+
 \bibitem[Lebo et~al.(2013)Lebo, Sahoo, McGuinness, et~al.]{prov}
 T.~Lebo, S.~Sahoo, D.~McGuinness, et~al.
 \newblock {PROV-O}: The {PROV} ontology.
@@ -304,12 +328,29 @@ Paulo Pinheiro~da Silva, Deborah~L. McGuinness, and Richard Fikes.
   2006.
 \newblock \doi{10.1016/j.is.2005.02.003}.
 
+\bibitem[Poesia et~al.(2022)Poesia, Polozov, Le, Tiwari, Soares, Meek, and
+  Gulwani]{synchromesh}
+G.~Poesia, O.~Polozov, V.~Le, A.~Tiwari, G.~Soares, C.~Meek, and S.~Gulwani.
+\newblock Synchromesh: Reliable code generation from pre-trained language
+  models.
+\newblock In \emph{Proc. ICLR}, 2022.
+\newblock arXiv:2201.11227.
+
 \bibitem[Pronesti et~al.(2026)Pronesti, Belz, and Hou]{verifiableprm}
 M.~Pronesti, A.~Belz, and Y.~Hou.
 \newblock Beyond outcome verification: Verifiable process reward models for
   structured reasoning.
 \newblock In \emph{Findings of ACL}, 2026.
 \newblock \doi{10.18653/v1/2026.findings-acl.1611}.
+
+\bibitem[Rashkin et~al.(2023)Rashkin, Nikolaev, Lamm, Aroyo, Collins, Das,
+  Petrov, Tomar, Turc, and Reitter]{ais}
+H.~Rashkin, V.~Nikolaev, M.~Lamm, L.~Aroyo, M.~Collins, D.~Das, S.~Petrov,
+  G.~S. Tomar, I.~Turc, and D.~Reitter.
+\newblock Measuring attribution in natural language generation models.
+\newblock \emph{Computational Linguistics}, 49\penalty0 (4):\penalty0 777--840,
+  2023.
+\newblock \doi{10.1162/coli_a_00486}.
 
 \bibitem[Rebedea et~al.(2023)Rebedea, Dinu, Sreedhar, Parisien, and
   Cohen]{nemo}
@@ -325,6 +366,13 @@ J.~S. Santillana.
   generation with a complete oracle.
 \newblock arXiv:2606.09376, 2026.
 
+\bibitem[Scholak et~al.(2021)Scholak, Schucher, and Bahdanau]{picard}
+T.~Scholak, N.~Schucher, and D.~Bahdanau.
+\newblock {PICARD}: Parsing incrementally for constrained auto-regressive
+  decoding from language models.
+\newblock In \emph{Proc. EMNLP}, pages 9895--9901, 2021.
+\newblock \doi{10.18653/v1/2021.emnlp-main.779}.
+
 \bibitem[Schreieder et~al.(2026)Schreieder, Schopf, and
   F{\"a}rber]{evidencesurvey}
 T.~Schreieder, T.~Schopf, and M.~F{\"a}rber.
@@ -339,12 +387,27 @@ Aivin~V. Solatorio.
   answers from {LLMs} via claim verification.
 \newblock arXiv:2509.06902, 2025.
 
+\bibitem[Tang et~al.(2024)Tang, Laban, and Durrett]{minicheck}
+L.~Tang, P.~Laban, and G.~Durrett.
+\newblock {MiniCheck}: Efficient fact-checking of {LLMs} on grounding
+  documents.
+\newblock In \emph{Proc. EMNLP}, 2024.
+\newblock \doi{10.18653/v1/2024.emnlp-main.499}.
+
 \bibitem[Theologitis et~al.(2026)Theologitis, Dammu, Shah, and Suciu]{claimdb}
 M.~Theologitis, P.~P.~S. Dammu, C.~Shah, and D.~Suciu.
 \newblock {ClaimDB}: A fact verification benchmark over large structured data.
 \newblock In \emph{Proc. ACL}, pages 34428--34451, 2026.
 \newblock \doi{10.18653/v1/2026.acl-long.1589}.
 \newblock arXiv:2601.14698.
+
+\bibitem[Thorne et~al.(2018)Thorne, Vlachos, Christodoulopoulos, and
+  Mittal]{fever}
+J.~Thorne, A.~Vlachos, C.~Christodoulopoulos, and A.~Mittal.
+\newblock {FEVER}: a large-scale dataset for fact extraction and
+  {VERification}.
+\newblock In \emph{Proc. NAACL-HLT}, pages 809--819, 2018.
+\newblock \doi{10.18653/v1/N18-1074}.
 
 \bibitem[Torroba~Hennigen et~al.(2024)Torroba~Hennigen, Shen, Nrusimha, Gapp,
   Sontag, and Kim]{symgen}
@@ -398,5 +461,12 @@ Z.~Xu, S.~Jain, and M.~Kankanhalli.
 \newblock Hallucination is inevitable: An innate limitation of large language
   models.
 \newblock arXiv:2401.11817, 2024.
+
+\bibitem[Zha et~al.(2023)Zha, Yang, Li, and Hu]{alignscore}
+Y.~Zha, Y.~Yang, R.~Li, and Z.~Hu.
+\newblock {AlignScore}: Evaluating factual consistency with a unified alignment
+  function.
+\newblock In \emph{Proc. ACL}, pages 11328--11348, 2023.
+\newblock \doi{10.18653/v1/2023.acl-long.634}.
 
 \end{thebibliography}

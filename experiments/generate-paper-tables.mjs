@@ -155,7 +155,17 @@ for (const [m, runs] of Object.entries(full)) {
         + `${r1(mean(claims))} claims produced across the benchmark`);
 }
 
-console.log('\n%% Coverage — tab:coverage');
+console.log('\n%% Table: coverage — tab:coverage (education & finance columns)');
+{
+    const order = ['phi3:mini', 'haiku', 'qwen2.5:3b', 'qwen2.5:7b'];
+    for (const m of order) {
+        const edu = cov[`education|${m}`], fin = cov[`finance|${m}`];
+        if (edu == null && fin == null) continue;
+        console.log(`    ${LABEL[m] || m} & ${edu == null ? '--' : r1(edu) + '\\%'} & ${fin == null ? '--' : r1(fin) + '\\%'} \\\\`);
+    }
+}
+
+console.log('\n%% Coverage, all cells — tab:coverage');
 for (const [key, value] of Object.entries(cov).sort()) {
     const [bench, model] = key.split('|');
     console.log(`%%   ${bench} · ${LABEL[model] || model}: ${value == null ? '--' : r1(value) + '%'}`);

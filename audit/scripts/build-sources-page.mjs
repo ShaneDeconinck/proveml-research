@@ -29,7 +29,8 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 
 // The store carries the characterisation fields; the entity name comes from
 // the source record, so a reader sees the work's name, not its key.
-for (const s of sources) store[`citation:${s.id}.name`] = s.title.split(':')[0];
+const SHORT = { safe: 'SAFE', 'guardrails-ai': 'Guardrails AI', 'dspy-assertions': 'DSPy Assertions', 'nemo-guardrails': 'NeMo Guardrails', webgpt: 'WebGPT', rarr: 'RARR', 'gemini-double-check': 'Gemini double-check' };
+for (const s of sources) store[`citation:${s.id}.name`] = SHORT[s.id] || s.title.split(':')[0];
 
 const yes = (v) => (v === 'yes' ? 'does' : 'does not');
 
@@ -38,17 +39,27 @@ function paperSide(s) {
     return `@[${P}]{${store[`${P}.name`]}} is %[category]{${s.category}}. It verifies by %[verificationMode]{${s.verificationMode}}, which we class as %[verificationClass]{${s.verificationClass}}, against %[against]{${s.against}}. It ${yes(s.inlineSupport)} mark claims inline (%[inlineSupport]{${s.inlineSupport}}), ${yes(s.structuredRecordBinding)} bind them to structured records (%[structuredRecordBinding]{${s.structuredRecordBinding}}), and ${yes(s.inferenceLayer)} carry an inference layer (%[inferenceLayer]{${s.inferenceLayer}}).`;
 }
 
+// The source side is two things: the quote (prose, with its locator) and the
+// reading of it (a claim). Only the claim goes through the renderer; the
+// locator and the note are plain HTML around it.
 function sourceSide(s) {
     const P = `citation:${s.id}`;
-    return s.evidence.map(e => `“${e.sourceQuote}” <span class="loc">(${esc(e.sourceLocator.replace(/_/g, ' '))})</span>\n\n@[${P}]{${store[`${P}.name`]}}: that is what we read as %[${e.field}]{${e.claimValue}}.${e.note ? ` <span class="note">${esc(e.note)}</span>` : ''}`).join('\n\n');
+    return s.evidence.map(e => ({
+        quote: `<p class="quote">“${esc(e.sourceQuote)}” <span class="loc">(${esc(e.sourceLocator.replace(/_/g, ' '))})</span></p>`,
+        claim: `@[${P}]{${store[`${P}.name`]}}: that is what we read as %[${e.field}]{${e.claimValue}}.`,
+        note: e.note ? `<p class="note">${esc(e.note)}</p>` : '',
+    }));
 }
 
 let total = 0, verified = 0;
 const cards = sources.map(s => {
     const left = paperSide(s), right = sourceSide(s);
-    const vl = verifyProveml(left, store), vr = verifyProveml(right, store);
-    for (const v of [vl, vr]) { total += v.total; verified += v.verified; if (v.errors.length) throw new Error(`${s.id}: ${v.errors.join('; ')}`); }
-    const L = renderProveml(left, store).html, R = renderProveml(right, store).html;
+    const vl = verifyProveml(left, store);
+    const vrs = right.map(r => verifyProveml(r.claim, store));
+    for (const v of [vl, ...vrs]) { total += v.total; verified += v.verified; if (v.errors.length) throw new Error(`${s.id}: ${v.errors.join('; ')}`); }
+    const vr = { total: vrs.reduce((a, v) => a + v.total, 0), verified: vrs.reduce((a, v) => a + v.verified, 0) };
+    const L = renderProveml(left, store).html;
+    const R = right.map(r => `${r.quote}${renderProveml(r.claim, store).html}${r.note}`).join('');
     return `<section class="pair" id="${esc(s.id)}">
   <header><h2>${esc(s.title)}</h2><p class="meta">${esc(s.authors)} · ${esc(s.year)} · <code>citation:${esc(s.id)}</code> · ${vl.verified + vr.verified}/${vl.total + vr.total} claims verified</p></header>
   <div class="cols">
@@ -72,7 +83,7 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 @media (max-width:52rem){.cols{grid-template-columns:1fr}}
 .col{background:var(--card);border:1px solid var(--haze-line);border-radius:3px;padding:1rem 1.2rem;font-size:1rem}
 .lbl{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
-.col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}
+.col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic}.loc{font-style:normal}
 .proveml-entity.proveml-verified{color:var(--mark-ok);border:1px solid var(--mark-ok-lijn);border-radius:2px;padding:.05em .35em}
 .proveml-fact.proveml-verified{color:var(--mark-ok);border-bottom:1.5px dotted var(--mark-ok)}
 .proveml-mismatch,.proveml-name-mismatch{color:var(--mark-bad);text-decoration:line-through;text-decoration-color:var(--mark-bad-lijn)}

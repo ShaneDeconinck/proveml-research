@@ -23,7 +23,7 @@
   ],
   "related_identifiers": [
     {
-      "identifier": "https://github.com/ShaneDeconinck/proveml",
+      "identifier": "https://github.com/abovebeyond-ai/proveml",
       "relation": "isSupplementTo",
       "resource_type": "software"
     }

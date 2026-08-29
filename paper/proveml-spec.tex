@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{textcomp}
 \usepackage{amsmath,amssymb}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -132,7 +133,7 @@ In short: \textbf{ProveML is iXBRL for AI-generated text.} Financial reporting s
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig-verify-errors.png}
-\caption{What the reader sees. The same marked-up text after verification: a wrong revenue figure struck through in red, a claim against an entity the store does not know in amber, and a judgment whose registered condition does not hold in dashed red. Nothing here required reading the markup, and nothing required a model. The technical report covers the full set of rendering states; Figure~\ref{fig:render-audit} shows a companion example in audit mode, with the fact-store path behind each claim made visible.}
+\caption{What the reader sees. The same marked-up text after verification: a wrong revenue figure struck through, a claim against an entity the store does not know marked as unverifiable, a judgment whose registered condition does not hold struck through. The verified amounts read ``\$93.7 billion'' and ``\texteuro12 thousand'' because the store declares a display rule for those fields (Section~\ref{sec:proveml}); the wrong figure stays as the model wrote it, since only a verified value is formatted. Nothing here required reading the markup, and nothing required a model. Figure~\ref{fig:render-audit} shows the companion audit view.}
 \label{fig:render-errors}
 \end{figure}
 
@@ -184,7 +185,14 @@ account:901.transaction:2026-01.amount   -> 5200
 account:901.transaction:2026-01.amount._unit -> "EUR"
 \end{lstlisting}
 
-\noindent The store is the single point of trust and the canonicalization point: the guarantee is ``consistent with the fact store'', not ``true'', and verification is always relative to an immutable store state (deployments can bind a snapshot identifier to each result). Arithmetic lives in the data layer, not the verifier: a cross-entity difference is materialized as an addressable fact (\texttt{region:EU.\_salesDiff}) and bounded by a registered predicate, so every operand of every comparison is itself auditable. So does presentation: a companion key \texttt{revenue.\_display = currency:USD:1} tells the renderer to show a verified \texttt{391035000000 USD} as ``\$391.0 billion'', with the canonical value kept on the element and in the audit view. The claim, the check and the stored text stay exact; only what the eye meets is rounded, by a rule the model never sees. Tolerance in the verifier would have bought the same readability at the price of the guarantee.
+\noindent The store is the single point of trust and the canonicalization point: the guarantee is ``consistent with the fact store'', not ``true'', and verification is always relative to an immutable store state (deployments can bind a snapshot identifier to each result). Arithmetic lives in the data layer, not the verifier: a cross-entity difference is materialized as an addressable fact (\texttt{region:EU.\_salesDiff}) and bounded by a registered predicate, so every operand of every comparison is itself auditable. So does presentation: a companion key \texttt{revenue.\_display = currency:USD:1} tells the renderer to show a verified \texttt{391035000000 USD} as ``\$391.0 billion'', with the canonical value kept on the element and in the audit view. The claim, the check and the stored text stay exact; only what the eye meets is rounded, by a rule the model never sees (Figure~\ref{fig:display}). Tolerance in the verifier would have bought the same readability at the price of the guarantee.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig-display.png}
+\caption{One claim, three views. The model writes the canonical value; the store declares the unit and a display rule next to the field; the reader sees the rounded form; the audit view keeps the exact value and says how it was shown. The model never rounds, so it can never round wrong.}
+\label{fig:display}
+\end{figure}
 
 \paragraph{The threshold registry} draws on clinical reference ranges, JSON Schema validation and monitoring alert rules: domain experts think in named ranges with semantic labels, not operator expressions. Each definition has a name, a field, one predicate from a deliberately small vocabulary (Table~\ref{tab:operators}), an optional unit constraint, a label and a source for audit:
 
@@ -261,7 +269,7 @@ IS_NEGATIVE:   balance lt 0 [EUR]  "negative balance"
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig-audit-mode.png}
-\caption{Audit mode: the exact fact store path checked for each claim is visible inline (e.g., \texttt{company:aapl.revenue}, \texttt{company:msft.debtToEquity}), exposing that the flagged long-term debt claim is bound to the wrong entity.}
+\caption{Audit mode: the fact-store path checked for each claim is visible inline (\texttt{company:aapl.revenue}, \texttt{company:msft.debtToEquity}). A reader, or an auditor months later, can take any number back to its record without a model.}
 \label{fig:render-audit}
 \end{figure}
 

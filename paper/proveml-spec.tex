@@ -74,6 +74,11 @@
     diag feedback/.style={-{Stealth[length=4pt]}, dashed, semithick, draw=black!60}
 }
 
+% TeX widens the space after a colon (space factor 2000), which turned the
+% inline code "?[r: IS_AT_RISK]" into "?[r:  IS_AT_RISK]". A colon is not the
+% end of a sentence here, so give it the plain space factor everywhere.
+\sfcode`\:=1000
+
 \lstset{
     upquote=true,
     basicstyle=\small\ttfamily,
@@ -103,7 +108,7 @@ Organizations are deploying LLMs in consequential settings under regulatory pres
 We present ProveML, a lightweight Markdown extension that places AI-generated claims inside a verifiable boundary. Three inline constructs declare entities, link facts to a data source, and check qualitative judgments against composable, pre-declared thresholds:
 
 \vspace{0.3em}
-{\small\texttt{@[student:42]\{Alex\} scored \%[passRate]\{5\}\% and is ?[r: IS\_AT\_RISK]\{at risk\}.}}
+{\footnotesize\texttt{@[student:42]\{Alex\} scored \%[passRate]\{5\}\% and is ?[r: IS\_AT\_RISK]\{at risk\}.}}
 
 \vspace{0.3em}
 \noindent Verification is deterministic --- string equality and numeric comparison against a flat key-value store, with no model in the loop --- so it is effectively free (microseconds per claim), explainable, and it can sit inside a generation loop that feeds each error back to the model; the same verifier can audit text it did not generate. Because a verification rate counts only what is inside markup, the verifier also reports \textit{coverage}: the share of the numbers in a text that sit inside a claim at all.
@@ -270,7 +275,7 @@ IS_NEGATIVE:   balance lt 0 [EUR]  "negative balance"
 \small
 \begin{tabular}{llcccc}
 \toprule
-\textbf{Benchmark} & \textbf{Model} & \textbf{First pass} & \textbf{After one correction} & \textbf{Fully verified} & \textbf{Coverage} \\
+\textbf{Benchmark} & \textbf{Model} & \textbf{First pass} & \textbf{One correction} & \textbf{Fully verified} & \textbf{Coverage} \\
 \midrule
 Education & Claude Opus 5 & 86.5\% $\pm$ 0.3 & 94.8\% $\pm$ 4.8 & 23.3/28 & 91.4\% \\
  & Claude Sonnet 5 & 89.3\% $\pm$ 2.1 & 92.2\% $\pm$ 3.6 & 21.3/28 & 92.3\% \\
@@ -354,6 +359,7 @@ The deeper value is not the correction loop but the boundary itself. With ProveM
 
 \begin{itemize}[nosep]
     \item \textbf{Consistency, not truth.} ProveML verifies that claims match the fact store, not that the fact store is correct. If the source data is wrong, verified claims will be wrong.
+    \item \textbf{The right name, not necessarily the right record.} An entity verifies when the name the reader sees equals the name stored at the id the model chose; nothing checks that the model chose the right id. If two records of one type share a name, a wrong id renders identically to the right one and only the audit path tells them apart. The verifier therefore measures whether a rendered subject is unique in the store (\texttt{subjectUnique}: true, false with the other paths, or unknown when the source cannot be enumerated), \texttt{doctor} warns on duplicate names, strict mode makes an ambiguous subject a finding, and the render marks it. Where subjects are identifiers by construction, as on a ledger, the gap closes; where they are personal names, it does not, and the marker is what remains.
     \item \textbf{No unit conversion.} Units are supported as nullable metadata with exact string matching. Semantic unit equivalence (e.g., mg/dL vs mmol/L) and standardized vocabularies (UCUM, ISO 4217) are deferred to future work.
     \item \textbf{Evaluation scope.} The evaluation covers two domains (generated education, real SEC finance) across 38 prompts, 3 models, and 3 repeats, with an oracle retriever and one correction pass. Larger schemas, more domains, and retrieval under realistic conditions are not covered. The explicit-record fact form introduced after the study was not used by any model in it, so its effect on the binding errors of Section~\ref{sec:evaluation} is predicted, not measured.
     \item \textbf{Inference constructs are unmeasured.} The system prompt used throughout the evaluation asks for entity and fact markup only. No run produced an inference construct, so every rate we report is a rate over entities and facts, and the threshold registry --- the part of the design that constrains qualitative language --- is exercised by the specification, the test suite and the worked examples, but not by the study. How reliably models emit \texttt{?[label: THRESHOLD]\{text\}}, and how often they reach for a threshold that fits the sentence rather than the data, is an open question this paper does not answer.

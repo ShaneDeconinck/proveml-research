@@ -1,0 +1,883 @@
+{
+  "timestamp": "2026-08-29T13:11:59.295Z",
+  "provider": "together",
+  "model": "deepseek-ai/DeepSeek-V4-Pro-0813",
+  "run": 1,
+  "maxLoops": 1,
+  "contextMode": "slice",
+  "callTimeoutMs": 900000,
+  "timedOutCalls": 0,
+  "benchmark": {
+    "name": "ProveML Pilot Benchmark (English prompts)",
+    "version": "v1-en",
+    "path": "../benchmarks/proveml-pilot-en.v1.json"
+  },
+  "results": [
+    {
+      "query": 1,
+      "id": "lookup_students_3bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} has %[studentCount]{8} students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 2.6
+        }
+      ]
+    },
+    {
+      "query": 2,
+      "id": "lookup_pass_6zw",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} has a pass rate of %[passRate]{74}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 11.8
+        }
+      ]
+    },
+    {
+      "query": 3,
+      "id": "lookup_eval_5bs",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10009]{5BS} has an evaluation coverage rate of %[evalRate]{91}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6
+        }
+      ]
+    },
+    {
+      "query": 4,
+      "id": "lookup_students_1c",
+      "category": "lookup",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10001]{1C} has %[studentCount]{11} students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 3.4
+        }
+      ]
+    },
+    {
+      "query": 5,
+      "id": "aggregate_highest_pass_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 8,
+      "finalClaims": 8,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10010]{6HO} has the highest pass rate at %[passRate]{76}%, compared to @[offering:10012]{6ZW} %[passRate]{74}%, @[offering:10009]{5BS} %[passRate]{68}%, and @[offering:10004]{3BS} %[passRate]{60}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 8,
+          "total": 8,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 18.1
+        }
+      ]
+    },
+    {
+      "query": 6,
+      "id": "aggregate_lowest_eval_small_set",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} has the lowest evaluation coverage rate at %[evalRate]{69}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6
+        }
+      ]
+    },
+    {
+      "query": 7,
+      "id": "aggregate_count_small_classes",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 5,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10003]{2ZW} has %[studentCount]{4} students.  \n@[offering:10005]{3SV} has %[studentCount]{3} students.  \nThus, 2 classes in the list have fewer than 5 students.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 16.6
+        }
+      ]
+    },
+    {
+      "query": 8,
+      "id": "aggregate_rank_by_passrate",
+      "category": "aggregation",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} has pass rate %[passRate]{60}%, @[offering:10002]{2D} %[passRate]{71}%, @[offering:10001]{1C} %[passRate]{79}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.5
+        }
+      ]
+    },
+    {
+      "query": 9,
+      "id": "compare_pass_6zw_3bs",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} has a pass rate of %[passRate]{74}%, while @[offering:10004]{3BS} has a pass rate of %[passRate]{60}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 13.4
+        }
+      ]
+    },
+    {
+      "query": 10,
+      "id": "compare_count_1c_6zw",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10012]{6ZW} has the lowest number of students with %[studentCount]{8}, compared to @[offering:10001]{1C} with %[studentCount]{11}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 9.7
+        }
+      ]
+    },
+    {
+      "query": 11,
+      "id": "compare_eval_5bo_6ol",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10008]{5BO} has an evaluation coverage rate of %[evalRate]{72}%, while @[offering:10011]{6OL} has %[evalRate]{89}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 8.3
+        }
+      ]
+    },
+    {
+      "query": 12,
+      "id": "compare_pass_small_set",
+      "category": "comparison",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10007]{4WE} has the highest pass rate at %[passRate]{84}%, compared to @[offering:10002]{2D} at %[passRate]{71}% and @[offering:10010]{6HO} at %[passRate]{76}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 3.8
+        }
+      ]
+    },
+    {
+      "query": 13,
+      "id": "threshold_pass_below_60",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 8,
+      "finalClaims": 8,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "None of the offerings have a pass rate below 60%:\n@[offering:10001]{1C} has %[passRate]{79}%.\n@[offering:10002]{2D} has %[passRate]{71}%.\n@[offering:10004]{3BS} has %[passRate]{60}%.\n@[offering:10008]{5BO} has %[passRate]{85}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 8,
+          "total": 8,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.9
+        }
+      ]
+    },
+    {
+      "query": 14,
+      "id": "threshold_eval_at_least_80",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10009]{5BS} has %[evalRate]{91}% evaluation coverage.  \n@[offering:10011]{6OL} has %[evalRate]{89}% evaluation coverage.\n\nTherefore, @[offering:10009]{5BS} and @[offering:10011]{6OL} have an evaluation coverage rate of at least 80%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.4
+        }
+      ]
+    },
+    {
+      "query": 15,
+      "id": "threshold_classes_under_five_students",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "Yes. @[offering:10003]{2ZW} has %[studentCount]{4} students and @[offering:10005]{3SV} has %[studentCount]{3} students, both fewer than 5.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.7
+        }
+      ]
+    },
+    {
+      "query": 16,
+      "id": "threshold_overview_high_pass_and_size",
+      "category": "threshold",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 12,
+      "finalClaims": 12,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10010]{6HO} has %[studentCount]{9} students and a pass rate of %[passRate]{76}%, meeting both criteria.  \nThe others do not: @[offering:10004]{3BS} has %[studentCount]{8} students and %[passRate]{60}%; @[offering:10009]{5BS} has %[studentCount]{10} students and %[passRate]{68}%; @[offering:10012]{6ZW} has %[studentCount]{8} students and %[passRate]{74}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 12,
+          "total": 12,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 10
+        }
+      ]
+    },
+    {
+      "query": 17,
+      "id": "overview_classes_1c_3bs_5bs",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 12,
+      "finalClaims": 12,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10001]{1C} has %[studentCount]{11} students, a pass rate of %[passRate]{79}%, and an evaluation coverage rate of %[evalRate]{96}%.\n\n@[offering:10004]{3BS} has %[studentCount]{8} students, a pass rate of %[passRate]{60}%, and an evaluation coverage rate of %[evalRate]{85}%.\n\n@[offering:10009]{5BS} has %[studentCount]{10} students, a pass rate of %[passRate]{68}%, and an evaluation coverage rate of %[evalRate]{91}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 12,
+          "total": 12,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.1
+        }
+      ]
+    },
+    {
+      "query": 18,
+      "id": "overview_two_weakest_small_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 10,
+      "finalClaims": 10,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "The two weakest classes by pass rate are @[offering:10004]{3BS} and @[offering:10002]{2D}.\n\n@[offering:10004]{3BS} has %[studentCount]{8} students, a pass rate of %[passRate]{60}%, and an evaluation rate of %[evalRate]{85}%.\n@[offering:10002]{2D} has %[studentCount]{9} students, a pass rate of %[passRate]{71}%, and an evaluation rate of %[evalRate]{94}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 10,
+          "total": 10,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 13.6
+        }
+      ]
+    },
+    {
+      "query": 19,
+      "id": "overview_2zw_3sv_4ob",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 9,
+      "finalClaims": 9,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10003]{2ZW} has %[studentCount]{4} students and a pass rate of %[passRate]{86}%.  \n@[offering:10005]{3SV} has %[studentCount]{3} students and a pass rate of %[passRate]{81}%.  \n@[offering:10006]{4OB} has %[studentCount]{6} students and a pass rate of %[passRate]{82}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 9,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 6.8
+        }
+      ]
+    },
+    {
+      "query": 20,
+      "id": "overview_student_risk_top_set",
+      "category": "overview",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 15,
+      "finalClaims": 15,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "@[student:20414]{Amir Janssens} of @[offering:10056]{5OL} has pass rate %[student:20414.passRate]{0}%, absences %[student:20414.absent]{0}, and evaluated attainment levels %[student:20414.evaluated]{18}.\n@[student:20459]{Ayoub Peeters} of @[offering:10062]{5HO} has pass rate %[student:20459.passRate]{0}%, absences %[student:20459.absent]{3}, and evaluated attainment levels %[student:20459.evaluated]{13}.\n@[student:20400]{Ali Peeters} of @[offering:10054]{6WEWI} has pass rate %[student:20400.passRate]{5}%, absences %[student:20400.absent]{5}, and evaluated attainment levels %[student:20400.evaluated]{22}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 15,
+          "total": 15,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 11.1
+        }
+      ]
+    },
+    {
+      "query": 21,
+      "id": "student_lookup_pass_ali",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:20400]{Ali Peeters} has a pass rate of %[passRate]{5}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 7.9
+        }
+      ]
+    },
+    {
+      "query": 22,
+      "id": "student_lookup_absent_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 2,
+      "finalClaims": 2,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:20376]{Noor Maes} has %[absent]{4} absences.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 2,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 10
+        }
+      ]
+    },
+    {
+      "query": 23,
+      "id": "student_compare_ali_noor",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 4,
+      "finalClaims": 4,
+      "initialErrorDetails": [],
+      "contextOfferings": 2,
+      "contextStudents": 2,
+      "finalResponse": "@[student:20400]{Ali Peeters} scores lower with %[passRate]{5}%, while @[student:20376]{Noor Maes} has %[passRate]{6}%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 4,
+          "total": 4,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 4.2
+        }
+      ]
+    },
+    {
+      "query": 24,
+      "id": "student_zero_pass_subset",
+      "category": "student",
+      "expectedMode": "verified",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 6,
+      "finalClaims": 6,
+      "initialErrorDetails": [],
+      "contextOfferings": 3,
+      "contextStudents": 3,
+      "finalResponse": "@[student:20414]{Amir Janssens} has %[passRate]{0}% and @[student:20459]{Ayoub Peeters} has %[passRate]{0}%.  \n@[student:20579]{Pieter Jacobs} has %[passRate]{3}%, so not exactly 0%.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 6,
+          "total": 6,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 4.8
+        }
+      ]
+    },
+    {
+      "query": 25,
+      "id": "unsupported_cause_ali",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 9,
+      "finalClaims": 9,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[offering:10054]{6WEWI} has a pass rate of %[passRate]{82}% and an evaluation rate of %[evalRate]{73}%.\n@[student:20400]{Ali Peeters} is performing poorly because they passed only %[passed]{1} of %[evaluated]{22} evaluated attainment levels out of %[total]{27} total, giving a pass rate of %[student:20400.passRate]{5}% — far below the offering average — and they have %[absent]{5} absences, which likely contributed to missing evaluations.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 9,
+          "total": 9,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 9.8
+        }
+      ]
+    },
+    {
+      "query": 26,
+      "id": "unsupported_teacher_3bs",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 1,
+      "finalClaims": 1,
+      "initialErrorDetails": [],
+      "contextOfferings": 1,
+      "contextStudents": 0,
+      "finalResponse": "The data does not specify a teacher for @[offering:10004]{3BS}.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 1,
+          "total": 1,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 2.9
+        }
+      ]
+    },
+    {
+      "query": 27,
+      "id": "unsupported_intervention_noor",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 1,
+      "initialRate": 29,
+      "finalRate": 100,
+      "initialClaims": 7,
+      "finalClaims": 9,
+      "initialErrorDetails": [
+        {
+          "status": "value-mismatch",
+          "errorClass": "value",
+          "path": "offering:10050.passRate",
+          "expected": "75"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10050.passed"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10050.evaluated"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10050.total"
+        },
+        {
+          "status": "field-not-found",
+          "errorClass": "reference",
+          "path": "offering:10050.absent"
+        }
+      ],
+      "contextOfferings": 1,
+      "contextStudents": 1,
+      "finalResponse": "@[student:20376]{Noor Maes} has %[passRate]{6}% pass rate, %[passed]{1} passed, %[evaluated]{17} evaluated, %[total]{21} total attainment levels, and %[absent]{4} absences in @[offering:10050]{5WEWI}, which has %[passRate]{75}% pass rate and %[evalRate]{77}% evaluation rate. The provided data contains no intervention information, so no intervention can be identified as certainly helping next month.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 2,
+          "total": 7,
+          "errors": 5,
+          "errorDetails": [
+            {
+              "status": "value-mismatch",
+              "errorClass": "value",
+              "path": "offering:10050.passRate",
+              "expected": "75"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10050.passed"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10050.evaluated"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10050.total"
+            },
+            {
+              "status": "field-not-found",
+              "errorClass": "reference",
+              "path": "offering:10050.absent"
+            }
+          ],
+          "rate": 29,
+          "time": 10.8
+        },
+        {
+          "loop": 1,
+          "verified": 9,
+          "total": 9,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 14.9,
+          "candidate": {
+            "verified": 9,
+            "total": 9,
+            "rate": 100,
+            "errorDetails": []
+          },
+          "accepted": true,
+          "reason": "accepted"
+        }
+      ]
+    },
+    {
+      "query": 28,
+      "id": "unsupported_future_improvement",
+      "category": "unsupported",
+      "expectedMode": "suggestion-or-limit",
+      "contextMode": "slice",
+      "converged": true,
+      "loopsToConverge": 0,
+      "initialRate": 100,
+      "finalRate": 100,
+      "initialClaims": 3,
+      "finalClaims": 3,
+      "initialErrorDetails": [],
+      "contextOfferings": 4,
+      "contextStudents": 0,
+      "finalResponse": "@[offering:10004]{3BS} has the lowest pass rate at %[passRate]{60}% and the lowest evaluation rate at %[evalRate]{85}%, so it has the most room to improve next trimester.",
+      "steps": [
+        {
+          "loop": 0,
+          "verified": 3,
+          "total": 3,
+          "errors": 0,
+          "errorDetails": [],
+          "rate": 100,
+          "time": 8.8
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "avgInitial": 97,
+    "avgFinal": 100,
+    "converged": 28,
+    "total": 28,
+    "avgLoops": "0.0",
+    "zeroShot": 27,
+    "oneLoop": 28,
+    "timedOutCalls": 0,
+    "emptyResponses": 0
+  }
+}

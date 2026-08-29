@@ -102,6 +102,15 @@ node deployment-numbers.mjs --tag frontier
 
 Artifacts: `convergence-results-frontier-*` and `convergence-results-finance-frontier-*`.
 
+The second prompt (Table 3: binding rule and cutoff rule added, nothing else changed):
+
+```bash
+./run-frontier2.sh && ./run-frontier2-finance.sh
+node frontier-summary.mjs --tag frontier2
+```
+
+Artifacts: `convergence-results-frontier2-*` and `convergence-results-finance-frontier2-*`.
+
 Ablations (full-context and English-prompt; Section 7.3 of the technical report; the full-context ablation is a paragraph in 7.1) resume-safely:
 
 ```bash

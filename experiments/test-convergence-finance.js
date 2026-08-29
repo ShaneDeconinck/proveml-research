@@ -101,6 +101,8 @@ RULES:
 - @[company:id]{exact name} for every company reference
 - %[field]{value} for every number — MUST be preceded by @[company] (context carries forward)
 - Include units where the data specifies them: %[revenue]{416161000000 USD}
+- A fact binds to the NEAREST preceding company. When one sentence compares two companies, write each fact with its own record: %[company:aapl.revenue]{416161000000 USD} versus %[company:msft.revenue]{281724000000 USD}
+- Never compute a difference, ratio or total yourself; only numbers that exist in the data may appear, and only inside %[...]
 - Use EXACT values from the data — do not round or approximate
 - Keep it concise — focus on the data
 - Do not wrap the answer in code fences or triple backticks
@@ -108,6 +110,7 @@ RULES:
 EXAMPLE OUTPUT:
 @[company:aapl]{Apple Inc.} reported revenue of %[revenue]{416161000000 USD} with net income of %[netIncome]{112010000000 USD}.
 @[company:msft]{Microsoft Corporation} earned %[eps]{13.7 USD/shares} per share.
+@[company:aapl]{Apple Inc.} reported %[company:aapl.revenue]{416161000000 USD} against @[company:msft]{Microsoft Corporation}'s %[company:msft.revenue]{281724000000 USD}.
 `;
 
 // Run

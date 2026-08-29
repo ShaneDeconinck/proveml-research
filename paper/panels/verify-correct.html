@@ -1,186 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verify mode: all claims verified</title>
-  <style>
-:root {
-  --ink: #221f1b;
-  --muted: #6c6861;
-  --line: #d9d4cc;
-  --entity: #1a7a6d;
-  --violet: #6b4c9a;
-  --blue: #2f6fb3;
-  --red: #b64236;
-  --amber: #a87510;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  padding: 28px 34px;
-  background: #ffffff;
-  color: var(--ink);
-  font-family: Charter, Georgia, "Times New Roman", serif;
-}
-
-.page {
-  width: 980px;
-}
-
-.panel-title {
-  margin: 0 0 10px;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.narrative {
-  font-size: 28px;
-  line-height: 1.72;
-}
-
-.narrative p {
-  margin: 0 0 18px;
-}
-
-.meta {
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px solid var(--line);
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 15px;
-  color: var(--muted);
-}
-
-.proveml-entity {
-  color: var(--entity-color, var(--entity));
-  border-bottom: 1.6px solid var(--entity-color, var(--entity));
-  text-decoration: none;
-}
-
-.proveml-entity.proveml-name-mismatch,
-.proveml-entity.proveml-unverifiable {
-  color: var(--red);
-  border-bottom-color: var(--red);
-}
-
-.proveml-fact {
-  padding: 0 1px;
-}
-
-.proveml-fact.proveml-verified {
-  border-bottom: 1.8px dotted var(--entity-color, var(--entity));
-}
-
-.proveml-fact.proveml-verified::after,
-.proveml-inference.proveml-verified::after {
-  content: '✓';
-  margin-left: 2px;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.48em;
-  font-weight: 700;
-  vertical-align: super;
-}
-
-.proveml-fact.proveml-verified::after {
-  color: var(--entity-color, var(--entity));
-}
-
-.proveml-inference.proveml-verified::after {
-  color: var(--violet);
-}
-
-.proveml-fact.proveml-mismatch {
-  border-bottom: 1.8px dotted var(--red);
-  color: var(--red);
-}
-
-.proveml-fact.proveml-mismatch::after,
-.proveml-inference.proveml-failed::after {
-  content: '✗';
-  margin-left: 2px;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.48em;
-  font-weight: 700;
-  vertical-align: super;
-  color: var(--red);
-}
-
-.proveml-fact.proveml-unverifiable,
-.proveml-fact.proveml-no-context {
-  border-bottom: 1.8px dotted var(--amber);
-  color: var(--amber);
-}
-
-.proveml-fact.proveml-unverifiable::after,
-.proveml-fact.proveml-no-context::after {
-  content: '?';
-  margin-left: 2px;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 0.48em;
-  font-weight: 700;
-  vertical-align: super;
-  color: var(--amber);
-}
-
-.proveml-inference.proveml-verified {
-  border-bottom: 1.8px dashed var(--violet);
-}
-
-.proveml-inference.proveml-failed {
-  border-bottom: 1.8px dashed var(--red);
-  color: var(--red);
-}
-
-.proof-path,
-.proveml-proof {
-  margin-left: 4px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.62em;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-pre.source {
-  margin: 0;
-  white-space: pre-wrap;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 19px;
-  line-height: 1.65;
-  color: #27231f;
-}
-
-.index {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.index h1 {
-  margin: 0 0 10px;
-  font-size: 28px;
-}
-
-.index ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.index a {
-  color: #184e97;
-  text-decoration: none;
-}
-</style>
-</head>
-<body>
-  <div class="page">
-    <div class="panel-title">Verify mode: all claims verified</div>
-    <div class="narrative"><div class="proveml-root"><p class="proveml-paragraph"><span class="proveml-entity proveml-verified proveml-trust-unverified" data-entity="class:204" data-trust-status="unverified" data-trust-backend="plain" title="class:204.name">3MA</span> has <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="class:204" data-path="class:204.studentCount" data-trust-status="unverified" data-trust-backend="plain" title="class:204.studentCount = 22">22</span> students with a pass rate of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="class:204" data-path="class:204.passRate" data-trust-status="unverified" data-trust-backend="plain" title="class:204.passRate = 43">43</span>%. <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="IS_BELOW_HALF" data-trust-status="unverified" data-trust-backend="plain" title="?[below: IS_BELOW_HALF]">This is below the passing threshold</span>. Only <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="class:204" data-path="class:204.evalRate" data-trust-status="unverified" data-trust-backend="plain" title="class:204.evalRate = 38">38</span>% of attainment levels have been evaluated, so <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="IS_LOW_COVERAGE" data-trust-status="unverified" data-trust-backend="plain" title="?[coverage: IS_LOW_COVERAGE]">coverage is low</span>.</p><p class="proveml-paragraph"><span class="proveml-entity proveml-verified proveml-trust-unverified" data-entity="student:1087" data-trust-status="unverified" data-trust-backend="plain" title="student:1087.name">Emma Vos</span> has passed <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1087" data-path="student:1087.passed" data-trust-status="unverified" data-trust-backend="plain" title="student:1087.passed = 2">2</span> of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1087" data-path="student:1087.evaluated" data-trust-status="unverified" data-trust-backend="plain" title="student:1087.evaluated = 31">31</span> evaluated attainment levels (<span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1087" data-path="student:1087.passRate" data-trust-status="unverified" data-trust-backend="plain" title="student:1087.passRate = 6">6</span>%). <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="IS_LOW_PASS" data-trust-status="unverified" data-trust-backend="plain" title="?[low: IS_LOW_PASS]">This is a critically low result</span>. With <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1087" data-path="student:1087.absent" data-trust-status="unverified" data-trust-backend="plain" title="student:1087.absent = 47">47</span> absences, <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="IS_GREY_RISK" data-trust-status="unverified" data-trust-backend="plain" title="?[abs: IS_GREY_RISK]">there is a risk of grey status</span>. <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="@low AND @abs" data-trust-status="unverified" data-trust-backend="plain" title="?[combined: @low AND @abs]">The combination of low results and high absence is notable</span>.</p><p class="proveml-paragraph"><span class="proveml-entity proveml-verified proveml-trust-unverified" data-entity="student:1092" data-trust-status="unverified" data-trust-backend="plain" title="student:1092.name">Sander De Witt</span> has a pass rate of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1092" data-path="student:1092.passRate" data-trust-status="unverified" data-trust-backend="plain" title="student:1092.passRate = 78">78</span>% across <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1092" data-path="student:1092.evaluated" data-trust-status="unverified" data-trust-backend="plain" title="student:1092.evaluated = 41">41</span> evaluated attainment levels. <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="IS_STRONG" data-trust-status="unverified" data-trust-backend="plain" title="?[strong: IS_STRONG]">This is a strong result</span>. The gap of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="student:1092" data-path="student:1092.diffVs1087" data-trust-status="unverified" data-trust-backend="plain" title="student:1092.diffVs1087 = 72">72</span> percentage points is <span class="proveml-inference proveml-verified proveml-trust-unverified" data-condition="IS_MUCH_HIGHER(student:1092._diff)" data-trust-status="unverified" data-trust-backend="plain" title="?[gap: IS_MUCH_HIGHER(student:1092._diff)]">much higher</span> than <span class="proveml-entity proveml-verified proveml-trust-unverified" data-entity="student:1087" data-trust-status="unverified" data-trust-backend="plain" title="student:1087.name">Emma Vos</span>.</p></div></div>
-    <div class="meta">21/21 ProveML checks verified</div>
-  </div>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Spline+Sans+Mono:wght@400;500&display=swap');
+:root { --ink:#0e2433; --muted:#47616f; --haze-line:rgba(14,36,51,.18); --card:#fafcfd; --tint:#dfe8eb;
+  --mark-ok:#126b3a; --mark-ok-lijn:rgba(18,107,58,.5); --mark-inf:#0e5730; --mark-inf-vlak:rgba(18,107,58,.14);
+  --mark-bad:#a8352a; --mark-bad-lijn:rgba(168,53,42,.7); --mark-unk:#a35a06; --accent:#1a4fb4; }
+* { box-sizing:border-box; }
+body { margin:0; background:#fff; color:var(--ink); font-family:Lato, system-ui, sans-serif; }
+.page { width:1180px; padding:34px 40px 30px; }
+figcaption { font-family:"Spline Sans Mono", ui-monospace, monospace; font-size:15px; letter-spacing:.04em; color:var(--muted); margin:0 0 14px; }
+.out { font-size:29px; line-height:1.95; max-width:1100px; }
+.out p { margin:0 0 14px; }
+.verdict { margin-top:18px; padding-top:12px; border-top:1px solid var(--haze-line); font-family:"Spline Sans Mono", ui-monospace, monospace; font-size:16px; color:var(--muted); }
+.verdict b { color:var(--mark-bad); font-weight:500; } .verdict b.ok { color:var(--mark-ok); }
+.proveml-entity.proveml-verified { color:var(--mark-ok); border:1px solid var(--mark-ok-lijn); border-radius:2px; padding:.05em .35em; }
+.proveml-fact.proveml-verified { color:var(--mark-ok); border-bottom:1.5px dotted var(--mark-ok); }
+.proveml-mismatch, .proveml-name-mismatch, .proveml-inference.proveml-failed { color:var(--mark-bad); text-decoration:line-through; text-decoration-thickness:1.5px; text-decoration-color:var(--mark-bad-lijn); }
+.proveml-inference.proveml-verified { color:var(--mark-inf); background:var(--mark-inf-vlak); border-radius:2px; padding:.08em .25em; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.proveml-unverifiable, .proveml-no-context, .proveml-entity:not(.proveml-verified) { color:var(--mark-unk); border-bottom:1.5px dashed var(--mark-unk); }
+.proveml-proof { font-family:"Spline Sans Mono", ui-monospace, monospace; font-size:.5em; color:var(--muted); margin-left:.35em; white-space:nowrap; vertical-align:.15em; }
+/* the display figure */
+.rows { display:grid; grid-template-columns:200px 1fr; row-gap:22px; column-gap:22px; align-items:start; }
+.rows .k { font-family:"Spline Sans Mono", ui-monospace, monospace; font-size:15px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); padding-top:10px; }
+.src { margin:0; font-family:"Spline Sans Mono", ui-monospace, monospace; font-size:21px; line-height:1.7; background:var(--card); border:1px solid var(--haze-line); border-radius:4px; padding:12px 16px; white-space:pre-wrap; }
+.src i { font-style:normal; color:var(--accent); }
+.audit { font-family:"Spline Sans Mono", ui-monospace, monospace; font-size:17px; color:var(--muted); line-height:1.7; }
+</style></head><body><div class="page"><figure style="margin:0"><figcaption>verify mode · two planted errors</figcaption><div class="out"><div class="proveml-root"><p class="proveml-paragraph"><span class="proveml-entity proveml-verified proveml-trust-unverified" data-entity="company:aapl" data-subject-unique="true" data-trust-status="unverified" data-trust-backend="plain" title="company:aapl.name">Apple Inc.</span> reported revenue of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="company:aapl" data-path="company:aapl.revenue" data-value="391035000000 USD" data-trust-status="unverified" data-trust-backend="plain" title="company:aapl.revenue = 391035000000 USD (shown as $391.0 billion)">$391.0 billion</span> with net income of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="company:aapl" data-path="company:aapl.netIncome" data-value="93736000000 USD" data-trust-status="unverified" data-trust-backend="plain" title="company:aapl.netIncome = 93736000000 USD (shown as $93.7 billion)">$93.7 billion</span> and earnings per share of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="company:aapl" data-path="company:aapl.eps" data-value="6.08 USD/shares" data-trust-status="unverified" data-trust-backend="plain" title="company:aapl.eps = 6.08 USD/shares">6.08 USD/shares</span>.</p><p class="proveml-paragraph"><span class="proveml-entity proveml-verified proveml-trust-unverified" data-entity="company:msft" data-subject-unique="true" data-trust-status="unverified" data-trust-backend="plain" title="company:msft.name">Microsoft Corporation</span> reported revenue of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="company:msft" data-path="company:msft.revenue" data-value="245122000000 USD" data-trust-status="unverified" data-trust-backend="plain" title="company:msft.revenue = 245122000000 USD (shown as $245.1 billion)">$245.1 billion</span> with total assets of <span class="proveml-fact proveml-verified proveml-trust-unverified" data-entity="company:msft" data-path="company:msft.assets" data-value="512163000000 USD" data-trust-status="unverified" data-trust-backend="plain" title="company:msft.assets = 512163000000 USD (shown as $512.2 billion)">$512.2 billion</span>. Its long-term debt of <span class="proveml-fact proveml-unverifiable" data-entity="company:msft" data-path="company:msft.longTermDebt" data-value="42688000000 USD" title="company:msft.longTermDebt: not found">42688000000 USD</span> yields a debt-to-equity ratio of <span class="proveml-fact proveml-mismatch proveml-trust-unverified" data-entity="company:msft" data-path="company:msft.debtToEquity" data-value="1.23" data-trust-status="unverified" data-trust-backend="plain" title="company:msft.debtToEquity: expected 0.16">1.23</span>.</p></div></div><div class="verdict"><b class="ok">7</b> of 9 claims verified · a field the store does not hold is marked as unverifiable, a wrong ratio is struck through</div></figure></div></body></html>

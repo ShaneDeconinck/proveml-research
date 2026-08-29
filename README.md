@@ -5,7 +5,7 @@ This repository holds the research-side assets that were split out of the packag
 It contains:
 
 - the ProveML paper source and generated figures in `paper/`
-- the citation-audit workflow, source snapshots, and structured audit stores in `audit/`
+- the citation-audit workflow, source snapshots, and structured audit stores in `audit/`; `audit/docs/sources.html` puts what the paper says about each cited work next to the source's own words, both verified against one store (`node audit/scripts/build-sources-page.mjs`)
 - benchmarks, datasets, experimental scripts, and result artifacts in `benchmarks/`, `data/`, and `experiments/`
 - browser demo and screenshot helpers in `demo/`
 

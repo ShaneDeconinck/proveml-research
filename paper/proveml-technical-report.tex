@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{textcomp}
 \usepackage{amsmath,amssymb}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -10,6 +11,10 @@
 \usepackage[authoryear,round]{natbib}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{needspace}
+\usepackage{etoolbox}
+% A short listing must not split across a page: ask for room before it starts.
+\BeforeBeginEnvironment{lstlisting}{\needspace{6\baselineskip}}
 \usepackage{xcolor}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumitem}
@@ -131,7 +136,7 @@ In short: \textbf{ProveML is iXBRL for AI-generated text.} Financial reporting s
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig-verify-errors.png}
-\caption{What the reader sees. The same marked-up text after verification: a wrong revenue figure struck through in red, a claim against an entity the store does not know in amber, and a judgment whose registered condition does not hold in dashed red. Nothing here required reading the markup, and nothing required a model. Section~\ref{sec:rendering} covers the rendering states; Figure~\ref{fig:render-audit} shows a companion example in audit mode, with the fact-store path behind each claim made visible.}
+\caption{What the reader sees. The same marked-up text after verification: a wrong revenue figure struck through, a claim against an entity the store does not know marked as unverifiable, a judgment whose registered condition does not hold struck through. The verified amounts read ``\$93.7 billion'' and ``\texteuro12 thousand'' because the store declares a display rule for those fields (Section~\ref{sec:syntax}); the wrong figure stays as the model wrote it, since only a verified value is formatted. Nothing here required reading the markup, and nothing required a model. Figure~\ref{fig:render-audit} shows the companion audit view.}
 \label{fig:render-errors}
 \end{figure}
 
@@ -139,7 +144,7 @@ Two limits belong here rather than at the end, because they decide whether the r
 
 Recent theoretical work suggests that \textbf{hallucination is not merely an incidental bug but reflects structural properties} of how language models operate. \citet{kalai2024} prove formally that any language model satisfying natural calibration conditions \textit{must} hallucinate, at a rate approaching the fraction of facts that appear exactly once in the training data; subsequent work by \citet{kalai2025} shows that standard training and evaluation pipelines actively reward guessing over acknowledging uncertainty. \citet{xu2024} use computability theory to show that LLMs cannot learn all computable functions and will therefore inevitably produce confabulations when used as general-purpose reasoners. More broadly, hallucination is a well-documented reliability problem across deep-learning-based natural language generation systems \citep{ji2023}.
 
-\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness \citep{ouyang2022}. Even so, aligned models may still produce confident-sounding but incorrect responses. RAG grounds responses in documents but models can still misrepresent retrieved context; \citet{magesh2025} found that the leading legal research tools --- Lexis+ AI and Thomson Reuters' Westlaw AI-Assisted Research and Ask Practical Law AI --- each hallucinate between 17\% and 33\% of the time, despite vendor claims of near-elimination. Emerging interpretability research can detect some internal uncertainty signals \citep{orgad2025, farquhar2024}, but probes do not generalize across tasks, entropy methods fail on confident errors, and probing methods require white-box access. \citet{mccain2026} report that roughly 73\% of agent tool calls on a major API still appear to retain a human in the loop.
+\textbf{Current mitigations reduce hallucination rates but cannot eliminate them.} RLHF improves instruction-following and truthfulness \citep{ouyang2022}. Even so, aligned models may still produce confident-sounding but incorrect responses. The leading legal research tools hallucinated on 17--33\% of queries when tested in 2024, despite vendor claims of near-elimination \citep{magesh2025}, and a 2026 survey of court filings found more than a thousand containing fabricated citations, a number growing year over year \citep{liu2026citations}. Emerging interpretability research can detect some internal uncertainty signals \citep{orgad2025, farquhar2024}, but probes do not generalize across tasks, entropy methods fail on confident errors, and probing methods require white-box access. \citet{mccain2026} report that roughly 73\% of agent tool calls on a major API still appear to retain a human in the loop.
 
 \textbf{Meanwhile, the consequences are real and adoption is accelerating.} In 2025, Deloitte delivered a government report with AI-fabricated citations \citep{deloitte2025}. Earlier, fabricated ChatGPT citations were submitted to a U.S.\ federal court \citep{mata2023}, and a factual error in the launch demo materials for Google's Bard contributed to a \$100 billion market-cap drop \citep{googlebard2023}. Yet the majority of organizations now use AI in at least one function \citep{mckinsey2025}, and Gartner projected that over 80\% of enterprises would have used generative AI APIs or deployed generative AI-enabled applications by 2026 \citep{gartner2023}. \textbf{Organizations are not waiting for hallucination to be solved}; they are deploying now and managing the risk.
 
@@ -499,7 +504,7 @@ Verification is a single linear pass over the constructs with hash-map lookups a
 \section{Verification Guarantee}
 \label{sec:guarantee}
 
-The verification guarantee is straightforward: if the verifier reports \textsc{Verified} for a claim, the claimed value equals the corresponding value in the fact store (for entities and facts) or the threshold condition holds (for inferences). Each construct type reduces to a single deterministic check --- string equality for entities and facts, arithmetic comparison for thresholds --- with no external dependencies. The connectives use three-valued (Kleene) semantics: a condition that cannot be resolved (an unregistered threshold, a missing operand, an unresolved label reference) is \textsc{Unknown} rather than false, true wins over unknown under \texttt{OR}, false wins under \texttt{AND}, and \texttt{NOT} propagates unknown instead of negating it. The asymmetry is deliberate: under a two-valued reading, \texttt{NOT UNREGISTERED} would verify --- a claim proven by a threshold nobody defined. Unknown surfaces as \textsc{Unverifiable} in the rendering, distinct from a condition that resolved and was false. One thing the guarantee does not say should be said next to it: for an entity, \textsc{Verified} means the displayed name equals the name stored at the id the model wrote, not that the id is the record the sentence is about. The verifier can only check the second when names are unique within a type, so it measures that uniqueness and reports it with the claim (Section~\ref{sec:limitations}). This simplicity is intentional. The complexity of ProveML lives in the \textit{design} (what to verify, how to constrain the AI), not in the verification logic itself.
+The verification guarantee is straightforward: if the verifier reports \textsc{Verified} for a claim, the claimed value equals the corresponding value in the fact store (for entities and facts) or the threshold condition holds (for inferences). Each construct type reduces to a single deterministic check --- string equality for entities and facts, arithmetic comparison for thresholds --- with no external dependencies. The connectives use three-valued (Kleene) semantics: a condition that cannot be resolved (an unregistered threshold, a missing operand, an unresolved label reference) is \textsc{Unknown} rather than false, true wins over unknown under \texttt{OR}, false wins under \texttt{AND}, and \texttt{NOT} propagates unknown instead of negating it. The asymmetry is deliberate: under a two-valued reading, the negation of a threshold name nobody registered would come out true, and a claim would verify on the strength of a rule that does not exist. Unknown surfaces as \textsc{Unverifiable} in the rendering, distinct from a condition that resolved and was false. One thing the guarantee does not say should be said next to it: for an entity, \textsc{Verified} means the displayed name equals the name stored at the id the model wrote, not that the id is the record the sentence is about. The verifier can only check the second when names are unique within a type, so it measures that uniqueness and reports it with the claim (Section~\ref{sec:limitations}). This simplicity is intentional. The complexity of ProveML lives in the \textit{design} (what to verify, how to constrain the AI), not in the verification logic itself.
 
 \paragraph{Assumptions.}
 This guarantee assumes:
@@ -536,7 +541,7 @@ Three reading modes support progressive disclosure: \textit{Read} (minimal indic
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig-verify-correct.png}
-\caption{Verify mode on SEC EDGAR financial data. Teal dotted underlines mark verified entities and facts. Two deliberately planted errors are flagged without inspecting any markup: one claim fails to resolve in the demo fact store (amber) and the ratio built on it mismatches (red) --- 8 of 10 claims verify, and the reader's attention goes straight to the other two.}
+\caption{Verify mode on SEC EDGAR financial data. A boxed name is a verified entity, a dotted underline a verified fact; verified amounts are shown by the store's display rule. Two deliberately planted errors are flagged without inspecting any markup: one claim addresses a field the store does not hold (dashed, amber) and the ratio built on it mismatches (struck through, red) --- 7 of 9 claims verified.}
 \label{fig:render-verify}
 \end{figure}
 

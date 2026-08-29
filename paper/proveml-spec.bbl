@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -49,6 +49,16 @@ W.~Chen, H.~Wang, J.~Chen, Y.~Zhang, H.~Wang, S.~Li, X.~Zhou, and W.~Y. Wang.
   artificial intelligence (artificial intelligence act).
 \newblock Official Journal of the European Union, 2024.
 
+\bibitem[{European Parliament and Council of the European
+  Union}(2026)]{omnibus2026}
+{European Parliament and Council of the European Union}.
+\newblock Regulation ({EU}) 2026/1744 of 8 july 2026 amending regulations
+  ({EU}) 2024/1689, ({EU}) 2018/1139 and ({EU}) 2023/1230 as regards the
+  simplification of the implementation of harmonised rules on artificial
+  intelligence ({Digital Omnibus} on {AI}).
+\newblock Official Journal of the European Union,
+  \url{https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng}, 2026.
+
 \bibitem[Fan et~al.(2026)Fan, Li, Guo, Han, and Zhang]{claimlocked2026}
 Xiao Fan, Jingyuan Li, Hongbin Guo, Yubo Han, and Yi~Zhang.
 \newblock Provenance before prose: Claim-locked reporting.
@@ -78,6 +88,11 @@ P.~Laban, T.~Schnabel, P.~N. Bennett, and M.~A. Hearst.
 \newblock \emph{Transactions of the Association for Computational Linguistics},
   10:\penalty0 163--177, 2022.
 \newblock \doi{10.1162/tacl_a_00453}.
+
+\bibitem[Liu et~al.(2026)Liu, Stammbach, and Henderson]{liu2026citations}
+Patty Liu, Dominik Stammbach, and Peter Henderson.
+\newblock Who checks the citations? benchmarking legal hallucination detection.
+\newblock arXiv:2606.21155, 2026.
 
 \bibitem[Magesh et~al.(2025)Magesh, Surani, Dahl, Suzgun, Manning, and
   Ho]{magesh2025}

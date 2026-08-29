@@ -1,4 +1,4 @@
-\begin{thebibliography}{27}
+\begin{thebibliography}{29}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -89,6 +89,13 @@ P.~Laban, T.~Schnabel, P.~N. Bennett, and M.~A. Hearst.
   10:\penalty0 163--177, 2022.
 \newblock \doi{10.1162/tacl_a_00453}.
 
+\bibitem[Lee et~al.(2026)Lee, Han, Sen, Yeom, Cetintemel, and
+  Datta]{evergreen2026}
+Jiwon Lee, Seokhyun Han, Rathijit Sen, Jinsoo Yeom, Ugur Cetintemel, and
+  Anindya Datta.
+\newblock Evergreen: Efficient claim verification for semantic aggregates.
+\newblock arXiv:2604.26180, 2026.
+
 \bibitem[Liu et~al.(2026)Liu, Stammbach, and Henderson]{liu2026citations}
 Patty Liu, Dominik Stammbach, and Peter Henderson.
 \newblock Who checks the citations? benchmarking legal hallucination detection.
@@ -109,6 +116,12 @@ N.~Mehrotra, A.~Kumar, S.~Gulwani, A.~Radhakrishna, and A.~Tiwari.
 \newblock {TEN}: Table explicitization, neurosymbolically.
 \newblock In \emph{Proc. ACL Industry Track}, 2026.
 \newblock \doi{10.18653/v1/2026.acl-industry.138}.
+
+\bibitem[Oukelmoun et~al.(2026)Oukelmoun, Semmar, and
+  De~Chalendar]{halldetect2026}
+Ismail Oukelmoun, Nasredine Semmar, and Ga{\"e}l De~Chalendar.
+\newblock {HallDetect}: Decomposed entailment for factuality checking.
+\newblock arXiv:2608.05823, 2026.
 
 \bibitem[Poesia et~al.(2022)Poesia, Polozov, Le, Tiwari, Soares, Meek, and
   Gulwani]{synchromesh}

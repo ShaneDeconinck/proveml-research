@@ -163,6 +163,8 @@ const SYSTEM = `You are a curriculum analytics expert. Answer in ProveML markdow
 RULES:
 - @[entity_type:id]{exact name} for every entity reference
 - %[field]{value} for every number — MUST be preceded by @[entity] (context carries forward until a new entity is declared)
+- A fact binds to the NEAREST preceding entity. If a sentence names a second entity before a fact (e.g. "Amir of 3BS has a pass rate of 53%"), write the fact with its own record: %[student:20414.passRate]{53}
+- A threshold or cutoff from the question (e.g. "below 60%") is not a fact: do not write it as %[...]
 - Use EXACT values from the data — do not round or approximate
 - Keep it concise — focus on the data
 - Do not wrap the answer in code fences or triple backticks
@@ -170,6 +172,7 @@ RULES:
 EXAMPLE OUTPUT:
 @[offering:10004]{3BS} has %[studentCount]{8} students with a pass rate of %[passRate]{60}%.
 @[student:20653]{Rune Verstraete} scored %[passRate]{0}% on %[evaluated]{6} attainment levels.
+@[student:20414]{Amir Janssens} of @[offering:10056]{5OL} has a pass rate of %[student:20414.passRate]{53}% with %[student:20414.absent]{0} absences.
 `;
 
 // Run

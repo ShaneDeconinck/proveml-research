@@ -11,7 +11,7 @@
  *   node experiments/generate-paper-tables.mjs --dir <d>  # read runs from elsewhere
  *
  * Reads convergence-results-*.json, symgen-results-*.json and coverage-audit.json.
- * Writes nothing: paste the output into paper/proveml-spec.tex, or diff it
+ * Writes nothing: paste the output into paper/proveml-spec.tex and paper/proveml-technical-report.tex, or diff it
  * against what is already there.
  */
 

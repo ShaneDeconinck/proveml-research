@@ -41,7 +41,7 @@ primary           = threshold_name
                   | "@" , label ;
 
 (* Terminals *)
-threshold_name    = uppercase , { uppercase | "_" } ;
+threshold_name    = uppercase , { uppercase | digit | "_" } ;
 path              = entity_path , "." , field_name ;
 DQUOTE            = '"' ;
 letter            = "a"-"z" | "A"-"Z" ;

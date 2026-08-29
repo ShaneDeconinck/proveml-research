@@ -9,7 +9,7 @@
  *   node test-convergence-finance.js --provider ollama --model qwen2.5:7b --run 1
  */
 
-import { execSync } from 'child_process';
+import { callLLM as llmCall } from './llm.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { verifyProveml } from 'proveml/verify';
@@ -85,19 +85,8 @@ function buildPromptContext(spec) {
 const CALL_TIMEOUT_MS = (Number(args.find((_, i) => args[i - 1] === '--timeout')) || 900) * 1000;
 
 function callLLM(prompt) {
-    const tmpFile = join(__dirname, '.tmp-convergence-finance.txt');
-    writeFileSync(tmpFile, prompt);
     try {
-        let cmd;
-        if (provider === 'ollama') {
-            cmd = `ollama run ${model} --nowordwrap < "${tmpFile}" 2>/dev/null`;
-        } else {
-            const modelFlag = model ? ` --model ${model}` : '';
-            cmd = `cat "${tmpFile}" | claude -p${modelFlag}`;
-        }
-        return execSync(cmd, {
-            encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: CALL_TIMEOUT_MS,
-        }).trim();
+        return llmCall(provider, model, prompt, { timeoutMs: CALL_TIMEOUT_MS, tmpFile: join(__dirname, '.tmp-convergence-finance.txt') });
     } catch (e) {
         console.error(`    LLM error: ${e.message.slice(0, 100)}`);
         return null;
@@ -207,7 +196,9 @@ console.log(`  Avg final rate:       ${avgFinal}%`);
 console.log(`  Converged to 100%:    ${conv.length}/${valid.length}`);
 console.log('═══════════════════════════════════════════════════');
 
-const outFile = join(__dirname, `convergence-results-finance-${model || 'default'}-run${runId}.json`);
+const tag = args.find((_, i) => args[i - 1] === '--tag') || '';
+const modelSlug = (model || 'default').replace(/\//g, '_');
+const outFile = join(__dirname, `convergence-results-finance${tag ? '-' + tag : ''}-${modelSlug}-run${runId}.json`);
 writeFileSync(outFile, JSON.stringify({
     timestamp: new Date().toISOString(),
     domain: 'finance',

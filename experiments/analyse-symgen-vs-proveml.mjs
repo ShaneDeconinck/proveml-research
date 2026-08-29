@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * SymGen baseline vs ProveML: the comparison behind Section 7.6 of the paper.
+ * SymGen baseline vs ProveML: the comparison behind Section 7.4 of the technical report.
  *
  * The two systems have different goals, so a single "which is better" number
  * would be dishonest. What IS comparable is what each mechanism does with the

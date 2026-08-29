@@ -1,11 +1,11 @@
 {
-  "generated": "2026-08-01T01:00:12.270Z",
+  "generated": "2026-08-29T06:56:51.901Z",
   "rows": [
     {
       "benchmark": "education",
       "model": "haiku",
       "runs": 3,
-      "marked": 295,
+      "marked": 292,
       "unmarked": 26,
       "responses": 84,
       "examples": [
@@ -46,14 +46,14 @@
           ]
         }
       ],
-      "coverage": 91.9
+      "coverage": 91.8
     },
     {
       "benchmark": "education",
       "model": "phi3:mini",
       "runs": 3,
-      "marked": 181,
-      "unmarked": 117,
+      "marked": 172,
+      "unmarked": 125,
       "responses": 79,
       "examples": [
         {
@@ -70,6 +70,12 @@
           "unmarkedTokens": [
             "5",
             "10001",
+            "10003",
+            "10005",
+            "10006",
+            "10009",
+            "5",
+            "10001",
             "11",
             "10003",
             "4",
@@ -78,7 +84,9 @@
             "3",
             "3",
             "6",
-            "10006"
+            "10006",
+            "9",
+            "5"
           ]
         },
         {
@@ -107,14 +115,14 @@
           ]
         }
       ],
-      "coverage": 60.7
+      "coverage": 57.9
     },
     {
       "benchmark": "education",
       "model": "qwen2.5:3b",
       "runs": 3,
-      "marked": 266,
-      "unmarked": 101,
+      "marked": 261,
+      "unmarked": 104,
       "responses": 84,
       "examples": [
         {
@@ -165,16 +173,23 @@
           ]
         }
       ],
-      "coverage": 72.5
+      "coverage": 71.5
     },
     {
       "benchmark": "education",
       "model": "qwen2.5:7b",
       "runs": 3,
       "marked": 141,
-      "unmarked": 92,
+      "unmarked": 106,
       "responses": 84,
       "examples": [
+        {
+          "file": "convergence-results-qwen2.5:7b-run1.json",
+          "id": "lookup_students_3bs",
+          "unmarkedTokens": [
+            "8"
+          ]
+        },
         {
           "file": "convergence-results-qwen2.5:7b-run1.json",
           "id": "aggregate_highest_pass_small_set",
@@ -208,22 +223,15 @@
             "84",
             "76"
           ]
-        },
-        {
-          "file": "convergence-results-qwen2.5:7b-run1.json",
-          "id": "threshold_pass_below_60",
-          "unmarkedTokens": [
-            "60"
-          ]
         }
       ],
-      "coverage": 60.5
+      "coverage": 57.1
     },
     {
       "benchmark": "education-en",
       "model": "haiku",
       "runs": 3,
-      "marked": 279,
+      "marked": 277,
       "unmarked": 39,
       "responses": 84,
       "examples": [
@@ -270,8 +278,8 @@
       "benchmark": "education-en",
       "model": "phi3:mini",
       "runs": 3,
-      "marked": 322,
-      "unmarked": 175,
+      "marked": 295,
+      "unmarked": 183,
       "responses": 83,
       "examples": [
         {
@@ -290,13 +298,6 @@
             "6",
             "5",
             "5"
-          ]
-        },
-        {
-          "file": "convergence-results-en-phi3:mini-run1.json",
-          "id": "compare_pass_6zw_3bs",
-          "unmarkedTokens": [
-            "10012"
           ]
         },
         {
@@ -324,9 +325,24 @@
             "5",
             "5"
           ]
+        },
+        {
+          "file": "convergence-results-en-phi3:mini-run1.json",
+          "id": "overview_student_risk_top_set",
+          "unmarkedTokens": [
+            "2",
+            "3",
+            "0",
+            "0",
+            "18",
+            "3",
+            "13",
+            "5",
+            "27"
+          ]
         }
       ],
-      "coverage": 64.8
+      "coverage": 61.7
     },
     {
       "benchmark": "education-en",
@@ -443,7 +459,7 @@
       "model": "phi3:mini",
       "runs": 1,
       "marked": 0,
-      "unmarked": 62,
+      "unmarked": 58,
       "responses": 28,
       "examples": [
         {
@@ -655,7 +671,7 @@
       "benchmark": "finance",
       "model": "haiku",
       "runs": 3,
-      "marked": 150,
+      "marked": 149,
       "unmarked": 23,
       "responses": 30,
       "examples": [
@@ -702,16 +718,26 @@
           ]
         }
       ],
-      "coverage": 86.7
+      "coverage": 86.6
     },
     {
       "benchmark": "finance",
       "model": "phi3:mini",
       "runs": 3,
       "marked": 77,
-      "unmarked": 14,
+      "unmarked": 27,
       "responses": 30,
       "examples": [
+        {
+          "file": "convergence-results-finance-phi3:mini-run1.json",
+          "id": "fin_comparison_revenue",
+          "unmarkedTokens": [
+            "416161000000",
+            "112010000000",
+            "281724000000",
+            "101832000000"
+          ]
+        },
         {
           "file": "convergence-results-finance-phi3:mini-run1.json",
           "id": "fin_comparison_balance",
@@ -740,19 +766,9 @@
           "unmarkedTokens": [
             "30"
           ]
-        },
-        {
-          "file": "convergence-results-finance-phi3:mini-run2.json",
-          "id": "fin_threshold_liquidity",
-          "unmarkedTokens": [
-            "35934000000",
-            "30242000000",
-            "1",
-            "1.24"
-          ]
         }
       ],
-      "coverage": 84.6
+      "coverage": 74
     },
     {
       "benchmark": "finance",

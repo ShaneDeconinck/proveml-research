@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -14,6 +14,12 @@ R.~Aly, Z.~Guo, M.~Schlichtkrull, J.~Thorne, A.~Vlachos, C.~Christodoulopoulos,
 \newblock In \emph{Proc. NeurIPS Datasets and Benchmarks Track}, 2021.
 \newblock arXiv:2106.05707.
 
+\bibitem[Chan et~al.(2026)Chan, Gaizauskas, and Zhao]{chan2026soundness}
+Jason Chan, Robert Gaizauskas, and Zhixue Zhao.
+\newblock Position: Logical soundness is not a reliable criterion for
+  neurosymbolic fact-checking with {LLMs}.
+\newblock arXiv:2604.04177, 2026.
+
 \bibitem[Chen et~al.(2020)Chen, Wang, Chen, Zhang, Wang, Li, Zhou, and
   Wang]{tabfact}
 W.~Chen, H.~Wang, J.~Chen, Y.~Zhang, H.~Wang, S.~Li, X.~Zhou, and W.~Y. Wang.
@@ -21,12 +27,38 @@ W.~Chen, H.~Wang, J.~Chen, Y.~Zhang, H.~Wang, S.~Li, X.~Zhou, and W.~Y. Wang.
 \newblock In \emph{Proc. ICLR}, 2020.
 \newblock arXiv:1909.02164.
 
+\bibitem[{European AI Office}(2026)]{transparencycode2026}
+{European AI Office}.
+\newblock Code of practice on transparency of {AI}-generated content.
+\newblock June 2026,
+  \url{https://digital-strategy.ec.europa.eu/en/faqs/signing-code-practice-transparency-ai-generated-content},
+  2026.
+
+\bibitem[{European Commission}(2026)]{art50guidelines2026}
+{European Commission}.
+\newblock Guidelines on the implementation of the transparency obligations for
+  certain {AI} systems under {Article} 50 of the {AI} {Act}.
+\newblock Adopted 20 July 2026,
+  \url{https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems},
+  2026.
+
 \bibitem[{European Parliament and Council of the European
   Union}(2024)]{euaiact}
 {European Parliament and Council of the European Union}.
 \newblock Regulation ({EU}) 2024/1689 laying down harmonised rules on
   artificial intelligence (artificial intelligence act).
 \newblock Official Journal of the European Union, 2024.
+
+\bibitem[Fan et~al.(2026)Fan, Li, Guo, Han, and Zhang]{claimlocked2026}
+Xiao Fan, Jingyuan Li, Hongbin Guo, Yubo Han, and Yi~Zhang.
+\newblock Provenance before prose: Claim-locked reporting.
+\newblock arXiv:2608.25336, 2026.
+
+\bibitem[Hall et~al.(2026)Hall, Shome, and Eiers]{verifin2026}
+Bethel Hall, Sachi Shome, and William Eiers.
+\newblock {VeriFin}: A neurosymbolic framework for verifying {LLM}-generated
+  financial claims.
+\newblock arXiv:2608.10213, 2026.
 
 \bibitem[Kalai and Vempala(2024)]{kalai2024}
 A.~T. Kalai and S.~S. Vempala.
@@ -119,11 +151,34 @@ L.~Torroba~Hennigen, S.~Z. Shen, A.~Nrusimha, B.~Gapp, D.~Sontag, and Y.~Kim.
   \url{https://www.xbrl.org/specification/inlinexbrl-part1/rec-2013-11-18/inlinexbrl-part1-rec-2013-11-18.html},
   2013.
 
+\bibitem[Yang et~al.(2026)Yang, Zhu, Han, Han, Shen, Wang, Ioannidis, and
+  Rangwala]{datareferencing2026}
+Yuqing Yang, Qi~Zhu, Zhen Han, Boran Han, Zhengyuan Shen, Shuai Wang,
+  Vassilis~N. Ioannidis, and Huzefa Rangwala.
+\newblock When {LLMs} read tables carelessly: Measuring and reducing data
+  referencing errors.
+\newblock arXiv:2606.32029, 2026.
+
+\bibitem[Yeginbergen et~al.(2026)Yeginbergen, W{\"u}hrl, Rogers, and
+  Agerri]{fullcite2026}
+Anar Yeginbergen, Amelie W{\"u}hrl, Anna Rogers, and Rodrigo Agerri.
+\newblock Explicit evidence grounding via structured inline citation
+  generation.
+\newblock arXiv:2606.07130, 2026.
+
 \bibitem[Zha et~al.(2023)Zha, Yang, Li, and Hu]{alignscore}
 Y.~Zha, Y.~Yang, R.~Li, and Z.~Hu.
 \newblock {AlignScore}: Evaluating factual consistency with a unified alignment
   function.
 \newblock In \emph{Proc. ACL}, pages 11328--11348, 2023.
 \newblock \doi{10.18653/v1/2023.acl-long.634}.
+
+\bibitem[Zhang et~al.(2026)Zhang, Xu, Li, Yu, Zhang, Xia, Feng, Wang, Cui, and
+  Zhao]{dtg2026}
+Shuoming Zhang, Ruiyuan Xu, Haofeng Li, Qiuchu Yu, Yangyu Zhang, Chunwei Xia,
+  Xiaobing Feng, Chenxi Wang, Huimin Cui, and Jiacheng Zhao.
+\newblock Decode-time grammars: Constrained {LLM} generation over a refinement
+  order of grammar fragments.
+\newblock arXiv:2607.18357, 2026.
 
 \end{thebibliography}

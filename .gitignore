@@ -8,6 +8,9 @@ node_modules/
 *.bbl
 !paper/proveml-spec.bbl
 *.blg
+*.fls
+*.fdb_latexmk
+*.pickle
 npm-debug.log*
 experiments/agent-adoption-results/
 .playwright-mcp/

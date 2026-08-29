@@ -29,7 +29,7 @@
  *   node test-symgen-baseline.js --provider ollama --model qwen2.5:7b --run 1 [--benchmark ...]
  */
 
-import { execSync } from 'child_process';
+import { callLLM as llmCall } from './llm.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -83,8 +83,13 @@ EXAMPLE OUTPUT:
 {{ company:aapl.name }} reported revenue of {{ company:aapl.revenue }} with net income of {{ company:aapl.netIncome }}.
 `;
 } else {
+    // Only the generated dataset; no fallback to the withdrawn real one
+    // (see test-convergence.js).
     const demoPath = join(__dirname, '../data/mastery-layers-demo.json');
-    const ml = JSON.parse(readFileSync(existsSync(demoPath) ? demoPath : join(__dirname, '../data/mastery-layers.json')));
+    if (!existsSync(demoPath)) {
+        throw new Error(`Missing ${demoPath}: regenerate it with node data/generate-education-benchmark.mjs`);
+    }
+    const ml = JSON.parse(readFileSync(demoPath));
     for (const o of ml.offerings) {
         factStore[`offering:${o.id}.name`] = o.name;
         factStore[`offering:${o.id}.studentCount`] = o.students.length;
@@ -196,13 +201,8 @@ function bindingCoverage(raw) {
 const CALL_TIMEOUT_MS = (Number(args.find((_, i) => args[i - 1] === '--timeout')) || 900) * 1000;
 
 function callLLM(prompt) {
-    const tmpFile = join(__dirname, `.tmp-symgen-${domain}.txt`);
-    writeFileSync(tmpFile, prompt);
     try {
-        const cmd = provider === 'ollama'
-            ? `ollama run ${model} --nowordwrap < "${tmpFile}" 2>/dev/null`
-            : `cat "${tmpFile}" | claude -p${model ? ` --model ${model}` : ''}`;
-        return execSync(cmd, { encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: CALL_TIMEOUT_MS }).trim();
+        return llmCall(provider, model, prompt, { timeoutMs: CALL_TIMEOUT_MS, tmpFile: join(__dirname, `.tmp-symgen-${domain}.txt`) });
     } catch (e) {
         console.error(`    LLM error: ${e.message.slice(0, 100)}`);
         return null;

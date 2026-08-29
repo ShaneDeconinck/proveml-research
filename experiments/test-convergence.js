@@ -13,7 +13,7 @@
  *   node test-convergence.js --max-loops 5
  */
 
-import { execSync } from 'child_process';
+import { callLLM as llmCall } from './llm.mjs';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { verifyProveml } from 'proveml/verify';
@@ -31,9 +31,13 @@ const benchmarkPath = benchmarkArg
     : join(__dirname, '../benchmarks/proveml-pilot.v1.json');
 
 // Load data
-const demoPath = join(__dirname, '../data/mastery-layers-demo.json');
-const realPath = join(__dirname, '../data/mastery-layers.json');
-const dataPath = existsSync(demoPath) ? demoPath : realPath;
+// Only the generated dataset. The real one was withdrawn on 31 July 2026
+// (EXPLORATIONS.md); a silent fallback to it would put figures derived from
+// real pupil records into a run that looks like every other run.
+const dataPath = join(__dirname, '../data/mastery-layers-demo.json');
+if (!existsSync(dataPath)) {
+    throw new Error(`Missing ${dataPath}: regenerate it with node data/generate-education-benchmark.mjs`);
+}
 const ml = JSON.parse(readFileSync(dataPath));
 
 // Build fact store
@@ -69,13 +73,17 @@ function verify(markdown) {
 const offSummary = ml.offerings.map(o => {
     const avg = o.students.length ? Math.round(o.students.reduce((s, st) => s + st.rate, 0) / o.students.length) : 0;
     const evAvg = o.students.length ? Math.round(o.students.reduce((s, st) => s + (st.total ? st.ev / st.total * 100 : 0), 0) / o.students.length) : 0;
-    return { id: o.id, name: o.name, stream: o.stream, students: o.students.length, passRate: avg, evalRate: evAvg };
+    // Field names here are the store's field names: what the model sees is
+    // what it can address. A context that said `students` while the store
+    // said `studentCount` produced "field not found" on every model and
+    // counted as a model error.
+    return { id: o.id, name: o.name, stream: o.stream, studentCount: o.students.length, passRate: avg, evalRate: evAvg };
 }).sort((a, b) => a.passRate - b.passRate);
 
 const stuAll = [];
 for (const o of ml.offerings) for (const s of o.students) stuAll.push({ ...s, offeringId: o.id, offering: o.name, stream: o.stream });
 const struggling = stuAll.filter(s => s.ev >= 5).sort((a, b) => a.rate - b.rate).slice(0, 20)
-    .map(s => ({ id: s.id, name: s.name, offeringId: s.offeringId, offering: s.offering, passed: s.pass, evaluated: s.ev, total: s.total, rate: s.rate, absent: s.grijs || 0 }));
+    .map(s => ({ id: s.id, name: s.name, offeringId: s.offeringId, offering: s.offering, passed: s.pass, evaluated: s.ev, total: s.total, passRate: s.rate, absent: s.grijs || 0 }));
 
 const FULL_CONTEXT = { offerings: offSummary, strugglingStudents: struggling };
 const offeringByName = new Map(offSummary.map(o => [o.name, o]));
@@ -122,7 +130,7 @@ function buildPromptContext(spec) {
     return sliced;
 }
 
-// LLM call — supports both claude -p and ollama
+// LLM call: claude (CLI), ollama, or together; see llm.mjs
 const model = args.find((_, i) => args[i - 1] === '--model') || '';
 const provider = args.find((_, i) => args[i - 1] === '--provider') || 'claude';
 
@@ -139,21 +147,8 @@ const CALL_TIMEOUT_MS = (Number(args.find((_, i) => args[i - 1] === '--timeout')
 let timedOut = 0;
 
 function callLLM(prompt) {
-    const tmpFile = join(__dirname, '.tmp-convergence.txt');
-    writeFileSync(tmpFile, prompt);
     try {
-        let cmd;
-        if (provider === 'ollama') {
-            // Ollama: use the ollama run command
-            cmd = `ollama run ${model} --nowordwrap < "${tmpFile}" 2>/dev/null`;
-        } else {
-            // Claude CLI
-            const modelFlag = model ? ` --model ${model}` : '';
-            cmd = `cat "${tmpFile}" | claude -p${modelFlag}`;
-        }
-        return execSync(cmd, {
-            encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024, timeout: CALL_TIMEOUT_MS,
-        }).trim();
+        return llmCall(provider, model, prompt, { timeoutMs: CALL_TIMEOUT_MS, tmpFile: join(__dirname, '.tmp-convergence.txt') });
     } catch (e) {
         if (/ETIMEDOUT/.test(e.message)) timedOut++;
         console.error(`    LLM error: ${e.message.slice(0, 100)}`);
@@ -329,7 +324,10 @@ for (const cat of cats) {
 
 console.log('═══════════════════════════════════════════════════');
 
-const outFile = join(__dirname, `convergence-results${tag ? '-' + tag : ''}${model ? '-' + model : ''}-run${runId}.json`);
+// A model string may contain a slash (deepseek-ai/DeepSeek-V4-Pro-0813); the
+// file name must not.
+const modelSlug = model ? model.replace(/\//g, '_') : '';
+const outFile = join(__dirname, `convergence-results${tag ? '-' + tag : ''}${modelSlug ? '-' + modelSlug : ''}-run${runId}.json`);
 writeFileSync(outFile,
     JSON.stringify({
         timestamp: new Date().toISOString(),

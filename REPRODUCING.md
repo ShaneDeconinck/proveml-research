@@ -9,8 +9,8 @@ locally so every research artifact uses the same source of truth.
 Clone the two repositories side by side, then install both:
 
 ```bash
-git clone https://github.com/ShaneDeconinck/proveml.git
-git clone https://github.com/ShaneDeconinck/proveml-research.git
+git clone https://github.com/abovebeyond-ai/proveml.git
+git clone https://github.com/abovebeyond-ai/proveml-research.git
 
 cd proveml
 npm install

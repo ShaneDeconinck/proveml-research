@@ -61,7 +61,7 @@ for (const entry of combined.values()) {
   try {
     const response = await fetch(entry.sourceUrl, {
       headers: {
-        'user-agent': 'Mozilla/5.0 (compatible; ProveML reference fetcher/0.2; +https://github.com/ShaneDeconinck/proveml)',
+        'user-agent': 'Mozilla/5.0 (compatible; ProveML reference fetcher/0.2; +https://github.com/abovebeyond-ai/proveml)',
         accept: 'text/html,application/xhtml+xml,application/pdf'
       },
       redirect: 'follow',

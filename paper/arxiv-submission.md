@@ -26,9 +26,9 @@ venue-submissie; CC BY is onherroepelijk. Dit staat los van de repo, die wél
 CC BY 4.0 draagt op paper en data — daar kies je zelf en kun je terugkomen.
 
 **Comments**
-15 pages, 4 figures, 3 tables. Full technical report (36 pp) with the complete specification and the July 2026 study of small local models in the artifact repository. Reference implementation: https://github.com/ShaneDeconinck/proveml
+15 pages, 4 figures, 3 tables. Full technical report (36 pp) with the complete specification and the July 2026 study of small local models in the artifact repository. Reference implementation: https://github.com/abovebeyond-ai/proveml
 (npm: proveml). Benchmarks, experiment artifacts and reproducibility guide:
-https://github.com/ShaneDeconinck/proveml-research
+https://github.com/abovebeyond-ai/proveml-research
 
 **Abstract** (platte tekst, geen LaTeX)
 

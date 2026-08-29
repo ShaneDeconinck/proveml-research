@@ -1,9 +1,10 @@
 # arXiv submission — ProveML
 
-Tarball: `proveml-arxiv.tar.gz` (tex + bbl + 2 png-figuren; compileert standalone met
+Tarball: `proveml-arxiv.tar.gz` (tex + bbl + 3 png-figuren; compileert standalone met
 pdflatex, 2 passes, geen bibtex nodig — gecontroleerd in een lege map). Regenereren:
 kopieer `proveml-spec.tex`, `proveml-spec.bbl`,
-`fig-verify-errors.png`, `fig-audit-mode.png` naar een lege map en tar die.
+`fig-verify-errors.png`, `fig-audit-mode.png`, `fig-display.png` naar een lege map en tar die.
+Figuren regenereren: `node paper/generate-figures.mjs` (headless Chrome, huisstijl van abovebeyond.ai/proveml).
 
 **Let op:** de tarball moet opnieuw wanneer het paper wijzigt. De `.bbl` moet mee,
 want arXiv draait geen bibtex; is hij verouderd, dan verdwijnen citaties stilletjes.
@@ -25,7 +26,7 @@ venue-submissie; CC BY is onherroepelijk. Dit staat los van de repo, die wél
 CC BY 4.0 draagt op paper en data — daar kies je zelf en kun je terugkomen.
 
 **Comments**
-14 pages, 3 figures, 3 tables. Full technical report (36 pp) with the complete specification and the July 2026 study of small local models in the artifact repository. Reference implementation: https://github.com/ShaneDeconinck/proveml
+15 pages, 4 figures, 3 tables. Full technical report (36 pp) with the complete specification and the July 2026 study of small local models in the artifact repository. Reference implementation: https://github.com/ShaneDeconinck/proveml
 (npm: proveml). Benchmarks, experiment artifacts and reproducibility guide:
 https://github.com/ShaneDeconinck/proveml-research
 

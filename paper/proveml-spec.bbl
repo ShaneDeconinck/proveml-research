@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{27}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -88,6 +88,11 @@ P.~Laban, T.~Schnabel, P.~N. Bennett, and M.~A. Hearst.
 \newblock \emph{Transactions of the Association for Computational Linguistics},
   10:\penalty0 163--177, 2022.
 \newblock \doi{10.1162/tacl_a_00453}.
+
+\bibitem[Liu et~al.(2026)Liu, Stammbach, and Henderson]{liu2026citations}
+Patty Liu, Dominik Stammbach, and Peter Henderson.
+\newblock Who checks the citations? benchmarking legal hallucination detection.
+\newblock arXiv:2606.21155, 2026.
 
 \bibitem[Magesh et~al.(2025)Magesh, Surani, Dahl, Suzgun, Manning, and
   Ho]{magesh2025}

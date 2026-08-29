@@ -115,5 +115,5 @@ writeFileSync(join(out, 'display.html'), page('one claim, three views',
     </div>`, ''));
 
 if (!process.argv.includes('--html-only')) {
-    for (const [name, h] of [['verify-errors', 400], ['verify-correct', 400], ['audit-mode', 465], ['display', 500]]) console.log('wrote', shot(name, h));
+    for (const [name, h] of [['verify-errors', 400], ['verify-correct', 400], ['audit-mode', 500], ['display', 500]]) console.log('wrote', shot(name, h));
 }

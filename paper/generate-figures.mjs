@@ -94,6 +94,14 @@ const audit = renderProveml(auditMd, store, { thresholds: registry, showProofPat
 writeFileSync(join(out, 'audit-mode.html'), page('audit mode · the path behind every claim', `<div class="out">${audit.html.replace(/<span class="proveml-proof">\[trust:[^<]*<\/span>/g, '')}</div>`,
     `<b class="ok">${audit.verification.verified}</b> of ${audit.verification.total} claims verified · each claim carries the fact-store path it was checked against`));
 
+// 2b. verify mode, mostly correct (technical report): two planted errors in ten claims
+const correctMd = `@[company:aapl]{Apple Inc.} reported revenue of %[revenue]{391035000000 USD} with net income of %[netIncome]{93736000000 USD} and earnings per share of %[eps]{6.08 USD/shares}.
+
+@[company:msft]{Microsoft Corporation} reported revenue of %[revenue]{245122000000 USD} with total assets of %[assets]{512163000000 USD}. Its long-term debt of %[longTermDebt]{42688000000 USD} yields a debt-to-equity ratio of %[debtToEquity]{1.23}.`;
+const correct = renderProveml(correctMd, store, { thresholds: registry });
+writeFileSync(join(out, 'verify-correct.html'), page('verify mode · two planted errors', `<div class="out">${correct.html}</div>`,
+    `<b class="ok">${correct.verification.verified}</b> of ${correct.verification.total} claims verified · a field the store does not hold is marked as unverifiable, a wrong ratio is struck through`));
+
 // 3. display: exact claim, readable rendering
 const displayMd = `@[company:aapl]{Apple Inc.} reported revenue of %[revenue]{391035000000 USD}.`;
 const display = renderProveml(displayMd, store, { thresholds: registry });
@@ -107,5 +115,5 @@ writeFileSync(join(out, 'display.html'), page('one claim, three views',
     </div>`, ''));
 
 if (!process.argv.includes('--html-only')) {
-    for (const [name, h] of [['verify-errors', 400], ['audit-mode', 465], ['display', 500]]) console.log('wrote', shot(name, h));
+    for (const [name, h] of [['verify-errors', 400], ['verify-correct', 400], ['audit-mode', 465], ['display', 500]]) console.log('wrote', shot(name, h));
 }

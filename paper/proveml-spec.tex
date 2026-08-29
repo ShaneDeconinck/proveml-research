@@ -11,6 +11,10 @@
 \usepackage[authoryear,round]{natbib}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{needspace}
+\usepackage{etoolbox}
+% A short listing must not split across a page: ask for room before it starts.
+\BeforeBeginEnvironment{lstlisting}{\needspace{6\baselineskip}}
 \usepackage{xcolor}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumitem}

@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
+\usepackage{textcomp}
 \usepackage{amsmath,amssymb}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
@@ -10,6 +11,10 @@
 \usepackage[authoryear,round]{natbib}
 \usepackage{hyperref}
 \usepackage{listings}
+\usepackage{needspace}
+\usepackage{etoolbox}
+% A short listing must not split across a page: ask for room before it starts.
+\BeforeBeginEnvironment{lstlisting}{\needspace{6\baselineskip}}
 \usepackage{xcolor}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{enumitem}
@@ -131,7 +136,7 @@ In short: \textbf{ProveML is iXBRL for AI-generated text.} Financial reporting s
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig-verify-errors.png}
-\caption{What the reader sees. The same marked-up text after verification: a wrong revenue figure struck through in red, a claim against an entity the store does not know in amber, and a judgment whose registered condition does not hold in dashed red. Nothing here required reading the markup, and nothing required a model. Section~\ref{sec:rendering} covers the rendering states; Figure~\ref{fig:render-audit} shows a companion example in audit mode, with the fact-store path behind each claim made visible.}
+\caption{What the reader sees. The same marked-up text after verification: a wrong revenue figure struck through, a claim against an entity the store does not know marked as unverifiable, a judgment whose registered condition does not hold struck through. The verified amounts read ``\$93.7 billion'' and ``\texteuro12 thousand'' because the store declares a display rule for those fields (Section~\ref{sec:syntax}); the wrong figure stays as the model wrote it, since only a verified value is formatted. Nothing here required reading the markup, and nothing required a model. Figure~\ref{fig:render-audit} shows the companion audit view.}
 \label{fig:render-errors}
 \end{figure}
 
@@ -536,7 +541,7 @@ Three reading modes support progressive disclosure: \textit{Read} (minimal indic
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig-verify-correct.png}
-\caption{Verify mode on SEC EDGAR financial data. Teal dotted underlines mark verified entities and facts. Two deliberately planted errors are flagged without inspecting any markup: one claim fails to resolve in the demo fact store (amber) and the ratio built on it mismatches (red) --- 8 of 10 claims verify, and the reader's attention goes straight to the other two.}
+\caption{Verify mode on SEC EDGAR financial data. A boxed name is a verified entity, a dotted underline a verified fact; verified amounts are shown by the store's display rule. Two deliberately planted errors are flagged without inspecting any markup: one claim addresses a field the store does not hold (dashed, amber) and the ratio built on it mismatches (struck through, red) --- 7 of 9 claims verified.}
 \label{fig:render-verify}
 \end{figure}
 

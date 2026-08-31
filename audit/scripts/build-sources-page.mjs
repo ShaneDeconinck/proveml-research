@@ -21,6 +21,7 @@ import { fileURLToPath } from 'url';
 import { renderProveml } from 'proveml/render';
 import { verifyProveml } from 'proveml/verify';
 import { readdirSync } from 'fs';
+import { createHash } from 'crypto';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -45,7 +46,10 @@ function snapshotText(file) {
     let t = readFileSync(join(rawDir, file), 'utf8');
     if (file.endsWith('.html')) {
         t = t.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ')
-             .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"');
+             .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+             .replace(/&#x([0-9a-fA-F]+);/g, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+             .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&apos;/g, "'").replace(/&quot;/g, '"')
+             .replace(/&rsquo;/g, '\u2019').replace(/&lsquo;/g, '\u2018').replace(/&rdquo;/g, '\u201D').replace(/&ldquo;/g, '\u201C').replace(/&nbsp;/g, ' ');
     }
     return t.replace(/\s+/g, ' ');
 }
@@ -61,16 +65,30 @@ function paperSide(s) {
     return `@[${P}]{${store[`${P}.name`]}} is %[category]{${s.category}}. It verifies by %[verificationMode]{${s.verificationMode}}, which we class as %[verificationClass]{${s.verificationClass}}, against %[against]{${s.against}}. It ${yes(s.inlineSupport)} mark claims inline (%[inlineSupport]{${s.inlineSupport}}), ${yes(s.structuredRecordBinding)} bind them to structured records (%[structuredRecordBinding]{${s.structuredRecordBinding}}), and ${yes(s.inferenceLayer)} carry an inference layer (%[inferenceLayer]{${s.inferenceLayer}}).`;
 }
 
-// The source side is the quote (with its machine-checked locator) and OUR
-// READING of it. The reading is deliberately not rendered as a verified
-// claim: verifying it against the store would verify our own label against
-// itself. It is the one human link in the chain, and it is shown as such.
+// The source side: for every field the store holds, the evidence behind it.
+// Three kinds, and the kind is shown: a verbatim quote (machine-checked
+// against the snapshot, with its locator), a derivation from another field,
+// or an explicit absence, because you cannot quote a source not having
+// something. Each entry carries the judgement widget: the reader judges the
+// reading, not the arithmetic.
 function sourceSide(s) {
-    return s.evidence.map(e => ({
-        quote: `<p class="quote">“${esc(e.sourceQuote)}”</p><p class="loc"><b>${esc(e.sourceLocator.replace(/_/g, ' '))}</b> · verbatim in the <a href="../references/raw/${esc(checkQuote(s.id, e.sourceQuote))}">archived source</a></p>`,
-        claim: `<p class="reading"><span class="j">our reading</span> ${esc(e.field)} = ${esc(e.claimValue)} — a judgement, the one link here no machine checks${e.note ? `. ${esc(e.note)}` : '.'}</p>`,
-        verify: false,
-    }));
+    const P = `citation:${s.id}`;
+    return s.evidence.map(e => {
+        const rid = createHash('sha256').update([s.id, e.field, e.claimValue, e.basis, e.sourceQuote || '', e.note || ''].join('\u0000')).digest('hex').slice(0, 16);
+        let body;
+        if (e.basis === 'quote') {
+            body = `<p class="quote">\u201C${esc(e.sourceQuote)}\u201D</p><p class="loc"><b>${esc(e.sourceLocator.replace(/_/g, ' '))}</b> \u00B7 verbatim in the <a href="../references/raw/${esc(checkQuote(s.id, e.sourceQuote))}">archived source</a></p>`;
+        } else if (e.basis === 'derived') {
+            body = `<p class="basis basis-derived">derived, not quoted</p>`;
+        } else {
+            body = `<p class="basis basis-absence">rests on absence \u2014 you cannot quote a source not having something</p>`;
+        }
+        return {
+            html: `<div class="evidence" data-evidence-field="${esc(e.field)}"><p class="ev-head"><code>${esc(e.field)}</code> = <b>${esc(String(e.claimValue))}</b></p>${body}${e.note ? `<p class="note">${esc(e.note)}</p>` : ''}
+<div class="reading" data-review="${rid}" data-src="${esc(s.id)}" data-field="${esc(e.field)}"><p><span class="j">our reading</span> is this a fair basis for <code>${esc(e.field)} = ${esc(String(e.claimValue))}</code>?</p>
+<div class="review"><button class="rv" data-verdict="fair">fair reading</button><button class="rv" data-verdict="flag">flag</button><span class="rv-state"></span></div></div></div>`,
+        };
+    });
 }
 
 let total = 0, verified = 0;
@@ -79,11 +97,10 @@ const cards = sources.map(s => {
     const vl = verifyProveml(left, store);
     total += vl.total; verified += vl.verified;
     if (vl.errors.length) throw new Error(`${s.id}: ${vl.errors.join('; ')}`);
-    const vr = { total: 0, verified: 0 };
     const L = renderProveml(left, store).html;
-    const R = right.map(r => `${r.quote}${r.claim}`).join('');
+    const R = right.map(r => r.html).join('');
     return `<section class="pair" id="${esc(s.id)}">
-  <header><h2>${esc(s.title)}</h2><p class="meta">${esc(s.authors)} · ${esc(s.year)} · <code>citation:${esc(s.id)}</code> · ${vl.verified}/${vl.total} claims verified against the store</p></header>
+  <header><h2>${esc(s.title)}</h2><p class="meta">${esc(s.authors)} · ${esc(s.year)} · <code>citation:${esc(s.id)}</code> · ${vl.verified}/${vl.total} claims verified against the store · ${s.evidence.length} fields of evidence</p></header>
   <div class="cols">
     <div class="col"><div class="lbl">what the paper says</div>${L}</div>
     <div class="col"><div class="lbl">what the source says</div>${R}</div>
@@ -106,6 +123,13 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 .col{background:var(--card);border:1px solid var(--haze-line);border-radius:3px;padding:1rem 1.2rem;font-size:1rem}
 .lbl{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
 .col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic;margin-bottom:.35rem}
+.evidence{padding:.7rem 0;border-top:1px dashed var(--haze-line)}
+.evidence:first-child{border-top:none;padding-top:0}
+.ev-head{margin:0 0 .4rem}.ev-head code{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.82rem}
+.basis{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.74rem;margin:0 0 .3rem}
+.basis-derived{color:var(--muted)}
+.basis-absence{color:var(--mark-unk)}
+.evidence.paired{background:var(--mark-inf-vlak);border-radius:3px;box-shadow:0 0 0 6px var(--mark-inf-vlak)}
 .reading{color:var(--muted)}
 .reading .j{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;border:1px dashed var(--haze-line);border-radius:999px;padding:.12em .55em;margin-right:.4em;color:var(--muted)}.loc{margin:0 0 1rem}.loc b{font-weight:500;color:var(--mark-ok)}.loc a{color:var(--muted)}
 .proveml-entity.proveml-verified{color:var(--mark-ok);border:1px solid var(--mark-ok-lijn);border-radius:2px;padding:.05em .35em}
@@ -138,6 +162,17 @@ document.addEventListener('mousemove', (e) => {
     const y = e.clientY + 18 + tip.offsetHeight > innerHeight ? e.clientY - tip.offsetHeight - 10 : e.clientY + 18;
     tip.style.left = x + 'px'; tip.style.top = y + 'px';
 });
+document.addEventListener('mouseover', (e) => {
+    const f = e.target.closest('.col .proveml-fact');
+    if (!f) return;
+    const path = f.dataset.path || '';
+    const field = path.split('.').slice(1).join('.');
+    const card = f.closest('.pair');
+    if (card && field) card.querySelectorAll('.evidence[data-evidence-field="' + field + '"]').forEach(x => x.classList.add('paired'));
+});
+document.addEventListener('mouseout', (e) => {
+    if (e.target.closest?.('.col .proveml-fact')) document.querySelectorAll('.evidence.paired').forEach(x => x.classList.remove('paired'));
+});
 document.addEventListener('mouseout', (e) => {
     if (!e.target.closest?.('.proveml-entity, .proveml-fact')) return;
     tip.hidden = true;
@@ -146,7 +181,7 @@ document.addEventListener('mouseout', (e) => {
 `;
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ProveML · the sources, side by side</title><style>${CSS}</style></head><body><div class="wrap">
 <h1>The sources, side by side</h1>
-<p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on. Three links in the chain are machine-checked, and the page does not build if any breaks: the left column equals the store of citation characteristics, verified by the same verifier the paper describes; every quote occurs verbatim in the archived snapshot of its source; and the locator under each quote is computed from that snapshot. The fourth link — that the store's value is a fair reading of the quote — is a human judgement, ours, and it is shown as one rather than painted green. That boundary is ProveML's own: the verifier proves consistency with a store, and the store is the point of trust. Read left and right and judge the fourth link yourself; that is the one thing this page asks of you.</p>
+<p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on. Three links in the chain are machine-checked, and the page does not build if any breaks: the left column equals the store of citation characteristics, verified by the same verifier the paper describes; every quote occurs verbatim in the archived snapshot of its source; and the locator under each quote is computed from that snapshot. The fourth link — that the store's value is a fair reading of the quote — is a human judgement, ours, and it is shown as one rather than painted green. That boundary is ProveML's own: the verifier proves consistency with a store, and the store is the point of trust. Every field on the left has its evidence on the right: a verbatim quote with its locator, a derivation, or an explicit absence, because you cannot quote a source not having something. Hover a value on the left to light up its evidence. Judge each reading with the buttons; a judgement is saved under a hash of the evidence it approved and dies if that evidence changes.</p>
 <p class="summary">${verified}/${total} paper claims verified against the store · every quote verbatim in its archived snapshot · the readings themselves are judgement, not verification · built ${new Date().toISOString().slice(0, 10)}</p>
 ${cards}
 </div><script>${SCRIPT}</script></body></html>`;

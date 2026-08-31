@@ -16,6 +16,7 @@
  * Writes: audit/docs/sources.html
  */
 import { readFileSync, writeFileSync, readdirSync } from 'fs';
+import { execSync } from 'child_process';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { reviewPage, snapshotText } from 'proveml/review-page';
@@ -54,10 +55,17 @@ for (const s of sources) {
     }
 }
 
+// When a snapshot was taken is part of what "archived" means; git remembers.
+const captured = {};
+for (const [id, f] of Object.entries(rawFiles)) {
+    const d = execSync(`git log --format=%as --diff-filter=A --follow -- ${JSON.stringify(join(rawDir, f))}`, { cwd: root }).toString().trim().split('\n').pop();
+    if (d) captured[id] = d;
+}
+
 const subjects = sources.map((s) => ({
     id: s.id,
     title: s.title,
-    meta: `${s.authors}, ${s.year}. In the store as citation:${s.id}:`,
+    meta: `${s.authors}, ${s.year}.${captured[s.id] ? ` Snapshot captured ${captured[s.id]}.` : ''} In the store as citation:${s.id}:`,
     claim: paperSide(s),
     evidence: s.evidence.map((e) => (e.basis === 'quote' ? { ...e, sourceHref: `../references/raw/${rawFiles[s.id]}` } : e)),
 }));

@@ -130,6 +130,19 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 .basis-derived{color:var(--muted)}
 .basis-absence{color:var(--mark-unk)}
 .evidence.paired{background:var(--mark-inf-vlak);border-radius:3px;box-shadow:0 0 0 6px var(--mark-inf-vlak)}
+.review{display:flex;gap:.5rem;align-items:center;margin:.5rem 0 0}
+button.rv{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;padding:.3rem .7rem;border:1px solid var(--haze-line);border-radius:999px;background:none;color:var(--muted);cursor:pointer}
+button.rv:hover{border-color:var(--muted);color:var(--ink)}
+button.rv:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rv-state{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem}
+.reading[data-state=fair]{color:var(--ink)}
+.reading[data-state=fair] .rv-state{color:var(--mark-ok)}
+.reading[data-state=flag] .rv-state{color:var(--mark-bad)}
+.reading[data-state=fair] button[data-verdict=fair],.reading[data-state=flag] button[data-verdict=flag]{border-color:currentColor;color:var(--ink)}
+.pair[data-flagged] h2:after{content:" ⚑";color:var(--mark-bad)}
+.reviewbar{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;margin:0 0 2rem;padding:.7rem .9rem;border:1px solid var(--haze-line);background:var(--card);border-radius:3px;font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
+.rv-filter{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+body[data-only-unjudged] .pair[data-all-judged]{display:none}
 .reading{color:var(--muted)}
 .reading .j{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;border:1px dashed var(--haze-line);border-radius:999px;padding:.12em .55em;margin-right:.4em;color:var(--muted)}.loc{margin:0 0 1rem}.loc b{font-weight:500;color:var(--mark-ok)}.loc a{color:var(--muted)}
 .proveml-entity.proveml-verified{color:var(--mark-ok);border:1px solid var(--mark-ok-lijn);border-radius:2px;padding:.05em .35em}
@@ -146,6 +159,47 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 // highlight on every claim of the same record. The native title tooltip is
 // slow enough to read as broken, so the title moves to a data attribute.
 const SCRIPT = `
+// ── review layer ─────────────────────────────────────────────────────────
+// Judgements live in localStorage under the content hash of each reading, so
+// a saved verdict never applies to changed content. Export puts the whole
+// review on the clipboard as JSON, for committing next to the store.
+const KEY = 'proveml-sources-review';
+let saved = {}; try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
+const readings = [...document.querySelectorAll('.reading[data-review]')];
+function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch {} }
+function paint() {
+    let judged = 0, flagged = 0;
+    for (const el of readings) {
+        const v = saved[el.dataset.review];
+        el.dataset.state = v ? v.verdict : '';
+        el.querySelector('.rv-state').textContent = v ? (v.verdict === 'fair' ? '✓ judged fair ' + v.at.slice(0, 10) : '⚑ flagged ' + v.at.slice(0, 10)) : 'unjudged';
+        if (v) { judged++; if (v.verdict === 'flag') flagged++; }
+    }
+    for (const card of document.querySelectorAll('.pair')) {
+        const rs = [...card.querySelectorAll('.reading[data-review]')];
+        card.toggleAttribute('data-all-judged', rs.length > 0 && rs.every(r => saved[r.dataset.review]));
+        card.toggleAttribute('data-flagged', rs.some(r => saved[r.dataset.review]?.verdict === 'flag'));
+    }
+    document.getElementById('rv-progress').textContent =
+        judged + '/' + readings.length + ' readings judged' + (flagged ? ', ' + flagged + ' flagged' : '') +
+        ' — a judgement is saved under a hash of the quote and the value, so it dies if either changes';
+}
+document.addEventListener('click', (e) => {
+    const b = e.target.closest('button.rv[data-verdict]');
+    if (b) {
+        const el = b.closest('.reading');
+        const cur = saved[el.dataset.review];
+        if (cur && cur.verdict === b.dataset.verdict) delete saved[el.dataset.review];
+        else saved[el.dataset.review] = { verdict: b.dataset.verdict, src: el.dataset.src, field: el.dataset.field, at: new Date().toISOString() };
+        persist(); paint();
+    }
+    if (e.target.id === 'rv-export') {
+        navigator.clipboard.writeText(JSON.stringify({ page: 'sources.html', exported: new Date().toISOString(), judgements: saved }, null, 1))
+            .then(() => { e.target.textContent = 'copied'; setTimeout(() => e.target.textContent = 'copy review as JSON', 1500); });
+    }
+});
+document.getElementById('rv-only').addEventListener('change', (e) => document.body.toggleAttribute('data-only-unjudged', e.target.checked));
+paint();
 document.querySelectorAll('[title]').forEach(el => { el.dataset.tip = el.getAttribute('title'); el.removeAttribute('title'); });
 const tip = document.createElement('div'); tip.id = 'tip'; tip.hidden = true; document.body.appendChild(tip);
 document.addEventListener('mouseover', (e) => {
@@ -183,6 +237,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta n
 <h1>The sources, side by side</h1>
 <p class="lede">What the paper says about each cited work, next to the source's own words. The machine checks three links \u2014 the left column equals the store, every quote is verbatim in the archived snapshot, every locator is computed from it \u2014 and the page does not build if any breaks. The fourth link, whether a value is a fair reading of its quote, is yours to judge: hover a value to light up its evidence, press fair or flag, and the judgement dies if the evidence changes.</p>
 <p class="summary">${verified}/${total} paper claims verified against the store · every quote verbatim in its archived snapshot · the readings themselves are judgement, not verification · built ${new Date().toISOString().slice(0, 10)}</p>
+<div class="reviewbar"><span id="rv-progress"></span><label class="rv-filter"><input type="checkbox" id="rv-only"> show only unjudged</label><button id="rv-export" class="rv">copy review as JSON</button></div>
 ${cards}
 </div><script>${SCRIPT}</script></body></html>`;
 writeFileSync(join(root, 'docs/sources.html'), html);

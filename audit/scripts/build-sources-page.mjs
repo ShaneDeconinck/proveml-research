@@ -88,12 +88,43 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 .proveml-fact.proveml-verified{color:var(--mark-ok);border-bottom:1.5px dotted var(--mark-ok)}
 .proveml-mismatch,.proveml-name-mismatch{color:var(--mark-bad);text-decoration:line-through;text-decoration-color:var(--mark-bad-lijn)}
 .proveml-unverifiable,.proveml-no-context,.proveml-entity:not(.proveml-verified){color:var(--mark-unk);border-bottom:1.5px dashed var(--mark-unk)}
+.proveml-entity,.proveml-fact{cursor:help}
+.proveml-hilite{background:var(--mark-inf-vlak);border-radius:2px}
+#tip{position:fixed;z-index:9;max-width:26rem;background:var(--ink);color:#f2f6f7;font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.74rem;line-height:1.5;padding:.5rem .65rem;border-radius:3px;pointer-events:none;box-shadow:0 8px 24px rgba(14,36,51,.25)}
+#tip b{color:#7de9f7;font-weight:500}
+`;
+
+// The hover layer: an instant tooltip with the store path and value, and a
+// highlight on every claim of the same record. The native title tooltip is
+// slow enough to read as broken, so the title moves to a data attribute.
+const SCRIPT = `
+document.querySelectorAll('[title]').forEach(el => { el.dataset.tip = el.getAttribute('title'); el.removeAttribute('title'); });
+const tip = document.createElement('div'); tip.id = 'tip'; tip.hidden = true; document.body.appendChild(tip);
+document.addEventListener('mouseover', (e) => {
+    const el = e.target.closest('.proveml-entity, .proveml-fact');
+    if (!el) return;
+    const path = el.dataset.entity || (el.dataset.tip || '').split(' =')[0];
+    tip.innerHTML = (el.dataset.tip || '').replace(/^([^ =]+)/, '<b>$1</b>');
+    tip.hidden = !el.dataset.tip;
+    if (path) document.querySelectorAll('[data-entity="' + path + '"], [data-path^="' + path + '."]').forEach(x => x.classList.add('proveml-hilite'));
+});
+document.addEventListener('mousemove', (e) => {
+    if (tip.hidden) return;
+    const x = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8);
+    const y = e.clientY + 18 + tip.offsetHeight > innerHeight ? e.clientY - tip.offsetHeight - 10 : e.clientY + 18;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+});
+document.addEventListener('mouseout', (e) => {
+    if (!e.target.closest?.('.proveml-entity, .proveml-fact')) return;
+    tip.hidden = true;
+    document.querySelectorAll('.proveml-hilite').forEach(x => x.classList.remove('proveml-hilite'));
+});
 `;
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ProveML · the sources, side by side</title><style>${CSS}</style></head><body><div class="wrap">
 <h1>The sources, side by side</h1>
 <p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on, and checks both against one store of citation characteristics with the same verifier the paper describes. Read left and right; nothing here asks you to open the source paper, and if a characterisation stopped matching the store, this page would not build.</p>
 <p class="summary">${verified}/${total} claims verified across ${sources.length} sources · store: audit/fact-stores/citation-characteristics.json · built ${new Date().toISOString().slice(0, 10)}</p>
 ${cards}
-</div></body></html>`;
+</div><script>${SCRIPT}</script></body></html>`;
 writeFileSync(join(root, 'docs/sources.html'), html);
 console.log(`sources.html: ${verified}/${total} claims verified across ${sources.length} sources`);

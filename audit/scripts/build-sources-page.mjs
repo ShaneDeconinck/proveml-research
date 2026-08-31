@@ -62,14 +62,17 @@ const subjects = sources.map((s) => ({
     evidence: s.evidence.map((e) => (e.basis === 'quote' ? { ...e, sourceHref: `../references/raw/${rawFiles[s.id]}` } : e)),
 }));
 
-const { html, verified, total } = reviewPage({
+export const inputs = {
     store, subjects, snapshots,
     name: 'review',
     storeName: 'citation-characteristics',
     subjectsWord: 'sources',
     leftLabel: 'the output',
     rightLabel: 'the source',
-});
+};
 
-writeFileSync(join(root, 'docs/sources.html'), html);
-console.log(`sources.html: ${verified}/${total} claims verified across ${subjects.length} sources`);
+if (process.argv[1] && import.meta.url === new URL('file://' + process.argv[1]).href) {
+    const { html, verified, total } = reviewPage(inputs);
+    writeFileSync(join(root, 'docs/sources.html'), html);
+    console.log(`sources.html: ${verified}/${total} claims verified across ${subjects.length} sources`);
+}

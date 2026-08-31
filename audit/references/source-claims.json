@@ -15,10 +15,8 @@
    {
     "field": "category",
     "claimValue": "inline financial tagging standard",
-    "basis": "quote",
-    "sourceQuote": "iXBRL takes the HTML standard that is used to power the world’s web pages, and embeds extra “tags” into it that give meaning to the figures and statements in a format that can be understood by a computer.",
-    "sourceLocator": "What is iXBRL? paragraph 3",
-    "note": "Tags embedded in the human-readable financial document are the tagging; the page itself calls iXBRL an open standard."
+    "basis": "derived",
+    "note": "Our label, and deliberately so: no single sentence in the source carries all of it. Each element is the source's own. Inline is the I in the name and “a single document” (paragraph 1); tagging is “embeds extra ‘tags’” (paragraph 3); financial is “prepare financial statements” (the millions-of-companies sentence, paragraph 2); standard is “an open standard” (paragraph 1)."
    },
    {
     "field": "verificationMode",

@@ -7,7 +7,7 @@
   "category": "inline financial tagging standard",
   "verificationMode": "deterministic taxonomy-linked validation",
   "verificationClass": "deterministic",
-  "against": "structured financial taxonomy data",
+  "against": "structured taxonomy data",
   "inlineSupport": "yes",
   "structuredRecordBinding": "yes",
   "inferenceLayer": "no",
@@ -36,11 +36,11 @@
    },
    {
     "field": "against",
-    "claimValue": "structured financial taxonomy data",
+    "claimValue": "structured taxonomy data",
     "basis": "quote",
     "sourceQuote": "These are drawn from a dictionary of concepts, known as a taxonomy.",
     "sourceLocator": "What is iXBRL? sample discussion",
-    "note": "“These” are the concepts figures are tagged against; the taxonomy is the source's own name for that structured dictionary. The earlier quote proved only one sample (an IFRS report); this is the source's general rule."
+    "note": "“These” are the concepts figures are tagged against; the taxonomy is the source's own name for that structured dictionary. The source's context is financial reporting throughout, but no single sentence marries “financial” to the taxonomy definition, so the value claims only what the quote carries."
    },
    {
     "field": "inlineSupport",

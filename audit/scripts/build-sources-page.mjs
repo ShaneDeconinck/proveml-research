@@ -61,15 +61,15 @@ function paperSide(s) {
     return `@[${P}]{${store[`${P}.name`]}} is %[category]{${s.category}}. It verifies by %[verificationMode]{${s.verificationMode}}, which we class as %[verificationClass]{${s.verificationClass}}, against %[against]{${s.against}}. It ${yes(s.inlineSupport)} mark claims inline (%[inlineSupport]{${s.inlineSupport}}), ${yes(s.structuredRecordBinding)} bind them to structured records (%[structuredRecordBinding]{${s.structuredRecordBinding}}), and ${yes(s.inferenceLayer)} carry an inference layer (%[inferenceLayer]{${s.inferenceLayer}}).`;
 }
 
-// The source side is two things: the quote (prose, with its locator) and the
-// reading of it (a claim). Only the claim goes through the renderer; the
-// locator and the note are plain HTML around it.
+// The source side is the quote (with its machine-checked locator) and OUR
+// READING of it. The reading is deliberately not rendered as a verified
+// claim: verifying it against the store would verify our own label against
+// itself. It is the one human link in the chain, and it is shown as such.
 function sourceSide(s) {
-    const P = `citation:${s.id}`;
     return s.evidence.map(e => ({
         quote: `<p class="quote">“${esc(e.sourceQuote)}”</p><p class="loc"><b>${esc(e.sourceLocator.replace(/_/g, ' '))}</b> · verbatim in the <a href="../references/raw/${esc(checkQuote(s.id, e.sourceQuote))}">archived source</a></p>`,
-        claim: `@[${P}]{${store[`${P}.name`]}}: that is what we read as %[${e.field}]{${e.claimValue}}.`,
-        note: e.note ? `<p class="note">${esc(e.note)}</p>` : '',
+        claim: `<p class="reading"><span class="j">our reading</span> ${esc(e.field)} = ${esc(e.claimValue)} — a judgement, the one link here no machine checks${e.note ? `. ${esc(e.note)}` : '.'}</p>`,
+        verify: false,
     }));
 }
 
@@ -77,13 +77,13 @@ let total = 0, verified = 0;
 const cards = sources.map(s => {
     const left = paperSide(s), right = sourceSide(s);
     const vl = verifyProveml(left, store);
-    const vrs = right.map(r => verifyProveml(r.claim, store));
-    for (const v of [vl, ...vrs]) { total += v.total; verified += v.verified; if (v.errors.length) throw new Error(`${s.id}: ${v.errors.join('; ')}`); }
-    const vr = { total: vrs.reduce((a, v) => a + v.total, 0), verified: vrs.reduce((a, v) => a + v.verified, 0) };
+    total += vl.total; verified += vl.verified;
+    if (vl.errors.length) throw new Error(`${s.id}: ${vl.errors.join('; ')}`);
+    const vr = { total: 0, verified: 0 };
     const L = renderProveml(left, store).html;
-    const R = right.map(r => `${r.quote}${renderProveml(r.claim, store).html}${r.note}`).join('');
+    const R = right.map(r => `${r.quote}${r.claim}`).join('');
     return `<section class="pair" id="${esc(s.id)}">
-  <header><h2>${esc(s.title)}</h2><p class="meta">${esc(s.authors)} · ${esc(s.year)} · <code>citation:${esc(s.id)}</code> · ${vl.verified + vr.verified}/${vl.total + vr.total} claims verified</p></header>
+  <header><h2>${esc(s.title)}</h2><p class="meta">${esc(s.authors)} · ${esc(s.year)} · <code>citation:${esc(s.id)}</code> · ${vl.verified}/${vl.total} claims verified against the store</p></header>
   <div class="cols">
     <div class="col"><div class="lbl">what the paper says</div>${L}</div>
     <div class="col"><div class="lbl">what the source says</div>${R}</div>
@@ -105,7 +105,9 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 @media (max-width:52rem){.cols{grid-template-columns:1fr}}
 .col{background:var(--card);border:1px solid var(--haze-line);border-radius:3px;padding:1rem 1.2rem;font-size:1rem}
 .lbl{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
-.col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic;margin-bottom:.35rem}.loc{margin:0 0 1rem}.loc b{font-weight:500;color:var(--mark-ok)}.loc a{color:var(--muted)}
+.col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic;margin-bottom:.35rem}
+.reading{color:var(--muted)}
+.reading .j{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;border:1px dashed var(--haze-line);border-radius:999px;padding:.12em .55em;margin-right:.4em;color:var(--muted)}.loc{margin:0 0 1rem}.loc b{font-weight:500;color:var(--mark-ok)}.loc a{color:var(--muted)}
 .proveml-entity.proveml-verified{color:var(--mark-ok);border:1px solid var(--mark-ok-lijn);border-radius:2px;padding:.05em .35em}
 .proveml-fact.proveml-verified{color:var(--mark-ok);border-bottom:1.5px dotted var(--mark-ok)}
 .proveml-mismatch,.proveml-name-mismatch{color:var(--mark-bad);text-decoration:line-through;text-decoration-color:var(--mark-bad-lijn)}
@@ -144,8 +146,8 @@ document.addEventListener('mouseout', (e) => {
 `;
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ProveML · the sources, side by side</title><style>${CSS}</style></head><body><div class="wrap">
 <h1>The sources, side by side</h1>
-<p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on, and checks both against one store of citation characteristics with the same verifier the paper describes. Read left and right; nothing here asks you to open the source paper, every quote has been checked verbatim against the archived snapshot of its source, and if a characterisation stopped matching the store or a quote its snapshot, this page would not build.</p>
-<p class="summary">${verified}/${total} claims verified across ${sources.length} sources · store: audit/fact-stores/citation-characteristics.json · built ${new Date().toISOString().slice(0, 10)}</p>
+<p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on. Three links in the chain are machine-checked, and the page does not build if any breaks: the left column equals the store of citation characteristics, verified by the same verifier the paper describes; every quote occurs verbatim in the archived snapshot of its source; and the locator under each quote is computed from that snapshot. The fourth link — that the store's value is a fair reading of the quote — is a human judgement, ours, and it is shown as one rather than painted green. That boundary is ProveML's own: the verifier proves consistency with a store, and the store is the point of trust. Read left and right and judge the fourth link yourself; that is the one thing this page asks of you.</p>
+<p class="summary">${verified}/${total} paper claims verified against the store · every quote verbatim in its archived snapshot · the readings themselves are judgement, not verification · built ${new Date().toISOString().slice(0, 10)}</p>
 ${cards}
 </div><script>${SCRIPT}</script></body></html>`;
 writeFileSync(join(root, 'docs/sources.html'), html);

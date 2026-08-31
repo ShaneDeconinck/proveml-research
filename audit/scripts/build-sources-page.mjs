@@ -131,14 +131,18 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 .basis-absence{color:var(--mark-unk)}
 .evidence.paired{background:var(--mark-inf-vlak);border-radius:3px;box-shadow:0 0 0 6px var(--mark-inf-vlak)}
 .review{display:flex;gap:.5rem;align-items:center;margin:.5rem 0 0}
-button.rv{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;padding:.3rem .7rem;border:1px solid var(--haze-line);border-radius:999px;background:none;color:var(--muted);cursor:pointer}
+button.rv{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;padding:.3rem .7rem;border:1px solid var(--haze-line);border-radius:999px;background:none;color:var(--muted);cursor:pointer;transition:background .12s,color .12s,border-color .12s,opacity .12s;-webkit-tap-highlight-color:transparent}
 button.rv:hover{border-color:var(--muted);color:var(--ink)}
+button.rv:focus{outline:none}
 button.rv:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .rv-state{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem}
 .reading[data-state=fair]{color:var(--ink)}
 .reading[data-state=fair] .rv-state{color:var(--mark-ok)}
 .reading[data-state=flag] .rv-state{color:var(--mark-bad)}
-.reading[data-state=fair] button[data-verdict=fair],.reading[data-state=flag] button[data-verdict=flag]{border-color:currentColor;color:var(--ink)}
+.reading[data-state=fair] button[data-verdict=fair]{background:var(--mark-ok);border-color:var(--mark-ok);color:var(--card)}
+.reading[data-state=flag] button[data-verdict=flag]{background:var(--mark-bad);border-color:var(--mark-bad);color:var(--card)}
+.reading[data-state=fair] button[data-verdict=flag],.reading[data-state=flag] button[data-verdict=fair]{opacity:.45}
+.reading[data-state=fair] button[data-verdict=flag]:hover,.reading[data-state=flag] button[data-verdict=fair]:hover{opacity:1}
 .pair[data-flagged] h2:after{content:" ⚑";color:var(--mark-bad)}
 .reviewbar{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;margin:0 0 2rem;padding:.7rem .9rem;border:1px solid var(--haze-line);background:var(--card);border-radius:3px;font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
 .rv-filter{display:flex;gap:.4rem;align-items:center;cursor:pointer}
@@ -191,7 +195,7 @@ document.addEventListener('click', (e) => {
         const cur = saved[el.dataset.review];
         if (cur && cur.verdict === b.dataset.verdict) delete saved[el.dataset.review];
         else saved[el.dataset.review] = { verdict: b.dataset.verdict, src: el.dataset.src, field: el.dataset.field, at: new Date().toISOString() };
-        persist(); paint();
+        persist(); paint(); b.blur();
     }
     if (e.target.id === 'rv-export') {
         navigator.clipboard.writeText(JSON.stringify({ page: 'sources.html', exported: new Date().toISOString(), judgements: saved }, null, 1))

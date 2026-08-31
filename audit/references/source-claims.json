@@ -15,8 +15,22 @@
    {
     "field": "category",
     "claimValue": "inline financial tagging standard",
-    "basis": "derived",
-    "note": "Our label, and deliberately so: no single sentence in the source carries all of it. Each element is the source's own. Inline is the I in the name and “a single document” (paragraph 1); tagging is “embeds extra ‘tags’” (paragraph 3); financial is “prepare financial statements” (the millions-of-companies sentence, paragraph 2); standard is “an open standard” (paragraph 1)."
+    "basis": "quote",
+    "note": "No single sentence carries the whole label; together these do: inline and standard from the name and “an open standard”, tagging from the embedded “tags”, financial from the statements it is used to prepare.",
+    "sourceQuotes": [
+     {
+      "sourceQuote": "iXBRL, or Inline XBRL, is an open standard that enables a single document to provide both human-readable and structured, machine-readable data.",
+      "sourceLocator": "What is iXBRL? paragraph 1"
+     },
+     {
+      "sourceQuote": "embeds extra “tags” into it that give meaning to the figures and statements in a format that can be understood by a computer",
+      "sourceLocator": "What is iXBRL? paragraph 3"
+     },
+     {
+      "sourceQuote": "iXBRL is used by millions of companies around the world to prepare financial statements",
+      "sourceLocator": "What is iXBRL? paragraph 2"
+     }
+    ]
    },
    {
     "field": "verificationMode",

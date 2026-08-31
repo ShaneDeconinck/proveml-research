@@ -13,12 +13,56 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "inline financial tagging standard",
+    "basis": "quote",
+    "sourceQuote": "iXBRL takes the HTML standard that is used to power the world’s web pages, and embeds extra “tags” into it that give meaning to the figures and statements in a format that can be understood by a computer.",
+    "sourceLocator": "What is iXBRL? paragraph 3",
+    "note": "Tags embedded in the human-readable financial document are the tagging; the page itself calls iXBRL an open standard."
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "deterministic taxonomy-linked validation",
+    "basis": "quote",
+    "sourceQuote": "Exploring the tags in the sample above will reveal the names of the “concepts” against which the figures are tagged (e.g. “ifrs:Revenue”). These are drawn from a dictionary of concepts, known as a taxonomy.",
+    "sourceLocator": "What is iXBRL? sample discussion",
+    "note": "Tags reference taxonomy concepts; validating against a taxonomy is rule evaluation, and “deterministic” is our word for that."
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "deterministic",
+    "basis": "derived",
+    "note": "Follows from verificationMode: rule evaluation against a taxonomy involves no model."
+   },
+   {
+    "field": "against",
+    "claimValue": "structured financial taxonomy data",
+    "basis": "quote",
+    "sourceQuote": "the sample is an IFRS report and so it has been tagged using the IFRS taxonomy, published by the IFRS Foundation",
+    "sourceLocator": "What is iXBRL? sample discussion"
+   },
+   {
     "field": "inlineSupport",
     "claimValue": "yes",
     "sourceQuote": "iXBRL, or Inline XBRL, is an open standard that enables a single document to provide both human-readable and structured, machine-readable data.",
     "sourceLocator": "What is iXBRL? paragraph 1",
     "equality": "normalized",
-    "note": "The source describes inline human-readable plus machine-readable structure; the fact store normalizes that to inlineSupport = yes."
+    "note": "The source describes inline human-readable plus machine-readable structure; the fact store normalizes that to inlineSupport = yes.",
+    "basis": "quote"
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "yes",
+    "basis": "quote",
+    "sourceQuote": "iXBRL is used by millions of companies around the world to prepare financial statements in a format that provides the structured data that regulators and analysts require",
+    "sourceLocator": "What is iXBRL? paragraph 2",
+    "note": "Each figure is bound to a taxonomy concept such as ifrs:Revenue."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -36,12 +80,53 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "post-hoc fact-checking",
+    "basis": "quote",
+    "sourceQuote": "we introduce FACTSCORE, a new evaluation that breaks a generation into a series of atomic facts and computes the percentage of atomic facts supported by a reliable knowledge source.",
+    "sourceLocator": "abstract, sentence 2",
+    "note": "An evaluation applied to finished generations is post-hoc."
+   },
+   {
     "field": "verificationMode",
     "claimValue": "probabilistic retrieval and model-based verification",
     "sourceQuote": "we also introduce an automated model that estimates FACTSCORE using retrieval and a strong language model",
     "sourceLocator": "abstract, sentence 4",
     "equality": "normalized",
-    "note": "The stored claim compresses the quoted description into a shorter verification-mode label."
+    "note": "The stored claim compresses the quoted description into a shorter verification-mode label.",
+    "basis": "quote"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "probabilistic",
+    "basis": "derived",
+    "note": "Follows from verificationMode: retrieval plus a language model is probabilistic."
+   },
+   {
+    "field": "against",
+    "claimValue": "Wikipedia and retrieved evidence",
+    "basis": "quote",
+    "sourceQuote": "computes the percentage of atomic facts supported by a reliable knowledge source",
+    "sourceLocator": "abstract, sentence 2",
+    "note": "The store names the source concretely (Wikipedia, per the paper’s setup); the abstract says only “a reliable knowledge source”."
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -59,12 +144,52 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "post-hoc fact-checking",
+    "basis": "quote",
+    "sourceQuote": "We then propose that LLM agents can be used as automated evaluators for long-form factuality through a method which we call Search-Augmented Factuality Evaluator (SAFE).",
+    "sourceLocator": "abstract, sentence 5",
+    "note": "An automated evaluator of finished responses is post-hoc."
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "probabilistic search-augmented model evaluation",
+    "basis": "quote",
+    "sourceQuote": "SAFE utilizes an LLM to break down a long-form response into a set of individual facts and to evaluate the accuracy of each fact using a multi-step reasoning process",
+    "sourceLocator": "abstract, sentence 6"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "probabilistic",
+    "basis": "derived",
+    "note": "Follows from verificationMode: an LLM evaluating with search is probabilistic."
+   },
+   {
     "field": "against",
     "claimValue": "Google Search results",
     "sourceQuote": "SAFE utilizes an LLM to break down a long-form response into a set of individual facts and to evaluate the accuracy of each fact using a multi-step reasoning process comprising sending search queries to Google Search and determining whether a fact is supported by the search results.",
     "sourceLocator": "abstract, sentence 6",
     "equality": "normalized",
-    "note": "The fact-store value condenses the exact quoted mechanism to the authority source it checks against."
+    "note": "The fact-store value condenses the exact quoted mechanism to the authority source it checks against.",
+    "basis": "quote"
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -87,7 +212,48 @@
     "sourceQuote": "we propose FacTool, a task and domain agnostic framework for detecting factual errors of texts generated by large language models",
     "sourceLocator": "abstract, sentence 5",
     "equality": "derived",
-    "note": "The source quote motivates the category, but the category label itself is our comparative abstraction."
+    "note": "The source quote motivates the category, but the category label itself is our comparative abstraction.",
+    "basis": "quote"
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "probabilistic tool-augmented factuality detection",
+    "basis": "quote",
+    "sourceQuote": "FacTool: Factuality Detection in Generative AI -- A Tool Augmented Framework for Multi-Task and Multi-Domain Scenarios",
+    "sourceLocator": "title",
+    "note": "Tool-augmented per the title; probabilistic because the checker is itself a model using tools."
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "probabilistic",
+    "basis": "derived",
+    "note": "Follows from verificationMode: a model-driven checker with tools is probabilistic."
+   },
+   {
+    "field": "against",
+    "claimValue": "task-specific external tools and retrieved evidence",
+    "basis": "quote",
+    "sourceQuote": "Experiments on four different tasks (knowledge-based QA, code generation, mathematical reasoning, and scientific literature review) show the efficacy of the proposed method.",
+    "sourceLocator": "abstract, sentence 6",
+    "note": "The abstract names the tasks, not the tools per task; “task-specific external tools and retrieved evidence” is our compression of the paper’s setup."
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -110,7 +276,48 @@
     "sourceQuote": "Validators are how we apply quality controls to the outputs of LLMs.",
     "sourceLocator": "Validators docs, opening paragraph",
     "equality": "derived",
-    "note": "The comparative category is derived directly from the docs\u2019 description of validators as output quality controls."
+    "note": "The comparative category is derived directly from the docs’ description of validators as output quality controls.",
+    "basis": "quote"
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "mixed deterministic and model-based validation",
+    "basis": "quote",
+    "sourceQuote": "Each validator is a method that encodes some criteria, and checks if a given value meets that criteria.",
+    "sourceLocator": "How do Validators work?",
+    "note": "Some validators are plain code, others call models (the docs’ ProvenanceLLM); “mixed” is our compression."
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "mixed",
+    "basis": "derived",
+    "note": "Follows from verificationMode: code validators are deterministic, model validators are not; together: mixed."
+   },
+   {
+    "field": "against",
+    "claimValue": "schemas, validators, and runtime metadata",
+    "basis": "quote",
+    "sourceQuote": "If multiple validators require metadata, create a single metadata dictionary that contains the metadata keys for each validator.",
+    "sourceLocator": "Runtime Metadata",
+    "note": "Validators check outputs against criteria and runtime metadata; “schemas” comes from the wider docs, not this page."
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -128,12 +335,51 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "output and program validation",
+    "basis": "quote",
+    "sourceQuote": "We introduce LM Assertions, a programming construct for expressing computational constraints that LMs should satisfy.",
+    "sourceLocator": "abstract, sentence 2"
+   },
+   {
     "field": "verificationMode",
     "claimValue": "constraint-based self-refinement and backtracking",
     "sourceQuote": "We also propose strategies to use assertions at inference time for automatic self-refinement with LMs.",
     "sourceLocator": "abstract, sentence 4",
     "equality": "derived",
-    "note": "The stored verification-mode label summarizes the quoted self-refinement mechanism and the paper\u2019s broader constraint framing."
+    "note": "The stored verification-mode label summarizes the quoted self-refinement mechanism and the paper’s broader constraint framing.",
+    "basis": "quote"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "constraint-based",
+    "basis": "derived",
+    "note": "Follows from verificationMode: assertions constrain and retry; the checks themselves are program-defined."
+   },
+   {
+    "field": "against",
+    "claimValue": "program assertions and module constraints",
+    "basis": "quote",
+    "sourceQuote": "We integrate our constructs into the recent DSPy programming model for LMs, and present new strategies that allow DSPy to compile programs with LM Assertions into more reliable and accurate systems.",
+    "sourceLocator": "abstract, sentence 3"
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -151,12 +397,52 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "output validation",
+    "basis": "quote",
+    "sourceQuote": "NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems.",
+    "sourceLocator": "page description"
+   },
+   {
     "field": "verificationMode",
     "claimValue": "programmable guardrails and policy flows",
     "sourceQuote": "NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems.",
     "sourceLocator": "page description",
     "equality": "normalized",
-    "note": "The stored mode keeps the exact \u2018programmable guardrails\u2019 phrase and expands it into the comparative terminology used on this page."
+    "note": "The stored mode keeps the exact ‘programmable guardrails’ phrase and expands it into the comparative terminology used on this page.",
+    "basis": "quote"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "mixed",
+    "basis": "derived",
+    "note": "Guardrails combine programmed rules with model steps; the archived page is a thin landing page, so this classification leans on the wider docs. Flag it if that is too thin."
+   },
+   {
+    "field": "against",
+    "claimValue": "dialog rails, topical rails, and tool policies",
+    "basis": "quote",
+    "sourceQuote": "This documentation includes a getting started guide, user guides for the most important features, and reference documentation for the Colang language.",
+    "sourceLocator": "page description",
+    "note": "The rail taxonomy (dialog, topical, tool policies) lives in those guides, not on this landing page; our value compresses it."
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -179,7 +465,47 @@
     "sourceQuote": "we propose RARR (Retrofit Attribution using Research and Revision), a system that 1) automatically finds attribution for the output of any text generation model and 2) post-edits the output to fix unsupported content",
     "sourceLocator": "abstract, sentence 5",
     "equality": "normalized",
-    "note": "The stored category is a short label that directly compresses the two capabilities named in the quoted sentence."
+    "note": "The stored category is a short label that directly compresses the two capabilities named in the quoted sentence.",
+    "basis": "quote"
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "probabilistic retrieval-backed revision",
+    "basis": "quote",
+    "sourceQuote": "the implementation of RARR requires only a handful of training examples, a large language model, and standard web search.",
+    "sourceLocator": "abstract, sentence 7"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "probabilistic",
+    "basis": "derived",
+    "note": "Follows from verificationMode: a language model with web search is probabilistic."
+   },
+   {
+    "field": "against",
+    "claimValue": "web evidence",
+    "basis": "quote",
+    "sourceQuote": "most LMs do not have any built-in mechanism for attribution to external evidence",
+    "sourceLocator": "abstract, sentence 4",
+    "note": "The evidence RARR attributes to comes from standard web search (see verificationMode)."
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -197,12 +523,52 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "attribution",
+    "basis": "quote",
+    "sourceQuote": "To make human evaluation of factual accuracy easier, models must collect references while browsing in support of their answers.",
+    "sourceLocator": "abstract, sentence 3",
+    "note": "Collected references supporting answers are attribution."
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "probabilistic web-browsing answer generation",
+    "basis": "quote",
+    "sourceQuote": "We fine-tune GPT-3 to answer long-form questions using a text-based web-browsing environment, which allows the model to search and navigate the web.",
+    "sourceLocator": "abstract, sentence 1"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "probabilistic",
+    "basis": "derived",
+    "note": "Follows from verificationMode: a fine-tuned model browsing the web is probabilistic."
+   },
+   {
     "field": "against",
     "claimValue": "web pages",
     "sourceQuote": "We fine-tune GPT-3 to answer long-form questions using a text-based web-browsing environment, which allows the model to search and navigate the web.",
     "sourceLocator": "abstract, sentence 1",
     "equality": "derived",
-    "note": "The fact-store value abstracts the browsing environment to the authority layer it relies on: web pages."
+    "note": "The fact-store value abstracts the browsing environment to the authority layer it relies on: web pages.",
+    "basis": "quote"
+   },
+   {
+    "field": "inlineSupport",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source describes no mechanism that marks claims inside the text; absence cannot be quoted."
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  },
@@ -220,12 +586,52 @@
   "inferenceLayer": "no",
   "evidence": [
    {
+    "field": "category",
+    "claimValue": "attribution",
+    "basis": "quote",
+    "sourceQuote": "Gemini Apps may provide links to sources and related content for you to dig deeper.",
+    "sourceLocator": "Sources & related links"
+   },
+   {
+    "field": "verificationMode",
+    "claimValue": "probabilistic search-based double-check",
+    "basis": "quote",
+    "sourceQuote": "you can use the double-check feature, which uses Google Search to find content that’s likely similar to or likely different from statements generated by Gemini Apps.",
+    "sourceLocator": "How to double-check a response"
+   },
+   {
+    "field": "verificationClass",
+    "claimValue": "probabilistic",
+    "basis": "derived",
+    "note": "“Likely similar” and “likely different” are explicitly probabilistic language; see verificationMode."
+   },
+   {
+    "field": "against",
+    "claimValue": "Google Search",
+    "basis": "quote",
+    "sourceQuote": "Green highlight: Google Search found content that’s likely similar to the statement.",
+    "sourceLocator": "double-check colour legend"
+   },
+   {
     "field": "inlineSupport",
     "claimValue": "partial",
     "sourceQuote": "When sources are available, you can find the Sources button at the bottom of the response or in-line throughout the response.",
     "sourceLocator": "Find sources & related links",
     "equality": "normalized",
-    "note": "The source explicitly says sources may appear inline or below the response; the fact store normalizes that to partial inline support."
+    "note": "The source explicitly says sources may appear inline or below the response; the fact store normalizes that to partial inline support.",
+    "basis": "quote"
+   },
+   {
+    "field": "structuredRecordBinding",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "The source checks against retrieved text or rules, not addressable records; absence cannot be quoted."
+   },
+   {
+    "field": "inferenceLayer",
+    "claimValue": "no",
+    "basis": "absence",
+    "note": "No construct for qualitative or threshold judgements appears in the source; absence cannot be quoted."
    }
   ]
  }

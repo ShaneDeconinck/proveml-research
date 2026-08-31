@@ -10,12 +10,18 @@
  * and the page cannot ship with a stale number. The paper about verification,
  * held to its own standard.
  *
+ * This version carries the August 2026 frontier study (Opus 5, Sonnet 5,
+ * DeepSeek V4 Pro; tags frontier and frontier2). Every fact below is derived
+ * from the artifacts with the same aggregation as frontier-summary.mjs and
+ * frontier-residuals.mjs; nothing is typed in by hand.
+ *
  * Usage:
  *   node site/build-live-paper.mjs [--out <dir>]
  *
  * Writes:
  *   <out>/proveml-paper-live.html   rendered fragment (site CSS classes)
  *   <out>/proveml-paper-live.json   { claims, verified, generated }
+ *   <out>/proveml-paper-live.pml.txt  the raw markup
  *
  * Default out: ~/Projects/abovebeyond/src/generated/
  */
@@ -28,114 +34,137 @@ import { verifyProveml, tokenizeProveml } from 'proveml/verify';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = join(__dirname, '..');
+const expDir = join(root, 'experiments');
 const args = process.argv.slice(2);
 const outDir = args.find((_, i) => args[i - 1] === '--out')
     || join(homedir(), 'Projects/abovebeyond/src/generated');
 
-// ── the fact store, derived from the artifacts ──────────────────────────────
-// Same derivations as the paper's tables: mean over 3 runs, rounded the way
-// the paper rounds. Each fact remembers which artifact it came from, so the
-// hover proof can say so.
+// ── aggregation, identical to frontier-summary.mjs ──────────────────────────
 
-const agg = JSON.parse(readFileSync(join(root, 'experiments/aggregate-results.json'), 'utf8'));
-const cov = JSON.parse(readFileSync(join(root, 'experiments/coverage-audit.json'), 'utf8'));
-const sym = JSON.parse(readFileSync(join(root, 'experiments/symgen-vs-proveml.json'), 'utf8'));
-
-const round = Math.round;
+const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+const sd = (xs) => xs.length < 2 ? 0 : Math.sqrt(xs.reduce((s, v) => s + (v - mean(xs)) ** 2, 0) / (xs.length - 1));
 const r1 = (x) => Math.round((x + Number.EPSILON) * 10) / 10;
+const stripTrailingPartialConstruct = (t) => t.replace(/[@%?]\[[^\]]*(\]\{[^}]*)?$/, '');
 
-function runRates(prefix) {
-    // Per-run first-pass rates, highest first, straight from the run files.
-    const dir = join(root, 'experiments');
-    return readdirSync(dir)
-        .filter(f => f.startsWith(prefix) && f.endsWith('.json'))
-        .map(f => JSON.parse(readFileSync(join(dir, f), 'utf8')).summary.avgInitial)
-        .sort((a, b) => b - a);
-}
-
-function coverage(benchmark, model) {
-    const row = cov.rows.find(r => r.benchmark === benchmark && r.model === model);
-    return r1(row.marked / (row.marked + row.unmarked) * 100);
-}
-
-function respWithUndefined() {
-    const dir = join(root, 'experiments');
-    let resp = 0, withU = 0;
-    for (const f of readdirSync(dir).filter(f => f.startsWith('symgen-results-education-'))) {
-        for (const q of JSON.parse(readFileSync(join(dir, f), 'utf8')).results) {
-            if (!q) continue;
-            resp++;
-            if (q.unresolved.length) withU++;
-        }
-    }
-    return round(withU / resp * 100);
-}
-
-const phi3Runs = runRates('convergence-results-phi3:mini-run');
-const phi3EnRuns = runRates('convergence-results-en-phi3:mini-run');
-const symEdu = sym.aggregate.education;
-
-const SRC = {
-    agg: 'experiments/aggregate-results.json',
-    cov: 'experiments/coverage-audit.json',
-    sym: 'experiments/symgen-vs-proveml.json',
-    runs: 'experiments/convergence-results-*.json',
+const MODELS = {
+    opus5: 'claude-opus-5',
+    sonnet5: 'claude-sonnet-5',
+    deepseek: 'deepseek-ai_DeepSeek-V4-Pro-0813',
 };
 
-// value + provenance per field; the store below flattens this.
-const model = (key, aggKey) => ({
-    eduFirstPass: [round(agg[`education · ${aggKey}`].initial.mean), SRC.agg],
-    eduSd: [agg[`education · ${aggKey}`].initial.sd, SRC.agg],
-});
+function runsOf(tag, bench, fileModel) {
+    const prefix = `convergence-results-${bench === 'finance' ? 'finance-' : ''}${tag}-${fileModel}-run`;
+    const files = readdirSync(expDir).filter((f) => f.startsWith(prefix) && f.endsWith('.json'));
+    if (files.length !== 3) throw new Error(`${prefix}*: expected 3 runs, found ${files.length}`);
+    return files.map((f) => JSON.parse(readFileSync(join(expDir, f), 'utf8')));
+}
 
+function aggregate(tag, bench, fileModel) {
+    const runs = runsOf(tag, bench, fileModel);
+    const first = [], final = [];
+    let marked = 0, unmarked = 0, empties = 0, queryRuns = 0;
+    for (const doc of runs) {
+        const qs = doc.results.filter(Boolean);
+        first.push(mean(qs.map((q) => q.initialRate)));
+        final.push(mean(qs.map((q) => q.finalRate)));
+        for (const q of qs) {
+            queryRuns++;
+            if (q.emptyResponse) empties++;
+            const c = verifyProveml(stripTrailingPartialConstruct(q.finalResponse || ''), {}).coverage;
+            marked += c.marked; unmarked += c.unmarked;
+        }
+    }
+    return {
+        first: r1(mean(first)), firstSd: r1(sd(first)),
+        final: r1(mean(final)),
+        cover: r1(100 * marked / (marked + unmarked)),
+        empties, queryRuns,
+    };
+}
+
+// Residual classification, identical to frontier-residuals.mjs.
+const STUDENT_FIELDS = new Set(['passRate', 'passed', 'evaluated', 'total', 'absent']);
+function residuals(tag) {
+    const out = { total: 0, binding: 0, wrongValue: 0, thresholdAsFact: 0, nonConverged: 0, bindingQueryRuns: 0 };
+    for (const key of Object.values(MODELS)) {
+        for (const doc of runsOf(tag, 'education', key)) {
+            for (const q of doc.results) {
+                if (!q || q.converged) continue;
+                out.nonConverged++;
+                let bindingHere = false;
+                for (const e of q.steps[q.steps.length - 1].errorDetails || []) {
+                    out.total++;
+                    const field = (e.path || '').split('.').slice(1).join('.');
+                    if (e.status === 'field-not-found' && /^offering:/.test(e.path || '') && STUDENT_FIELDS.has(field)) { out.binding++; bindingHere = true; }
+                    else if (e.status === 'no-context') out.thresholdAsFact++;
+                    else if (e.status === 'value-mismatch') out.wrongValue++;
+                }
+                if (bindingHere) out.bindingQueryRuns++;
+            }
+        }
+    }
+    return out;
+}
+
+// ── the fact store, derived from the artifacts ──────────────────────────────
+
+const SRC = {
+    runs: (tag) => `experiments/convergence-results-*${tag}-*.json`,
+    resid: 'experiments/frontier-residuals.mjs over the education artifacts',
+};
+
+const NAMES = { opus5: 'Claude Opus 5', sonnet5: 'Claude Sonnet 5', deepseek: 'DeepSeek V4 Pro' };
 const FACTS = {
     'study:detection': {
-        name: ['the detection study', 'paper §7.1'],
+        name: ['the detection study', 'paper appendix A'],
         injected: [20, 'src/detection.test.js'],
         detected: [20, 'src/detection.test.js'],
         missed: [0, 'src/detection.test.js'],
     },
-    'model:phi3': {
-        name: ['Phi-3 Mini (3.8B)', SRC.agg],
-        ...model('phi3', 'phi3:mini'),
-        eduRuns: [phi3Runs.join(', ').replace(/, (\d+)$/, ' and $1'), SRC.runs],
-        enRuns: [phi3EnRuns.join(', ').replace(/, (\d+)$/, ' and $1'), SRC.runs],
-        enFirstPass: [round(agg['education-en · phi3:mini'].initial.mean), SRC.agg],
-        enShift: [round(agg['education-en · phi3:mini'].initial.mean) - round(agg['education · phi3:mini'].initial.mean), SRC.agg],
-        finFirstPass: [round(agg['finance · phi3:mini'].initial.mean), SRC.agg],
-        finSd: [agg['finance · phi3:mini'].initial.sd, SRC.agg],
-    },
-    'model:haiku': {
-        name: ['Claude Haiku', SRC.agg],
-        ...model('haiku', 'haiku'),
-        eduCoverage: [coverage('education', 'haiku'), SRC.cov],
-    },
-    'model:qwen3b': {
-        name: ['Qwen 2.5 3B', SRC.agg],
-        ...model('qwen3b', 'qwen2.5:3b'),
-    },
-    'model:qwen7b': {
-        name: ['Qwen 2.5 7B', SRC.agg],
-        ...model('qwen7b', 'qwen2.5:7b'),
-        eduCoverage: [coverage('education', 'qwen2.5:7b'), SRC.cov],
-        fullctxClaims: [
-            JSON.parse(readFileSync(join(root, 'experiments/convergence-results-fullctx-qwen2.5:7b-run1.json'), 'utf8'))
-                .results.filter(Boolean).reduce((s, q) => s + q.initialClaims, 0),
-            'experiments/convergence-results-fullctx-*.json',
-        ],
-    },
-    'baseline:symgen': {
-        name: ['SymGen', SRC.sym],
-        eduUnresolvedRefs: [symEdu.symgenUnresolved, SRC.sym],
-        eduRefs: [symEdu.symgenRefs, SRC.sym],
-        eduUnresolvedPct: [round(symEdu.symgenUnresolved / symEdu.symgenRefs * 100), SRC.sym],
-        eduRespWithUndefinedPct: [respWithUndefined(), 'experiments/symgen-results-education-*.json'],
-    },
-    'system:proveml': {
-        name: ['ProveML', SRC.sym],
-        eduCaught: [symEdu.provemlDetected, SRC.sym],
-        eduWrongValues: [symEdu.provemlValueErrors, SRC.sym],
-    },
+};
+
+let totalQueryRuns = 0, totalEmpties = 0;
+for (const [short, fileModel] of Object.entries(MODELS)) {
+    const eduA = aggregate('frontier', 'education', fileModel);
+    const finA = aggregate('frontier', 'finance', fileModel);
+    const eduB = aggregate('frontier2', 'education', fileModel);
+    const finB = aggregate('frontier2', 'finance', fileModel);
+    totalQueryRuns += eduA.queryRuns + finA.queryRuns;
+    totalEmpties += eduA.empties + finA.empties;
+    FACTS[`model:${short}`] = {
+        name: [NAMES[short], SRC.runs('frontier')],
+        eduFirst: [eduA.first, SRC.runs('frontier')],
+        eduFirstSd: [eduA.firstSd, SRC.runs('frontier')],
+        eduFinal: [eduA.final, SRC.runs('frontier')],
+        eduCover: [eduA.cover, SRC.runs('frontier')],
+        finFirst: [finA.first, SRC.runs('frontier')],
+        finFinal: [finA.final, SRC.runs('frontier')],
+        finCover: [finA.cover, SRC.runs('frontier')],
+        edu2First: [eduB.first, SRC.runs('frontier2')],
+        edu2Final: [eduB.final, SRC.runs('frontier2')],
+        fin2First: [finB.first, SRC.runs('frontier2')],
+    };
+}
+
+const resA = residuals('frontier');
+const resB = residuals('frontier2');
+FACTS['study:frontier'] = {
+    name: ['the frontier study', SRC.runs('frontier')],
+    queryRuns: [totalQueryRuns, SRC.runs('frontier')],
+    empties: [totalEmpties, SRC.runs('frontier')],
+};
+FACTS['residue:frontier'] = {
+    name: ['the residue', SRC.resid],
+    total: [resA.total, SRC.resid],
+    binding: [resA.binding, SRC.resid],
+    bindingPct: [Math.round(100 * resA.binding / resA.total), SRC.resid],
+    wrongValue: [resA.wrongValue, SRC.resid],
+    bindingQueryRuns: [resA.bindingQueryRuns, SRC.resid],
+    nonConverged: [resA.nonConverged, SRC.resid],
+};
+FACTS['residue:frontier2'] = {
+    name: ['the second prompt', SRC.resid],
+    binding: [resB.binding, SRC.resid],
 };
 
 const factStore = {};
@@ -150,10 +179,10 @@ for (const [entity, fields] of Object.entries(FACTS)) {
 // ── the threshold registry: the judgments the page is allowed to make ──────
 
 const registry = {
-    IS_UNSTABLE: { field: 'eduSd', op: 'gt', value: 20, label: 'unstable across runs', source: 'between-run sd of first-pass verification > 20pp' },
-    IS_STABLE: { field: 'eduSd', op: 'lte', value: 5, label: 'stable across runs', source: 'between-run sd of first-pass verification ≤ 5pp' },
     DETECTED_EVERYTHING: { field: 'missed', op: 'eq', value: 0, label: 'nothing slipped through', source: 'planted errors missed = 0' },
-    PRODUCED_NOTHING: { field: 'fullctxClaims', op: 'eq', value: 0, label: 'no verifiable markup at all', source: 'ProveML constructs across all 28 full-context queries = 0' },
+    NOTHING_EMPTY: { field: 'empties', op: 'eq', value: 0, label: 'no empty answers at all', source: 'empty responses across all query-runs = 0' },
+    BINDING_DOMINANT: { field: 'bindingPct', op: 'gt', value: 50, label: 'the dominant residual shape', source: 'binding errors > 50% of the residue' },
+    CLOSED_FIRST_PASS: { field: 'fin2First', op: 'eq', value: 100, label: 'every claim, first pass, every run', source: 'finance first-pass verification under the second prompt = 100%' },
 };
 
 // ── the page text, in ProveML ───────────────────────────────────────────────
@@ -164,19 +193,14 @@ const BODY = `
 <h2>What the verifier itself catches</h2>
 <p>Before measuring any model, the paper measures the instrument. @[study:detection]{the detection study} planted %[injected]{20} deliberate errors in otherwise valid markup — wrong values, wrong entities, missing context, subtle canonicalization slips — and the verifier caught %[detected]{20} of them: ?[all: DETECTED_EVERYTHING]{nothing slipped through}. That is a conformance test, not a benchmark; exact comparison either sees a difference or there is none.</p>
 
-<h2>Four models, two groups</h2>
-<p>The line between the models is stability, not rate. @[model:phi3]{Phi-3 Mini (3.8B)} is ?[u: IS_UNSTABLE]{unstable across runs}: a mean first-pass verification of %[eduFirstPass]{38}% hides three identical runs that landed at %[eduRuns]{65, 48 and 0}. A mean describes neither the runs that worked nor the one that produced nothing.</p>
-<p>The other three sit together and stay there. @[model:qwen3b]{Qwen 2.5 3B} reaches %[eduFirstPass]{89}% and is ?[s3: IS_STABLE]{stable across runs}; @[model:haiku]{Claude Haiku} %[eduFirstPass]{88}%, ?[sh: IS_STABLE]{stable across runs}; @[model:qwen7b]{Qwen 2.5 7B} %[eduFirstPass]{89}%, ?[s7: IS_STABLE]{stable across runs}. At three runs each, those three are not separable — the paper refuses to rank them, and so does this page.</p>
+<h2>The mechanism is within reach of frontier models</h2>
+<p>Three models that were frontier in August 2026 — Claude Opus 5, Claude Sonnet 5, and the open-weight DeepSeek V4 Pro — over two benchmarks, three runs each: @[study:frontier]{the frontier study}. Across all its %[queryRuns]{342} query-runs, %[empties]{0} answers came back empty or without markup: ?[ne: NOTHING_EMPTY]{no empty answers at all}. @[model:opus5]{Claude Opus 5} opens at %[eduFirst]{86.5}% first-pass verification on education (spread %[eduFirstSd]{0.3}) and one correction pass lifts it to %[eduFinal]{94.8}%; @[model:deepseek]{DeepSeek V4 Pro} reaches %[finFirst]{100}% on finance on the first pass and covers %[finCover]{96.4}% of its numbers, the strongest of the three.</p>
 
-<h2>The shape of the request, not the size of the model</h2>
-<p>On a compact, English-language finance benchmark built from real SEC EDGAR filings, the instability disappears: @[model:phi3]{Phi-3 Mini (3.8B)} scores %[finFirstPass]{92}% with a spread of just %[finSd]{2.5} points. Same model, same verifier, same grammar — a different request.</p>
-<p>Translating the education prompts to English moves @[model:phi3]{Phi-3 Mini (3.8B)} to %[enFirstPass]{60}% (a shift of %[enShift]{22} points), and its runs become %[enRuns]{70, 58 and 53} — the mode in which it produces nothing is gone. And context selection is not optional: given the full dataset instead of a slice, even @[model:qwen7b]{Qwen 2.5 7B} ?[z: PRODUCED_NOTHING]{produced no verifiable markup at all} — %[fullctxClaims]{0} constructs across the whole benchmark, while the same responses were full of numbers in plain prose.</p>
+<h2>What remains is the binding rule, not the model</h2>
+<p>Under the first prompt, @[residue:frontier]{the residue} is %[total]{157} errors still standing after correction on education, and %[binding]{108} of them (%[bindingPct]{69}%) have one shape: ?[bd: BINDING_DOMINANT]{the dominant residual shape}. The sentence names the pupil and then the class, and linear carry-forward binds the pupil's facts to the class — the data is right, the English is right, and the verifier reports a field the class does not have. It touched %[bindingQueryRuns]{17} of the %[nonConverged]{35} non-converged query-runs. Wrong values are %[wrongValue]{40}; the rest is small and mixed.</p>
 
-<h2>Verified is not the same as covered</h2>
-<p>Two models can look equally trustworthy and differ enormously in how much of what they say is checkable. @[model:haiku]{Claude Haiku} wraps %[eduCoverage]{91.9}% of its numeric tokens in markup; @[model:qwen7b]{Qwen 2.5 7B}, at the same verification rate, wraps %[eduCoverage]{60.5}% — nearly two fifths of its numbers are unverifiable prose. Verification rate and coverage have to be read together.</p>
-
-<h2>Against substitution</h2>
-<p>The closest published mechanism, @[baseline:symgen]{SymGen}, has the model emit references into the data instead of values, so a wrong number is impossible — and so is reporting one. On the education benchmark it left %[eduUnresolvedRefs]{306} of %[eduRefs]{1392} references unresolved (%[eduUnresolvedPct]{22}%), rendering as <code>undefined</code> in %[eduRespWithUndefinedPct]{41}% of responses. @[system:proveml]{ProveML} fails on addressability too — but a failure is a flagged claim carrying the expected value, not a hole in the sentence: it flagged %[eduCaught]{212} claims on the first pass, %[eduWrongValues]{40} of them wrong values, a class substitution cannot produce and equally cannot report.</p>
+<h2>Told the rule, the models follow it</h2>
+<p>The second prompt adds two sentences: a fact may name its own record when a sentence names two subjects, and a cutoff from the question is not a fact. Nothing else changes. On finance, @[model:opus5]{Claude Opus 5} verifies %[fin2First]{100}% of claims on the first pass in every run — ?[c1: CLOSED_FIRST_PASS]{every claim, first pass, every run} — and so do @[model:sonnet5]{Claude Sonnet 5} (%[fin2First]{100}%, ?[c2: CLOSED_FIRST_PASS]{every claim, first pass, every run}) and @[model:deepseek]{DeepSeek V4 Pro} (%[fin2First]{100}%, ?[c3: CLOSED_FIRST_PASS]{every claim, first pass, every run}). On education, @[model:sonnet5]{Claude Sonnet 5} rises to %[edu2First]{99.4}%, @[model:deepseek]{DeepSeek V4 Pro} to %[edu2First]{99.2}% first pass and %[edu2Final]{100}% after one correction, and @[model:opus5]{Claude Opus 5} to %[edu2First]{95.4}% — two of its three runs verify everything on the first pass, and in the third it reverted to the very phrasing the rule addresses, which is the honest cost of a rule a model must follow rather than a constraint it cannot break. The %[residue:frontier.binding]{108} binding errors of the first prompt become %[residue:frontier2.binding]{16} under the second.</p>
 `;
 
 // ── verify: the gate ────────────────────────────────────────────────────────
@@ -196,11 +220,9 @@ const tokens = tokenizeProveml(BODY);
 const details = result.details;
 let di = 0, pos = 0, html = '';
 
-// Track the entity context the way the verifier does, so fact proofs can name
-// their full path.
 let ctx = null;
 for (const tok of tokens) {
-    html += BODY.slice(pos, tok.pos); // authored HTML passes through
+    html += BODY.slice(pos, tok.pos);
     if (tok.type === 'entity') {
         const d = details[di++];
         ctx = d.path;
@@ -225,7 +247,7 @@ writeFileSync(join(outDir, 'proveml-paper-live.json'), JSON.stringify({
     claims: result.total,
     verified: result.verified,
     generated: new Date().toISOString().slice(0, 10),
-    source: 'proveml-research site/build-live-paper.mjs — verified against the run artifacts at build time',
+    source: 'proveml-research site/build-live-paper.mjs — verified against the frontier run artifacts at build time',
 }, null, 2) + '\n');
 writeFileSync(join(outDir, 'proveml-paper-live.pml.txt'), BODY.trim() + '\n');
 

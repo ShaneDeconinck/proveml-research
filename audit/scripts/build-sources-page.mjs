@@ -21,6 +21,7 @@ import { fileURLToPath } from 'url';
 import { renderProveml } from 'proveml/render';
 import { verifyProveml } from 'proveml/verify';
 import { readdirSync } from 'fs';
+import { createHash } from 'crypto';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -66,11 +67,18 @@ function paperSide(s) {
 // claim: verifying it against the store would verify our own label against
 // itself. It is the one human link in the chain, and it is shown as such.
 function sourceSide(s) {
-    return s.evidence.map(e => ({
-        quote: `<p class="quote">“${esc(e.sourceQuote)}”</p><p class="loc"><b>${esc(e.sourceLocator.replace(/_/g, ' '))}</b> · verbatim in the <a href="../references/raw/${esc(checkQuote(s.id, e.sourceQuote))}">archived source</a></p>`,
-        claim: `<p class="reading"><span class="j">our reading</span> ${esc(e.field)} = ${esc(e.claimValue)} — a judgement, the one link here no machine checks${e.note ? `. ${esc(e.note)}` : '.'}</p>`,
-        verify: false,
-    }));
+    return s.evidence.map(e => {
+        // The review id is a hash of exactly what is being judged: the quote,
+        // the field and the stored value. Change any of them and every saved
+        // judgement of this reading is void; a checkmark can never outlive the
+        // content it approved.
+        const rid = createHash('sha256').update([s.id, e.field, e.claimValue, e.sourceQuote].join('\u0000')).digest('hex').slice(0, 16);
+        return {
+            quote: `<p class="quote">“${esc(e.sourceQuote)}”</p><p class="loc"><b>${esc(e.sourceLocator.replace(/_/g, ' '))}</b> · verbatim in the <a href="../references/raw/${esc(checkQuote(s.id, e.sourceQuote))}">archived source</a></p>`,
+            claim: `<div class="reading" data-review="${rid}" data-src="${esc(s.id)}" data-field="${esc(e.field)}"><p><span class="j">our reading</span> ${esc(e.field)} = ${esc(e.claimValue)} — a judgement, the one link here no machine checks${e.note ? `. ${esc(e.note)}` : '.'}</p>
+<div class="review"><button class="rv" data-verdict="fair">fair reading</button><button class="rv" data-verdict="flag">flag</button><span class="rv-state"></span></div></div>`,
+        };
+    });
 }
 
 let total = 0, verified = 0;
@@ -107,6 +115,19 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 .lbl{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
 .col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic;margin-bottom:.35rem}
 .reading{color:var(--muted)}
+.review{display:flex;gap:.5rem;align-items:center;margin:.5rem 0 0}
+button.rv{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem;letter-spacing:.04em;padding:.3rem .7rem;border:1px solid var(--haze-line);border-radius:999px;background:none;color:var(--muted);cursor:pointer}
+button.rv:hover{border-color:var(--muted);color:var(--ink)}
+button.rv:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rv-state{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.72rem}
+.reading[data-state=fair]{color:var(--ink)}
+.reading[data-state=fair] .rv-state{color:var(--mark-ok)}
+.reading[data-state=flag] .rv-state{color:var(--mark-bad)}
+.reading[data-state=fair] button[data-verdict=fair],.reading[data-state=flag] button[data-verdict=flag]{border-color:currentColor;color:var(--ink)}
+.pair[data-flagged] h2:after{content:" ⚑";color:var(--mark-bad)}
+.reviewbar{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap;margin:0 0 2rem;padding:.7rem .9rem;border:1px solid var(--haze-line);background:var(--card);border-radius:3px;font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.78rem;color:var(--muted)}
+.rv-filter{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+body[data-only-unjudged] .pair[data-all-judged]{display:none}
 .reading .j{font-family:"Spline Sans Mono",ui-monospace,monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;border:1px dashed var(--haze-line);border-radius:999px;padding:.12em .55em;margin-right:.4em;color:var(--muted)}.loc{margin:0 0 1rem}.loc b{font-weight:500;color:var(--mark-ok)}.loc a{color:var(--muted)}
 .proveml-entity.proveml-verified{color:var(--mark-ok);border:1px solid var(--mark-ok-lijn);border-radius:2px;padding:.05em .35em}
 .proveml-fact.proveml-verified{color:var(--mark-ok);border-bottom:1.5px dotted var(--mark-ok)}
@@ -122,6 +143,48 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 // highlight on every claim of the same record. The native title tooltip is
 // slow enough to read as broken, so the title moves to a data attribute.
 const SCRIPT = `
+// ── review layer ─────────────────────────────────────────────────────────
+// Judgements live in localStorage under the content hash of each reading, so
+// a saved verdict never applies to changed content. Export puts the whole
+// review on the clipboard as JSON, for committing next to the store.
+const KEY = 'proveml-sources-review';
+let saved = {}; try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
+const readings = [...document.querySelectorAll('.reading[data-review]')];
+function persist() { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch {} }
+function paint() {
+    let judged = 0, flagged = 0;
+    for (const el of readings) {
+        const v = saved[el.dataset.review];
+        el.dataset.state = v ? v.verdict : '';
+        el.querySelector('.rv-state').textContent = v ? (v.verdict === 'fair' ? '✓ judged fair ' + v.at.slice(0, 10) : '⚑ flagged ' + v.at.slice(0, 10)) : 'unjudged';
+        if (v) { judged++; if (v.verdict === 'flag') flagged++; }
+    }
+    for (const card of document.querySelectorAll('.pair')) {
+        const rs = [...card.querySelectorAll('.reading[data-review]')];
+        card.toggleAttribute('data-all-judged', rs.length > 0 && rs.every(r => saved[r.dataset.review]));
+        card.toggleAttribute('data-flagged', rs.some(r => saved[r.dataset.review]?.verdict === 'flag'));
+    }
+    document.getElementById('rv-progress').textContent =
+        judged + '/' + readings.length + ' readings judged' + (flagged ? ', ' + flagged + ' flagged' : '') +
+        ' — a judgement is saved under a hash of the quote and the value, so it dies if either changes';
+}
+document.addEventListener('click', (e) => {
+    const b = e.target.closest('button.rv[data-verdict]');
+    if (b) {
+        const el = b.closest('.reading');
+        const cur = saved[el.dataset.review];
+        if (cur && cur.verdict === b.dataset.verdict) delete saved[el.dataset.review];
+        else saved[el.dataset.review] = { verdict: b.dataset.verdict, src: el.dataset.src, field: el.dataset.field, at: new Date().toISOString() };
+        persist(); paint();
+    }
+    if (e.target.id === 'rv-export') {
+        navigator.clipboard.writeText(JSON.stringify({ page: 'sources.html', exported: new Date().toISOString(), judgements: saved }, null, 1))
+            .then(() => { e.target.textContent = 'copied'; setTimeout(() => e.target.textContent = 'copy review as JSON', 1500); });
+    }
+});
+document.getElementById('rv-only').addEventListener('change', (e) => document.body.toggleAttribute('data-only-unjudged', e.target.checked));
+paint();
+
 document.querySelectorAll('[title]').forEach(el => { el.dataset.tip = el.getAttribute('title'); el.removeAttribute('title'); });
 const tip = document.createElement('div'); tip.id = 'tip'; tip.hidden = true; document.body.appendChild(tip);
 document.addEventListener('mouseover', (e) => {
@@ -148,6 +211,7 @@ const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta n
 <h1>The sources, side by side</h1>
 <p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on. Three links in the chain are machine-checked, and the page does not build if any breaks: the left column equals the store of citation characteristics, verified by the same verifier the paper describes; every quote occurs verbatim in the archived snapshot of its source; and the locator under each quote is computed from that snapshot. The fourth link — that the store's value is a fair reading of the quote — is a human judgement, ours, and it is shown as one rather than painted green. That boundary is ProveML's own: the verifier proves consistency with a store, and the store is the point of trust. Read left and right and judge the fourth link yourself; that is the one thing this page asks of you.</p>
 <p class="summary">${verified}/${total} paper claims verified against the store · every quote verbatim in its archived snapshot · the readings themselves are judgement, not verification · built ${new Date().toISOString().slice(0, 10)}</p>
+<div class="reviewbar"><span id="rv-progress"></span><label class="rv-filter"><input type="checkbox" id="rv-only"> show only unjudged</label><button id="rv-export" class="rv">copy review as JSON</button></div>
 ${cards}
 </div><script>${SCRIPT}</script></body></html>`;
 writeFileSync(join(root, 'docs/sources.html'), html);

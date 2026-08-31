@@ -4,7 +4,7 @@
   "title": "iXBRL",
   "authors": "XBRL International",
   "year": "ongoing standard",
-  "category": "inline financial tagging standard",
+  "category": "inline tagging standard",
   "verificationMode": "deterministic taxonomy-linked validation",
   "verificationClass": "deterministic",
   "against": "structured taxonomy data",
@@ -14,11 +14,23 @@
   "evidence": [
    {
     "field": "category",
-    "claimValue": "inline financial tagging standard",
+    "claimValue": "inline tagging standard",
     "basis": "quote",
-    "sourceQuote": "iXBRL takes the HTML standard that is used to power the world’s web pages, and embeds extra “tags” into it that give meaning to the figures and statements in a format that can be understood by a computer.",
-    "sourceLocator": "What is iXBRL? paragraph 3",
-    "note": "Tags embedded in the human-readable financial document are the tagging; the page itself calls iXBRL an open standard."
+    "note": "Financial left the label deliberately: the dominant use is financial statements (the millions-of-companies sentence), but the source itself says the third quote and points at statutory sustainability disclosures since 2023, so a label that says financial narrows what the source claims.",
+    "sourceQuotes": [
+     {
+      "sourceQuote": "iXBRL, or Inline XBRL, is an open standard that enables a single document to provide both human-readable and structured, machine-readable data.",
+      "sourceLocator": "What is iXBRL? paragraph 1"
+     },
+     {
+      "sourceQuote": "embeds extra “tags” into it that give meaning to the figures and statements in a format that can be understood by a computer",
+      "sourceLocator": "What is iXBRL? paragraph 3"
+     },
+     {
+      "sourceQuote": "The use of iXBRL is not limited to company financial reports.",
+      "sourceLocator": "Beyond financial reports"
+     }
+    ]
    },
    {
     "field": "verificationMode",

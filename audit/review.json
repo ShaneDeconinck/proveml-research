@@ -1,0 +1,427 @@
+{
+ "exported": "2026-08-31T18:32:26.982Z",
+ "judgements": {
+  "099f95733d6ece47": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "category",
+   "at": "2026-08-31T18:27:04.535Z"
+  },
+  "7aa215fe4ac687dc": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:27:06.434Z"
+  },
+  "edca7598386e3f23": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:27:07.535Z"
+  },
+  "d740f529fca596e8": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "against",
+   "at": "2026-08-31T18:27:09.901Z"
+  },
+  "7dc95c4e3144b503": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:27:10.968Z"
+  },
+  "f2cc4fafe30a8e08": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:27:12.018Z"
+  },
+  "703fc3bdb090702b": {
+   "verdict": "fair",
+   "src": "ixbrl",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:27:13.068Z"
+  },
+  "354ed9164a743865": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "category",
+   "at": "2026-08-31T18:27:19.251Z"
+  },
+  "d85b8731f2c043d0": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:27:31.768Z"
+  },
+  "efdc0781f14f757a": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:27:33.901Z"
+  },
+  "2ca0cfde1733ecd9": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "against",
+   "at": "2026-08-31T18:27:43.118Z"
+  },
+  "664453ac075cff8f": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:27:47.484Z"
+  },
+  "ce9a552c24471ec7": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:27:50.034Z"
+  },
+  "052871862c64e603": {
+   "verdict": "fair",
+   "src": "factscore",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:27:51.168Z"
+  },
+  "8e99423cc2a1323c": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "category",
+   "at": "2026-08-31T18:27:57.234Z"
+  },
+  "0d5254d8bf7b5dc6": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:27:59.951Z"
+  },
+  "ec38d9286812b40c": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:28:01.534Z"
+  },
+  "7162fc0f8506ce09": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "against",
+   "at": "2026-08-31T18:28:06.184Z"
+  },
+  "f5e2d3b4ef2ce145": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:28:07.700Z"
+  },
+  "6e61d60e6cf99bdd": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:28:08.517Z"
+  },
+  "694565e09d07668d": {
+   "verdict": "fair",
+   "src": "safe",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:28:09.284Z"
+  },
+  "aa2bde54c4b38769": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "category",
+   "at": "2026-08-31T18:28:21.051Z"
+  },
+  "e3e6d82a9f534cf3": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:28:28.434Z"
+  },
+  "4113f3871d749238": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:28:30.967Z"
+  },
+  "a0fff973de2b0f03": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "against",
+   "at": "2026-08-31T18:28:32.217Z"
+  },
+  "950094c8f470a9a0": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:28:33.784Z"
+  },
+  "b789f7f9835dfd3a": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:28:34.950Z"
+  },
+  "6ccea8255ac70ea5": {
+   "verdict": "fair",
+   "src": "factool",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:28:36.239Z"
+  },
+  "866bc80bcd28fe30": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "category",
+   "at": "2026-08-31T18:28:44.667Z"
+  },
+  "88cc8d1f2d993aee": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:28:49.100Z"
+  },
+  "b6280f553253b6bf": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:28:54.302Z"
+  },
+  "2d67d1b17b4ce78f": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "against",
+   "at": "2026-08-31T18:28:59.184Z"
+  },
+  "3ce30dbee64141ed": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:29:05.417Z"
+  },
+  "d592ca75acfef608": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:29:07.717Z"
+  },
+  "b7e322bc82be2f08": {
+   "verdict": "fair",
+   "src": "guardrails-ai",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:29:08.833Z"
+  },
+  "0538f3a945b75fba": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "category",
+   "at": "2026-08-31T18:29:19.300Z"
+  },
+  "7984f6b1580d17d6": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:29:38.784Z"
+  },
+  "941e8331a6f7e7c0": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:29:42.600Z"
+  },
+  "ec4f321f31f22926": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "against",
+   "at": "2026-08-31T18:29:47.683Z"
+  },
+  "dc852bfd91732558": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:29:58.137Z"
+  },
+  "ae3fe191dc63409f": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:30:01.633Z"
+  },
+  "7fbc8a3e9aeb1a1f": {
+   "verdict": "fair",
+   "src": "dspy-assertions",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:30:02.766Z"
+  },
+  "1a3429fb44763deb": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "category",
+   "at": "2026-08-31T18:30:07.683Z"
+  },
+  "8037784effeb6222": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:30:11.067Z"
+  },
+  "8479c3640d0a7dbc": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:30:14.850Z"
+  },
+  "58138887b4259609": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "against",
+   "at": "2026-08-31T18:30:27.317Z"
+  },
+  "2eb6844269a02dd1": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:30:28.866Z"
+  },
+  "905fd6126e9a7aa1": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:30:29.449Z"
+  },
+  "9e8862c8e4434ff9": {
+   "verdict": "fair",
+   "src": "nemo-guardrails",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:30:30.149Z"
+  },
+  "ee2076b784614b31": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "category",
+   "at": "2026-08-31T18:30:37.950Z"
+  },
+  "bb82a0f04ebe325c": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:30:43.467Z"
+  },
+  "e55a3360a8948dd3": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:30:45.016Z"
+  },
+  "de0bbcb7803f0ee9": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "against",
+   "at": "2026-08-31T18:30:47.633Z"
+  },
+  "93983be9daff3ef4": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:30:48.999Z"
+  },
+  "e053143c94e96237": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:30:50.199Z"
+  },
+  "4da789d8d54aed40": {
+   "verdict": "fair",
+   "src": "rarr",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:30:51.132Z"
+  },
+  "0fd9655450fa3e67": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "category",
+   "at": "2026-08-31T18:31:01.266Z"
+  },
+  "3d2d2959e007e943": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:31:02.199Z"
+  },
+  "0a30a1086135f7d3": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:31:03.099Z"
+  },
+  "9afc3bce16bd5ff8": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "against",
+   "at": "2026-08-31T18:31:04.849Z"
+  },
+  "117a8df94359de20": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:31:06.299Z"
+  },
+  "77fb2f81d1b6e557": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:31:07.116Z"
+  },
+  "693973658ffaaac2": {
+   "verdict": "fair",
+   "src": "webgpt",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:31:08.249Z"
+  },
+  "5ce9e57abeb74679": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "category",
+   "at": "2026-08-31T18:31:14.149Z"
+  },
+  "42d43e16b9eb02bf": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "verificationMode",
+   "at": "2026-08-31T18:31:16.066Z"
+  },
+  "f5a0f61b50ab12d0": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "verificationClass",
+   "at": "2026-08-31T18:31:16.916Z"
+  },
+  "beab289c0c923193": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "against",
+   "at": "2026-08-31T18:31:17.632Z"
+  },
+  "a2a0d060920634e9": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "inlineSupport",
+   "at": "2026-08-31T18:31:26.533Z"
+  },
+  "4b29e7c84eab610b": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "structuredRecordBinding",
+   "at": "2026-08-31T18:31:27.365Z"
+  },
+  "622e6a3fa596337d": {
+   "verdict": "fair",
+   "src": "gemini-double-check",
+   "field": "inferenceLayer",
+   "at": "2026-08-31T18:31:28.133Z"
+  }
+ },
+ "signedBy": "Shane Deconinck",
+ "signedAt": "2026-08-31T18:32:27.011Z"
+}

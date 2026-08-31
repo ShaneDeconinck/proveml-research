@@ -20,6 +20,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { renderProveml } from 'proveml/render';
 import { verifyProveml } from 'proveml/verify';
+import { readdirSync } from 'fs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
@@ -34,6 +35,27 @@ for (const s of sources) store[`citation:${s.id}.name`] = SHORT[s.id] || s.title
 
 const yes = (v) => (v === 'yes' ? 'does' : 'does not');
 
+// Every quote must occur verbatim in the archived snapshot of its source
+// (audit/references/raw/). The locator a reader scans is only worth printing
+// if a machine has checked the quote is really there; a page about verified
+// claims must not carry unverified quotes.
+const rawDir = join(root, 'references/raw');
+const rawFiles = Object.fromEntries(readdirSync(rawDir).map(f => [f.replace(/\.(html|txt)$/, ''), f]));
+function snapshotText(file) {
+    let t = readFileSync(join(rawDir, file), 'utf8');
+    if (file.endsWith('.html')) {
+        t = t.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ')
+             .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;|&apos;/g, "'").replace(/&quot;/g, '"');
+    }
+    return t.replace(/\s+/g, ' ');
+}
+function checkQuote(id, quote) {
+    const file = rawFiles[id];
+    if (!file) throw new Error(`${id}: no archived snapshot`);
+    if (!snapshotText(file).includes(quote.replace(/\s+/g, ' ').trim())) throw new Error(`${id}: quote not found verbatim in ${file}`);
+    return file;
+}
+
 function paperSide(s) {
     const P = `citation:${s.id}`;
     return `@[${P}]{${store[`${P}.name`]}} is %[category]{${s.category}}. It verifies by %[verificationMode]{${s.verificationMode}}, which we class as %[verificationClass]{${s.verificationClass}}, against %[against]{${s.against}}. It ${yes(s.inlineSupport)} mark claims inline (%[inlineSupport]{${s.inlineSupport}}), ${yes(s.structuredRecordBinding)} bind them to structured records (%[structuredRecordBinding]{${s.structuredRecordBinding}}), and ${yes(s.inferenceLayer)} carry an inference layer (%[inferenceLayer]{${s.inferenceLayer}}).`;
@@ -45,7 +67,7 @@ function paperSide(s) {
 function sourceSide(s) {
     const P = `citation:${s.id}`;
     return s.evidence.map(e => ({
-        quote: `<p class="quote">“${esc(e.sourceQuote)}” <span class="loc">(${esc(e.sourceLocator.replace(/_/g, ' '))})</span></p>`,
+        quote: `<p class="quote">“${esc(e.sourceQuote)}”</p><p class="loc"><b>${esc(e.sourceLocator.replace(/_/g, ' '))}</b> · verbatim in the <a href="../references/raw/${esc(checkQuote(s.id, e.sourceQuote))}">archived source</a></p>`,
         claim: `@[${P}]{${store[`${P}.name`]}}: that is what we read as %[${e.field}]{${e.claimValue}}.`,
         note: e.note ? `<p class="note">${esc(e.note)}</p>` : '',
     }));
@@ -83,7 +105,7 @@ h1{font-weight:900;letter-spacing:-.02em;font-size:2.1rem;margin:0 0 .6rem}h2{fo
 @media (max-width:52rem){.cols{grid-template-columns:1fr}}
 .col{background:var(--card);border:1px solid var(--haze-line);border-radius:3px;padding:1rem 1.2rem;font-size:1rem}
 .lbl{letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem}
-.col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic}.loc{font-style:normal}
+.col p{margin:0 0 .8rem}.note{color:var(--muted);font-size:.9rem}.quote{font-style:italic;margin-bottom:.35rem}.loc{margin:0 0 1rem}.loc b{font-weight:500;color:var(--mark-ok)}.loc a{color:var(--muted)}
 .proveml-entity.proveml-verified{color:var(--mark-ok);border:1px solid var(--mark-ok-lijn);border-radius:2px;padding:.05em .35em}
 .proveml-fact.proveml-verified{color:var(--mark-ok);border-bottom:1.5px dotted var(--mark-ok)}
 .proveml-mismatch,.proveml-name-mismatch{color:var(--mark-bad);text-decoration:line-through;text-decoration-color:var(--mark-bad-lijn)}
@@ -122,7 +144,7 @@ document.addEventListener('mouseout', (e) => {
 `;
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ProveML · the sources, side by side</title><style>${CSS}</style></head><body><div class="wrap">
 <h1>The sources, side by side</h1>
-<p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on, and checks both against one store of citation characteristics with the same verifier the paper describes. Read left and right; nothing here asks you to open the source paper, and if a characterisation stopped matching the store, this page would not build.</p>
+<p class="lede">Every characterisation of a cited work in the ProveML paper is a claim. This page puts each one next to the words in the source it rests on, and checks both against one store of citation characteristics with the same verifier the paper describes. Read left and right; nothing here asks you to open the source paper, every quote has been checked verbatim against the archived snapshot of its source, and if a characterisation stopped matching the store or a quote its snapshot, this page would not build.</p>
 <p class="summary">${verified}/${total} claims verified across ${sources.length} sources · store: audit/fact-stores/citation-characteristics.json · built ${new Date().toISOString().slice(0, 10)}</p>
 ${cards}
 </div><script>${SCRIPT}</script></body></html>`;

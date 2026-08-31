@@ -423,5 +423,15 @@
   }
  },
  "signedBy": "Shane Deconinck",
- "signedAt": "2026-08-31T18:32:27.011Z"
+ "signedAt": "2026-08-31T18:32:27.011Z",
+ "attestation": {
+  "kind": "hcs",
+  "reviewSha256": "55fe083651fe2a3b2b8e93fa264c9e4e8f0e0a774bc89451040547b5dbc0ca36",
+  "network": "testnet",
+  "topicId": "0.0.10275637",
+  "sequenceNumber": "5",
+  "transactionId": "0.0.10132064-1788202153-496559277",
+  "hashscanTx": "https://hashscan.io/testnet/transaction/0.0.10132064-1788202153-496559277",
+  "mirror": "https://testnet.mirrornode.hedera.com/api/v1/topics/0.0.10275637/messages/5"
+ }
 }

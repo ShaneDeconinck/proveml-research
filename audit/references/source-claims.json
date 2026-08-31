@@ -74,7 +74,7 @@
   "category": "post-hoc fact-checking",
   "verificationMode": "probabilistic retrieval and model-based verification",
   "verificationClass": "probabilistic",
-  "against": "Wikipedia and retrieved evidence",
+  "against": "a reliable knowledge source, via retrieval",
   "inlineSupport": "no",
   "structuredRecordBinding": "no",
   "inferenceLayer": "no",
@@ -104,11 +104,11 @@
    },
    {
     "field": "against",
-    "claimValue": "Wikipedia and retrieved evidence",
+    "claimValue": "a reliable knowledge source, via retrieval",
     "basis": "quote",
     "sourceQuote": "computes the percentage of atomic facts supported by a reliable knowledge source",
     "sourceLocator": "abstract, sentence 2",
-    "note": "The store names the source concretely (Wikipedia, per the paper’s setup); the abstract says only “a reliable knowledge source”."
+    "note": "The paper’s experiments instantiate this as Wikipedia; the archived snapshot does not say so, so the store does not either."
    },
    {
     "field": "inlineSupport",
@@ -201,7 +201,7 @@
   "category": "post-hoc fact-checking",
   "verificationMode": "probabilistic tool-augmented factuality detection",
   "verificationClass": "probabilistic",
-  "against": "task-specific external tools and retrieved evidence",
+  "against": "external tools and retrieved evidence",
   "inlineSupport": "no",
   "structuredRecordBinding": "no",
   "inferenceLayer": "no",
@@ -231,11 +231,11 @@
    },
    {
     "field": "against",
-    "claimValue": "task-specific external tools and retrieved evidence",
+    "claimValue": "external tools and retrieved evidence",
     "basis": "quote",
-    "sourceQuote": "Experiments on four different tasks (knowledge-based QA, code generation, mathematical reasoning, and scientific literature review) show the efficacy of the proposed method.",
-    "sourceLocator": "abstract, sentence 6",
-    "note": "The abstract names the tasks, not the tools per task; “task-specific external tools and retrieved evidence” is our compression of the paper’s setup."
+    "sourceQuote": "FacTool: Factuality Detection in Generative AI -- A Tool Augmented Framework for Multi-Task and Multi-Domain Scenarios",
+    "sourceLocator": "title",
+    "note": "Tool-augmented per the title; the abstract names four tasks but not the tools per task, so “task-specific” is gone from the value."
    },
    {
     "field": "inlineSupport",
@@ -265,7 +265,7 @@
   "category": "output validation",
   "verificationMode": "mixed deterministic and model-based validation",
   "verificationClass": "mixed",
-  "against": "schemas, validators, and runtime metadata",
+  "against": "validator criteria and runtime metadata",
   "inlineSupport": "no",
   "structuredRecordBinding": "no",
   "inferenceLayer": "no",
@@ -295,11 +295,11 @@
    },
    {
     "field": "against",
-    "claimValue": "schemas, validators, and runtime metadata",
+    "claimValue": "validator criteria and runtime metadata",
     "basis": "quote",
     "sourceQuote": "If multiple validators require metadata, create a single metadata dictionary that contains the metadata keys for each validator.",
     "sourceLocator": "Runtime Metadata",
-    "note": "Validators check outputs against criteria and runtime metadata; “schemas” comes from the wider docs, not this page."
+    "note": "“Schemas” came from the wider docs, not this page, and is gone from the value."
    },
    {
     "field": "inlineSupport",
@@ -389,9 +389,9 @@
   "authors": "NVIDIA",
   "year": "current docs",
   "category": "output validation",
-  "verificationMode": "programmable guardrails and policy flows",
+  "verificationMode": "programmable guardrails",
   "verificationClass": "mixed",
-  "against": "dialog rails, topical rails, and tool policies",
+  "against": "programmable guardrails defined in Colang",
   "inlineSupport": "no",
   "structuredRecordBinding": "no",
   "inferenceLayer": "no",
@@ -405,11 +405,11 @@
    },
    {
     "field": "verificationMode",
-    "claimValue": "programmable guardrails and policy flows",
+    "claimValue": "programmable guardrails",
     "sourceQuote": "NeMo Guardrails is an open-source toolkit for easily adding programmable guardrails to LLM-based conversational systems.",
     "sourceLocator": "page description",
     "equality": "normalized",
-    "note": "The stored mode keeps the exact ‘programmable guardrails’ phrase and expands it into the comparative terminology used on this page.",
+    "note": "“Policy flows” was beyond this page and is gone from the value.",
     "basis": "quote"
    },
    {
@@ -420,11 +420,11 @@
    },
    {
     "field": "against",
-    "claimValue": "dialog rails, topical rails, and tool policies",
+    "claimValue": "programmable guardrails defined in Colang",
     "basis": "quote",
     "sourceQuote": "This documentation includes a getting started guide, user guides for the most important features, and reference documentation for the Colang language.",
     "sourceLocator": "page description",
-    "note": "The rail taxonomy (dialog, topical, tool policies) lives in those guides, not on this landing page; our value compresses it."
+    "note": "The rail taxonomy (dialog, topical, tool policies) lives in deeper guides, not on this landing page, and is gone from the value."
    },
    {
     "field": "inlineSupport",

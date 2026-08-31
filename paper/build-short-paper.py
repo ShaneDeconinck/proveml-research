@@ -7,6 +7,20 @@ connective prose is new, and it makes no quantitative claim that a reused block
 does not already carry.
 """
 
+import sys
+sys.exit("""REFUSES to run: this assembly is stale and would destroy work.
+
+It assembles the JULY 2026 study (Phi-3/Qwen/Haiku, tab:capability) from the
+technical report, but proveml-spec.tex has been hand-maintained since the
+frontier revision (Opus 5/Sonnet 5/DeepSeek, 2026-08-29) and now also carries
+the review-layer paragraph. Running this would overwrite the frontier paper
+with July content.
+
+Edit proveml-spec.tex and proveml-technical-report.tex by hand (same text in
+both where they share it). This script becomes runnable again only when the
+frontier study is ported into the technical report and the block list below
+is updated to match.""")
+
 src = open('proveml-technical-report.tex').read()
 
 def block(marker, env='table'):

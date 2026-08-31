@@ -9,8 +9,10 @@ Wat je NIET hoeft na te kijken, want mechanisch gegarandeerd:
   rapport nergens uiteenlopen.
 - **Referentie-metadata**: 50 canoniek geverifieerd (Crossref/arXiv), 11 op de
   geciteerde pagina, 0 mismatches (`npm run audit:bibliography`).
-- **De assemblage**: `python3 build-short-paper.py` is deterministisch; het korte
-  paper is letterlijk opgebouwd uit blokken van het geverifieerde rapport.
+- **De assemblage**: `build-short-paper.py` bouwde het korte paper ooit uit blokken
+  van het rapport, maar is sinds de frontier-herziening verouderd en WEIGERT nu te
+  draaien (hij zou het frontier-paper overschrijven met de juli-inhoud). Het korte
+  paper wordt met de hand onderhouden, naast het rapport.
 
 Waar alleen jouw oordeel telt — lees hierop:
 

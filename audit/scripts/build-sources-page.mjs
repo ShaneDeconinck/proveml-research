@@ -67,7 +67,7 @@ const { html, verified, total } = reviewPage({
     name: 'review',
     storeName: 'citation-characteristics',
     subjectsWord: 'sources',
-    leftLabel: 'the paper',
+    leftLabel: 'the output',
     rightLabel: 'the source',
 });
 

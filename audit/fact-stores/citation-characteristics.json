@@ -2,7 +2,7 @@
  "citation:ixbrl.category": "inline financial tagging standard",
  "citation:ixbrl.verificationMode": "deterministic taxonomy-linked validation",
  "citation:ixbrl.verificationClass": "deterministic",
- "citation:ixbrl.against": "structured financial taxonomy data",
+ "citation:ixbrl.against": "structured taxonomy data",
  "citation:ixbrl.inlineSupport": "yes",
  "citation:ixbrl.structuredRecordBinding": "yes",
  "citation:ixbrl.inferenceLayer": "no",

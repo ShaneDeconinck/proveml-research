@@ -116,5 +116,15 @@
  "citation:synchromesh.name": "Synchromesh",
  "citation:synchromesh.mechanism": "constraining the output to a set of valid programs in the target language",
  "citation:chan2026soundness.name": "Chan et al.",
- "citation:chan2026soundness.argues": "logically sound conclusions systematically elicit human inferences that are unsupported by the underlying premises"
+ "citation:chan2026soundness.argues": "logically sound conclusions systematically elicit human inferences that are unsupported by the underlying premises",
+ "citation:kalai2024.name": "Calibrated language models",
+ "citation:kalai2024.rate": "the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data",
+ "citation:kalai2025.name": "Why Language Models Hallucinate",
+ "citation:kalai2025.behaviour": "guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty",
+ "citation:magesh2025.name": "The legal-tools study",
+ "citation:magesh2025.rate": "hallucinate between 17% and 33% of the time",
+ "citation:magesh2025.vendorClaims": "vendor claims of near-elimination",
+ "citation:euaiact.name": "The EU AI Act",
+ "citation:euaiact.transparencyFrom": "August 2026",
+ "citation:euaiact.applicable": "2 August 2026"
 }

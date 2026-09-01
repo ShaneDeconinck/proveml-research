@@ -388,5 +388,87 @@
     "sourceLocator": "abstract"
    }
   ]
+ },
+ {
+  "id": "kalai2024",
+  "title": "Calibrated Language Models Must Hallucinate",
+  "authors": "Kalai and Vempala",
+  "year": 2024,
+  "name": "Calibrated language models",
+  "claim": "@[citation:kalai2024]{Calibrated language models} must hallucinate: %[rate]{the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data}.",
+  "evidence": [
+   {
+    "field": "rate",
+    "claimValue": "the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data",
+    "basis": "quote",
+    "sourceQuote": "the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "kalai2025",
+  "title": "Why Language Models Hallucinate",
+  "authors": "Kalai, Nachum, Vempala and Zhang",
+  "year": 2025,
+  "name": "Why Language Models Hallucinate",
+  "claim": "@[citation:kalai2025]{Why Language Models Hallucinate} shows models %[behaviour]{guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty}.",
+  "evidence": [
+   {
+    "field": "behaviour",
+    "claimValue": "guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty",
+    "basis": "quote",
+    "sourceQuote": "guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "magesh2025",
+  "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+  "authors": "Magesh et al.",
+  "year": 2025,
+  "name": "The legal-tools study",
+  "claim": "@[citation:magesh2025]{The legal-tools study} finds the leading tools %[rate]{hallucinate between 17% and 33% of the time}, against %[vendorClaims]{vendor claims of near-elimination}.",
+  "evidence": [
+   {
+    "field": "rate",
+    "claimValue": "hallucinate between 17% and 33% of the time",
+    "basis": "quote",
+    "sourceQuote": "the AI research tools made by LexisNexis (Lexis+ AI) and Thomson Reuters (Westlaw AI-Assisted Research and Ask Practical Law AI) each hallucinate between 17% and 33% of the time",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "vendorClaims",
+    "claimValue": "vendor claims of near-elimination",
+    "basis": "quote",
+    "sourceQuote": "certain legal research providers have touted methods such as retrieval-augmented generation (RAG) as “eliminating” or “avoid[ing]” hallucinations, or guaranteeing “hallucination-free” legal citations",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "euaiact",
+  "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act)",
+  "authors": "European Parliament and Council",
+  "year": 2024,
+  "name": "The EU AI Act",
+  "claim": "@[citation:euaiact]{The EU AI Act} became applicable on %[applicable]{2 August 2026}, and its transparency rules come into effect in %[transparencyFrom]{August 2026}.",
+  "evidence": [
+   {
+    "field": "transparencyFrom",
+    "claimValue": "August 2026",
+    "basis": "quote",
+    "sourceQuote": "The transparency rules of the AI Act will come into effect in August 2026.",
+    "sourceLocator": "European Commission, AI Act policy page"
+   },
+   {
+    "field": "applicable",
+    "claimValue": "2 August 2026",
+    "basis": "quote",
+    "sourceQuote": "The AI Act entered into force on 1 August 2024 and became applicable on 2 August 2026",
+    "sourceLocator": "European Commission, AI Act policy page, application timeline"
+   }
+  ]
  }
 ]

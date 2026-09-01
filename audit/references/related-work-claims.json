@@ -449,25 +449,26 @@
  },
  {
   "id": "euaiact",
-  "title": "Regulation (EU) 2024/1689 (Artificial Intelligence Act)",
-  "authors": "European Parliament and Council",
-  "year": 2024,
+  "title": "The EU AI Act: enforcement of the transparency rules",
+  "authors": "European Commission",
+  "year": 2026,
   "name": "The EU AI Act",
-  "claim": "@[citation:euaiact]{The EU AI Act} became applicable on %[applicable]{2 August 2026}, and its transparency rules come into effect in %[transparencyFrom]{August 2026}.",
+  "claim": "@[citation:euaiact]{The EU AI Act}: the Commission %[enforcement]{starts enforcing AI Act rules and new transparency requirements on 2 August}, %[transparencyScope]{requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it}.",
   "evidence": [
    {
-    "field": "transparencyFrom",
-    "claimValue": "August 2026",
+    "field": "enforcement",
+    "claimValue": "starts enforcing AI Act rules and new transparency requirements on 2 August",
     "basis": "quote",
-    "sourceQuote": "The transparency rules of the AI Act will come into effect in August 2026.",
-    "sourceLocator": "European Commission, AI Act policy page"
+    "sourceQuote": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
+    "sourceLocator": "European Commission news item, title",
+    "note": "The Commission announcement of the 2 August 2026 start; captured 2026-09-01, after application, so the start it announces has occurred. An earlier policy-page sentence still said \"will come into effect\" and is not quoted for that reason."
    },
    {
-    "field": "applicable",
-    "claimValue": "2 August 2026",
+    "field": "transparencyScope",
+    "claimValue": "requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it",
     "basis": "quote",
-    "sourceQuote": "The AI Act entered into force on 1 August 2024 and became applicable on 2 August 2026",
-    "sourceLocator": "European Commission, AI Act policy page, application timeline"
+    "sourceQuote": "new transparency rules will start to apply, requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it",
+    "sourceLocator": "European Commission news item, lead"
    }
   ]
  }

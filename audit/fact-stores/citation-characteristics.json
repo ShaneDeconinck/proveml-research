@@ -125,6 +125,6 @@
  "citation:magesh2025.rate": "hallucinate between 17% and 33% of the time",
  "citation:magesh2025.vendorClaims": "vendor claims of near-elimination",
  "citation:euaiact.name": "The EU AI Act",
- "citation:euaiact.transparencyFrom": "August 2026",
- "citation:euaiact.applicable": "2 August 2026"
+ "citation:euaiact.enforcement": "starts enforcing AI Act rules and new transparency requirements on 2 August",
+ "citation:euaiact.transparencyScope": "requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it"
 }

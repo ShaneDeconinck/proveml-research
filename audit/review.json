@@ -1,5 +1,5 @@
 {
- "exported": "2026-09-01T09:28:49.812Z",
+ "exported": "2026-09-01T13:24:58.064Z",
  "judgements": {
   "099f95733d6ece47": {
    "verdict": "fair",
@@ -594,8 +594,53 @@
    "src": "chan2026soundness",
    "field": "argues",
    "at": "2026-09-01T09:28:46.762Z"
+  },
+  "796b33396d9467c4": {
+   "verdict": "fair",
+   "src": "kalai2024",
+   "field": "rate",
+   "at": "2026-09-01T13:23:11.247Z"
+  },
+  "0e62638447c62a1d": {
+   "verdict": "fair",
+   "src": "kalai2025",
+   "field": "behaviour",
+   "at": "2026-09-01T13:23:26.880Z"
+  },
+  "82a98b70eb375c78": {
+   "verdict": "fair",
+   "src": "magesh2025",
+   "field": "rate",
+   "at": "2026-09-01T13:23:28.880Z"
+  },
+  "e0f868f7ffcebf42": {
+   "verdict": "fair",
+   "src": "magesh2025",
+   "field": "vendorClaims",
+   "at": "2026-09-01T13:23:29.730Z"
+  },
+  "c3a77af2f452e775": {
+   "verdict": "fair",
+   "src": "euaiact",
+   "field": "enforcement",
+   "at": "2026-09-01T13:23:33.380Z"
+  },
+  "8ad99c6598d61c50": {
+   "verdict": "fair",
+   "src": "euaiact",
+   "field": "transparencyScope",
+   "at": "2026-09-01T13:23:35.413Z"
   }
  },
  "signedBy": "Shane Deconinck",
- "signedAt": "2026-09-01T09:28:49.822Z"
+ "signedAt": "2026-09-01T13:24:58.080Z",
+ "attestation": {
+  "kind": "passkey",
+  "credentialId": "RMFqOluBiSTOv5W0vWTA2A",
+  "rpId": "localhost",
+  "userVerified": true,
+  "challenge": "CryuySj5nLKzT7uxm6qHzvqUdqgmv5bedaBOTMAospA",
+  "signedBy": "Shane Deconinck",
+  "at": "2026-09-01T13:24:58.097Z"
+ }
 }

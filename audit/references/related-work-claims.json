@@ -1,0 +1,475 @@
+[
+ {
+  "id": "rdfa",
+  "title": "RDFa 1.1 Primer",
+  "authors": "W3C",
+  "year": 2015,
+  "name": "RDFa",
+  "claim": "@[citation:rdfa]{RDFa} provides %[mechanism]{markup attributes to augment the visual information on the Web with machine-readable hints}, and carries %[verification]{no verification of what the attributes assert}.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "markup attributes to augment the visual information on the Web with machine-readable hints",
+    "basis": "quote",
+    "sourceQuote": "it provides a set of markup attributes to augment the visual information on the Web with machine-readable hints",
+    "sourceLocator": "Primer abstract"
+   },
+   {
+    "field": "verification",
+    "claimValue": "no verification of what the attributes assert",
+    "basis": "absence",
+    "note": "The Primer describes expressing data, never checking it; the paper’s phrase is that RDFa assumes the author meant it."
+   }
+  ]
+ },
+ {
+  "id": "pcn2025",
+  "title": "Proof-Carrying Numbers (PCN): A Protocol for Trustworthy Numeric Answers from LLMs via Claim Verification",
+  "authors": "Solatorio",
+  "year": 2025,
+  "name": "Proof-Carrying Numbers",
+  "claim": "@[citation:pcn2025]{Proof-Carrying Numbers} emits %[tokens]{claim-bound tokens tied to structured claims}, places verification in %[verificationSite]{the renderer, not the model} under %[policies]{declared policies such as exact equality, rounding, aliases, or tolerance}, and its published description does not cover %[notCovered]{entity scoping or a named vocabulary for qualitative judgments}.",
+  "evidence": [
+   {
+    "field": "tokens",
+    "claimValue": "claim-bound tokens tied to structured claims",
+    "basis": "quote",
+    "sourceQuote": "numeric spans are emitted as \\emph{claim-bound tokens} tied to structured claims",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "verificationSite",
+    "claimValue": "the renderer, not the model",
+    "basis": "quote",
+    "sourceQuote": "PCN places verification in the \\emph{renderer}, not the model",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "policies",
+    "claimValue": "declared policies such as exact equality, rounding, aliases, or tolerance",
+    "basis": "quote",
+    "sourceQuote": "a verifier checks each token under a declared policy (e.g., exact equality, rounding, aliases, or tolerance with qualifiers)",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "notCovered",
+    "claimValue": "entity scoping or a named vocabulary for qualitative judgments",
+    "basis": "absence",
+    "note": "The abstract is about numeric fidelity; neither entity scoping nor a judgement vocabulary appears in the published description."
+   }
+  ]
+ },
+ {
+  "id": "symgen",
+  "title": "Towards Verifiable Text Generation with Symbolic References",
+  "authors": "Torroba Hennigen et al.",
+  "year": 2024,
+  "name": "SymGen",
+  "claim": "@[citation:symgen]{SymGen} has the model %[mechanism]{interleave its regular output text with explicit symbolic references to fields present in some conditioning data}, so a wrong number is impossible and so is reporting one.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "interleave its regular output text with explicit symbolic references to fields present in some conditioning data",
+    "basis": "quote",
+    "sourceQuote": "prompts an LLM to interleave its regular output text with explicit symbolic references to fields present in some conditioning data",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "claimlocked2026",
+  "title": "Provenance Before Prose: Claim-Locked Reporting",
+  "authors": "Fan et al.",
+  "year": 2026,
+  "name": "Claim-locked reporting",
+  "claim": "@[citation:claimlocked2026]{Claim-locked reporting} fixes %[locks]{the evidence source, numbers, direction, and allowed language strength of each reportable claim before the LLM writes only connective prose}, and %[foreignText]{cannot audit text it did not produce}.",
+  "evidence": [
+   {
+    "field": "locks",
+    "claimValue": "the evidence source, numbers, direction, and allowed language strength of each reportable claim before the LLM writes only connective prose",
+    "basis": "quote",
+    "sourceQuote": "fixes the evidence source, numbers, direction, and allowed language strength of each reportable claim before the LLM writes only connective prose",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "foreignText",
+    "claimValue": "cannot audit text it did not produce",
+    "basis": "derived",
+    "note": "A provenance-before-prose protocol governs generation; text produced outside it has nothing locked, so there is nothing to audit. Follows from the mechanism, not from a sentence."
+   }
+  ]
+ },
+ {
+  "id": "verifin2026",
+  "title": "VeriFin: Neurosymbolic Verification for Numerical Financial QA",
+  "authors": "Anonymous et al.",
+  "year": 2026,
+  "name": "VeriFin",
+  "claim": "@[citation:verifin2026]{VeriFin} grounds %[grounds]{operands in filed XBRL facts} and checks claims with an SMT solver (%[solver]{Z3}), placing the arithmetic in the verifier where ProveML places it in the data layer.",
+  "evidence": [
+   {
+    "field": "grounds",
+    "claimValue": "operands in filed XBRL facts",
+    "basis": "quote",
+    "sourceQuote": "grounds operands in filed XBRL facts",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "solver",
+    "claimValue": "Z3",
+    "basis": "quote",
+    "sourceQuote": "checks claims using Z3",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "datareferencing2026",
+  "title": "When LLMs Read Tables Carelessly: Measuring and Reducing Data Referencing Errors",
+  "authors": "Yang et al.",
+  "year": 2026,
+  "name": "The data-referencing study",
+  "claim": "@[citation:datareferencing2026]{The data-referencing study} measures %[measures]{incorrectly citing or omitting table values} and detects them with %[detector]{a lightweight 4B-parameter critic model}; ProveML detects the same class with a lookup.",
+  "evidence": [
+   {
+    "field": "measures",
+    "claimValue": "incorrectly citing or omitting table values",
+    "basis": "quote",
+    "sourceQuote": "data referencing errors (DREs), i.e., incorrectly citing or omitting table values",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "detector",
+    "claimValue": "a lightweight 4B-parameter critic model",
+    "basis": "quote",
+    "sourceQuote": "trained a lightweight 4B-parameter critic model",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "fever",
+  "title": "FEVER: a Large-scale Dataset for Fact Extraction and VERification",
+  "authors": "Thorne et al.",
+  "year": 2018,
+  "name": "FEVER",
+  "claim": "@[citation:fever]{FEVER} verifies claims against textual sources with labels %[labels]{Supported, Refuted or NotEnoughInfo}, assigned by %[judge]{annotators}; systems built on it learn that judgement.",
+  "evidence": [
+   {
+    "field": "labels",
+    "claimValue": "Supported, Refuted or NotEnoughInfo",
+    "basis": "quote",
+    "sourceQuote": "claims are classified as Supported, Refuted or NotEnoughInfo",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "judge",
+    "claimValue": "annotators",
+    "basis": "quote",
+    "sourceQuote": "by annotators achieving 0.6841 in Fleiss",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "tabfact",
+  "title": "TabFact: A Large-scale Dataset for Table-based Fact Verification",
+  "authors": "Chen et al.",
+  "year": 2020,
+  "name": "TabFact",
+  "claim": "@[citation:tabfact]{TabFact} verifies statements against %[evidence]{16k Wikipedia tables as the evidence for 118k human-annotated natural language statements}, labelled %[labels]{ENTAILED or REFUTED}.",
+  "evidence": [
+   {
+    "field": "evidence",
+    "claimValue": "16k Wikipedia tables as the evidence for 118k human-annotated natural language statements",
+    "basis": "quote",
+    "sourceQuote": "16k Wikipedia tables as the evidence for 118k human-annotated natural language statements",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "labels",
+    "claimValue": "ENTAILED or REFUTED",
+    "basis": "quote",
+    "sourceQuote": "labeled as either ENTAILED or REFUTED",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "feverous",
+  "title": "FEVEROUS: Fact Extraction and VERification Over Unstructured and Structured information",
+  "authors": "Aly et al.",
+  "year": 2021,
+  "name": "FEVEROUS",
+  "claim": "@[citation:feverous]{FEVEROUS} carries %[claims]{87,026 verified claims} with evidence as %[evidence]{sentences and/or cells from tables}.",
+  "evidence": [
+   {
+    "field": "claims",
+    "claimValue": "87,026 verified claims",
+    "basis": "quote",
+    "sourceQuote": "consists of 87,026 verified claims",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "evidence",
+    "claimValue": "sentences and/or cells from tables",
+    "basis": "quote",
+    "sourceQuote": "evidence in the form of sentences and/or cells from tables",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "summac",
+  "title": "SummaC: Re-Visiting NLI-based Models for Inconsistency Detection in Summarization",
+  "authors": "Laban et al.",
+  "year": 2022,
+  "name": "SummaC",
+  "claim": "@[citation:summac]{SummaC} scores summaries with %[approach]{NLI models applied at the right granularity}: a probabilistic judge, after generation.",
+  "evidence": [
+   {
+    "field": "approach",
+    "claimValue": "NLI models applied at the right granularity",
+    "basis": "quote",
+    "sourceQuote": "In this work, we revisit the use of NLI for inconsistency detection, finding that past work suffered from a mismatch in input granularity between NLI datasets (sentence-level), and inconsistency detection (document level).",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "alignscore",
+  "title": "AlignScore: Evaluating Factual Consistency with a Unified Alignment Function",
+  "authors": "Zha et al.",
+  "year": 2023,
+  "name": "AlignScore",
+  "claim": "@[citation:alignscore]{AlignScore} scores factual consistency through %[basisFn]{a general function of information alignment}: a probabilistic judge, after generation.",
+  "evidence": [
+   {
+    "field": "basisFn",
+    "claimValue": "a general function of information alignment",
+    "basis": "quote",
+    "sourceQuote": "AlignScore is based on a general function of information alignment",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "minicheck",
+  "title": "MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents",
+  "authors": "Tang et al.",
+  "year": 2024,
+  "name": "MiniCheck",
+  "claim": "@[citation:minicheck]{MiniCheck} builds %[approach]{small fact-checking models with GPT-4-level performance at 400x lower cost}: a trained judge, after generation.",
+  "evidence": [
+   {
+    "field": "approach",
+    "claimValue": "small fact-checking models with GPT-4-level performance at 400x lower cost",
+    "basis": "quote",
+    "sourceQuote": "small fact-checking models that have GPT-4-level performance but for 400x lower cost",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "halldetect2026",
+  "title": "HallDetect: Reference-Free Hallucination Detection",
+  "authors": "Oukelmoun et al.",
+  "year": 2026,
+  "name": "HallDetect",
+  "claim": "@[citation:halldetect2026]{HallDetect} decomposes %[mechanism]{generated content into atomic claims, each verified by a compact encoder-based entailment model}: a trained judge, after generation.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "generated content into atomic claims, each verified by a compact encoder-based entailment model",
+    "basis": "quote",
+    "sourceQuote": "generated content is decomposed into atomic claims, each verified by a compact encoder-based entailment model",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "evergreen2026",
+  "title": "Evergreen: Efficient Claim Verification for Semantic Aggregates",
+  "authors": "Lee et al.",
+  "year": 2026,
+  "name": "Evergreen",
+  "claim": "@[citation:evergreen2026]{Evergreen} %[mechanism]{recasts claim verification as a semantic query processing task}; ProveML can bind an aggregate only once it is materialised as a fact.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "recasts claim verification as a semantic query processing task",
+    "basis": "quote",
+    "sourceQuote": "recasts claim verification as a semantic query processing task",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "fullcite2026",
+  "title": "Explicit Evidence Grounding via Structured Inline Citation Generation",
+  "authors": "Yeginbergen et al.",
+  "year": 2026,
+  "name": "FullCite",
+  "claim": "@[citation:fullcite2026]{FullCite} generates %[mechanism]{structured inline citations linking each claim to both its source document and supporting evidence}.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "structured inline citations linking each claim to both its source document and supporting evidence",
+    "basis": "quote",
+    "sourceQuote": "generates structured inline citations linking each claim to both its source document and supporting evidence",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "dtg2026",
+  "title": "Decode-Time Grammars",
+  "authors": "Zhang et al.",
+  "year": 2026,
+  "name": "Decode-time grammars",
+  "claim": "@[citation:dtg2026]{Decode-time grammars} constrain reference slots to %[slots]{exactly the names, fields, APIs, or options available at that point}, the decoding route to the same end.",
+  "evidence": [
+   {
+    "field": "slots",
+    "claimValue": "exactly the names, fields, APIs, or options available at that point",
+    "basis": "quote",
+    "sourceQuote": "candidates are exactly the names, fields, APIs, or options available at that point",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "picard",
+  "title": "PICARD: Parsing Incrementally for Constrained Auto-Regressive Decoding",
+  "authors": "Scholak et al.",
+  "year": 2021,
+  "name": "PICARD",
+  "claim": "@[citation:picard]{PICARD} constrains decoders by %[mechanism]{rejecting inadmissible tokens at each decoding step}.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "rejecting inadmissible tokens at each decoding step",
+    "basis": "quote",
+    "sourceQuote": "rejecting inadmissible tokens at each decoding step",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "synchromesh",
+  "title": "Synchromesh: Reliable Code Generation from Pre-trained Language Models",
+  "authors": "Poesia et al.",
+  "year": 2022,
+  "name": "Synchromesh",
+  "claim": "@[citation:synchromesh]{Synchromesh} samples programs under %[mechanism]{constraining the output to a set of valid programs in the target language}.",
+  "evidence": [
+   {
+    "field": "mechanism",
+    "claimValue": "constraining the output to a set of valid programs in the target language",
+    "basis": "quote",
+    "sourceQuote": "constraining the output to a set of valid programs in the target language",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "chan2026soundness",
+  "title": "Position: Logical Soundness is not a Reliable Criterion for Neurosymbolic Fact-Checking with LLMs",
+  "authors": "Chan et al.",
+  "year": 2026,
+  "name": "Chan et al.",
+  "claim": "@[citation:chan2026soundness]{Chan et al.} present a typology in which %[argues]{logically sound conclusions systematically elicit human inferences that are unsupported by the underlying premises}; nothing in a ProveML verdict speaks to what the prose between two verified claims implies.",
+  "evidence": [
+   {
+    "field": "argues",
+    "claimValue": "logically sound conclusions systematically elicit human inferences that are unsupported by the underlying premises",
+    "basis": "quote",
+    "sourceQuote": "logically sound conclusions systematically elicit human inferences that are unsupported by the underlying premises",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "kalai2024",
+  "title": "Calibrated Language Models Must Hallucinate",
+  "authors": "Kalai and Vempala",
+  "year": 2024,
+  "name": "Calibrated language models",
+  "claim": "@[citation:kalai2024]{Calibrated language models} must hallucinate: %[rate]{the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data}.",
+  "evidence": [
+   {
+    "field": "rate",
+    "claimValue": "the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data",
+    "basis": "quote",
+    "sourceQuote": "the probability of generating a hallucination is close to the fraction of facts that occur exactly once in the training data",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "kalai2025",
+  "title": "Why Language Models Hallucinate",
+  "authors": "Kalai, Nachum, Vempala and Zhang",
+  "year": 2025,
+  "name": "Why Language Models Hallucinate",
+  "claim": "@[citation:kalai2025]{Why Language Models Hallucinate} shows models %[behaviour]{guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty}.",
+  "evidence": [
+   {
+    "field": "behaviour",
+    "claimValue": "guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty",
+    "basis": "quote",
+    "sourceQuote": "guess when uncertain, producing plausible yet incorrect statements instead of admitting uncertainty",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "magesh2025",
+  "title": "Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools",
+  "authors": "Magesh et al.",
+  "year": 2025,
+  "name": "The legal-tools study",
+  "claim": "@[citation:magesh2025]{The legal-tools study} finds the leading tools %[rate]{hallucinate between 17% and 33% of the time}, against %[vendorClaims]{vendor claims of near-elimination}.",
+  "evidence": [
+   {
+    "field": "rate",
+    "claimValue": "hallucinate between 17% and 33% of the time",
+    "basis": "quote",
+    "sourceQuote": "the AI research tools made by LexisNexis (Lexis+ AI) and Thomson Reuters (Westlaw AI-Assisted Research and Ask Practical Law AI) each hallucinate between 17% and 33% of the time",
+    "sourceLocator": "abstract"
+   },
+   {
+    "field": "vendorClaims",
+    "claimValue": "vendor claims of near-elimination",
+    "basis": "quote",
+    "sourceQuote": "certain legal research providers have touted methods such as retrieval-augmented generation (RAG) as “eliminating” or “avoid[ing]” hallucinations, or guaranteeing “hallucination-free” legal citations",
+    "sourceLocator": "abstract"
+   }
+  ]
+ },
+ {
+  "id": "euaiact",
+  "title": "The EU AI Act: enforcement of the transparency rules",
+  "authors": "European Commission",
+  "year": 2026,
+  "name": "The EU AI Act",
+  "claim": "@[citation:euaiact]{The EU AI Act}: the Commission %[enforcement]{starts enforcing AI Act rules and new transparency requirements on 2 August}, %[transparencyScope]{requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it}.",
+  "evidence": [
+   {
+    "field": "enforcement",
+    "claimValue": "starts enforcing AI Act rules and new transparency requirements on 2 August",
+    "basis": "quote",
+    "sourceQuote": "Commission starts enforcing AI Act rules and new transparency requirements on 2 August",
+    "sourceLocator": "European Commission news item, title",
+    "note": "The Commission announcement of the 2 August 2026 start; captured 2026-09-01, after application, so the start it announces has occurred. An earlier policy-page sentence still said \"will come into effect\" and is not quoted for that reason."
+   },
+   {
+    "field": "transparencyScope",
+    "claimValue": "requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it",
+    "basis": "quote",
+    "sourceQuote": "new transparency rules will start to apply, requiring certain AI systems to tell users when they are interacting with AI and when content has been generated or altered by it",
+    "sourceLocator": "European Commission news item, lead"
+   }
+  ]
+ }
+]

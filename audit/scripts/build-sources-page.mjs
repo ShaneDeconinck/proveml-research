@@ -25,6 +25,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..');
 const store = JSON.parse(readFileSync(join(root, 'fact-stores/citation-characteristics.json'), 'utf8'));
 const sources = JSON.parse(readFileSync(join(root, 'references/source-claims.json'), 'utf8'));
+const relatedWork = JSON.parse(readFileSync(join(root, 'references/related-work-claims.json'), 'utf8'));
 
 // The store carries the characterisation fields; the entity name comes from
 // the source record, so a reader sees the work's name, not its key.
@@ -62,6 +63,16 @@ for (const [id, f] of Object.entries(rawFiles)) {
     if (d) captured[id] = d;
 }
 
+// The related-work subjects carry their own claim markup: the paper's
+// characterisation of each neighbouring system, evidenced from its abstract.
+const relatedSubjects = relatedWork.map((s) => ({
+    id: s.id,
+    title: s.title,
+    meta: `${s.authors}, ${s.year}.${captured[s.id] ? ` Snapshot captured ${captured[s.id]}.` : ''} In the store as citation:${s.id}:`,
+    claim: s.claim,
+    evidence: s.evidence.map((e) => (e.basis === 'quote' && rawFiles[s.id] ? { ...e, sourceHref: `../references/raw/${rawFiles[s.id]}` } : e)),
+}));
+
 const subjects = sources.map((s) => ({
     id: s.id,
     title: s.title,
@@ -70,8 +81,13 @@ const subjects = sources.map((s) => ({
     evidence: s.evidence.map((e) => (e.basis === 'quote' ? { ...e, sourceHref: `../references/raw/${rawFiles[s.id]}` } : e)),
 }));
 
+// A committed review bakes in: judged readings ship judged, and a new round
+// is only the diff.
+let committedReview = null;
+try { committedReview = JSON.parse(readFileSync(join(root, 'review.json'), 'utf8')); } catch {}
+
 export const inputs = {
-    store, subjects, snapshots,
+    store, subjects: [...subjects, ...relatedSubjects], snapshots, committedReview,
     name: 'review',
     storeName: 'citation-characteristics',
     subjectsWord: 'sources',
@@ -82,5 +98,5 @@ export const inputs = {
 if (process.argv[1] && import.meta.url === new URL('file://' + process.argv[1]).href) {
     const { html, verified, total } = reviewPage(inputs);
     writeFileSync(join(root, 'docs/sources.html'), html);
-    console.log(`sources.html: ${verified}/${total} claims verified across ${subjects.length} sources`);
+    console.log(`sources.html: ${verified}/${total} claims verified across ${subjects.length + relatedSubjects.length} sources`);
 }

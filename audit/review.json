@@ -1,5 +1,5 @@
 {
- "exported": "2026-08-31T18:32:26.982Z",
+ "exported": "2026-09-01T09:28:49.812Z",
  "judgements": {
   "099f95733d6ece47": {
    "verdict": "fair",
@@ -17,25 +17,25 @@
    "verdict": "fair",
    "src": "ixbrl",
    "field": "verificationClass",
-   "at": "2026-08-31T18:27:07.535Z"
+   "at": "2026-08-31T18:21:50.308Z"
   },
   "d740f529fca596e8": {
    "verdict": "fair",
    "src": "ixbrl",
    "field": "against",
-   "at": "2026-08-31T18:27:09.901Z"
+   "at": "2026-08-31T18:21:52.141Z"
   },
   "7dc95c4e3144b503": {
    "verdict": "fair",
    "src": "ixbrl",
    "field": "inlineSupport",
-   "at": "2026-08-31T18:27:10.968Z"
+   "at": "2026-08-31T18:21:53.708Z"
   },
   "f2cc4fafe30a8e08": {
    "verdict": "fair",
    "src": "ixbrl",
    "field": "structuredRecordBinding",
-   "at": "2026-08-31T18:27:12.018Z"
+   "at": "2026-08-31T18:21:58.843Z"
   },
   "703fc3bdb090702b": {
    "verdict": "fair",
@@ -420,18 +420,182 @@
    "src": "gemini-double-check",
    "field": "inferenceLayer",
    "at": "2026-08-31T18:31:28.133Z"
+  },
+  "0643e7c9083f1d50": {
+   "verdict": "fair",
+   "src": "rdfa",
+   "field": "mechanism",
+   "at": "2026-09-01T09:20:17.602Z"
+  },
+  "d2c9cb73fcfb68de": {
+   "verdict": "fair",
+   "src": "rdfa",
+   "field": "verification",
+   "at": "2026-09-01T09:20:23.802Z"
+  },
+  "844d922b778aff16": {
+   "verdict": "fair",
+   "src": "pcn2025",
+   "field": "tokens",
+   "at": "2026-09-01T09:20:33.685Z"
+  },
+  "2626b3814e2a9ff8": {
+   "verdict": "fair",
+   "src": "pcn2025",
+   "field": "verificationSite",
+   "at": "2026-09-01T09:20:44.568Z"
+  },
+  "55511709d38c867b": {
+   "verdict": "fair",
+   "src": "pcn2025",
+   "field": "policies",
+   "at": "2026-09-01T09:23:19.633Z"
+  },
+  "8b4b12571f73061f": {
+   "verdict": "fair",
+   "src": "pcn2025",
+   "field": "notCovered",
+   "at": "2026-09-01T09:23:29.250Z"
+  },
+  "e31694c4ff4cbe6b": {
+   "verdict": "fair",
+   "src": "symgen",
+   "field": "mechanism",
+   "at": "2026-09-01T09:23:51.366Z"
+  },
+  "c3df13ada711e3d3": {
+   "verdict": "fair",
+   "src": "claimlocked2026",
+   "field": "locks",
+   "at": "2026-09-01T09:24:10.699Z"
+  },
+  "76c9ab6c5675e5e6": {
+   "verdict": "fair",
+   "src": "claimlocked2026",
+   "field": "foreignText",
+   "at": "2026-09-01T09:24:20.716Z"
+  },
+  "39bde060581e9a25": {
+   "verdict": "fair",
+   "src": "verifin2026",
+   "field": "grounds",
+   "at": "2026-09-01T09:24:27.849Z"
+  },
+  "d8df82e64285b990": {
+   "verdict": "fair",
+   "src": "verifin2026",
+   "field": "solver",
+   "at": "2026-09-01T09:24:29.782Z"
+  },
+  "fc23cc966a4ff17a": {
+   "verdict": "fair",
+   "src": "datareferencing2026",
+   "field": "measures",
+   "at": "2026-09-01T09:24:38.999Z"
+  },
+  "105f6e727a3af53b": {
+   "verdict": "fair",
+   "src": "datareferencing2026",
+   "field": "detector",
+   "at": "2026-09-01T09:24:39.632Z"
+  },
+  "0f0b96ffa2a8b7ac": {
+   "verdict": "fair",
+   "src": "fever",
+   "field": "labels",
+   "at": "2026-09-01T09:24:47.149Z"
+  },
+  "4023a98cc5bb73ba": {
+   "verdict": "fair",
+   "src": "fever",
+   "field": "judge",
+   "at": "2026-09-01T09:24:50.048Z"
+  },
+  "4af3c3e56e5e8814": {
+   "verdict": "fair",
+   "src": "tabfact",
+   "field": "evidence",
+   "at": "2026-09-01T09:24:59.332Z"
+  },
+  "775b9990582405ae": {
+   "verdict": "fair",
+   "src": "tabfact",
+   "field": "labels",
+   "at": "2026-09-01T09:25:01.132Z"
+  },
+  "d389f0780b4cd97d": {
+   "verdict": "fair",
+   "src": "feverous",
+   "field": "claims",
+   "at": "2026-09-01T09:25:23.415Z"
+  },
+  "6682a754191b874b": {
+   "verdict": "fair",
+   "src": "feverous",
+   "field": "evidence",
+   "at": "2026-09-01T09:25:24.015Z"
+  },
+  "de4f3748117b8882": {
+   "verdict": "fair",
+   "src": "summac",
+   "field": "approach",
+   "at": "2026-09-01T09:25:43.564Z"
+  },
+  "a9c02440a2e140fd": {
+   "verdict": "fair",
+   "src": "alignscore",
+   "field": "basisFn",
+   "at": "2026-09-01T09:26:01.398Z"
+  },
+  "085f888a05ddddb9": {
+   "verdict": "fair",
+   "src": "minicheck",
+   "field": "approach",
+   "at": "2026-09-01T09:26:07.981Z"
+  },
+  "e79904989ff9ac63": {
+   "verdict": "fair",
+   "src": "halldetect2026",
+   "field": "mechanism",
+   "at": "2026-09-01T09:26:51.981Z"
+  },
+  "1f35e0342f02179c": {
+   "verdict": "fair",
+   "src": "evergreen2026",
+   "field": "mechanism",
+   "at": "2026-09-01T09:27:07.513Z"
+  },
+  "ad064b70f08c18b8": {
+   "verdict": "fair",
+   "src": "fullcite2026",
+   "field": "mechanism",
+   "at": "2026-09-01T09:27:48.863Z"
+  },
+  "b99a9dae4146a130": {
+   "verdict": "fair",
+   "src": "dtg2026",
+   "field": "slots",
+   "at": "2026-09-01T09:28:17.162Z"
+  },
+  "7cd3d2903ed7128a": {
+   "verdict": "fair",
+   "src": "picard",
+   "field": "mechanism",
+   "at": "2026-09-01T09:28:29.246Z"
+  },
+  "9a1d89cad3800d62": {
+   "verdict": "fair",
+   "src": "synchromesh",
+   "field": "mechanism",
+   "at": "2026-09-01T09:28:36.895Z"
+  },
+  "2039ec87e399c0f2": {
+   "verdict": "fair",
+   "src": "chan2026soundness",
+   "field": "argues",
+   "at": "2026-09-01T09:28:46.762Z"
   }
  },
  "signedBy": "Shane Deconinck",
- "signedAt": "2026-08-31T18:32:27.011Z",
- "attestation": {
-  "kind": "hcs",
-  "reviewSha256": "55fe083651fe2a3b2b8e93fa264c9e4e8f0e0a774bc89451040547b5dbc0ca36",
-  "network": "testnet",
-  "topicId": "0.0.10275637",
-  "sequenceNumber": "5",
-  "transactionId": "0.0.10132064-1788202153-496559277",
-  "hashscanTx": "https://hashscan.io/testnet/transaction/0.0.10132064-1788202153-496559277",
-  "mirror": "https://testnet.mirrornode.hedera.com/api/v1/topics/0.0.10275637/messages/5"
- }
+ "signedAt": "2026-09-01T09:28:49.822Z"
 }

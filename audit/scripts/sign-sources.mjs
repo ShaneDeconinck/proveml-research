@@ -21,6 +21,7 @@ const { review, summary, url } = await awaitReview({
     ...inputs,
     signedBy,
     port: 3960,
+    assets: { '/references/raw/': join(here, '../references/raw') },
     onServe: (u) => console.log(`sign-off page: ${u}`),
 });
 writeFileSync(join(here, '../review.json'), JSON.stringify(review, null, 1) + '\n');

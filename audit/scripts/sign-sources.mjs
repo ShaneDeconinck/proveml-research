@@ -9,6 +9,7 @@
  */
 import { writeFileSync } from 'fs';
 import { dirname, join } from 'path';
+import { tmpdir } from 'os';
 import { fileURLToPath } from 'url';
 import { awaitReview } from 'proveml/review-flow';
 import { inputs } from './build-sources-page.mjs';
@@ -24,6 +25,17 @@ const { review, summary, url } = await awaitReview({
     assets: { '/references/raw/': join(here, '../references/raw') },
     onServe: (u) => console.log(`sign-off page: ${u}`),
 });
-writeFileSync(join(here, '../review.json'), JSON.stringify(review, null, 1) + '\n');
-console.log(`signed: ${summary.judged}/${summary.total} judged, ${summary.flagged} flagged, ${summary.orphaned.length} orphaned — written to audit/review.json (served at ${url})`);
+// An accepted signature must never be lost to a write failure: if the
+// primary write fails (the volume dropped once, mid-sign), the review lands
+// in the fallback and the exit says where.
+const out = JSON.stringify(review, null, 1) + '\n';
+let dest = join(here, '../review.json');
+try {
+    writeFileSync(dest, out);
+} catch (error) {
+    dest = join(tmpdir(), `proveml-review-${Date.now()}.json`);
+    writeFileSync(dest, out);
+    console.error(`primary write failed (${error.code}); review saved to ${dest}`);
+}
+console.log(`signed: ${summary.judged}/${summary.total} judged, ${summary.flagged} flagged, ${summary.orphaned.length} orphaned — written to ${dest} (served at ${url})`);
 process.exit(summary.flagged > 0 || summary.judged < summary.total ? 1 : 0);

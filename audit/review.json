@@ -1,5 +1,5 @@
 {
- "exported": "2026-09-01T13:23:36.880Z",
+ "exported": "2026-09-01T13:24:58.064Z",
  "judgements": {
   "099f95733d6ece47": {
    "verdict": "fair",
@@ -633,5 +633,14 @@
   }
  },
  "signedBy": "Shane Deconinck",
- "signedAt": "2026-09-01T13:23:36.895Z"
+ "signedAt": "2026-09-01T13:24:58.080Z",
+ "attestation": {
+  "kind": "passkey",
+  "credentialId": "RMFqOluBiSTOv5W0vWTA2A",
+  "rpId": "localhost",
+  "userVerified": true,
+  "challenge": "CryuySj5nLKzT7uxm6qHzvqUdqgmv5bedaBOTMAospA",
+  "signedBy": "Shane Deconinck",
+  "at": "2026-09-01T13:24:58.097Z"
+ }
 }

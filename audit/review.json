@@ -421,12 +421,6 @@
    "field": "inferenceLayer",
    "at": "2026-08-31T18:31:28.133Z"
   },
-  "603e376a2da90584": {
-   "verdict": "fair",
-   "src": "ixbrl",
-   "field": "category",
-   "at": "2026-08-31T18:21:46.926Z"
-  },
   "0643e7c9083f1d50": {
    "verdict": "fair",
    "src": "rdfa",

@@ -128,7 +128,7 @@
   "title": "When LLMs Read Tables Carelessly: Measuring and Reducing Data Referencing Errors",
   "authors": "Yang et al.",
   "year": 2026,
-  "name": "Data referencing errors",
+  "name": "The data-referencing study",
   "claim": "@[citation:datareferencing2026]{The data-referencing study} measures %[measures]{incorrectly citing or omitting table values} and detects them with %[detector]{a lightweight 4B-parameter critic model}; ProveML detects the same class with a lookup.",
   "evidence": [
    {

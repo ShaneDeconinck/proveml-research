@@ -85,7 +85,7 @@
  "citation:verifin2026.name": "VeriFin",
  "citation:verifin2026.grounds": "operands in filed XBRL facts",
  "citation:verifin2026.solver": "Z3",
- "citation:datareferencing2026.name": "Data referencing errors",
+ "citation:datareferencing2026.name": "The data-referencing study",
  "citation:datareferencing2026.measures": "incorrectly citing or omitting table values",
  "citation:datareferencing2026.detector": "a lightweight 4B-parameter critic model",
  "citation:fever.name": "FEVER",

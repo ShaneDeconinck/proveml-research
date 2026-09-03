@@ -9,7 +9,7 @@ on 2026-09-02 and 03.
 ## The chain
 
 ```
-node tex-adapter.mjs ../proveml-spec.tex report/paper1-blocks.json   # the paper as blocks
+node tex-adapter.mjs ../proveml-spec.tex > report/paper1-blocks.json  # the paper as blocks
 node regenerate.mjs                 # rerun the scripts the paper's numbers come from; record what ran
 node build.mjs                      # bind, verify, render report/review-page.html and the receipts
 node artifact-gate.mjs report/review-page.html          # arm the hand-back for the artifact viewer

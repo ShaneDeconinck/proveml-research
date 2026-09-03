@@ -4,7 +4,7 @@
   "type": "module",
   "description": "The Vera review of ProveML paper 1: the build, its adapters, and the records that make the page reproducible.",
   "scripts": {
-    "adapt": "node tex-adapter.mjs ../proveml-spec.tex report/paper1-blocks.json",
+    "adapt": "node tex-adapter.mjs ../proveml-spec.tex > report/paper1-blocks.json",
     "build": "node build.mjs && node artifact-gate.mjs report/review-page.html && node stream-infer.mjs report/review-page-artifact.html",
     "regenerate": "node regenerate.mjs",
     "anchor": "node anchor-hedera.mjs && node anchor-rekor.mjs && node anchor-vana.mjs",

@@ -294,7 +294,7 @@ const bound = [
     ] },
 ];
 
-const blocks = JSON.parse(readFileSync('paper1-blocks.json', 'utf8'));
+const blocks = JSON.parse(readFileSync('report/paper1-blocks.json', 'utf8'));
 
 // What the page's own inference pass produced. Two sources, merged by paragraph:
 // report/infer-state.json (the db documents: state + proposed claims) and the

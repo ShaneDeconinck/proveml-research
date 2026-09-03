@@ -1,0 +1,21 @@
+{
+ "id": "residuals",
+ "snapshot": "frontier-residuals.txt",
+ "command": "node frontier-residuals.mjs",
+ "cwd": "<repo>/experiments",
+ "repo": {
+  "path": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/add0bb3a-68d2-4d84-8b06-a2b36cec76c9/scratchpad/repos/proveml-research",
+  "commit": "2be288a",
+  "branch": "main",
+  "uncommittedChanges": 0
+ },
+ "startedAt": "2026-09-03T10:19:14.578Z",
+ "durationMs": 99,
+ "exitCode": 0,
+ "stdoutSha256": "46975d57d0e669b8da6dbc37b2900af9733479cb2bce409e366bb139fe90fa15",
+ "stdoutBytes": 513,
+ "snapshotSha256": "46975d57d0e669b8da6dbc37b2900af9733479cb2bce409e366bb139fe90fa15",
+ "sameAsSnapshot": true,
+ "stderrTail": [],
+ "node": "v24.13.0"
+}

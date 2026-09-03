@@ -1,0 +1,1108 @@
+{
+ "p3311d00707a1": {
+  "at": "2026-09-03T07:18:45.415Z",
+  "claims": [
+   {
+    "kind": "absence",
+    "span": "Generative AI tools (Claude, GPT) were used during manuscript preparation for drafting, revision, literature search, and code review",
+    "why": "Need to verify no other AI tools were used beyond those named"
+   },
+   {
+    "kind": "absence",
+    "span": "No generative AI was used to create or alter images or artwork",
+    "why": "This exclusionary claim about images should be verifiable against the manuscript's image sources"
+   }
+  ],
+  "state": "checked"
+ },
+ "pddd9fc769715": {
+  "at": "2026-09-03T07:19:07.698Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "(2024)",
+    "why": "The specific date of publication/entry into force should be verified as the AI Act had a phased implementation"
+   },
+   {
+    "kind": "number",
+    "span": "Regulation (EU) 2024/1689",
+    "why": "The regulation number should be confirmed to ensure accurate citation"
+   },
+   {
+    "kind": "citation",
+    "span": "laying down harmonised rules on artificial intelligence",
+    "why": "The official title should be verified against the Official Journal to ensure it is quoted accurately"
+   }
+  ],
+  "state": "checked"
+ },
+ "p9e0eaf1cc689": {
+  "at": "2026-09-03T06:30:06.448Z",
+  "claims": [
+   {
+    "kind": "characterization",
+    "span": "lightweight Markdown extension",
+    "why": "No comparison provided to establish what makes it 'lightweight' relative to alternatives"
+   },
+   {
+    "kind": "causal",
+    "span": "places AI-generated claims inside a verifiable boundary",
+    "why": "The mechanism by which ProveML achieves verifiability needs clarification or citation"
+   },
+   {
+    "kind": "number",
+    "span": "Three inline constructs",
+    "why": "Should verify that exactly three constructs are described and implemented"
+   }
+  ],
+  "state": "checked"
+ },
+ "p92fc19a4eec9": {
+  "at": "2026-09-03T07:19:05.290Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "European Commission (2026)",
+    "why": "This appears to be a future date (if written before 2026) and should be verified as the actual publication date."
+   },
+   {
+    "kind": "date",
+    "span": "Adopted 20 July 2026",
+    "why": "This future adoption date needs verification to confirm the document has actually been published and the exact date is correct."
+   },
+   {
+    "kind": "citation",
+    "span": "Article 50 of the AI Act",
+    "why": "The specific article number should be verified to ensure it correctly references the AI Act's transparency obligations provisions."
+   }
+  ],
+  "state": "checked"
+ },
+ "p159474032401": {
+  "at": "2026-09-03T07:18:38.438Z",
+  "claims": [
+   {
+    "kind": "characterisations",
+    "span": "ProveML is designed against models that make mistakes, not against a model trying to mislead",
+    "why": "Claims about ProveML's design goals need confirmation that this distinction was explicitly stated or is accurately inferred"
+   },
+   {
+    "kind": "causal",
+    "span": "A generator that wanted to could choose a threshold that holds and wrap misleading words around it",
+    "why": "Technical claim about feasibility of this attack strategy should be demonstrated or cited"
+   },
+   {
+    "kind": "characterisations",
+    "span": "the verifier reads paths and values, not intent",
+    "why": "Needs confirmation that this accurately describes the verifier's actual operation"
+   },
+   {
+    "kind": "causal",
+    "span": "Each of these survives verification",
+    "why": "Claim that these three attack strategies would evade verification needs empirical demonstration"
+   }
+  ],
+  "state": "checked"
+ },
+ "pe3ae685c46c6": {
+  "at": "2026-09-03T07:17:30.390Z",
+  "claims": [
+   {
+    "kind": "other",
+    "span": "string equality for entities and facts, typed comparison for thresholds",
+    "why": "The specific comparison methods used need verification that they are correctly implemented as described."
+   },
+   {
+    "kind": "causal",
+    "span": "with no model in the loop, so it is exact, explainable and effectively free",
+    "why": "The causal claim that absence of a model causes exactness and explainability needs theoretical or empirical support."
+   },
+   {
+    "kind": "citation",
+    "span": "Section 4",
+    "why": "Reviewer should confirm Section 4 exists and actually contains the claimed details about verification."
+   },
+   {
+    "kind": "other",
+    "span": "NOT of an unverifiable condition is still unverifiable",
+    "why": "This logical rule should be formally proven or justified, not just asserted."
+   },
+   {
+    "kind": "citation",
+    "span": "Figure 3 shows the pipeline; Figure 4 the audit rendering",
+    "why": "Reviewer should confirm Figures 3 and 4 exist and actually depict what is claimed."
+   },
+   {
+    "kind": "citation",
+    "span": "The complete grammar is in Appendix B",
+    "why": "Reviewer should confirm Appendix B exists and contains the complete grammar."
+   }
+  ],
+  "state": "checked"
+ },
+ "p821ecc175f37": {
+  "at": "2026-09-03T07:17:54.763Z",
+  "claims": [
+   {
+    "kind": "citation",
+    "span": "The July study's full-context ablation shows what happens without slicing for small models \u2014 zero constructs on every query",
+    "why": "The specific findings attributed to 'the July study' need to be properly cited and verifiable."
+   },
+   {
+    "kind": "number",
+    "span": "zero constructs on every query",
+    "why": "The claim of complete failure (zero constructs across all queries) is a strong empirical claim that needs confirmation."
+   },
+   {
+    "kind": "absence",
+    "span": "we did not repeat it at the frontier",
+    "why": "This absence claim about not repeating the ablation for frontier models should be explained or justified."
+   }
+  ],
+  "state": "checked"
+ },
+ "pb9b5ded21572": {
+  "at": "2026-09-03T07:17:01.292Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "the canonical value, 391035000000",
+    "why": "This specific number needs verification for its significance and accuracy in context."
+   },
+   {
+    "kind": "absence",
+    "span": "no model in our runs produced one",
+    "why": "Absence claims require clarification about which models were tested and under what conditions."
+   },
+   {
+    "kind": "causal",
+    "span": "every rate we report measures entity and fact markup only",
+    "why": "The causal connection between no threshold construct being produced and what the rates measure needs support."
+   }
+  ],
+  "state": "checked"
+ },
+ "p9168529aa4b9": {
+  "at": "2026-09-03T07:17:13.273Z",
+  "claims": [
+   {
+    "kind": "other",
+    "span": "Section 3 shows why that is needed",
+    "why": "Claims that Section 3 provides justification for a design choice; needs verification that Section 3 actually addresses this"
+   }
+  ],
+  "state": "checked"
+ },
+ "pb04d5968e18a": {
+  "at": "2026-09-03T07:18:30.426Z",
+  "claims": [
+   {
+    "kind": "absence",
+    "span": "No run produced an inference construct",
+    "why": "Needs evidence that the authors actually checked all runs comprehensively for inference constructs"
+   },
+   {
+    "kind": "causal",
+    "span": "the threshold registry \u2014 the part of the design that constrains qualitative language \u2014 is exercised by the specification, the test suite and the worked examples, but not by the study",
+    "why": "The claim that the threshold registry is 'not exercised by the study' needs clarification about what constitutes exercise and why the study's approach differs"
+   }
+  ],
+  "state": "checked"
+ },
+ "p7dd124ba1dfb": {
+  "at": "2026-09-03T07:14:19.022Z",
+  "claims": [],
+  "state": "clean"
+ },
+ "p477c52f57a68": {
+  "at": "2026-09-03T07:19:20.752Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "W3C (2015)",
+    "why": "The publication year should be verified against the W3C official record."
+   },
+   {
+    "kind": "other",
+    "span": "RDFa 1.1 Primer \u2014 Third Edition",
+    "why": "The exact title and edition number should be confirmed against the W3C document."
+   },
+   {
+    "kind": "other",
+    "span": "W3C Working Group Note",
+    "why": "The document status should be verified to ensure it is indeed classified as a Working Group Note."
+   },
+   {
+    "kind": "other",
+    "span": "https://www.w3.org/TR/rdfa-primer/",
+    "why": "The URL should be verified to ensure it is current and points to the correct document version."
+   }
+  ],
+  "state": "checked"
+ },
+ "pa4da6bbe82e5": {
+  "at": "2026-09-03T07:19:15.871Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "2026",
+    "why": "This is a future date that cannot have been published yet; likely a typo for a past year."
+   },
+   {
+    "kind": "citation",
+    "span": "Proc. ACL Industry Track",
+    "why": "The specific venue and publication details should be verified against actual ACL proceedings."
+   },
+   {
+    "kind": "number",
+    "span": "doi:10.18653/v1/2026.acl-industry.138",
+    "why": "The DOI format and number should be verified as matching an actual published paper."
+   }
+  ],
+  "state": "checked"
+ },
+ "p8c37e45d4546": {
+  "at": "2026-09-03T07:16:58.594Z",
+  "claims": [
+   {
+    "kind": "citation",
+    "span": "LLMs hallucinate",
+    "why": "This is a widely-studied phenomenon but should cite key foundational work establishing the term and concept."
+   },
+   {
+    "kind": "citation",
+    "span": "fabricated citations, invented statistics, and misattributed claims",
+    "why": "These specific failure modes should be supported by citations to empirical studies demonstrating them."
+   },
+   {
+    "kind": "comparison",
+    "span": "increasingly difficult to distinguish from human-authored content",
+    "why": "This comparison needs empirical evidence or citation showing the trend over time and measurement methodology."
+   }
+  ],
+  "state": "checked"
+ },
+ "pe741fbff8bd7": {
+  "at": "2026-09-03T07:18:40.733Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "Inferences evaluate against a single entity context",
+    "why": "This is a claim about how inferences work that needs justification or citation to methodology."
+   },
+   {
+    "kind": "causal",
+    "span": "A claim like \"5TW, 4B, and 6WE all have low coverage\" cannot be verified as one inference; it must be decomposed into one inference per entity",
+    "why": "This prescriptive claim about verification procedures needs support or citation to evaluation methodology standards."
+   }
+  ],
+  "state": "checked"
+ },
+ "p02604e92860e": {
+  "at": "2026-09-03T07:18:05.683Z",
+  "claims": [
+   {
+    "kind": "citation",
+    "span": "FActScore, SAFE, FacTool, HallDetect",
+    "why": "These tools are characterized as 'Fact-checking' methods; reviewer should verify this categorization matches the tools' actual focus and capabilities."
+   },
+   {
+    "kind": "citation",
+    "span": "ClaimDB, Evergreen, VeriFin",
+    "why": "These are characterized as 'Data-grounded' approaches with specific capabilities; reviewer should confirm the accuracy of this categorization and feature assignments."
+   },
+   {
+    "kind": "citation",
+    "span": "iXBRL",
+    "why": "Characterized as 'Inline tagging' with deterministic and structured properties; reviewer should verify this is an accurate representation of iXBRL's actual purpose and capabilities."
+   },
+   {
+    "kind": "citation",
+    "span": "SymGen",
+    "why": "Listed as 'Inline tagging' with full deterministic, structured, and inline properties; reviewer should confirm these characterizations are accurate."
+   },
+   {
+    "kind": "citation",
+    "span": "PCN",
+    "why": "Characterized with specific feature checkmarks; reviewer should verify this tool exists and these capability assignments are correct."
+   },
+   {
+    "kind": "citation",
+    "span": "FinGround",
+    "why": "Characterized as 'Hybrid post-hoc' with partial deterministic capability; reviewer should confirm this categorization is accurate."
+   },
+   {
+    "kind": "citation",
+    "span": "ProveML",
+    "why": "Listed as having inference capability (the only one with a checkmark in that column); reviewer should verify this capability attribution."
+   }
+  ],
+  "state": "checked"
+ },
+ "p204418389cc5": {
+  "at": "2026-09-03T06:30:09.742Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "scored %[passRate]{5}%",
+    "why": "The specific pass rate of 5% should be verified against the actual data source or assessment results."
+   },
+   {
+    "kind": "causal",
+    "span": "is ?[r: IS_AT_RISK]{at risk}",
+    "why": "The basis for the at-risk classification should be confirmed\u2014what criteria or thresholds determine this status?"
+   }
+  ],
+  "state": "checked"
+ },
+ "p1dfb5a9bd125": {
+  "at": "2026-09-03T07:17:04.393Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "July 2026",
+    "why": "Future date that appears implausible for a paper under review; likely typo for 2024 or 2025"
+   },
+   {
+    "kind": "absence",
+    "span": "three frontier models",
+    "why": "The paragraph mentions measuring on three frontier models but never specifies which models these are"
+   },
+   {
+    "kind": "absence",
+    "span": "four small local models, a substitution baseline and two ablations",
+    "why": "The earlier study is described but the specific models and ablation details are not identified in this paragraph"
+   }
+  ],
+  "state": "checked"
+ },
+ "p56eb97e863e4": {
+  "at": "2026-09-03T07:18:27.809Z",
+  "claims": [
+   {
+    "kind": "characterization",
+    "span": "two domains (generated education, real SEC finance)",
+    "why": "Needs clarification on what constitutes 'generated education' domain and confirmation that SEC finance data is indeed used"
+   },
+   {
+    "kind": "number",
+    "span": "38 prompts",
+    "why": "Should be verified as correct count and representative of the evaluation scope"
+   },
+   {
+    "kind": "number",
+    "span": "3 models",
+    "why": "Should confirm which specific models were evaluated"
+   },
+   {
+    "kind": "number",
+    "span": "3 repeats",
+    "why": "Should verify that each configuration was repeated exactly 3 times"
+   },
+   {
+    "kind": "historical",
+    "span": "The explicit-record fact form was introduced after the first study and measured in the second (Finding 3)",
+    "why": "This claim about chronology of introducing the fact form should be verifiable against earlier study descriptions"
+   },
+   {
+    "kind": "absence",
+    "span": "one Opus 5 run shows",
+    "why": "Vague reference to inconsistent model behavior needs specific data/examples cited"
+   }
+  ],
+  "state": "checked"
+ },
+ "pbfbfdd6cf5f7": {
+  "at": "2026-09-03T07:17:40.862Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "July 2026 study",
+    "why": "Future date appears impossible unless this is speculative or the current year is after 2026; needs clarification."
+   },
+   {
+    "kind": "causal",
+    "span": "the same mismatch was present in the July 2026 study",
+    "why": "Claims a mismatch recurred in another study but provides no citation or reference to that study for verification."
+   },
+   {
+    "kind": "causal",
+    "span": "whose residual-error analysis it inflated",
+    "why": "Asserts that the mismatch inflated error analysis results but provides no quantitative evidence or detailed explanation of the mechanism."
+   }
+  ],
+  "state": "checked"
+ },
+ "p24cf5f87705f": {
+  "at": "2026-09-03T07:19:10.997Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "2026",
+    "why": "This is a future date that cannot yet exist; the regulation cannot be from 2026 if the current date is before then."
+   },
+   {
+    "kind": "date",
+    "span": "8 July 2026",
+    "why": "This is a future date that cannot yet exist and needs verification."
+   },
+   {
+    "kind": "citation",
+    "span": "Regulation (EU) 2026/1744",
+    "why": "The regulation number and year are future-dated and should be verified as accurate if this is meant to be a real reference."
+   },
+   {
+    "kind": "citation",
+    "span": "amending Regulations (EU) 2024/1689, (EU) 2018/1139 and (EU) 2023/1230",
+    "why": "These specific regulation numbers should be verified to confirm they exist and are correctly cited."
+   }
+  ],
+  "state": "checked"
+ },
+ "p43e0b63e5889": {
+  "at": "2026-09-03T07:18:10.251Z",
+  "claims": [
+   {
+    "kind": "citation",
+    "span": "Bedrock, Azure Groundedness, Vectara HHEM and similar",
+    "why": "These systems are characterized as using 'predominant probabilistic grounding mode' but the claim should be verified against actual documentation of these systems."
+   },
+   {
+    "kind": "citation",
+    "span": "Amazon Bedrock's separate Automated Reasoning feature adds formal policy checks but not inline claim markup",
+    "why": "This specific characterization of Bedrock's capabilities and limitations needs verification from official documentation."
+   },
+   {
+    "kind": "citation",
+    "span": "Claim-locked reporting ties language strength to statistical thresholds but does not compose them",
+    "why": "This characterization of how 'Claim-locked reporting' works should be sourced or verified."
+   },
+   {
+    "kind": "citation",
+    "span": "FinGround recomputes arithmetic claims deterministically but decomposes and types them with a model, hence Partial",
+    "why": "This technical characterization of FinGround's methodology should be confirmed against the actual system or its publication."
+   },
+   {
+    "kind": "citation",
+    "span": "XBRL's formula linkbase provides document-level calculation and assertion checks",
+    "why": "This claim about XBRL's capabilities should be verified against the XBRL specification."
+   },
+   {
+    "kind": "absence",
+    "span": "the iXBRL specification itself does not include claim-scoped inference",
+    "why": "This negative claim about iXBRL's absence of functionality should be confirmed against the iXBRL specification."
+   }
+  ],
+  "state": "checked"
+ },
+ "p8e47c0fc2437": {
+  "at": "2026-09-03T07:18:13.312Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "With ProveML markup, every marked claim carries a verification status and an addressable path",
+    "why": "Needs evidence that ProveML markup actually enables this capability as described"
+   },
+   {
+    "kind": "causal",
+    "span": "a reader \u2014 or an auditor months later \u2014 can ask of any number where it came from and get an answer that does not depend on a model",
+    "why": "Requires demonstration or evidence that this functionality works as claimed"
+   },
+   {
+    "kind": "absence",
+    "span": "a property the syntax makes available, not one we evaluated",
+    "why": "Author claims not to have evaluated this feature but should clarify what evidence supports that it is available"
+   }
+  ],
+  "state": "checked"
+ },
+ "p3d7d67333e36": {
+  "at": "2026-09-03T07:18:32.693Z",
+  "claims": [
+   {
+    "kind": "other",
+    "span": "a claim says 391035000000, never \"$391 billion\"",
+    "why": "This prescriptive rule about claim formatting needs clarification on whether it applies universally or only to certain domains."
+   },
+   {
+    "kind": "causal",
+    "span": "a tolerance in the verifier would make \"about 18\" verify against 18.5",
+    "why": "This causal claim about verification tolerance needs confirmation that this is actually how such systems work in practice."
+   }
+  ],
+  "state": "checked"
+ },
+ "p6b613b163d32": {
+  "at": "2026-09-03T07:17:07.858Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "three constructs",
+    "why": "The exact count of constructs should be verified against the actual specification."
+   },
+   {
+    "kind": "other",
+    "span": "using characters (@, %, ?)",
+    "why": "Should confirm these specific characters are the ones used in the final specification."
+   },
+   {
+    "kind": "comparison",
+    "span": "do not conflict with standard Markdown syntax",
+    "why": "This claim about Markdown compatibility needs verification against the Markdown specification being referenced."
+   },
+   {
+    "kind": "causal",
+    "span": "LLMs produce Markdown fluently",
+    "why": "This generalization about LLM capabilities should be supported with evidence or citations."
+   },
+   {
+    "kind": "comparison",
+    "span": "existing renderers pass the constructs through unchanged",
+    "why": "This claim about renderer behavior should be tested/verified across specific renderers mentioned."
+   }
+  ],
+  "state": "checked"
+ },
+ "pf8b6fe058dfe": {
+  "at": "2026-09-03T07:19:13.238Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "Liu, Stammbach and Henderson (2026)",
+    "why": "2026 is in the future; publication date may be incorrect or preprint may not yet exist"
+   },
+   {
+    "kind": "number",
+    "span": "arXiv:2606.21155",
+    "why": "arXiv identifier format should be verified; month 06 and day 21 with year 2026 seems inconsistent"
+   }
+  ],
+  "state": "checked"
+ },
+ "pf5666cb77fc0": {
+  "at": "2026-09-03T07:18:56.486Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "The 20 errors span six categories",
+    "why": "The exact composition and count of error categories should be verified against the experimental data."
+   },
+   {
+    "kind": "number",
+    "span": "ProveML detected all 20, yielding a 100% error detection rate",
+    "why": "The 100% detection rate should be confirmed against the actual experimental results."
+   },
+   {
+    "kind": "causal",
+    "span": "deterministic equality checking",
+    "why": "The claim that 100% detection is a consequence of deterministic equality checking assumes the mechanism is correctly described."
+   },
+   {
+    "kind": "comparison",
+    "span": "a canonicalization difference such as 18.50 vs.\\ 18.5 is flagged despite numeric equality",
+    "why": "This specific example behavior should be verified to ensure it accurately represents ProveML's actual handling of formatting differences."
+   },
+   {
+    "kind": "citation",
+    "span": "correction-loop results in Section 3",
+    "why": "The existence and relevance of correction-loop results in Section 3 should be confirmed."
+   }
+  ],
+  "state": "checked"
+ },
+ "p04f963891567": {
+  "at": "2026-09-03T06:30:12.720Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "effectively free (microseconds per claim)",
+    "why": "The specific latency claim needs measurement evidence to confirm it applies generally."
+   },
+   {
+    "kind": "causal",
+    "span": "the same verifier can audit text it did not generate",
+    "why": "This claim about verifier capability needs confirmation that it actually works across different generation contexts."
+   },
+   {
+    "kind": "other",
+    "span": "the share of the numbers in a text that sit inside a claim at all",
+    "why": "The definition of 'coverage' here needs clarification about what constitutes 'numbers' and how this metric is computed."
+   }
+  ],
+  "state": "checked"
+ },
+ "pe7c544e96763": {
+  "at": "2026-09-03T07:18:21.396Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "Where subjects are identifiers by construction, as on a ledger, the gap closes",
+    "why": "The claim that identifier-based systems close this verification gap needs evidence or examples to confirm the mechanism works as stated."
+   },
+   {
+    "kind": "causal",
+    "span": "where they are personal names, it does not",
+    "why": "The claim that personal names inherently cannot close this gap needs justification or citation to support why this is structurally unavoidable."
+   }
+  ],
+  "state": "checked"
+ },
+ "p74cce30d09bc": {
+  "at": "2026-09-03T07:19:02.709Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "European AI Office (2026)",
+    "why": "A June 2026 publication date is in the future and may be speculative or contain an error."
+   },
+   {
+    "kind": "date",
+    "span": "June 2026",
+    "why": "This future date should be verified as the actual or expected publication date."
+   },
+   {
+    "kind": "other",
+    "span": "https://digital-strategy.ec.europa.eu/en/faqs/signing-code-practice-transparency-ai-generated-content",
+    "why": "The URL should be checked to confirm it is active and contains the referenced document."
+   }
+  ],
+  "state": "checked"
+ },
+ "pd98db4522315": {
+  "at": "2026-09-03T07:18:00.518Z",
+  "claims": [
+   {
+    "kind": "other",
+    "span": "The first limitation in Section 6",
+    "why": "Reader needs to verify that Section 6 actually contains this limitation and that it's accurately characterized."
+   },
+   {
+    "kind": "other",
+    "span": "verified means consistent with the store, not true",
+    "why": "This is a technical definition that should be confirmed as the intended meaning in the referenced section."
+   },
+   {
+    "kind": "other",
+    "span": "This paper applies the layer to itself",
+    "why": "Reviewer should verify that the paper actually implements and demonstrates this self-application claim."
+   },
+   {
+    "kind": "other",
+    "span": "its related-work characterisations are ProveML claims against a citation store whose evidence readings ran through exactly this page, quote by quote",
+    "why": "This is a significant methodological claim that should be verified as actually implemented in the paper's related work section."
+   }
+  ],
+  "state": "checked"
+ },
+ "p3135fb71ae89": {
+  "at": "2026-09-03T07:17:57.290Z",
+  "claims": [
+   {
+    "kind": "other",
+    "span": "A deployment adds three things to an existing LLM call: the store, a system prompt that asks for the markup, and the verifier on the response.",
+    "why": "The claim that a deployment 'adds three things' needs confirmation that these are exhaustive and that this characterization is accurate for the system being described."
+   },
+   {
+    "kind": "other",
+    "span": "The verify-fix loop and the rendering layer are optional on top.",
+    "why": "The claim that these components are 'optional' needs confirmation about what configurations are actually supported and whether true optionality exists."
+   }
+  ],
+  "state": "checked"
+ },
+ "p50e21027e8c4": {
+  "at": "2026-09-03T07:17:32.342Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "every claim is checked against the fact store and threshold registry",
+    "why": "Claims about what ProveML does functionally should be verified against the actual system implementation and documentation."
+   },
+   {
+    "kind": "other",
+    "span": "optional correction loop",
+    "why": "The existence and nature of this correction loop feature should be confirmed in the system design."
+   }
+  ],
+  "state": "checked"
+ },
+ "pa85e4264d83d": {
+  "at": "2026-09-03T07:17:20.954Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "Tolerance in the verifier would have bought the same readability at the price of the guarantee",
+    "why": "This counterfactual claim about trade-offs needs evidence or justification that tolerance actually causes loss of guarantees"
+   },
+   {
+    "kind": "other",
+    "span": "Figure 2",
+    "why": "Reference to a figure that should be verified to exist and actually illustrate the described concept"
+   }
+  ],
+  "state": "checked"
+ },
+ "p4680f0fa84ef": {
+  "at": "2026-09-03T07:17:18.709Z",
+  "claims": [
+   {
+    "kind": "citation",
+    "span": "Entity-Attribute-Value pattern",
+    "why": "Should verify this is the correct name for this pattern and cite its origin."
+   },
+   {
+    "kind": "other",
+    "span": "flat key-value index",
+    "why": "Should clarify whether this is a novel contribution or standard practice that needs citation."
+   }
+  ],
+  "state": "checked"
+ },
+ "p6c490065aef7": {
+  "at": "2026-09-03T07:17:26.310Z",
+  "claims": [
+   {
+    "kind": "characterization",
+    "span": "Core operators cover numeric comparison and ranges",
+    "why": "Needs verification that the table actually shows this categorization and that these are the only core operator functions"
+   },
+   {
+    "kind": "characterization",
+    "span": "Extended operators handle categorical data, missing values, and cross-entity comparison",
+    "why": "Needs verification that extended operators in the table actually handle all three of these types of operations as claimed"
+   }
+  ],
+  "state": "checked"
+ },
+ "p244eeb17f122": {
+  "at": "2026-09-03T07:18:52.725Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "we injected 20 deliberate errors",
+    "why": "The specific count of 20 errors should be verified as accurate and representative."
+   },
+   {
+    "kind": "causal",
+    "span": "measured whether the verifier caught each one",
+    "why": "Needs clarification on what constitutes 'caught' and whether all 20 errors were actually detectable/catchable by design."
+   }
+  ],
+  "state": "checked"
+ },
+ "pc20aaeee25c4": {
+  "at": "2026-09-03T07:17:42.967Z",
+  "claims": [
+   {
+    "kind": "absence",
+    "span": "neither follows from the tables above",
+    "why": "Needs clarification on what information is actually present in the tables and what gaps exist."
+   },
+   {
+    "kind": "causal",
+    "span": "both are load-bearing for anyone deciding whether to adopt the mechanism",
+    "why": "Assumes that cost and deployment requirements are the primary decision factors without evidence or citation."
+   }
+  ],
+  "state": "checked"
+ },
+ "pbc8d9e465ccb": {
+  "at": "2026-09-03T07:17:23.041Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "domain experts think in named ranges with semantic labels, not operator expressions",
+    "why": "This is a claim about expert cognition that would benefit from citation or evidence."
+   },
+   {
+    "kind": "other",
+    "span": "a deliberately small vocabulary (Table 1)",
+    "why": "Reference to Table 1 should be verified to exist and contain the claimed vocabulary."
+   }
+  ],
+  "state": "checked"
+ },
+ "pfa2146d8baef": {
+  "at": "2026-09-03T07:17:35.530Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "Three frontier models, three runs each",
+    "why": "Needs confirmation of which three models were selected and whether three runs is sufficient for statistical reliability"
+   },
+   {
+    "kind": "other",
+    "span": "mean \u00b1 sample sd over runs",
+    "why": "Should clarify whether this is sample standard deviation or standard error, as sample sd may not be appropriate for reporting across runs"
+   },
+   {
+    "kind": "other",
+    "span": "after at most one correction",
+    "why": "Needs clarification on what constitutes a 'correction' and whether one correction is a meaningful threshold"
+   },
+   {
+    "kind": "other",
+    "span": "by the verifier's own definition",
+    "why": "Raises concern about whether the definition of 'standalone numbers' is transparent, documented, and reproducible"
+   }
+  ],
+  "state": "checked"
+ },
+ "pbce67713462b": {
+  "at": "2026-09-03T07:17:45.479Z",
+  "claims": [
+   {
+    "kind": "number",
+    "span": "the example registry that ships with the implementation has twenty-one entries",
+    "why": "Specific count should be verified against the actual implementation artifact."
+   },
+   {
+    "kind": "absence",
+    "span": "neither benchmark needed one (no run produced an inference)",
+    "why": "Claim that benchmarks produced no inferences needs verification against benchmark results."
+   },
+   {
+    "kind": "causal",
+    "span": "its cost falls entirely on the deployments that use it",
+    "why": "Causal claim about cost allocation should be supported with evidence or analysis."
+   }
+  ],
+  "state": "checked"
+ },
+ "p0d4b33921aff": {
+  "at": "2026-09-03T07:17:24.037Z",
+  "claims": [],
+  "state": "clean"
+ },
+ "p35b279685cf4": {
+  "at": "2026-09-03T07:18:35.143Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "The tokenizer silently skips constructs with unmatched brackets or braces",
+    "why": "Needs confirmation that this is the actual behavior and not a mischaracterization of the tokenizer's design."
+   },
+   {
+    "kind": "absence",
+    "span": "Robustness to diverse malformed markup deserves further stress-testing",
+    "why": "Implies current stress-testing is insufficient; needs evidence that adequate stress-testing has not been performed."
+   }
+  ],
+  "state": "checked"
+ },
+ "pbf0b5e10bd40": {
+  "at": "2026-09-03T10:10:42.300Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "Organizations are deploying LLMs in consequential settings under regulatory pressure",
+    "why": "The causal link between regulatory pressure and LLM deployment needs evidence rather than assertion."
+   },
+   {
+    "kind": "comparison",
+    "span": "most generated text carries no machine-checkable link between individual claims and the underlying data",
+    "why": "The claim that 'most' lack this capability needs quantification or citation of evidence."
+   },
+   {
+    "kind": "comparison",
+    "span": "Each generation of models produces more fluent output",
+    "why": "This generational comparison across all model families needs evidence or citation."
+   },
+   {
+    "kind": "absence",
+    "span": "none can reliably signal its own uncertainty",
+    "why": "A universal negative claim about all LLMs' capability requires comprehensive support or careful qualification."
+   }
+  ],
+  "state": "clean"
+ },
+ "p3937ce563487": {
+  "at": "2026-09-03T07:17:11.180Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "Binding is structural, never controlled by the LLM",
+    "why": "Needs clarification on what 'controlled by the LLM' means and evidence that binding truly operates this way in the system"
+   },
+   {
+    "kind": "other",
+    "span": "a fact inside scoped braces binds to that entity (lexical scope)",
+    "why": "Technical claim about scoping behavior that should be formally defined or demonstrated with examples"
+   },
+   {
+    "kind": "other",
+    "span": "a fact outside binds to the last simple-form entity at the current depth (linear carry-forward)",
+    "why": "Technical claim about binding resolution that needs formal specification or empirical validation"
+   },
+   {
+    "kind": "causal",
+    "span": "closing a scope restores the context that was in force when it opened",
+    "why": "Claim about system behavior should be verified with examples or formal proof"
+   }
+  ],
+  "state": "checked"
+ },
+ "pa98c9832b8ab": {
+  "at": "2026-09-03T07:18:43.224Z",
+  "claims": [
+   {
+    "kind": "other",
+    "span": "Three inline constructs link every claim to an addressable path in a data source",
+    "why": "What are the specific three constructs and do they actually achieve universal addressability for all claims?"
+   },
+   {
+    "kind": "causal",
+    "span": "Verification is deterministic, with no model in the loop",
+    "why": "How is determinism achieved and what mechanisms ensure no model involvement in verification?"
+   },
+   {
+    "kind": "other",
+    "span": "An optional threshold registry extends this to qualitative judgments through composable primitives",
+    "why": "What evidence shows this extension actually works for qualitative judgments and what are the composable primitives?"
+   }
+  ],
+  "state": "checked"
+ },
+ "p2bedcfe0a574": {
+  "at": "2026-09-03T07:19:17.808Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "(2026)",
+    "why": "Future publication date appears impossible and should be verified"
+   },
+   {
+    "kind": "number",
+    "span": "arXiv:2608.05823",
+    "why": "The arXiv ID format suggests August 2026, which conflicts with the publication date and should be confirmed"
+   }
+  ],
+  "state": "checked"
+ },
+ "p9dbb26d4ed06": {
+  "at": "2026-09-03T07:18:23.983Z",
+  "claims": [
+   {
+    "kind": "absence",
+    "span": "Semantic unit equivalence (e.g., mg/dL vs mmol/L) and standardized vocabularies (UCUM, ISO 4217) are deferred to future work",
+    "why": "Needs confirmation that these features are genuinely absent in the current system and not implemented elsewhere"
+   },
+   {
+    "kind": "other",
+    "span": "standardized vocabularies (UCUM, ISO 4217)",
+    "why": "ISO 4217 is for currency codes, not units of measurement; this pairing seems incorrect or needs clarification"
+   }
+  ],
+  "state": "checked"
+ },
+ "p896a976f5e63": {
+  "at": "2026-09-03T07:18:19.121Z",
+  "claims": [
+   {
+    "kind": "citation",
+    "span": "The review layer described under Deployment",
+    "why": "The paragraph references a 'Deployment' section that should be verified to exist and contain the described review layer details."
+   },
+   {
+    "kind": "other",
+    "span": "evidence per store value, a human sign-off saved under a hash of exactly what it judged, expiring when the evidence changes",
+    "why": "This describes a technical mechanism that should be confirmed to be accurately characterized and actually implemented as described."
+   }
+  ],
+  "state": "checked"
+ },
+ "p6a68cf0c5ddb": {
+  "at": "2026-09-03T07:19:23.014Z",
+  "claims": [
+   {
+    "kind": "date",
+    "span": "XBRL International (2013)",
+    "why": "The publication date should be verified against the actual document release date."
+   },
+   {
+    "kind": "citation",
+    "span": "Inline XBRL Part 1: Specification 1.1",
+    "why": "The exact title and version number should be confirmed to match the official specification."
+   },
+   {
+    "kind": "date",
+    "span": "rec-2013-11-18",
+    "why": "The specific recommendation date in the URL should be verified as accurate."
+   }
+  ],
+  "state": "checked"
+ },
+ "p2f52ccd96cbe": {
+  "at": "2026-09-03T07:19:00.176Z",
+  "claims": [
+   {
+    "kind": "absence",
+    "span": "the reference parser",
+    "why": "No citation provided for what constitutes the 'reference parser' or where it can be found"
+   },
+   {
+    "kind": "absence",
+    "span": "the reference implementation and test suite",
+    "why": "No citation or repository link provided for accessing the reference implementation and test suite"
+   },
+   {
+    "kind": "causal",
+    "span": "the reference tokenizer is deliberately more permissive than this grammar",
+    "why": "Claims about the design rationale of the tokenizer should be sourced or attributed to a design document"
+   },
+   {
+    "kind": "other",
+    "span": "it accepts identifiers beyond the character classes below",
+    "why": "This behavioral claim about the tokenizer should be verifiable against the actual implementation"
+   },
+   {
+    "kind": "other",
+    "span": "tolerates a missing space after the inference label colon",
+    "why": "This specific parsing behavior should be confirmed in the reference implementation"
+   },
+   {
+    "kind": "other",
+    "span": "the tokenizer brace-counts entity display text",
+    "why": "This specific implementation detail should be verified against the reference code"
+   }
+  ],
+  "state": "checked"
+ },
+ "pe4169ec07994": {
+  "at": "2026-09-03T07:17:16.436Z",
+  "claims": [
+   {
+    "kind": "causal",
+    "span": "condition names a threshold from a registry defined outside generation",
+    "why": "Needs clarification on what defines 'outside generation' and how this constraint is technically enforced"
+   },
+   {
+    "kind": "causal",
+    "span": "the model cannot invent a comparison value, a bound, or a direction",
+    "why": "Claims about model behavior need empirical validation or citation to demonstrate this is actually enforced"
+   },
+   {
+    "kind": "causal",
+    "span": "an unregistered name is an error rather than a claim",
+    "why": "Needs confirmation of whether this is a design choice, implementation detail, or empirical finding"
+   }
+  ],
+  "state": "checked"
+ },
+ "p9d71395fb977": {
+  "at": "2026-09-03T07:17:37.746Z",
+  "claims": [
+   {
+    "kind": "comparison",
+    "span": "adds two rules to the first",
+    "why": "The specific nature and wording of these two rules should be verified against the first prompt"
+   },
+   {
+    "kind": "comparison",
+    "span": "Everything else \u2014 models, benchmarks, slices, runs, correction budget \u2014 is identical to Table 2",
+    "why": "This broad equivalence claim requires confirmation that all these dimensions are genuinely identical between tables"
+   }
+  ],
+  "state": "checked"
+ }
+}

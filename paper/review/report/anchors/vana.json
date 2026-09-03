@@ -1,0 +1,39 @@
+{
+ "network": "vana-moksha",
+ "chainId": 14800,
+ "registry": "0x8C8788f98385F6ba1adD4234e551ABba0f82Cb7C",
+ "owner": "0xde726aa716f369743f9917Ae60E4B27e17fdfad0",
+ "fileId": "1897908",
+ "url": "data:application/json;base64,eyJ2IjoxLCJraW5kIjoicHJvdmVtbC1yZXZpZXctYW5jaG9yIiwicmV2aWV3IjoiNGMwOWMyNThiMTIwYmNmZTBjMzA2YzE3ZjdiMzhiM2ZlMjYwNTk3MzkxNDRhYTZkOTRlMzU0MGNmZTY4YzAzOCIsIm91dHB1dCI6IjM4YmVjMTBjNjQ3ZWM0ODg1MTU0YjRlY2VlYzVkZTdlZTc3YjQzYTZiNGU3MWM1MTI5OGU0MGVjNGI3YjJkOWIiLCJyb290c1NoYTI1NiI6ImVjMDJkYTMyOTkyMzEwZDkxMThlYTZkMmYyYTRiZGM2NWY1MGIyMTE3OWU1YWU1Y2NjY2MyYzlmM2U5Y2Q2Y2QiLCJzb3VyY2VzIjo2NiwiYXQiOiIyMDI2LTA5LTAzVDIxOjQ1OjEwLjgyMVoifQ==",
+ "addFileTx": "0xc8483a24feef23332a78c3eb0262a556b388f13078e1915d4e54c7bdc1030f49",
+ "addFileBlock": 8885547,
+ "addProofTx": "0xf1c7b5c0b207351c46b7f8b5cd279c862eb41553a8dc99fd935a0bbb416e9d5a",
+ "addProofBlock": 8885549,
+ "fileReadBack": {
+  "id": "1897908",
+  "owner": "0xde726aa716f369743f9917Ae60E4B27e17fdfad0",
+  "url": "data:application/json;base64,eyJ2IjoxLCJraW5kIjoicHJvdmVtbC1yZXZpZXctYW5jaG9yIiwicmV2aWV3IjoiNGMwOWMyNThiMTIwYmNmZTBjMzA2YzE3ZjdiMzhiM2ZlMjYwNTk3MzkxNDRhYTZkOTRlMzU0MGNmZTY4YzAzOCIsIm91dHB1dCI6IjM4YmVjMTBjNjQ3ZWM0ODg1MTU0YjRlY2VlYzVkZTdlZTc3YjQzYTZiNGU3MWM1MTI5OGU0MGVjNGI3YjJkOWIiLCJyb290c1NoYTI1NiI6ImVjMDJkYTMyOTkyMzEwZDkxMThlYTZkMmYyYTRiZGM2NWY1MGIyMTE3OWU1YWU1Y2NjY2MyYzlmM2U5Y2Q2Y2QiLCJzb3VyY2VzIjo2NiwiYXQiOiIyMDI2LTA5LTAzVDIxOjQ1OjEwLjgyMVoifQ==",
+  "schemaId": "0",
+  "addedAtBlock": "8885547"
+ },
+ "proofReadBack": {
+  "signature": "0x",
+  "metadata": "",
+  "proofUrl": "",
+  "instruction": "",
+  "score": "0"
+ },
+ "explorerFile": "https://moksha.vanascan.io/tx/0xc8483a24feef23332a78c3eb0262a556b388f13078e1915d4e54c7bdc1030f49",
+ "explorerProof": "https://moksha.vanascan.io/tx/0xf1c7b5c0b207351c46b7f8b5cd279c862eb41553a8dc99fd935a0bbb416e9d5a",
+ "explorerRegistry": "https://moksha.vanascan.io/address/0x8C8788f98385F6ba1adD4234e551ABba0f82Cb7C",
+ "payload": {
+  "v": 1,
+  "kind": "proveml-review-anchor",
+  "review": "4c09c258b120bcfe0c306c17f7b38b3fe26059739144aa6d94e3540cfe68c038",
+  "output": "38bec10c647ec4885154b4eceec5de7ee77b43a6b4e71c51298e40ec4b7b2d9b",
+  "rootsSha256": "ec02da32992310d9118ea6d2f2a4bdc65f50b21179e5ae5ccccc2c9f3e9cd6cd",
+  "sources": 66,
+  "at": "2026-09-03T21:45:10.821Z"
+ },
+ "confirmedByChainAt": "2026-09-03T21:45:31.095Z"
+}

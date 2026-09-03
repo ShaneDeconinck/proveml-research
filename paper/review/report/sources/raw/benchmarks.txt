@@ -1,0 +1,6 @@
+education prompts: 28
+finance prompts: 10
+finance entities: 0
+finance fields: 0
+finance source: SEC EDGAR XBRL (FY2025 10-K filings)
+finance snapshot: sec-edgar-fy2025

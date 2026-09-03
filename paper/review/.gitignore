@@ -1,0 +1,7 @@
+report/*.html
+report/manifests/
+report/review-page-proofs.json
+report/infer-db/
+report/*.log
+report/paper1-blocks.json
+node_modules/

@@ -1,0 +1,22 @@
+{
+ "network": "testnet",
+ "topicId": "0.0.10275637",
+ "sequenceNumber": 7,
+ "consensusTimestamp": "1788470710.799698970",
+ "runningHash": "WNrKeKR1PgglLn2ikGbDBMwWmt7/mTlssumHNNrQ08CKreGuIIQuakv+Xy3KPe9y",
+ "payerAccountId": "0.0.10132064",
+ "transactionId": "0.0.10132064-1788470702-863049633",
+ "mirror": "https://testnet.mirrornode.hedera.com/api/v1/topics/0.0.10275637/messages/7",
+ "hashscanTopic": "https://hashscan.io/testnet/topic/0.0.10275637",
+ "hashscanTx": "https://hashscan.io/testnet/transaction/0.0.10132064-1788470702-863049633",
+ "payload": {
+  "v": 1,
+  "kind": "proveml-review-anchor",
+  "review": "4c09c258b120bcfe0c306c17f7b38b3fe26059739144aa6d94e3540cfe68c038",
+  "output": "38bec10c647ec4885154b4eceec5de7ee77b43a6b4e71c51298e40ec4b7b2d9b",
+  "rootsSha256": "b51696e3df389947e725b93f7ca3c2969b3387dc5834870ea3b94f1cda197e7c",
+  "sources": 65,
+  "at": "2026-09-03T21:25:09.110Z"
+ },
+ "confirmedByMirrorAt": "2026-09-03T21:25:14.505Z"
+}

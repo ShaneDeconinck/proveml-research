@@ -1,0 +1,21 @@
+{
+ "id": "benchmarks",
+ "snapshot": "benchmarks.txt",
+ "command": "python3 meta-sources.py <repo> benchmarks",
+ "cwd": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/aaffe3ee-a529-4c8f-bc96-24f5cec9bb0e/scratchpad/vera-paper1",
+ "repo": {
+  "path": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/add0bb3a-68d2-4d84-8b06-a2b36cec76c9/scratchpad/repos/proveml-research",
+  "commit": "2be288a",
+  "branch": "main",
+  "uncommittedChanges": 0
+ },
+ "startedAt": "2026-09-03T10:19:15.114Z",
+ "durationMs": 103,
+ "exitCode": 0,
+ "stdoutSha256": "a7564207aa2aef8b3dd0bfb02e8954268e6888160bf4dca387d8e78894b3c8b3",
+ "stdoutBytes": 168,
+ "snapshotSha256": "a7564207aa2aef8b3dd0bfb02e8954268e6888160bf4dca387d8e78894b3c8b3",
+ "sameAsSnapshot": true,
+ "stderrTail": [],
+ "node": "v24.13.0"
+}

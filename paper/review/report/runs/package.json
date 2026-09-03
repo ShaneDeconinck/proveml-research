@@ -1,0 +1,21 @@
+{
+ "id": "package",
+ "snapshot": "package.txt",
+ "command": "python3 -c import json;d=json.load(open('/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/aaffe3ee-a529-4c8f-bc96-24f5cec9bb0e/scratchpad/proveml-pkg/package.json'));print('name',d.get('name'));print('version',d.get('version'));print('dependencies',json.dumps(d.get('dependencies',{})))",
+ "cwd": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/aaffe3ee-a529-4c8f-bc96-24f5cec9bb0e/scratchpad/vera-paper1",
+ "repo": {
+  "path": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/add0bb3a-68d2-4d84-8b06-a2b36cec76c9/scratchpad/repos/proveml-research",
+  "commit": "2be288a",
+  "branch": "main",
+  "uncommittedChanges": 0
+ },
+ "startedAt": "2026-09-03T10:19:15.308Z",
+ "durationMs": 77,
+ "exitCode": 0,
+ "stdoutSha256": "342bb5e3dd041b5ed25bc89f3e707fd27847eb7a3e7c82ab74f50b391555993d",
+ "stdoutBytes": 43,
+ "snapshotSha256": "342bb5e3dd041b5ed25bc89f3e707fd27847eb7a3e7c82ab74f50b391555993d",
+ "sameAsSnapshot": true,
+ "stderrTail": [],
+ "node": "v24.13.0"
+}

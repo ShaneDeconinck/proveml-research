@@ -1,0 +1,85 @@
+{
+ "source": "http://127.0.0.1:8791",
+ "grant": {
+  "version": "0.1.0",
+  "grant_id": "grt_c8f5bff5",
+  "issued_at": "2026-09-03T21:51:16.782Z",
+  "subject": {
+   "id": "did:web:abovebeyond.ai"
+  },
+  "client": {
+   "client_id": "editor"
+  },
+  "source": {
+   "kind": "provider_native",
+   "id": "http://127.0.0.1:8791"
+  },
+  "source_declaration": {
+   "version": "2026-09-03"
+  },
+  "purpose_code": "https://pdpp.dev/purpose/editorial-review",
+  "access_mode": "continuous",
+  "streams": [
+   {
+    "name": "signoffs",
+    "instance_ids": [
+     "paper1"
+    ],
+    "fields": [
+     "id",
+     "root",
+     "issuer",
+     "keyId",
+     "format",
+     "judgements",
+     "issuedAt",
+     "source_updated_at"
+    ]
+   },
+   {
+    "name": "judgements",
+    "instance_ids": [
+     "paper1"
+    ],
+    "fields": [
+     "id",
+     "src",
+     "field",
+     "verdict",
+     "by",
+     "inference",
+     "at",
+     "source_updated_at"
+    ]
+   }
+  ],
+  "expires_at": "2026-09-04T21:51:16.782Z",
+  "acceptance": "explicit local provisioning"
+ },
+ "streams": [
+  "signoffs",
+  "judgements"
+ ],
+ "signoffs": [
+  {
+   "object": "record",
+   "stream": "signoffs",
+   "key": "1",
+   "data": {
+    "id": "1",
+    "root": "4c09c258b120bcfe0c306c17f7b38b3fe26059739144aa6d94e3540cfe68c038",
+    "issuer": "did:web:abovebeyond.ai",
+    "keyId": "did:web:abovebeyond.ai#key-1",
+    "format": "SD-JWT VC, vct urn:proveml:review:1",
+    "judgements": 0,
+    "issuedAt": "2026-09-03T21:50:11.000Z",
+    "source_updated_at": "2026-09-03T21:50:11.000Z"
+   },
+   "emitted_at": "2026-09-03T21:50:11.000Z"
+  }
+ ],
+ "judgements": 0,
+ "clientFilterRefused": true,
+ "jwtWithheld": true,
+ "fetchedAt": "2026-09-03T21:51:16.795Z"
+}

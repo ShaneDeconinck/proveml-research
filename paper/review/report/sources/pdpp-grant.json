@@ -1,0 +1,187 @@
+{
+ "source": {
+  "kind": "provider_native",
+  "id": "http://127.0.0.1:8790",
+  "name": "Sint-Amandus pupil records (synthetic study data)",
+  "declaration_version": "2026-09-03",
+  "implementation": "vera pdpp-server.mjs: Core sections 4, 5, 7, 8 only; not the lab reference implementation"
+ },
+ "metadata": {
+  "resource": "http://127.0.0.1:8790",
+  "resource_name": "Sint-Amandus pupil records (synthetic study data)",
+  "authorization_servers": [
+   "http://127.0.0.1:8790"
+  ],
+  "bearer_methods_supported": [
+   "header"
+  ],
+  "pdpp_core_query_base": "/v1",
+  "pdpp_token_kinds_supported": [
+   "client"
+  ],
+  "pdpp_self_export_supported": false,
+  "pdpp_provider_connect_version": "0.1.0",
+  "implementation": "vera pdpp-server.mjs: Core sections 4, 5, 7, 8 only; not the lab reference implementation"
+ },
+ "grant": {
+  "version": "0.1.0",
+  "grant_id": "grt_7ab57693",
+  "issued_at": "2026-09-03T21:37:15.638Z",
+  "subject": {
+   "id": "school:sint-amandus"
+  },
+  "client": {
+   "client_id": "vera"
+  },
+  "source": {
+   "kind": "provider_native",
+   "id": "http://127.0.0.1:8790"
+  },
+  "source_declaration": {
+   "version": "2026-09-03"
+  },
+  "purpose_code": "https://pdpp.dev/purpose/research",
+  "access_mode": "single_use",
+  "streams": [
+   {
+    "name": "students",
+    "instance_ids": [
+     "sint-amandus-2025-2026"
+    ],
+    "fields": [
+     "id",
+     "offering",
+     "grade",
+     "ev",
+     "pass",
+     "source_updated_at"
+    ]
+   }
+  ],
+  "expires_at": "2026-09-03T22:37:15.638Z",
+  "acceptance": "explicit local provisioning"
+ },
+ "introspection": {
+  "active": true,
+  "pdpp_token_kind": "client",
+  "subject_id": "school:sint-amandus",
+  "grant_id": "grt_7ab57693",
+  "client_id": "vera",
+  "exp": 1788475035,
+  "authorization_details": [
+   {
+    "type": "pdpp_grant",
+    "grant_id": "grt_7ab57693",
+    "source": {
+     "kind": "provider_native",
+     "id": "http://127.0.0.1:8790"
+    },
+    "streams": [
+     {
+      "name": "students",
+      "instance_ids": [
+       "sint-amandus-2025-2026"
+      ],
+      "fields": [
+       "id",
+       "offering",
+       "grade",
+       "ev",
+       "pass",
+       "source_updated_at"
+      ]
+     }
+    ],
+    "access_mode": "single_use",
+    "purpose_code": "https://pdpp.dev/purpose/research"
+   }
+  ]
+ },
+ "streams": {
+  "object": "list",
+  "data": [
+   {
+    "object": "stream",
+    "name": "students",
+    "primary_key": "id",
+    "cursor_field": "source_updated_at",
+    "semantics": "mutable_state"
+   }
+  ]
+ },
+ "streamMeta": {
+  "object": "stream_metadata",
+  "name": "students",
+  "primary_key": "id",
+  "cursor_field": "source_updated_at",
+  "semantics": "mutable_state",
+  "schema": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "required": [
+    "id",
+    "source_updated_at"
+   ],
+   "properties": {
+    "id": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "offering": {
+     "type": "string"
+    },
+    "class": {
+     "type": "string"
+    },
+    "school": {
+     "type": "string"
+    },
+    "grade": {
+     "type": "integer"
+    },
+    "stream_track": {
+     "type": "string"
+    },
+    "ev": {
+     "type": "number"
+    },
+    "pass": {
+     "type": "boolean"
+    },
+    "source_updated_at": {
+     "type": "string"
+    }
+   }
+  },
+  "fields_granted": [
+   "id",
+   "offering",
+   "grade",
+   "ev",
+   "pass",
+   "source_updated_at"
+  ]
+ },
+ "fetchedAt": "2026-09-03T21:37:15.689Z",
+ "pages": 8,
+ "records": 741,
+ "limitClamped": false,
+ "clientFilterRefused": true,
+ "recordsSha256": "2c2d36d321a801d49c97e81620d3cdbb52ea90a46983ab4fd0525d55efd7920d",
+ "fieldsGranted": [
+  "id",
+  "offering",
+  "grade",
+  "ev",
+  "pass",
+  "source_updated_at"
+ ],
+ "fieldsWithheld": [
+  "name",
+  "class",
+  "school",
+  "stream_track"
+ ]
+}

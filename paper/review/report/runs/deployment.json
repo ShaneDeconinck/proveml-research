@@ -1,0 +1,21 @@
+{
+ "id": "deployment",
+ "snapshot": "deployment-numbers.txt",
+ "command": "node deployment-numbers.mjs --tag frontier",
+ "cwd": "<repo>/experiments",
+ "repo": {
+  "path": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/add0bb3a-68d2-4d84-8b06-a2b36cec76c9/scratchpad/repos/proveml-research",
+  "commit": "2be288a",
+  "branch": "main",
+  "uncommittedChanges": 0
+ },
+ "startedAt": "2026-09-03T10:19:18.185Z",
+ "durationMs": 173076,
+ "exitCode": 0,
+ "stdoutSha256": "0fe6e78ef32e0b529e9ded0aacafbbeba22840d1ec0af904f993738e67433ed5",
+ "stdoutBytes": 942,
+ "snapshotSha256": "8686284e5c492606cf2ee847e352c1ade17e43b098a9f37879692187df2f5aa2",
+ "sameAsSnapshot": false,
+ "stderrTail": [],
+ "node": "v24.13.0"
+}

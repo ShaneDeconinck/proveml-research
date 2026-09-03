@@ -1,0 +1,8 @@
+schoolyear: "2025-2026"
+totalStudents: 741
+totalALEntries: 84181
+offerings: 95
+synthetic: true
+seed: 20260731
+note: "Generated, not de-identified. Every record is drawn from a latent-ability model; no field is copied or derived from any real pupil. School and pupil names are fictional. Regenerate with data/generate-education-benchmark.mjs."
+offerings (counted): 95

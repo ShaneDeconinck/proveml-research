@@ -1,0 +1,6 @@
+companies: 2
+fields per company: 11
+fields: assets, cash, currentRatio, debtToEquity, eps, equity, liabilities, longTermDebt, netIncome, revenue, sharesOutstanding
+filed: 2025-10-31
+source: SEC EDGAR XBRL Company Facts API
+note: FY2025 10-K filings for Apple Inc. and Microsoft Corporation. Values in USD (millions where noted in raw data, stored as filed).

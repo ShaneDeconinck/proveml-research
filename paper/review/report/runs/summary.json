@@ -1,0 +1,21 @@
+{
+ "id": "summary",
+ "snapshot": "frontier-summary.txt",
+ "command": "node frontier-summary.mjs",
+ "cwd": "<repo>/experiments",
+ "repo": {
+  "path": "/private/tmp/claude-501/-Volumes-shanedeconinck-be-Projects-proveml-all/add0bb3a-68d2-4d84-8b06-a2b36cec76c9/scratchpad/repos/proveml-research",
+  "commit": "2be288a",
+  "branch": "main",
+  "uncommittedChanges": 0
+ },
+ "startedAt": "2026-09-03T10:19:14.112Z",
+ "durationMs": 261,
+ "exitCode": 0,
+ "stdoutSha256": "4b663c451fb4b701106f9740669e1281247b31ba91d379113cb32b14fa569fc5",
+ "stdoutBytes": 1340,
+ "snapshotSha256": "4b663c451fb4b701106f9740669e1281247b31ba91d379113cb32b14fa569fc5",
+ "sameAsSnapshot": true,
+ "stderrTail": [],
+ "node": "v24.13.0"
+}

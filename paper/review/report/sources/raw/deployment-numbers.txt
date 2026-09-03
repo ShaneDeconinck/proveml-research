@@ -1,0 +1,15 @@
+fact store: 4826 keys (95 offerings, 741 students)
+verification: 2185 claims in 252 responses (9 runs x 28 queries, tag frontier)
+  7527.2 ms per pass over all responses (mean of 20), 29.870 ms per response, 3.4449 ms per claim
+generation latency (s per query, mean over queries and runs; sum of all loop steps, max 1 correction pass):
+  claude-opus-5: 11.8
+  claude-sonnet-5: 7.9
+  deepseek-ai/DeepSeek-V4-Pro-0813: 3.4
+markup overhead (pooled characters, marked-up vs stripped):
+  claude-opus-5: +49%
+  claude-sonnet-5: +66%
+  deepseek-ai/DeepSeek-V4-Pro-0813: +79%
+correction loop, claude-opus-5: {"n":84,"noPass":67,"exhausted":17,"generations":"1.33"}
+correction loop, claude-sonnet-5: {"n":84,"noPass":71,"exhausted":24,"generations":"1.29"}
+correction loop, deepseek-ai/DeepSeek-V4-Pro-0813: {"n":84,"noPass":94,"exhausted":1,"generations":"1.06"}
+correction loop, all models: {"n":252,"noPass":77,"exhausted":14,"generations":"1.23"}

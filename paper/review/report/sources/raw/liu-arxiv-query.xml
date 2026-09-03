@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/yhpuVTN8REGDi370/ABX4YtYwao</id>
+  <title>arXiv Query: search_query=ti:"Who Checks the Citations"&amp;id_list=&amp;start=0&amp;max_results=3</title>
+  <updated>2026-09-02T21:31:34Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=ti:%22Who+Checks+the+Citations%22&amp;start=0&amp;max_results=3&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>3</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2606.21155v2</id>
+    <title>Who Checks the Citations? Benchmarking Legal Hallucination Detection</title>
+    <updated>2026-08-06T05:48:02Z</updated>
+    <link href="https://arxiv.org/abs/2606.21155v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2606.21155v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Attorneys, judges, and pro se filers increasingly use AI to draft legal documents, yet these tools frequently fabricate citations. Despite predictions that newer models would hallucinate less or that court sanctions would deter negligent filers, we found over 1,000 filings containing fabricated citations---with this number growing year-over-year. This study evaluates whether AI-based systems can mitigate these errors by automatically detecting hallucinations. We propose a taxonomy of legal citation hallucinations grounded in actual court filings and introduce a dataset of 1,300 brief excerpts containing injected errors. Benchmarking five models in agentic and non-agentic settings as well as Claude Code reveals that while the latest iterations perform better---GPT-5 achieves 84.4% recall and a 55.0% F1 score in an agentic framework---all models struggle with subtle error categories. Agentic verification remains resource-intensive, with GPT-5 averaging 15.3 steps per excerpt. Furthermore, restricted information access limits the efficacy of even the best agents. This gap creates policy concerns, as it disadvantages both AI systems and litigants who lack subscriptions to commercial legal databases. Together, our dataset, tools, and policy recommendations provide a foundation for building and auditing reliable legal citation checking tools.</summary>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-06-19T06:47:31Z</published>
+    <arxiv:primary_category term="cs.CL"/>
+    <author>
+      <name>Patty Liu</name>
+    </author>
+    <author>
+      <name>Dominik Stammbach</name>
+    </author>
+    <author>
+      <name>Peter Henderson</name>
+    </author>
+  </entry>
+</feed>

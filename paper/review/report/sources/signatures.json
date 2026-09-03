@@ -1,0 +1,78 @@
+{
+ "magesh2025": {
+  "level": "witnessed",
+  "issuer": "arxiv.org",
+  "method": "tls-transport+rfc3161",
+  "verifiedAt": "2026-09-02",
+  "transport": {
+   "host": "arxiv.org",
+   "certSha256": "74:9D:90:F5:22:6E:08:50:B2:91:9F:1E:61:9E:6A:86:86:4B:8B:20:6E:F9:B1:63:B5:31:5B:11:01:A9:AF:32",
+   "issuer": "/C=US/O=Certainly/CN=Certainly Intermediate R1",
+   "notAfter": "Sep 25 02:42:20 2026 GMT",
+   "fetchedAt": "2026-09-02T22:16:26.686Z",
+   "sameAsArchived": true,
+   "quotesInRefetch": {
+    "present": 1,
+    "of": 1
+   }
+  },
+  "timestamp": {
+   "tsa": "freetsa.org",
+   "at": "Sep  2 22:16:27 2026 GMT"
+  },
+  "witness": {
+   "archive": "web.archive.org",
+   "url": "https://web.archive.org/web/20260902221731/https://arxiv.org/abs/2405.20362",
+   "at": "2026-09-02T22:17:31Z"
+  }
+ },
+ "liu2026citations": {
+  "level": "witnessed",
+  "issuer": "arxiv.org",
+  "method": "tls-transport+rfc3161",
+  "verifiedAt": "2026-09-02",
+  "transport": {
+   "host": "arxiv.org",
+   "certSha256": "74:9D:90:F5:22:6E:08:50:B2:91:9F:1E:61:9E:6A:86:86:4B:8B:20:6E:F9:B1:63:B5:31:5B:11:01:A9:AF:32",
+   "issuer": "/C=US/O=Certainly/CN=Certainly Intermediate R1",
+   "notAfter": "Sep 25 02:42:20 2026 GMT",
+   "fetchedAt": "2026-09-02T22:16:27.376Z",
+   "sameAsArchived": true,
+   "quotesInRefetch": {
+    "present": 1,
+    "of": 1
+   }
+  },
+  "timestamp": {
+   "tsa": "freetsa.org",
+   "at": "Sep  2 22:16:27 2026 GMT"
+  },
+  "witness": {
+   "archive": "web.archive.org",
+   "url": "https://web.archive.org/web/20260902221830/https://arxiv.org/abs/2606.21155",
+   "at": "2026-09-02T22:18:30Z"
+  }
+ },
+ "omnibus2026": {
+  "level": "timestamped",
+  "issuer": "eur-lex.europa.eu",
+  "method": "tls-transport+rfc3161",
+  "verifiedAt": "2026-09-02",
+  "transport": {
+   "host": "eur-lex.europa.eu",
+   "certSha256": "4A:FE:0F:9E:67:CD:6F:95:55:2F:B6:37:F0:6A:2E:51:06:2A:40:09:A4:92:25:B2:F9:4F:DC:73:70:52:4C:E8",
+   "issuer": "/C=US/O=Amazon/CN=Amazon RSA 2048 M04",
+   "notAfter": "Dec 15 23:59:59 2026 GMT",
+   "fetchedAt": "2026-09-02T22:16:28.850Z",
+   "sameAsArchived": false,
+   "quotesInRefetch": {
+    "present": 1,
+    "of": 1
+   }
+  },
+  "timestamp": {
+   "tsa": "freetsa.org",
+   "at": "Sep  2 22:16:29 2026 GMT"
+  }
+ }
+}
